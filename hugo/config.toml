@@ -6,12 +6,13 @@ theme = "hermit"
 # enableGitInfo = true
 pygmentsCodefences  = true
 pygmentsUseClasses  = true
+canonifyURLs = true
 # hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
 rssLimit = 10  # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
 # googleAnalytics = "UA-123-45"
-# disqusShortname = "yourdiscussshortname"
+# disqusShortname = "panos"
 
 [author]
   name = "Panos Karabelas"
@@ -66,6 +67,10 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   [[params.social]]
     name = "linkedin"
     url = "https://www.linkedin.com/in/panoskarabelas/"
+	
+  [[params.social]]
+    name = "youtube"
+    url = "https://www.youtube.com/user/MrKarabelas92"
 	
   [[params.social]]
     name = "facebook"

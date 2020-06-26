@@ -1,0 +1,2 @@
+hugo -D
+pause

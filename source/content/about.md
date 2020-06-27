@@ -1,6 +1,6 @@
 +++
 title = "About"
-featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
+featuredImg = "/media/ic_space.jpg"
 +++
 
 Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and a Senior Rendering Programmer @ [Codemasters](https://www.codemasters.com/).

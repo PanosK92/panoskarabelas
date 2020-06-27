@@ -2,7 +2,7 @@
 title = "Projects"
 +++
 
-Present - **Dirt 5**
+### Present - **Dirt 5**
 
 ![](/media/projects_dirt5.jpg)
 
@@ -12,7 +12,7 @@ Can't share anything at the moment.
 
 ![](/media/line.png)
 
-2017 to 2020 - **Cancelled VR game**
+### 2017 to 2020 - **VR game (cancelled)**
 
 ![](/media/projects_sony.jpg)
 
@@ -23,17 +23,17 @@ I worked on my cool things which I am (unfortunately) not allowed to share.
 
 ![](/media/line.png)
 
-2016 - **Spartan Engine**
+### 2016 - **Spartan Engine**
 
 {{< youtube JSQ4gocCXeU >}}
 
 A game engine that is described in detail, [here](https://github.com/PanosK92/SpartanEngine).
 
-**Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Team:** Solo • **Location**: Yes
+**Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Team:** Solo • **Location**: Everywhere, all the time
 
 ![](/media/line.png)
 
-2016 – **Car Simulation Experiments**
+### 2016 – **Car Simulation Experiments**
 
 ![](/media/projects_car.jpg)
 
@@ -43,7 +43,7 @@ An attempt to create a realistic car simulation using physics and variations of 
 
 ![](/media/line.png)
 
-2015 – **Da Vinci’s Ornithopter**
+### 2015 – **Da Vinci’s Ornithopter**
 
 ![](/media/projects_davincisornithopter.jpg)
 
@@ -56,7 +56,7 @@ So the project was put on hold.
 
 ![](/media/line.png)
 
-2015 – **The Screen Space**
+### 2015 – **The Screen Space**
 
 ![](/media/projects_screenspace.jpg)
 
@@ -67,7 +67,7 @@ I implemented the player’s controls, a jetpack mechanic and a rope-bucket mech
 
 ![](/media/line.png)
 
-2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Microsoft, Redmond, Washington
+### 2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Microsoft, Redmond, Washington
 
 ![](/media/projects_dementia.jpg)
 
@@ -82,7 +82,7 @@ A unique experience that helped grow in more ways than I expected.
 
 ![](/media/line.png)
 
-2014 – **Website**
+### 2014 – **Website**
 
 ![](/media/projects_website.jpg)
 
@@ -93,7 +93,7 @@ Our team started to gain some attention so we thought it was time to boost our o
 
 ![](/media/line.png)
 
-2014 – **Hexcraft**
+### 2014 – **Hexcraft**
 
 ![](/media/projects_hexcraft.png)
 
@@ -103,7 +103,7 @@ A simple tile based puzzle game. I implemented the UI and the online leaderboard
 
 ![](/media/line.png)
 
-2014 – **2D Audio Mixer**
+### 2014 – **2D Audio Mixer**
 
 ![](/media/projects_2daudiomixer.jpg)
 
@@ -116,7 +116,7 @@ This was a free app geared towards building a Windows Store portfolio.
 
 ![](/media/line.png)
 
-2014 – **Encircle the rat**
+### 2014 – **Encircle the rat**
 
 ![](/media/projects_encircletherat.jpg)
 
@@ -127,7 +127,7 @@ This was a free game geared towards building a Windows Store portfolio.
 
 ![](/media/line.png)
 
-2012 - **Da Vinci’s Flying Machine**
+### 2012 - **Da Vinci’s Flying Machine**
 
 ![](/media/projects_davincisflyingmachine.jpg)
 
@@ -139,7 +139,7 @@ This little game bought me a gaming PC and was the first lesson on how to craft 
 
 ![](/media/line.png)
 
-2012 - **Kinect Experimentations**
+### 2012 - **Kinect Experimentations**
 
 {{< youtube TenrEyq8cpw >}}
 
@@ -149,7 +149,7 @@ A basic renderer which consumed Kinect data in order to determine where to place
 
 ![](/media/line.png)
 
-2011 - **AV8**
+### 2011 - **AV8**
 
 ![](/media/minority_report.jpg)
 {{< youtube CU7UG3ilA04 >}}
@@ -162,7 +162,7 @@ The project was a success and attracted the attention of the local academic comm
 
 ![](/media/line.png)
 
-2011 - **Lucky ball-aki**
+### 2011 - **Lucky ball-aki**
 
 ![](/media/projects_luckyballaki.png)
 

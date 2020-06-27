@@ -9,6 +9,7 @@ This site is used both for blogging and as a portfolio.
 ![](/media/line.png)
 
 **Motto**
+
 "If something is important enough you should try, even if the probable outcome is failure."
 
 ![](/media/line.png)

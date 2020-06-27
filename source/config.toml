@@ -88,6 +88,11 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
     weight = 10
 
   [[menu.main]]
+    name = "Projects"
+    url = "projects/"
+    weight = 10
+
+  [[menu.main]]
     name = "About"
-    url = "about-hugo/"
-    weight = 20
+    url = "about/"
+    weight = 30

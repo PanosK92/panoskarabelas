@@ -56,14 +56,14 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
-      <title>About Hugo</title>
-      <link>https://panosk92.github.io/panoskarabelas/about-hugo/</link>
+      <title>About</title>
+      <link>https://panosk92.github.io/panoskarabelas/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://panosk92.github.io/panoskarabelas/about-hugo/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+      <guid>https://panosk92.github.io/panoskarabelas/about/</guid>
+      <description>Hello! My name is Panos, I&amp;rsquo;m the author of Spartan Engine and a Senior Rendering Programmer @ Codemasters.
+This site is used both for blogging and as a portfolio.
+&amp;ldquo;If something is important enough you should try, even if the probable outcome is failure.&amp;rdquo;</description>
     </item>
     
     <item>
@@ -99,6 +99,18 @@ Follow the following steps:
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/▾ images/logo.png should become
 ▾ &amp;lt;root&amp;gt;/▾ static/▾ images/logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://panosk92.github.io/panoskarabelas/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://panosk92.github.io/panoskarabelas/projects/</guid>
+      <description>I have taken part in many game projects, either in a team or on my own to acquire skills, improve the existing ones and have fun, here’s a list of the main ones.
+Spartan Engine
+  Click on the “Game Engine” tab above or here to navigate to the project’s dedicated page.
+Download: Click here (GitHub repository which includes source code and binaries) Development: AngelScript, Assimp, Bullet, C++, DirectX11, FMOD, FreeImage, HLSL, Qt, Visual Studio.</description>
     </item>
     
   </channel>

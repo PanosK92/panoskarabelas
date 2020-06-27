@@ -1,18 +1,19 @@
 +++
 title = "About"
+featuredImg = "/media/ic_space.jpg"
 +++
 
-Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and a Senior Rendering Programmer @ Codemasters.
+Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and a Senior Rendering Programmer @ [Codemasters](https://www.codemasters.com/).
 
 This site is used both for blogging and as a portfolio.
 
-![](/media/line.png)
+---
 
 **Motto**
 
-"If something is important enough you should try, even if the probable outcome is failure."
+"If something is important enough, you do it, even if the odds are not in your favor." Elon Musk
 
-![](/media/line.png)
+---
 
 **Games I like**
 - Alan Wake

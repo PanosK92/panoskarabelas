@@ -3,98 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/demo/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/image/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
+    <loc>https://panosk92.github.io/panoskarabelas/posts/first-blog-post/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://panosk92.github.io/panoskarabelas/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://panosk92.github.io/panoskarabelas/posts/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/the-figure-shortcode/</loc>
-    <lastmod>2018-12-24T12:29:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/post-with-featured-image/</loc>
-    <lastmod>2018-10-01T16:15:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/typography/</loc>
-    <lastmod>2018-09-29T11:36:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/typography/</loc>
-    <lastmod>2018-09-29T11:36:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://panosk92.github.io/panoskarabelas/posts/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -103,6 +23,10 @@
   
   <url>
     <loc>https://panosk92.github.io/panoskarabelas/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://panosk92.github.io/panoskarabelas/tags/</loc>
   </url>
   
 </urlset>

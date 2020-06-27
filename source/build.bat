@@ -1,3 +1,3 @@
-hugo --cleanDestinationDir
 hugo -D -d ../
-pause
+hugo -E -d ../
+hugo -F -d ../

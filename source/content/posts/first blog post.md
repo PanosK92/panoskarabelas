@@ -1,6 +1,6 @@
 ---
 date: 2020-06-27
-title: First blog post
+title: first blog post
 ---
 
 ## Introduction

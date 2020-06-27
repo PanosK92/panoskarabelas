@@ -1,2 +1,2 @@
 hugo -d ../
-pause
+start "" ../index.html

@@ -1,4 +1,8 @@
-Present - Dirt 5
++++
+title = "Projects"
++++
+
+Present - **Dirt 5**
 
 ![](/media/projects_dirt5.jpg)
 
@@ -6,23 +10,30 @@ Can't share anything at the moment.
 
 **Platform:** PC, Stadia, PS4, PS4, Xbox One, Xbox Series X • **Tools**: C++, Custom • **Team:** Codemasters • **Location**: UK
 
-2017 to 2020 - Cancelled big scope VR game
+![](/media/line.png)
+
+2017 to 2020 - **Cancelled VR game**
 
 ![](/media/projects_sony.jpg)
 
-I did some cool things I (unfortunately) can't share.
+I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled.
+I worked on my cool things which I am (unfortunately) not allowed to share.
 
 **Platform:** PS4 • **Tools**: C+, UE4 • **Team:** Sony Interactive Entertainment Europe - Manchester Studio • **Location**: UK
 
-2016 - Spartan Engine
+![](/media/line.png)
+
+2016 - **Spartan Engine**
 
 {{< youtube JSQ4gocCXeU >}}
 
 A game engine that is described in detail, [here](https://github.com/PanosK92/SpartanEngine).
 
-**Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Team:** Solo • **Location**: Greece, UK
+**Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Team:** Solo • **Location**: Yes
 
-2016 – Car Simulation Experiments
+![](/media/line.png)
+
+2016 – **Car Simulation Experiments**
 
 ![](/media/projects_car.jpg)
 
@@ -30,7 +41,9 @@ An attempt to create a realistic car simulation using physics and variations of 
 
 **Platform:** PC • **Tools**: C#, Unity • **Team:** Solo • **Location**: Greece 
 
-2015 – Da Vinci’s Ornithopter
+![](/media/line.png)
+
+2015 – **Da Vinci’s Ornithopter**
 
 ![](/media/projects_davincisornithopter.jpg)
 
@@ -41,7 +54,9 @@ So the project was put on hold.
 
 **Platform:** PC • **Tools**: C#, Unity (with NGUI) • **Team:** Solo • **Location**: Greece 
 
-2015 – The Screen Space
+![](/media/line.png)
+
+2015 – **The Screen Space**
 
 ![](/media/projects_screenspace.jpg)
 
@@ -50,7 +65,9 @@ I implemented the player’s controls, a jetpack mechanic and a rope-bucket mech
 
 **Platform:** [PC](https://kickback.itch.io/the-screen-space) • **Tools**: C#, Unity • **Team:** Kickback Studios • **Location**: Greece 
 
-2014 – Dementia – Microsoft Imagine Cup World Finalist, Microsoft, Redmond, Washington
+![](/media/line.png)
+
+2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Microsoft, Redmond, Washington
 
 ![](/media/projects_dementia.jpg)
 
@@ -63,7 +80,9 @@ A unique experience that helped grow in more ways than I expected.
 
 **Platform:** PC • **Tools**: C#, Unity (with NGUI) • **Team:** Genesis Game Studios • **Location**: Greece 
 
-2014 – Website 
+![](/media/line.png)
+
+2014 – **Website**
 
 ![](/media/projects_website.jpg)
 
@@ -72,7 +91,9 @@ Our team started to gain some attention so we thought it was time to boost our o
 
 **Platform:** WordPress • **Tools**: Microsoft Azure • **Team:** Genesis Game Studios • **Location**: Greece 
 
-2014 – Hexcraft
+![](/media/line.png)
+
+2014 – **Hexcraft**
 
 ![](/media/projects_hexcraft.png)
 
@@ -80,7 +101,9 @@ A simple tile based puzzle game. I implemented the UI and the online leaderboard
 
 **Platform:** Windows Store • **Tools**: C#, Unity, Microsoft Azure • **Team:** Genesis Game Studios • **Location**: Greece 
 
-2014 – 2D Audio Mixer
+![](/media/line.png)
+
+2014 – **2D Audio Mixer**
 
 ![](/media/projects_2daudiomixer.jpg)
 
@@ -91,7 +114,9 @@ This was a free app geared towards building a Windows Store portfolio.
 
 **Platform:** [Windows Store](https://www.microsoft.com/el-gr/p/2d-audio-mixer/9wzdncrdqmmg?activetab=pivot:overviewtab) • **Tools**: C#, Unity (with NGUI), Visual Studio • **Team:** Solo • **Location**: Greece 
 
-2014 – Encircle the rat
+![](/media/line.png)
+
+2014 – **Encircle the rat**
 
 ![](/media/projects_encircletherat.jpg)
 
@@ -100,7 +125,9 @@ This was a free game geared towards building a Windows Store portfolio.
 
 **Platform:** Windows Store • **Tools**: C#, Unity (with NGUI) • **Team:** Solo • **Location**: Greece 
 
-2012 - Da Vinci’s Flying Machine
+![](/media/line.png)
+
+2012 - **Da Vinci’s Flying Machine**
 
 ![](/media/projects_davincisflyingmachine.jpg)
 
@@ -110,7 +137,9 @@ This little game bought me a gaming PC and was the first lesson on how to craft 
 
 **Platform:** Windows Store • **Tools**: C#, MonoGame, Farseer Physics • **Team:** Solo • **Location**: Greece 
 
-2012 - Kinect Experimentations
+![](/media/line.png)
+
+2012 - **Kinect Experimentations**
 
 {{< youtube TenrEyq8cpw >}}
 
@@ -118,7 +147,9 @@ A basic renderer which consumed Kinect data in order to determine where to place
 
 **Platform:** PC • **Tools**: C#, XNA • **Team:** Solo • **Location**: Greece 
 
-2011 - AV8
+![](/media/line.png)
+
+2011 - **AV8**
 
 ![](/media/minority_report.jpg)
 {{< youtube CU7UG3ilA04 >}}
@@ -129,7 +160,9 @@ The project was a success and attracted the attention of the local academic comm
 
 **Platform:** PC • **Tools**: C#, Kinect SDK • **Team:** University • **Location**: Greece 
 
-2011 - Lucky ball-aki
+![](/media/line.png)
+
+2011 - **Lucky ball-aki**
 
 ![](/media/projects_luckyballaki.png)
 

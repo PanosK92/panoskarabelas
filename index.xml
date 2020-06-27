@@ -56,17 +56,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://panosk92.github.io/panoskarabelas/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://panosk92.github.io/panoskarabelas/about/</guid>
-      <description>Hello! My name is Panos, I&amp;rsquo;m the author of Spartan Engine and a Senior Rendering Programmer @ Codemasters.
-This site is used both for blogging and as a portfolio.
-&amp;ldquo;If something is important enough you should try, even if the probable outcome is failure.&amp;rdquo;</description>
-    </item>
-    
-    <item>
       <title>(Hu)go Template Primer</title>
       <link>https://panosk92.github.io/panoskarabelas/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
@@ -102,7 +91,20 @@ Follow the following steps:
     </item>
     
     <item>
-      <title></title>
+      <title>About</title>
+      <link>https://panosk92.github.io/panoskarabelas/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://panosk92.github.io/panoskarabelas/about/</guid>
+      <description>Hello! My name is Panos, I&amp;rsquo;m the author of Spartan Engine and a Senior Rendering Programmer @ Codemasters.
+This site is used both for blogging and as a portfolio.
+Motto &amp;ldquo;If something is important enough you should try, even if the probable outcome is failure.&amp;rdquo;
+Games I like
+ Alan Wake Assetto Corsa Colin McRae Rally Dirt and Dirt Rally Doom, Dying Light Fallout Far Cry Forza Motorsport Grand Theft Auto Gran Turismo Grim Fandango Hitman Just Cause Kerbal Space Program LA Noire Mass Effect Max Payne Metal Gear Solid Quantum Break Sherlock Holmes Skyrim The Last of Us Uncharted, Wolfenstein  Movies I like</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
       <link>https://panosk92.github.io/panoskarabelas/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -110,10 +112,8 @@ Follow the following steps:
       <description>Present - Dirt 5
 Can&amp;rsquo;t share anything at the moment.
 Platform: PC, Stadia, PS4, PS4, Xbox One, Xbox Series X • Tools: C++, Custom • Team: Codemasters • Location: UK
-2017 to 2020 - Cancelled big scope VR game
-I did some cool things I (unfortunately) can&amp;rsquo;t share.
-Platform: PS4 • Tools: C+, UE4 • Team: Sony Interactive Entertainment Europe - Manchester Studio • Location: UK
-2016 - Spartan Engine</description>
+2017 to 2020 - Cancelled VR game
+I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled. I worked on my cool things which I am (unfortunately) not allowed to share.</description>
     </item>
     
   </channel>

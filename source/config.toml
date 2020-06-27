@@ -3,14 +3,14 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Panos Karabelas"
 theme = "hermit"
-# enableGitInfo = true
 pygmentsCodefences  = true
 pygmentsUseClasses  = true
 canonifyURLs = true
-# hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
 rssLimit = 10  # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
+# enableGitInfo = true
+# hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
 # googleAnalytics = "UA-123-45"
 # disqusShortname = "panos"
 
@@ -37,9 +37,9 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   # images = [""]
   themeColor = "#494f5c"
 
-  homeSubtitle = "Graphics and engine programming, mixed with other things"
+  homeSubtitle = "Graphics and engine programming, mixed with a few other things"
   footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-  # bgImg = ""  # Homepage background-image URL
+  bgImg = "/media/background.jpg"  # Homepage background-image URL
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = "https://github.com/username/repository/commit/"

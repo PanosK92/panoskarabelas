@@ -53,11 +53,6 @@
   </url>
   
   <url>
-    <loc>https://panosk92.github.io/panoskarabelas/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://panosk92.github.io/panoskarabelas/posts/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
@@ -103,8 +98,11 @@
   </url>
   
   <url>
+    <loc>https://panosk92.github.io/panoskarabelas/about/</loc>
+  </url>
+  
+  <url>
     <loc>https://panosk92.github.io/panoskarabelas/projects/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

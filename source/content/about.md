@@ -1,6 +1,6 @@
 +++
 title = "About"
-featuredImg = "/media/ic_space.jpg"
+featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
 Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and a Senior Rendering Programmer @ [Codemasters](https://www.codemasters.com/).
@@ -18,10 +18,9 @@ This site is used both for blogging and as a portfolio.
 **Games I like**
 - Alan Wake
 - Assetto Corsa
-- Colin McRae Rally
-- Dirt and Dirt Rally
-- Doom, Dying
-- Light
+- Colin McRae Rally, Dirt Rally and Dirt
+- Doom
+- Dying Light
 - Fallout
 - Far Cry
 - Forza Motorsport
@@ -39,7 +38,8 @@ This site is used both for blogging and as a portfolio.
 - Sherlock Holmes
 - Skyrim
 - The Last of Us
-- Uncharted, Wolfenstein
+- Uncharted, 
+- Wolfenstein
 
 **Movies I like**
 - Terminator 2 (1991)

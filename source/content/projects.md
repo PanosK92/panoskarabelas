@@ -1,6 +1,6 @@
 +++
 title = "Projects"
-featuredImg = "/media/ic_space.jpg"
+featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
 ### Present - **Dirt 5**

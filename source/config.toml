@@ -6,6 +6,7 @@ theme = "hermit"
 pygmentsCodefences  = true
 pygmentsUseClasses  = true
 canonifyURLs = true
+relativeURLs = false
 rssLimit = 10  # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
@@ -39,7 +40,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 
   homeSubtitle = "Graphics and engine programming, mixed with a few other things"
   footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-  bgImg = "/media/background.jpg"  # Homepage background-image URL
+  bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/background.jpg"  # Homepage background-image URL
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = "https://github.com/username/repository/commit/"

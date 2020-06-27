@@ -152,7 +152,7 @@ A basic renderer which consumed Kinect data in order to determine where to place
 
 ### 2011 - **AV8**
 
-{{< figure src="/media/minority_report.jpg" alt="image" caption="" class="center" >}}
+{{< figure src="/media/minority_report.jpg" alt="image" caption="" class="right" >}}
 {{< youtube CU7UG3ilA04 >}}
 
 A collaboration between me, two fellow students and professor [Omiros Iatrellis](https://dblp.org/pers/i/Iatrellis:Omiros.html), on a project that enabled control of a PC using Kinect.

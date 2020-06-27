@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Panos Karabelas</title>
-    <link>https://panosk92.github.io/panoskarabelas/tags/</link>
+    <link>https://github.com/PanosK92/SpartanEngine/tags/</link>
     <description>Recent content in Tags on Panos Karabelas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     
-	<atom:link href="https://panosk92.github.io/panoskarabelas/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://github.com/PanosK92/SpartanEngine/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

@@ -1,4 +1,4 @@
-baseURL = "https://panosk92.github.io/panoskarabelas/"
+baseURL = ""
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Panos Karabelas"
@@ -90,7 +90,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   [[menu.main]]
     name = "Projects"
     url = "projects/"
-    weight = 10
+    weight = 20
 
   [[menu.main]]
     name = "About"

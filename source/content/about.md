@@ -7,6 +7,8 @@ Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/P
 
 This site is used both for blogging and as a portfolio.
 
+Click [here](/media/cv.pdf) for my CV.
+
 ---
 
 **Motto**

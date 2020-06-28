@@ -15,10 +15,10 @@ Can't share anything at the moment.
 
 ### 2017 to 2020 - **VR game (cancelled)**
 
-{{< figure src="/media/projects_sony.jpg" alt="image" caption="" class="center" >}}
+{{< figure src="/media/projects_sony.png" alt="image" caption="" class="center" >}}
 
 I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled.
-I worked on my cool things which I am (unfortunately) not allowed to share.
+I worked on some cool things which I am (unfortunately) not allowed to share.
 
 **Team:** Sony Interactive Entertainment Europe - Manchester Studio • **Platform:** PS4 • **Tools**: C+, UE4 • **Location:** UK
 
@@ -28,7 +28,11 @@ I worked on my cool things which I am (unfortunately) not allowed to share.
 
 {{< youtube JSQ4gocCXeU >}}
 
-A game engine that is described in detail, [here](https://github.com/PanosK92/SpartanEngine).
+I had to "finish" this project within a year so I could use it as a ticket ouf of Greece and into a well known studio/company.
+To achieve this, I did 100+ work hour weeks, that's about 14 hours per day, every day.
+
+As of today, it's one of the most complete, one-man, open-source game engines on GitHub.
+For a detailed description, source code and binaries, click [here](https://github.com/PanosK92/SpartanEngine) to visit the GitHub page.
 
 **Team:** Solo • **Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Location:** Everywhere, all the time
 
@@ -68,7 +72,7 @@ I implemented the player’s controls, a jetpack mechanic and a rope-bucket mech
 
 ---
 
-### 2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Microsoft, Redmond, Washington
+### 2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Redmond, Washington, US
 
 {{< figure src="/media/projects_dementia.jpg" alt="image" caption="" class="center" >}}
 
@@ -177,15 +181,12 @@ The prize was a windows phone, good times.
 
 ### 2009 - **Project Cocktail** :smile:
 
-{{< youtube 2xHDxcZRBAg >}}
-
-{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="right" >}}
-{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="left" >}}
+{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="center" >}}
+{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="right" >}}
+{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
 
 As a high school student, I didn't have to do anything but after receiving my Certificate of Proficiency in English by the University of Michigan, I decided to get a job as a bartender/waiter.
 Mainly to practice my english in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
 So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage :smile:
-
-{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
 
 Achievement unlocked: Going low.

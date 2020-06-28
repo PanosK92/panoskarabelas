@@ -38,7 +38,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   themeColor = "#494f5c"
 
   homeSubtitle = "Graphics and engine programming, mixed with a few other things"
-  footerCopyright = ' &#183; <a href="/media/resume.pdf" target="_blank" rel="noopener">CV</a>'
+  footerCopyright = ' &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>'
   bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/background.jpg"  # Homepage background-image URL
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.

@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Panos Karabelas</title>
-		<link>https://panosk92.github.io/panoskarabelas/posts/</link>
+		<link>https://panoskarabelas.com/posts/</link>
 		<description>Recent content in Posts on Panos Karabelas</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
 		<lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
-		<atom:link href="https://panosk92.github.io/panoskarabelas/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://panoskarabelas.com/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>Screen space shadows</title>
-			<link>https://panosk92.github.io/panoskarabelas/posts/screen_space_shadows/</link>
+			<link>https://panoskarabelas.com/posts/screen_space_shadows/</link>
 			<pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://panosk92.github.io/panoskarabelas/posts/screen_space_shadows/</guid>
+			<guid>https://panoskarabelas.com/posts/screen_space_shadows/</guid>
 			<description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.</description>
 			<content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>

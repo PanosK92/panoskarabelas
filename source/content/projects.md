@@ -173,4 +173,17 @@ The prize was a windows phone, good times.
 
 **Team:** Solo • **Platform:** Windows Phone • **Tools**: C#, XNA, Custom physics library • **Location:** Greece
 
+---
+
+### 2009 - **Project Cocktail :smile:**
+
+{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="center" >}}
+{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
+{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="right" >}}
+As a high school student, I didn't have to do anything but after receiving my Certificate of Proficiency in English by the University of Michigan, I decided to get a job as a bartender/waiter.
+Mainly to practice my english in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
+So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage.
+
+
+
 Achievement unlocked: Going low.

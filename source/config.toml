@@ -11,7 +11,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
 # enableGitInfo = true
 # hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
-googleAnalytics = "panoskarabelas"
+googleAnalytics = "UA-171043017-1"
 disqusShortname = "https-panoskarabelas-com"
 
 [author]
@@ -37,7 +37,7 @@ disqusShortname = "https-panoskarabelas-com"
   # images = [""]
   themeColor = "#494f5c"
 
-  homeSubtitle = "Graphics and engine programming, mixed with a few other things"
+  homeSubtitle = "Graphics and engine programming, some other things too"
   footerCopyright = ' &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>'
   bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/background.jpg"  # Homepage background-image URL
 

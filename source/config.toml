@@ -11,8 +11,8 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
 # enableGitInfo = true
 # hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
-# googleAnalytics = "UA-123-45"
-# disqusShortname = "panos"
+googleAnalytics = "panoskarabelas"
+disqusShortname = "panoskarabelas"
 
 [author]
   name = "Panos Karabelas"

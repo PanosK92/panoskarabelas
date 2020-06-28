@@ -3,9 +3,10 @@ date: 2020-06-28
 title: Screen space shadows
 ---
 
-## Introduction
+## New site and actual blog posts of what I do (finally) !
 
-This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'll explain how Hugo uses templates and how you can organize your templates to create a theme. I won't cover using CSS to style your theme.
+I haven't posted abou this anywhere, so if you have found this,  chances are I will be working on it for a few days.
+When all is done, I will announce everything on my social media, until then, have a nice day :smile:
 
 ```
 float ScreenSpaceShadows(Surface surface, Light light)

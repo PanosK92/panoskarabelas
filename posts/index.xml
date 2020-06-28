@@ -15,10 +15,11 @@
 			<pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://panoskarabelas.com/posts/screen_space_shadows/</guid>
-			<description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.</description>
-			<content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.</p>
+			<description>New site and actual blog posts of what I do (finally) ! I haven&amp;rsquo;t posted abou this anywhere, so if you have found this, chances are I will be working on it for a few days. When all is done, I will announce everything on my social media, until then, have a nice day 😄
+float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;float3 ray_dir = mul(float4(-light.</description>
+			<content type="html"><![CDATA[<h2 id="new-site-and-actual-blog-posts-of-what-i-do-finally-">New site and actual blog posts of what I do (finally) !</h2>
+<p>I haven&rsquo;t posted abou this anywhere, so if you have found this,  chances are I will be working on it for a few days.
+When all is done, I will announce everything on my social media, until then, have a nice day 😄</p>
 <pre><code>float ScreenSpaceShadows(Surface surface, Light light)
 {
     // Compute ray

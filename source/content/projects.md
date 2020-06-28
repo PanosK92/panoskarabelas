@@ -175,15 +175,17 @@ The prize was a windows phone, good times.
 
 ---
 
-### 2009 - **Project Cocktail :smile:**
+### 2009 - **Project Cocktail**
 
-{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="center" >}}
-{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
-{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="right" >}}
+{{< youtube 2xHDxcZRBAg >}}
+
+{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="right" >}}
+{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="left" >}}
+
 As a high school student, I didn't have to do anything but after receiving my Certificate of Proficiency in English by the University of Michigan, I decided to get a job as a bartender/waiter.
 Mainly to practice my english in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
-So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage.
+So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage. :smile:
 
-
+{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
 
 Achievement unlocked: Going low.

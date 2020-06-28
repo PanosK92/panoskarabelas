@@ -5,7 +5,7 @@ title: Screen space shadows
 
 ## New site and actual blog posts of what I do (finally) !
 
-I haven't posted abou this anywhere, so if you have found this,  chances are I will be working on it for a few days.
+I haven't posted about this anywhere, so if you found this, chances are I will be working on it for a few days.
 When all is done, I will announce everything on my social media, until then, have a nice day :smile:
 
 ```

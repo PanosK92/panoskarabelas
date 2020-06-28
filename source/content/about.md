@@ -5,9 +5,9 @@ featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/
 
 Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and a Senior Rendering Programmer @ [Codemasters](https://www.codemasters.com/).
 
-This site is used both for blogging and as a portfolio.
-
 Click [here](/media/cv.pdf) for my CV.
+
+This site is used both for blogging and as a portfolio.
 
 ---
 
@@ -28,7 +28,6 @@ Click [here](/media/cv.pdf) for my CV.
 - Forza Motorsport
 - Grand Theft Auto
 - Gran Turismo
-- Grim Fandango
 - Hitman
 - Just Cause
 - Kerbal Space Program
@@ -39,8 +38,9 @@ Click [here](/media/cv.pdf) for my CV.
 - Quantum Break
 - Sherlock Holmes
 - Skyrim
+- Subnautica
 - The Last of Us
-- Uncharted, 
+- Uncharted
 - Wolfenstein
 
 **Movies I like**

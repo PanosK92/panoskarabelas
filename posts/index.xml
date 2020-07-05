@@ -15,9 +15,10 @@
 			<pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://panoskarabelas.com/posts/screen_space_shadows/</guid>
-			<description>After working on Spartan game engine for so long, it became increasingly obvious that there is a variety of interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
+			<description>After working on Spartan game engine for so long, it became increasingly obvious that there many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!
+I wanted to start with something simple and short, yet have some immediate results we can enjoy.</description>
 			<content type="html"><![CDATA[<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became 
-increasingly obvious that there is a variety of interesting things that I could be writing about.
+increasingly obvious that there many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
 any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
 to this slick and fast site you&rsquo;re browsing now!</p>
@@ -71,7 +72,7 @@ So, let&rsquo;s explore something that with a little bit of effort, might give u
 large portion of the scene (like directional lights). As we&rsquo;ve seen, screen space shadows can help a lot
 but before we explore them in further detail, let&rsquo;s see how most of the games we enjoy handle small-scale shadow quality:</p>
 <ul>
-<li>The player is allowed to keep increasing the shadow resolution. It&rsquo;s costly approach but it works and it happens to be the most common.</li>
+<li>The player is allowed to keep increasing the shadow resolution. It&rsquo;s a costly approach but it works and it happens to be the most common.</li>
 <li>The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn&rsquo;t
 suffer from typical screen space issues but it does involve the hard work of manually tweaking lights, per scene.</li>
 <li>The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by information from other

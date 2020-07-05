@@ -4,7 +4,7 @@ title: Screen space shadows
 ---
 
 After working on [Spartan](https://github.com/PanosK92/SpartanEngine) game engine for so long, it became 
-increasingly obvious that there is a variety of interesting things that I could be writing about.
+increasingly obvious that there many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of [Hugo](https://gohugo.io/) and didn't want to invest
 any content (or money) on WordPress anymore. The good thing is that I've finally found the courage to transition
 to this slick and fast site you're browsing now!
@@ -37,7 +37,7 @@ Loss of small-scale detail when doing shadow mapping is a typical problem, espec
 large portion of the scene (like directional lights). As we've seen, screen space shadows can help a lot
 but before we explore them in further detail, let's see how most of the games we enjoy handle small-scale shadow quality:
 
-- The player is allowed to keep increasing the shadow resolution. It's costly approach but it works and it happens to be the most common.
+- The player is allowed to keep increasing the shadow resolution. It's a costly approach but it works and it happens to be the most common.
 - The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn't
 suffer from typical screen space issues but it does involve the hard work of manually tweaking lights, per scene.
 - The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by information from other

@@ -48,47 +48,57 @@ An example of some good looking screen space shadows from Remedy Entertainment.
 {{< figure src="/media/post_sss_control.png" alt="image" caption="Screen space shadows in Control" class="center" >}}
 
 ## The algorithm
-The question we have to answer is if the pixel is covered by a shadow or not.
-To answer this we start moving from the pixel to the light.
-We move in steps, in each step, we ask the light (sample it's depth map), can you see the pixel (is your and the pixel's depth equal) ?
-If the answer is no, we know the pixel is shadowed. Below you will find an HLSL example:
+The idea is that we start by moving from the pixel to the light.
+We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
+If our ray depth is larger (further away) from the camera's, then we assume that the pixel is in shadow.
+{{< figure src="/media/post_sss_idea.png" alt="image" caption="Can the camera see the ray ? A compromise to decide whether to shadow or not." class="center" >}}
+As we can already see, we can't reliably tell if a pixel is in shadow or not, using only screen space information.
+But we don't have to worry as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
+So the question now is, is this compromise good enough to provide any meaningful information ?
+And the answer is that, it is quite decent at small distances, but less accurate over long distances.
+So it's wise to keep this effect at a small-scale. This is why some people call it contact shadows, because shadows
+can only (reliably) show up when the pixel is very close to it's occluder, they almost make contact.
+
+Here is an HLSL example:
 ```
-static const uint  g_sss_steps            = 8;
-static const float g_sss_tolerance        = 0.01f;
-static const float g_sss_ray_max_distance = 0.05f;
+// Settings
+static const uint  g_sss_steps            = 8;     // Quality/performance
+static const float g_sss_ray_max_distance = 0.05f; // Max shadow length
+static const float g_sss_tolerance        = 0.01f; // Error in favor of reducing gaps
+static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_steps;
 
 float ScreenSpaceShadows(Surface surface, Light light)
 {
-    // Compute ray
+    // Compute ray position and direction (in view-space)
     float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
     float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
 	
     // Compute ray step
-    float step_length = g_sss_ray_max_distance / (float)g_sss_steps;
-    float3 ray_step   = ray_dir * step_length;
+    float3 ray_step = ray_dir * g_sss_step_length;
 	
     // Ray march towards the light
     float occlusion = 0.0;
     float2 ray_uv   = 0.0f;
     for (uint i = 0; i < g_sss_steps; i++)
     {
-        // Step ray
+        // Step the ray
         ray_pos += ray_step;
-        ray_uv  = project_uv(ray_pos, g_projection);
-
-        // Compare depth
+        
+        // Compute the difference between the ray's and the camera's depth
+        ray_uv            = project_uv(ray_pos, g_projection);
         float depth_z     = get_linear_depth(ray_uv);
         float depth_delta = ray_pos.z - depth_z;
         
-        // Occlusion test
+        // If the ray is behind what the camera "sees" (positive depth_delta)
         if (abs(g_sss_tolerance - depth_delta) < g_sss_tolerance)
         {
+            // Consider the pixel to be shadowed/occluded
             occlusion = 1.0f;
             break;
         }
     }
 
-    // Fade when out of screen
+    // Fade out as we approach the edges of the screen
     occlusion *= screen_fade(ray_uv);
     
     return 1.0f - occlusion;
@@ -101,7 +111,7 @@ Afterall, who has time to trade banding (resulting from a low sample count) for 
 I totally understand and I would like to mention that if you have a TAA implementation in your project, you can do the following:
 
 Choose a noise function and add a temporal factor to it.
-I based mine on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
+I based my version on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
 interleaved gradient noise function as it works particulary well with TAA.
 ```
 float interleaved_gradient_noise(float2 position_screen)
@@ -121,4 +131,4 @@ Using only 8 samples, the improvements can be drastic :smile:
 {{< figure src="/media/post_sss_noise.png" alt="image" caption="Using noise which can be nicely resolved by TAA" class="center" >}}
 
 ## That's it
-If you have an thoughts, don't hesitate to reach out to me via the comment section or [Twitter](https://twitter.com/panoskarabelas1)
+If you have any thoughts, don't hesitate to reach out to me via the comment section or [Twitter](https://twitter.com/panoskarabelas1)

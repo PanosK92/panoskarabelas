@@ -35,7 +35,7 @@ Let's have a look at a side by side comparison. Beautiful, isn't it?
 
 Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a 
 large portion of the scene (like directional lights). As we've seen, screen space shadows can help a lot
-but before we explore them in further detail, let's see what happens in most of the games we enjoy:
+but before we explore them in further detail, let's see how most of the games we enjoy handle small-scale shadow quality:
 
 - The player is allowed to keep increasing the shadow resolution. It's costly approach but it works and it happens to be the most common.
 - The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn't
@@ -108,7 +108,7 @@ float ScreenSpaceShadows(Surface surface, Light light)
 ## A performance/quality tweak
 Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
 Afterall, who has the time to trade banding for noise by offsetting the ray's start position, blur it, and only then be able to use it, right ?
-I totally understand and I would like to mention that if we have a TAA implementation in your project, we can do the following:
+I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following:
 
 We need to choose a noise function and add a temporal factor to it.
 I derived my version based on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
@@ -133,7 +133,7 @@ Using only 8 samples is fast but introduces banding, or not ? :wink:
 
 ## That's all
 
-Before we end this and for the sake of art, here is the motorcycle with a material :smile:
+Before we end this and for the sake of art, let's appreciate the motorcycle with a material :smile:
 {{< figure src="/media/post_sss_full.png" alt="image" caption="" class="center" >}}
 
 You can see this shader as well as all of my other shaders by clicking [here](https://github.com/PanosK92/SpartanEngine/tree/master/Data/shaders).

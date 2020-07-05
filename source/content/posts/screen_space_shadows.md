@@ -4,15 +4,15 @@ title: Screen space shadows
 ---
 
 After working on [Spartan](https://github.com/PanosK92/SpartanEngine) game engine for so long, it became 
-increasingly obvious that there is a variety of interesting things that I could be writting about.
+increasingly obvious that there is a variety of interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of [Hugo](https://gohugo.io/) and didn't want to invest
-any content (or money) on Wordpress anymore. The good thing is that I've finally found the courage to transition
-to this slick and fast site you're browsing now !
+any content (or money) on WordPress anymore. The good thing is that I've finally found the courage to transition
+to this slick and fast site you're browsing now!
 
 I wanted to start with something simple and short, yet have some immediate results we can enjoy.
 You know, the kind of instant gratification you get by watching a [Bob Ross](https://www.youtube.com/watch?v=VrCREP8Aae8) episode. 
 A method which I believe to be one of the most efficient forms of communication. 
-So let's explore something that with a little bit of effort, might give us just that, time for some screen space shadows :smile:
+So, let's explore something that with a little bit of effort, might give us just that, time for some screen space shadows :smile:
 
 ## Screenshots
 
@@ -22,7 +22,7 @@ Here is a wild west motorcycle (courtesy of [Matija Švaco](https://sketchfab.co
 If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
 {{< figure src="/media/post_sss_active_sm.png" alt="image" caption="Shadow mapping" class="center" >}}
 
-What if we enable screen space shadows ? Well, we get some nice  small-scale detail.
+What if we enable screen space shadows? Well, we get some nice small-scale detail.
 {{< figure src="/media/post_sss_active_sss.png" alt="image" caption="Screen space shadows" class="center" >}}
 
 The key lies in enabling both as we can get the best of both worlds.
@@ -40,26 +40,26 @@ but before we explore them in further detail, let's see what happens in most of 
 - The player is allowed to keep increasing the shadow resolution. It's costly approach but it works and it happens to be the most common.
 - The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn't
 suffer from typical screen space issues but it does involve the hard work of manually tweaking lights, per scene.
-- The player gets the extra treatment that is screen space shadows. In some cases the shadows are even aided by information from other
+- The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by information from other
 render passes, which helps alleviate some screen space issues even further.
 
-An example of some good looking screen space shadows from Remedy Entertainment.
+An example of some good-looking screen space shadows from Remedy Entertainment.
 {{< figure src="/media/post_sss_quantum_break.png" alt="image" caption="Screen space shadows in Quantum Break" class="center" >}}
 {{< figure src="/media/post_sss_control.png" alt="image" caption="Screen space shadows in Control" class="center" >}}
 
 ## The algorithm
-So how do we go about it ? Well, the basic idea is that we start by moving from the pixel to the light.
+So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
 We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
 If our ray depth is larger (further away) from the camera's, then we assume that the pixel is in shadow.
 {{< figure src="/media/post_sss_idea.png" alt="image" caption="Can the camera see the ray ? A compromise to decide whether to shadow or not." class="center" >}}
 As we can already see, we can't reliably tell if a pixel is in shadow or not, using only screen space information.
 But we don't have to worry that, as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
-So the question really is, is this compromise good enough to provide any meaningful information ?
+So the question really is, is this compromise good enough to provide any meaningful information?
 And the answer is that it is quite decent at small distances, but less accurate over long distances.
-So it's wise to keep this effect at a small scale. This is why some people refer to screen space shadows as contact shadows, because shadows
-can only (reliably) show up when the pixel is very close to it's occluder, they almost make contact.
+So, it's wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
+can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.
 
-Here is the complete HLSL example with comments were necessery:
+Here is the complete HLSL example with comments were necessary:
 ```
 // Settings
 static const uint  g_sss_steps            = 8;     // Quality/performance
@@ -105,14 +105,14 @@ float ScreenSpaceShadows(Surface surface, Light light)
 }
 ```
 
-## One more tweak
-Like with many effects, we can just have a high step count, get good looking results, accept the performance hit and call it a day.
-Afterall, who has the time to trade banding for noise by offseting the ray's start position, blur it, and only then be able to use it, right ?
+## A performance/quality tweak
+Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
+Afterall, who has the time to trade banding for noise by offsetting the ray's start position, blur it, and only then be able to use it, right ?
 I totally understand and I would like to mention that if you have a TAA implementation in your project, you can do the following:
 
 We need to choose a noise function and add a temporal factor to it.
 I derived my version based on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
-interleaved gradient noise function, as it works particulary well with TAA.
+interleaved gradient noise function, as it works particularly well with TAA.
 ```
 float interleaved_gradient_noise(float2 position_screen)
 {
@@ -138,4 +138,4 @@ Before we end this and for the sake of art, here is the motorcycle with a materi
 
 You can see this shader as well as all of my other shaders by clicking [here](https://github.com/PanosK92/SpartanEngine/tree/master/Data/shaders).
 If you have any thoughts, don't hesitate to leave comment or reach out to me via [Twitter](https://twitter.com/panoskarabelas1).
-I hope that you found this post interesting and that you enjoyed it, stay safe :smile:
+I hope that you found this post interesting and that you enjoyed it, stay safe.

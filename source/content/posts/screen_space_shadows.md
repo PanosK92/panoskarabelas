@@ -111,7 +111,7 @@ Afterall, who has the time to trade banding for noise by offsetting the ray's st
 I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following:
 
 We need to choose a noise function and add a temporal factor to it.
-I derived my version based on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
+I derived my version from [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
 interleaved gradient noise function, as it works particularly well with TAA.
 ```
 float interleaved_gradient_noise(float2 position_screen)

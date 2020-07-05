@@ -8,25 +8,22 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Screen space shadows">
-<meta itemprop="description" content="New site and actual blog posts of what I do (finally) ! I haven&rsquo;t posted about this anywhere, so if you found this, chances are I will be working on it for a few days. When all is done, I will announce everything on my social media, until then, have a nice day 😄
-float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;float3 ray_dir = mul(float4(-light.">
-<meta itemprop="datePublished" content="2020-06-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="196">
+<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there is a variety of interesting things that I could be writting about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on Wordpress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now !">
+<meta itemprop="datePublished" content="2020-07-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="805">
 
 
 
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
-<meta property="og:description" content="New site and actual blog posts of what I do (finally) ! I haven&rsquo;t posted about this anywhere, so if you found this, chances are I will be working on it for a few days. When all is done, I will announce everything on my social media, until then, have a nice day 😄
-float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;float3 ray_dir = mul(float4(-light." />
+<meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there is a variety of interesting things that I could be writting about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on Wordpress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://panoskarabelas.com/posts/screen_space_shadows/" />
-<meta property="article:published_time" content="2020-06-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-28T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Screen space shadows"/>
-<meta name="twitter:description" content="New site and actual blog posts of what I do (finally) ! I haven&rsquo;t posted about this anywhere, so if you found this, chances are I will be working on it for a few days. When all is done, I will announce everything on my social media, until then, have a nice day 😄
-float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;float3 ray_dir = mul(float4(-light."/>
+<meta name="twitter:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there is a variety of interesting things that I could be writting about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on Wordpress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now !"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
@@ -73,62 +70,164 @@ float ScreenSpaceShadows(Surface surface, Light light){// Compute rayfloat3 r
 	<main class="site-main section-inner animated fadeIn faster">
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>Jun 28, 2020</span></div>
+				<div class="post-meta"><span>Jul 5, 2020</span></div>
 				<h1>Screen space shadows</h1>
 			</header>
 			<div class="content">
-				<h2 id="new-site-and-actual-blog-posts-of-what-i-do-finally-">New site and actual blog posts of what I do (finally) !<a href="#new-site-and-actual-blog-posts-of-what-i-do-finally-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>I haven&rsquo;t posted about this anywhere, so if you found this, chances are I will be working on it for a few days.
-When all is done, I will announce everything on my social media, until then, have a nice day 😄</p>
-<pre><code>float ScreenSpaceShadows(Surface surface, Light light)
+				<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became 
+increasingly obvious that there is a variety of interesting things that I could be writting about.
+However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
+any content (or money) on Wordpress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
+to this slick and fast site you&rsquo;re browsing now !</p>
+<p>I wanted to start with something simple and short, yet have some immediate results we can enjoy.
+You know, the kind of instant gratification you get by watching a <a href="https://www.youtube.com/watch?v=l141Y0x8om0">Bob Ross</a> episode, a method which
+I believe to be one of the most efficient forms of communication. So let&rsquo;s explore something, that with a 
+little bit of effort, might give us just that, screen space shadows 😄</p>
+<h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
+<figure class="center">
+    <img src="../../media/post_sss_active_nothing.png"
+         alt="image"/> <figcaption>
+            <p>No shadows</p>
+        </figcaption>
+</figure>
+</p>
+<p>If we enable shadow mapping, we can introduce some nice large-scale detail.
+<figure class="center">
+    <img src="../../media/post_sss_active_sm.png"
+         alt="image"/> <figcaption>
+            <p>Shadow mapping</p>
+        </figcaption>
+</figure>
+</p>
+<p>If we enable screen space shadows, we can introduce some nice small-scalle detail.
+<figure class="center">
+    <img src="../../media/post_sss_active_sss.png"
+         alt="image"/> <figcaption>
+            <p>Screen space shadows</p>
+        </figcaption>
+</figure>
+</p>
+<p>If we enable both, we can get the best of both worlds.
+<figure class="center">
+    <img src="../../media/post_sss_active_sm_sss.png"
+         alt="image"/> <figcaption>
+            <p>Shadow mapping + Screen space shadows</p>
+        </figcaption>
+</figure>
+</p>
+<p>Let&rsquo;s have a look at a side by side comparison.
+<figure class="center">
+    <img src="../../media/post_sss_comparison.png"
+         alt="image"/> <figcaption>
+            <p>Shadow mapping without and with screen space shadows</p>
+        </figcaption>
+</figure>
+</p>
+<h2 id="observations">Observations<a href="#observations" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a 
+large portion of the scene (like directional lights). As we&rsquo;ve observed, screen space shadows can help, quite effectively.
+Before we explore our approach in further detail, let&rsquo;s see what happens in most of the games we enjoy:</p>
+<ul>
+<li>The player is allowed to keep increasing the shadow resolution. It&rsquo;s costly but it works and it&rsquo;s the most common case.</li>
+<li>The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn&rsquo;t
+suffer from typical screen space issues but it does involve the cost of manually tweaking lights, per scene.</li>
+<li>The player gets the extra treatment that is screen space shadows. In some cases the shadows are aided by information from other
+render passes, which helps alleviate some screen space issues even further.</li>
+</ul>
+<p>An example of some good looking screen space shadows from Remedy Entertainment.
+<figure class="center">
+    <img src="../../media/post_sss_quantum_break.png"
+         alt="image"/> <figcaption>
+            <p>Screen space shadows in Quantum Break</p>
+        </figcaption>
+</figure>
+
+<figure class="center">
+    <img src="../../media/post_sss_control.png"
+         alt="image"/> <figcaption>
+            <p>Screen space shadows in Control</p>
+        </figcaption>
+</figure>
+</p>
+<h2 id="the-algorithm">The algorithm<a href="#the-algorithm" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>The question we have to answer is if the pixel is covered by a shadow or not.
+To answer this we start moving from the pixel to the light.
+We move in steps, in each step, we ask the light (sample it&rsquo;s depth map), can you see the pixel (is your and the pixel&rsquo;s depth equal) ?
+If the answer is no, we know the pixel is shadowed. Below you will find an HLSL example:</p>
+<pre><code>static const uint  g_sss_steps            = 8;
+static const float g_sss_tolerance        = 0.01f;
+static const float g_sss_ray_max_distance = 0.05f;
+
+float ScreenSpaceShadows(Surface surface, Light light)
 {
     // Compute ray
-    float3 ray_pos      = mul(float4(surface.position, 1.0f), g_view).xyz;
-    float3 ray_dir      = mul(float4(-light.direction, 0.0f), g_view).xyz;
-    float step_length   = g_sss_ray_max_distance / (float)g_sss_steps;
-    float3 ray_step     = ray_dir * step_length;
-    float2 ray_uv       = 0.0f;
-    float shadow        = 1.0f;
-
-    // Offseting with some temporal interleaved gradient noise, will capture more detail
-    float offset = interleaved_gradient_noise(g_resolution * surface.uv);
-    ray_pos += ray_step * offset;
-
+    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
+    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
+	
+    // Compute ray step
+    float step_length = g_sss_ray_max_distance / (float)g_sss_steps;
+    float3 ray_step   = ray_dir * step_length;
+	
     // Ray march towards the light
     float occlusion = 0.0;
+    float2 ray_uv   = 0.0f;
     for (uint i = 0; i &lt; g_sss_steps; i++)
     {
         // Step ray
         ray_pos += ray_step;
         ray_uv  = project_uv(ray_pos, g_projection);
 
-        [branch]
-        if (is_saturated(ray_uv))
+        // Compare depth
+        float depth_z     = get_linear_depth(ray_uv);
+        float depth_delta = ray_pos.z - depth_z;
+        
+        // Occlusion test
+        if (abs(g_sss_tolerance - depth_delta) &lt; g_sss_tolerance)
         {
-            // Compare depth
-            float depth_z       = get_linear_depth(ray_uv);
-            float depth_delta   = ray_pos.z - depth_z;
-    
-            // Occlusion test
-            if (abs(g_sss_tolerance - depth_delta) &lt; g_sss_tolerance)
-            {
-                occlusion = 1.0f;
-                break;
-            }
+            occlusion = 1.0f;
+            break;
         }
     }
 
-    // fade when out of screen
+    // Fade when out of screen
     occlusion *= screen_fade(ray_uv);
     
     return 1.0f - occlusion;
 }
-</code></pre>
+</code></pre><h2 id="performance">Performance<a href="#performance" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Like with many effects, we can just increase the step count, get good looking results, accept the performance hit and call it a day.
+Afterall, who has time to trade banding (resulting from a low sample count) for noise, blur it to only then be able to use it, right ?
+I totally understand and I would like to mention that if you have a TAA implementation in your project, you can do the following:</p>
+<p>Choose a noise function and add a temporal factor to it.
+I based mine on <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
+interleaved gradient noise function as it works particulary well with TAA.</p>
+<pre><code>float interleaved_gradient_noise(float2 position_screen)
+{
+    position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
+    float3 magic = float3(0.06711056f, 0.00583715f, 52.9829189f);
+    return frac(magic.z * frac(dot(position_screen, magic.xy)));
+}
+</code></pre><p>And then, in our original algorithm, just before we start ray marching, we offset the position.</p>
+<pre><code>// Offset starting position with temporal interleaved gradient noise
+float offset = interleaved_gradient_noise(g_resolution * surface.uv);
+ray_pos      += ray_step * offset;
+</code></pre><p>Using only 8 samples, the improvements can be drastic 😄
+<figure class="center">
+    <img src="../../media/post_sss_noise.png"
+         alt="image"/> <figcaption>
+            <p>Using noise which can be nicely resolved by TAA</p>
+        </figcaption>
+</figure>
+</p>
+<h2 id="thats-it">That&rsquo;s it<a href="#thats-it" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>If you have an thoughts, don&rsquo;t hesitate to reach out to me via the comment section or <a href="https://twitter.com/panoskarabelas1">Twitter</a></p>
+
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>196 Words</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-06-28 01:00 &#43;0100</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>805 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-05 01:00 &#43;0100</p>
 			</footer>
 		</article>
 		<div class="post-nav thin">
@@ -172,7 +271,7 @@ When all is done, I will announce everything on my social media, until then, hav
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-171043017-1', 'auto');
+	ga('create', 'UA-171661183-1', 'auto');
 	
 	ga('send', 'pageview');
 }

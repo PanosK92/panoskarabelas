@@ -108,7 +108,7 @@ float ScreenSpaceShadows(Surface surface, Light light)
 ## A performance/quality tweak
 Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
 Afterall, who has the time to trade banding for noise by offsetting the ray's start position, blur it, and only then be able to use it, right ?
-I totally understand and I would like to mention that if you have a TAA implementation in your project, you can do the following:
+I totally understand and I would like to mention that if we have a TAA implementation in your project, we can do the following:
 
 We need to choose a noise function and add a temporal factor to it.
 I derived my version based on [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)

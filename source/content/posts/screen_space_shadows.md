@@ -10,8 +10,8 @@ any content (or money) on WordPress anymore. The good thing is that I've finally
 to this slick and fast site you're browsing now!
 
 I wanted to start with something simple and short, yet have some immediate results we can enjoy.
-You know, the kind of instant gratification you get by watching a [Bob Ross](https://www.youtube.com/watch?v=VrCREP8Aae8) episode. 
-A method which I believe to be one of the most efficient forms of communication. 
+You know, something like the kind of instant gratification you get by watching a [Bob Ross](https://www.youtube.com/watch?v=VrCREP8Aae8) episode. 
+An approach which I believe to be one of the most efficient forms of communication. 
 So, let's explore something that with a little bit of effort, might give us just that, time for some screen space shadows :smile:
 
 ## Screenshots
@@ -31,7 +31,7 @@ The key lies in enabling both as we can get the best of both worlds.
 Let's have a look at a side by side comparison. Beautiful, isn't it?
 {{< figure src="/media/post_sss_comparison.png" alt="image" caption="Shadow mapping without and with screen space shadows" class="center" >}}
 
-## Observations
+## Industry comparison
 
 Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a 
 large portion of the scene (like directional lights). As we've seen, screen space shadows can help a lot

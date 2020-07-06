@@ -9,7 +9,7 @@ However, I kept postponing it as I was growing fond of [Hugo](https://gohugo.io/
 any content (or money) on WordPress anymore. The good thing is that I've finally found the courage to transition
 to this slick and fast site you're browsing now!
 
-I wanted to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
+I want to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
 You know, something like the kind of instant gratification you get by watching a [Bob Ross](https://www.youtube.com/watch?v=VrCREP8Aae8) episode. 
 An approach which I believe to be one of the most efficient forms of conveying information. 
 So, let's explore something that with a little bit of effort, might give us just that.

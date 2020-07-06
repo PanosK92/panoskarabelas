@@ -15,17 +15,17 @@
 			<pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://panoskarabelas.com/posts/screen_space_shadows/</guid>
-			<description>After working on Spartan game engine for so long, it became increasingly obvious that there many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!
-I wanted to start with something simple and short, yet have some immediate results we can enjoy.</description>
+			<description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
 			<content type="html"><![CDATA[<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became 
-increasingly obvious that there many interesting things that I could be writing about.
+increasingly obvious that there are many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
 any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
 to this slick and fast site you&rsquo;re browsing now!</p>
-<p>I wanted to start with something simple and short, yet have some immediate results we can enjoy.
+<p>I wanted to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
 You know, something like the kind of instant gratification you get by watching a <a href="https://www.youtube.com/watch?v=VrCREP8Aae8">Bob Ross</a> episode. 
-An approach which I believe to be one of the most efficient forms of communication. 
-So, let&rsquo;s explore something that with a little bit of effort, might give us just that, time for some screen space shadows 😄</p>
+An approach which I believe to be one of the most efficient forms of conveying information. 
+So, let&rsquo;s explore something that with a little bit of effort, might give us just that.
+Time for some screen space shadows 😄</p>
 <h2 id="screenshots">Screenshots</h2>
 <p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
 <figure class="center">

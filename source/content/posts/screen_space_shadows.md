@@ -4,15 +4,16 @@ title: Screen space shadows
 ---
 
 After working on [Spartan](https://github.com/PanosK92/SpartanEngine) game engine for so long, it became 
-increasingly obvious that there many interesting things that I could be writing about.
+increasingly obvious that there are many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of [Hugo](https://gohugo.io/) and didn't want to invest
 any content (or money) on WordPress anymore. The good thing is that I've finally found the courage to transition
 to this slick and fast site you're browsing now!
 
-I wanted to start with something simple and short, yet have some immediate results we can enjoy.
+I wanted to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
 You know, something like the kind of instant gratification you get by watching a [Bob Ross](https://www.youtube.com/watch?v=VrCREP8Aae8) episode. 
-An approach which I believe to be one of the most efficient forms of communication. 
-So, let's explore something that with a little bit of effort, might give us just that, time for some screen space shadows :smile:
+An approach which I believe to be one of the most efficient forms of conveying information. 
+So, let's explore something that with a little bit of effort, might give us just that.
+Time for some screen space shadows :smile:
 
 ## Screenshots
 

@@ -156,8 +156,8 @@ float ScreenSpaceShadows(Surface surface, Light light)
 </code></pre><h2 id="a-performancequality-tweak">A performance/quality tweak</h2>
 <p>Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
 Afterall, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right ?
-I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following:</p>
-<p>We need to choose a noise function and add a temporal factor to it.
+I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
+<p>We can choose a noise function and add a temporal factor to it.
 I derived my version from <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
 interleaved gradient noise function, as it works particularly well with TAA.</p>
 <pre><code>float interleaved_gradient_noise(float2 position_screen)

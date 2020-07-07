@@ -41,8 +41,8 @@ but before we explore them in further detail, let's see how most of the games we
 - The player is allowed to keep increasing the shadow resolution. It's a costly approach but it works and it happens to be the most common.
 - The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn't
 suffer from typical screen space issues but it does involve the hard work of manually tweaking lights, per scene.
-- The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by information from other
-render passes, which helps alleviate some screen space issues even further.
+- The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by normals as well as information from other
+render passes, all of which help alleviate some screen space issues even further.
 
 An example of some good-looking screen space shadows from Remedy Entertainment.
 {{< figure src="/media/post_sss_quantum_break.png" alt="image" caption="Screen space shadows in Quantum Break" class="center" >}}

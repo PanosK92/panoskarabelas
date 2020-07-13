@@ -87,7 +87,7 @@ Time for some screen space shadows 😄</p>
 <h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
 <figure class="center">
-    <img src="../../media/post_sss_active_nothing.png"
+    <img src="../../media/post_sss_active_nothing.jpg"
          alt="image"/> <figcaption>
             <p>No shadows</p>
         </figcaption>
@@ -95,7 +95,7 @@ Time for some screen space shadows 😄</p>
 </p>
 <p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
 <figure class="center">
-    <img src="../../media/post_sss_active_sm.png"
+    <img src="../../media/post_sss_active_sm.jpg"
          alt="image"/> <figcaption>
             <p>Shadow mapping</p>
         </figcaption>
@@ -103,7 +103,7 @@ Time for some screen space shadows 😄</p>
 </p>
 <p>What if we enable screen space shadows? Well, we get some nice small-scale detail.
 <figure class="center">
-    <img src="../../media/post_sss_active_sss.png"
+    <img src="../../media/post_sss_active_sss.jpg"
          alt="image"/> <figcaption>
             <p>Screen space shadows</p>
         </figcaption>
@@ -111,7 +111,7 @@ Time for some screen space shadows 😄</p>
 </p>
 <p>The key lies in enabling both as we can get the best of both worlds.
 <figure class="center">
-    <img src="../../media/post_sss_active_sm_sss.png"
+    <img src="../../media/post_sss_active_sm_sss.jpg"
          alt="image"/> <figcaption>
             <p>Shadow mapping + Screen space shadows</p>
         </figcaption>
@@ -119,7 +119,7 @@ Time for some screen space shadows 😄</p>
 </p>
 <p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?
 <figure class="center">
-    <img src="../../media/post_sss_comparison.png"
+    <img src="../../media/post_sss_comparison.jpg"
          alt="image"/> <figcaption>
             <p>Shadow mapping without and with screen space shadows</p>
         </figcaption>
@@ -138,14 +138,14 @@ render passes, all of which help alleviate some screen space issues even further
 </ul>
 <p>An example of some good-looking screen space shadows from Remedy Entertainment.
 <figure class="center">
-    <img src="../../media/post_sss_quantum_break.png"
+    <img src="../../media/post_sss_quantum_break.jpg"
          alt="image"/> <figcaption>
             <p>Screen space shadows in Quantum Break</p>
         </figcaption>
 </figure>
 
 <figure class="center">
-    <img src="../../media/post_sss_control.png"
+    <img src="../../media/post_sss_control.jpg"
          alt="image"/> <figcaption>
             <p>Screen space shadows in Control</p>
         </figcaption>
@@ -231,7 +231,7 @@ float offset = interleaved_gradient_noise(g_resolution * surface.uv);
 ray_pos      += ray_step * offset;
 </code></pre><p>Using only 8 samples is fast but introduces banding, or not ? 😉
 <figure class="center">
-    <img src="../../media/post_sss_noise.png"
+    <img src="../../media/post_sss_noise.jpg"
          alt="image"/> <figcaption>
             <p>Using noise which can be nicely resolved by TAA</p>
         </figcaption>
@@ -240,7 +240,7 @@ ray_pos      += ray_step * offset;
 <h2 id="thats-all">That&rsquo;s all<a href="#thats-all" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material 😄
 <figure class="center">
-    <img src="../../media/post_sss_full.png"
+    <img src="../../media/post_sss_full.jpg"
          alt="image"/> 
 </figure>
 </p>

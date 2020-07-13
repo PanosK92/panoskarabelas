@@ -18,19 +18,19 @@ Time for some screen space shadows :smile:
 ## Screenshots
 
 Here is a wild west motorcycle (courtesy of [Matija Švaco](https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab)) without any shadows.
-{{< figure src="/media/post_sss_active_nothing.png" alt="image" caption="No shadows" class="center" >}}
+{{< figure src="/media/post_sss_active_nothing.jpg" alt="image" caption="No shadows" class="center" >}}
 
 If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
-{{< figure src="/media/post_sss_active_sm.png" alt="image" caption="Shadow mapping" class="center" >}}
+{{< figure src="/media/post_sss_active_sm.jpg" alt="image" caption="Shadow mapping" class="center" >}}
 
 What if we enable screen space shadows? Well, we get some nice small-scale detail.
-{{< figure src="/media/post_sss_active_sss.png" alt="image" caption="Screen space shadows" class="center" >}}
+{{< figure src="/media/post_sss_active_sss.jpg" alt="image" caption="Screen space shadows" class="center" >}}
 
 The key lies in enabling both as we can get the best of both worlds.
-{{< figure src="/media/post_sss_active_sm_sss.png" alt="image" caption="Shadow mapping + Screen space shadows" class="center" >}}
+{{< figure src="/media/post_sss_active_sm_sss.jpg" alt="image" caption="Shadow mapping + Screen space shadows" class="center" >}}
 
 Let's have a look at a side by side comparison. Beautiful, isn't it?
-{{< figure src="/media/post_sss_comparison.png" alt="image" caption="Shadow mapping without and with screen space shadows" class="center" >}}
+{{< figure src="/media/post_sss_comparison.jpg" alt="image" caption="Shadow mapping without and with screen space shadows" class="center" >}}
 
 ## Industry comparison
 
@@ -45,8 +45,8 @@ suffer from typical screen space issues but it does involve the hard work of man
 render passes, all of which help alleviate some screen space issues even further.
 
 An example of some good-looking screen space shadows from Remedy Entertainment.
-{{< figure src="/media/post_sss_quantum_break.png" alt="image" caption="Screen space shadows in Quantum Break" class="center" >}}
-{{< figure src="/media/post_sss_control.png" alt="image" caption="Screen space shadows in Control" class="center" >}}
+{{< figure src="/media/post_sss_quantum_break.jpg" alt="image" caption="Screen space shadows in Quantum Break" class="center" >}}
+{{< figure src="/media/post_sss_control.jpg" alt="image" caption="Screen space shadows in Control" class="center" >}}
 
 ## The algorithm
 So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
@@ -130,12 +130,12 @@ float offset = interleaved_gradient_noise(g_resolution * surface.uv);
 ray_pos      += ray_step * offset;
 ```
 Using only 8 samples is fast but introduces banding, or not ? :wink:
-{{< figure src="/media/post_sss_noise.png" alt="image" caption="Using noise which can be nicely resolved by TAA" class="center" >}}
+{{< figure src="/media/post_sss_noise.jpg" alt="image" caption="Using noise which can be nicely resolved by TAA" class="center" >}}
 
 ## That's all
 
 Before we end this and for the sake of art, let's appreciate the motorcycle with a material :smile:
-{{< figure src="/media/post_sss_full.png" alt="image" caption="" class="center" >}}
+{{< figure src="/media/post_sss_full.jpg" alt="image" caption="" class="center" >}}
 
 You can get access to this shader as well as all of my other shaders by clicking [here](https://github.com/PanosK92/SpartanEngine/tree/master/Data/shaders).
 If you have any thoughts, don't hesitate to leave a comment or reach out to me via [Twitter](https://twitter.com/panoskarabelas1).

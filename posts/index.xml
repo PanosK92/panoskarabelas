@@ -169,7 +169,7 @@ interleaved gradient noise function, as it works particularly well with TAA.</p>
 </code></pre><p>And then, in our original shader, just before we start ray marching, we offset the start position.
 This effectively increases the step count (over time).</p>
 <pre><code>// Offset starting position with temporal interleaved gradient noise
-float offset = interleaved_gradient_noise(g_resolution * surface.uv);
+float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
 ray_pos      += ray_step * offset;
 </code></pre><p>Using only 8 samples is fast but introduces banding, or not ? 😉
 <figure class="center">

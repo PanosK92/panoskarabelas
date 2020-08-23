@@ -126,7 +126,7 @@ And then, in our original shader, just before we start ray marching, we offset t
 This effectively increases the step count (over time).
 ```
 // Offset starting position with temporal interleaved gradient noise
-float offset = interleaved_gradient_noise(g_resolution * surface.uv);
+float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
 ray_pos      += ray_step * offset;
 ```
 Using only 8 samples is fast but introduces banding, or not ? :wink:

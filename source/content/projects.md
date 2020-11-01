@@ -3,13 +3,13 @@ title = "Projects"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-### Present - **Dirt 5**
+### 2020 - **Dirt 5**
 
-{{< figure src="/media/projects_dirt5.jpg" alt="image" caption="" class="center" >}}
+{{< youtube K96Pe0jvpfk >}}
 
 Can't share anything at the moment.
 
-**Team:** Codemasters • **Platform:** PC, Stadia, PS4, PS4, Xbox One, Xbox Series X • **Tools**: C++, Custom • **Location:** UK
+**Team:** Codemasters • **Platform:** PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • **Tools**: C++, Custom • **Location:** UK
 
 ---
 

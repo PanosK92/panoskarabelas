@@ -19,27 +19,23 @@ This site is used both for blogging and as a portfolio.
 
 **Games I like**
 - Alan Wake
-- Assetto Corsa
 - Colin McRae Rally, Dirt Rally and Dirt
 - Doom
 - Dying Light
 - Fallout
 - Far Cry
-- Forza Motorsport
 - Grand Theft Auto
 - Gran Turismo
 - Hitman
-- Just Cause
 - Kerbal Space Program
 - LA Noire
 - Mass Effect
 - Max Payne
 - Metal Gear Solid
 - Quantum Break
-- Sherlock Holmes
+- Resident Evil
 - Skyrim
 - Subnautica
-- The Last of Us
 - Uncharted
 - Wolfenstein
 
@@ -48,11 +44,14 @@ This site is used both for blogging and as a portfolio.
 - Robocop (1985)
 - Matrix (1999)
 - 2001: A Space Odyssey (1968)
+- The Big Lebowski (1998)
+- The Thing (1998)
 - Fight Club (1999)
 - Cast Away (2000)
 - Commando (1985)
 - Predator (1987)
 - You Don't Mess With The Zohan (2008)
+- John Wick 1/2/3
 
 **Books I like**
 - Rocket Propulsion Elements (George P. Sutton, Oscar Biblarz)

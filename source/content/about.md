@@ -40,16 +40,18 @@ This site is used both for blogging and as a portfolio.
 - Wolfenstein
 
 **Movies I like**
-- Terminator 2 (1991)
-- Robocop (1985)
-- Matrix (1999)
 - 2001: A Space Odyssey (1968)
+- The Thing (1982)
+- Commando (1985)
+- Robocop (1985)
+- Predator (1987)
+- They Live (1988)
+- Terminator 2 (1991)
+- Before Sunrise (1995)
 - The Big Lebowski (1998)
-- The Thing (1998)
+- Matrix (1999)
 - Fight Club (1999)
 - Cast Away (2000)
-- Commando (1985)
-- Predator (1987)
 - You Don't Mess With The Zohan (2008)
 - John Wick 1/2/3
 
@@ -60,3 +62,11 @@ This site is used both for blogging and as a portfolio.
 - Total Recall - My unbelievably true life story (Arnold Schwarzenegger)
 - Steve Jobs (Walter Isaacson‎)
 - Leonardo Da Vinci (Walter Isaacson)
+
+**Hobbies**
+- Friday beers
+- Running
+- Investing
+- Playing the guitar
+
+{{< youtube 7j0rsExFbCQ >}}

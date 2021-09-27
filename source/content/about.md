@@ -69,4 +69,4 @@ This site is used both for blogging and as a portfolio.
 - Investing
 - Playing the guitar
 
-{{< youtube 7j0rsExFbCQ >}}
+{{< youtube zaQyd5L9TGw >}}

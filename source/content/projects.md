@@ -3,7 +3,7 @@ title = "Projects"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-### 2022 until now - **Multiple games titles**
+### 2022 until now - **Multiple game titles**
 
 {{< youtube pBJSZDryt3g >}}
 

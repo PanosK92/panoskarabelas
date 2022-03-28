@@ -39,7 +39,7 @@ disqusShortname = "https-panoskarabelas-com"
 
   homeSubtitle = "Graphics and engine programming, some other things too"
   footerCopyright = ' &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>'
-  bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/background.jpg"  # Homepage background-image URL
+  bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/wallpaper.jpg"  # Homepage background-image URL
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = "https://github.com/username/repository/commit/"

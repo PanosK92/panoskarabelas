@@ -23,7 +23,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://panoskarabelas.com/about/</guid>
-      <description>Hello! My name is Panos, I&amp;rsquo;m the author of Spartan Engine and a Senior Rendering Programmer @ Codemasters.
+      <description>Hello! My name is Panos, I&amp;rsquo;m the author of Spartan Engine and an MTS Software Development Engineer @ AMD.
 Click here for my CV.
 This site is used both for blogging and as a portfolio.
  Motto
@@ -38,9 +38,10 @@ This site is used both for blogging and as a portfolio.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://panoskarabelas.com/projects/</guid>
-      <description>2020 - Dirt 5   Can&amp;rsquo;t share anything at the moment.
-Team: Codemasters • Platform: PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • Tools: C++, Custom • Location: UK
- 2017 to 2020 - VR game (cancelled)  I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled. I worked on some cool things which I am (unfortunately) not allowed to share.</description>
+      <description>Now - Multiple games titles   Working with studios across the UK, helping them achieve high performance on AMD GPUs, before they release.
+Team: AMD • Platform: PC • Tools: Lot&amp;rsquo;s of them • Location: UK
+ 2020 - Dirt 5   Worked as a senior graphics programmer.
+Team: Codemasters • Platform: PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • Tools: C++, Neon Engine • Location: UK</description>
     </item>
     
   </channel>

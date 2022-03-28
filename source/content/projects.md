@@ -3,13 +3,23 @@ title = "Projects"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
+### Now - **Multiple games titles**
+
+{{< youtube pBJSZDryt3g >}}
+
+Working with studios across the UK, helping them achieve high performance on AMD GPUs, before they release.
+
+**Team:** AMD • **Platform:** PC • **Tools**: Lot's of them • **Location:** UK
+
+---
+
 ### 2020 - **Dirt 5**
 
 {{< youtube D81Fs9c6ssY >}}
 
-Can't share anything at the moment.
+Worked as a senior graphics programmer.
 
-**Team:** Codemasters • **Platform:** PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • **Tools**: C++, Custom • **Location:** UK
+**Team:** Codemasters • **Platform:** PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • **Tools**: C++, Neon Engine • **Location:** UK
 
 ---
 
@@ -156,10 +166,9 @@ A basic renderer which consumed Kinect data in order to determine where to place
 
 ### 2011 - **AV8**
 
-{{< figure src="/media/minority_report.jpg" alt="image" caption="" class="right" >}}
-{{< youtube CU7UG3ilA04 >}}
+{{< figure src="/media/minority_report.jpg" alt="image" caption="" class="center" >}}
 
-A collaboration between me, two fellow students and professor [Omiros Iatrellis](https://dblp.org/pers/i/Iatrellis:Omiros.html), on a project that enabled control of a PC using Kinect.
+A collaboration between me, two fellow students and professor Omiros Iatrellis, on a project that enabled control of a PC using Kinect.
 It was developed using the Kinect Beta SDK and it was one of the very first advanced Kinect applications at the time. 
 The project was a success and attracted the attention of the local academic community and press.
 

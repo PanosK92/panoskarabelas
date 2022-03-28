@@ -1,3 +1,3 @@
 start "" http://localhost:1313/
-hugo server --disableFastRender
+hugo_extended_0.96.0 server --disableFastRender
 pause

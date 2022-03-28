@@ -28,41 +28,36 @@ So, let&rsquo;s explore something that with a little bit of effort, might give u
 Time for some screen space shadows 😄</p>
 <h2 id="screenshots">Screenshots</h2>
 <p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
-<figure class="center">
-    <img src="/media/post_sss_active_nothing.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_active_nothing.jpg"
+         alt="image"/><figcaption>
             <p>No shadows</p>
         </figcaption>
 </figure>
 </p>
 <p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
-<figure class="center">
-    <img src="/media/post_sss_active_sm.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_active_sm.jpg"
+         alt="image"/><figcaption>
             <p>Shadow mapping</p>
         </figcaption>
 </figure>
 </p>
 <p>What if we enable screen space shadows? Well, we get some nice small-scale detail.
-<figure class="center">
-    <img src="/media/post_sss_active_sss.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_active_sss.jpg"
+         alt="image"/><figcaption>
             <p>Screen space shadows</p>
         </figcaption>
 </figure>
 </p>
 <p>The key lies in enabling both as we can get the best of both worlds.
-<figure class="center">
-    <img src="/media/post_sss_active_sm_sss.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_active_sm_sss.jpg"
+         alt="image"/><figcaption>
             <p>Shadow mapping + Screen space shadows</p>
         </figcaption>
 </figure>
 </p>
 <p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?
-<figure class="center">
-    <img src="/media/post_sss_comparison.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_comparison.jpg"
+         alt="image"/><figcaption>
             <p>Shadow mapping without and with screen space shadows</p>
         </figcaption>
 </figure>
@@ -79,16 +74,14 @@ suffer from typical screen space issues but it does involve the hard work of man
 render passes, all of which help alleviate some screen space issues even further.</li>
 </ul>
 <p>An example of some good-looking screen space shadows from Remedy Entertainment.
-<figure class="center">
-    <img src="/media/post_sss_quantum_break.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_quantum_break.jpg"
+         alt="image"/><figcaption>
             <p>Screen space shadows in Quantum Break</p>
         </figcaption>
 </figure>
 
-<figure class="center">
-    <img src="/media/post_sss_control.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_control.jpg"
+         alt="image"/><figcaption>
             <p>Screen space shadows in Control</p>
         </figcaption>
 </figure>
@@ -97,9 +90,8 @@ render passes, all of which help alleviate some screen space issues even further
 <p>So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
 We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
 If our ray depth is larger (further away) from the camera&rsquo;s, then we assume that the pixel is in shadow.
-<figure class="center">
-    <img src="/media/post_sss_idea.png"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_idea.png"
+         alt="image"/><figcaption>
             <p>Can the camera see the ray ? A compromise to decide whether to shadow or not.</p>
         </figcaption>
 </figure>
@@ -111,7 +103,7 @@ And the answer is that it is quite decent at small distances, but less accurate 
 So, it&rsquo;s wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.</p>
 <p>Here is the complete HLSL example with comments were necessary:</p>
-<pre><code>// Settings
+<pre tabindex="0"><code>// Settings
 static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
 static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
 static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
@@ -138,11 +130,11 @@ float ScreenSpaceShadows(Surface surface, Light light)
         // Ensure the UV coordinates are inside the screen
         if (is_saturated(ray_uv))
         {
-            // Compute the difference between the ray's and the camera's depth
+            // Compute the difference between the ray&#39;s and the camera&#39;s depth
             float depth_z     = get_linear_depth(ray_uv);
             float depth_delta = ray_pos.z - depth_z;
 
-            // Check if the camera can't &quot;see&quot; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
+            // Check if the camera can&#39;t &#34;see&#34; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
             if ((depth_delta &gt; 0.0f) &amp;&amp; (depth_delta &lt; g_sss_thickness))
             {
                 // Mark as occluded
@@ -166,7 +158,7 @@ I totally understand and I would like to mention that if we have a TAA implement
 <p>We can choose a noise function and add a temporal factor to it.
 I derived my version from <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
 interleaved gradient noise function, as it works particularly well with TAA.</p>
-<pre><code>float interleaved_gradient_noise(float2 position_screen)
+<pre tabindex="0"><code>float interleaved_gradient_noise(float2 position_screen)
 {
     position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
     float3 magic = float3(0.06711056f, 0.00583715f, 52.9829189f);
@@ -174,22 +166,20 @@ interleaved gradient noise function, as it works particularly well with TAA.</p>
 }
 </code></pre><p>And then, in our original shader, just before we start ray marching, we offset the start position.
 This effectively increases the step count (over time).</p>
-<pre><code>// Offset starting position with temporal interleaved gradient noise
+<pre tabindex="0"><code>// Offset starting position with temporal interleaved gradient noise
 float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
 ray_pos      += ray_step * offset;
 </code></pre><p>Using only 8 samples is fast but introduces banding, or not ? 😉
-<figure class="center">
-    <img src="/media/post_sss_noise.jpg"
-         alt="image"/> <figcaption>
+<figure class="center"><img src="/media/post_sss_noise.jpg"
+         alt="image"/><figcaption>
             <p>Using noise which can be nicely resolved by TAA</p>
         </figcaption>
 </figure>
 </p>
 <h2 id="thats-all">That&rsquo;s all</h2>
 <p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material 😄
-<figure class="center">
-    <img src="/media/post_sss_full.jpg"
-         alt="image"/> 
+<figure class="center"><img src="/media/post_sss_full.jpg"
+         alt="image"/>
 </figure>
 </p>
 <p>You can get access to this shader as well as all of my other shaders by clicking <a href="https://github.com/PanosK92/SpartanEngine/tree/master/Data/shaders">here</a>.

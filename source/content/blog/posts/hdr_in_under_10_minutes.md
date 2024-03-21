@@ -53,7 +53,7 @@ float3 linear_to_hdr10(float3 color, float white_point)
 # Step 3 - Materials
 Your material textures are usually in the sRGB color space. 
 For HDR, ensuring precise linearisation of these textures is important. 
-Typically you would sample your textures with simple power function approach, like so:
+Typically you would sample your textures with a simple power function approach, like so:
 
 ```
 float3 srgb_to_linear(float3 color) 

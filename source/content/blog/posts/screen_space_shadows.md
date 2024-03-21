@@ -1,5 +1,5 @@
 ---
-date: 2020-07-05
+date: 05/07/2020
 title: Screen space shadows
 ---
 
@@ -65,6 +65,60 @@ So, it's wise to keep this effect at a small scale. This is also why some people
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.
 
 Here is the complete HLSL example with comments were necessary:
+<<<<<<< HEAD
+=======
+
+```
+// Settings
+static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
+static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
+static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
+static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_max_steps;
+
+float ScreenSpaceShadows(Surface surface, Light light)
+{
+    // Compute ray position and direction (in view-space)
+    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
+    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
+
+    // Compute ray step
+    float3 ray_step = ray_dir * g_sss_step_length;
+	
+    // Ray march towards the light
+    float occlusion = 0.0;
+    float2 ray_uv   = 0.0f;
+    for (uint i = 0; i < g_sss_max_steps; i++)
+    {
+        // Step the ray
+        ray_pos += ray_step;
+        ray_uv  = project_uv(ray_pos, g_projection);
+
+        // Ensure the UV coordinates are inside the screen
+        if (is_saturated(ray_uv))
+        {
+            // Compute the difference between the ray's and the camera's depth
+            float depth_z     = get_linear_depth(ray_uv);
+            float depth_delta = ray_pos.z - depth_z;
+
+            // Check if the camera can't "see" the ray (ray depth must be larger than the camera depth, so positive depth_delta)
+            if ((depth_delta > 0.0f) && (depth_delta < g_sss_thickness))
+            {
+                // Mark as occluded
+                occlusion = 1.0f;
+
+                // Fade out as we approach the edges of the screen
+                occlusion *= screen_fade(ray_uv);
+
+                break;
+            }
+        }
+    }
+
+    // Convert to visibility
+    return 1.0f - occlusion;
+}
+```
+>>>>>>> 531969a5f83a84dd3badc9b6ed94ff8f6beca25b
 
 ```
 // Settings

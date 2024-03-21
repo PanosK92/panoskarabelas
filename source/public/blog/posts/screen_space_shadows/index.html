@@ -31,15 +31,15 @@ if (!doNotTrack) {
 <meta name="msapplication-TileColor" content="#494f5c">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
 <meta itemprop="name" content="Screen space shadows">
-<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1164">
+<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!">
+
+<meta itemprop="wordCount" content="1384">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
 <meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/blog/posts/screen_space_shadows/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
+
+
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Screen space shadows"/>
 <meta name="twitter:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"/>
 <title>Screen space shadows</title>
@@ -117,7 +117,71 @@ So the question really is, is this compromise good enough to provide any meaning
 And the answer is that it is quite decent at small distances, but less accurate over long distances.
 So, it&rsquo;s wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.</p>
-<p>Here is the complete HLSL example with comments were necessary:</p>
+<h1 id="-head">Here is the complete HLSL example with comments were necessary:
+&laquo;&laquo;&laquo;&lt; HEAD</h1>
+<pre tabindex="0"><code>// Settings
+static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
+static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
+static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
+static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_max_steps;
+
+float ScreenSpaceShadows(Surface surface, Light light)
+{
+    // Compute ray position and direction (in view-space)
+    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
+    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
+
+    // Compute ray step
+    float3 ray_step = ray_dir * g_sss_step_length;
+	
+    // Ray march towards the light
+    float occlusion = 0.0;
+    float2 ray_uv   = 0.0f;
+    for (uint i = 0; i &lt; g_sss_max_steps; i++)
+    {
+        // Step the ray
+        ray_pos += ray_step;
+        ray_uv  = project_uv(ray_pos, g_projection);
+
+        // Ensure the UV coordinates are inside the screen
+        if (is_saturated(ray_uv))
+        {
+            // Compute the difference between the ray&#39;s and the camera&#39;s depth
+            float depth_z     = get_linear_depth(ray_uv);
+            float depth_delta = ray_pos.z - depth_z;
+
+            // Check if the camera can&#39;t &#34;see&#34; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
+            if ((depth_delta &gt; 0.0f) &amp;&amp; (depth_delta &lt; g_sss_thickness))
+            {
+                // Mark as occluded
+                occlusion = 1.0f;
+
+                // Fade out as we approach the edges of the screen
+                occlusion *= screen_fade(ray_uv);
+
+                break;
+            }
+        }
+    }
+
+    // Convert to visibility
+    return 1.0f - occlusion;
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>531969a5f83a84dd3badc9b6ed94ff8f6beca25b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <pre tabindex="0"><code>// Settings
 static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
 static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.

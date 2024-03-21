@@ -31,15 +31,20 @@ if (!doNotTrack) {
 <meta name="msapplication-TileColor" content="#494f5c">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
 <meta itemprop="name" content="Screen space shadows">
+<<<<<<< HEAD
 <meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
+=======
+<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!">
+
+>>>>>>> 531969a5f83a84dd3badc9b6ed94ff8f6beca25b
 <meta itemprop="wordCount" content="1164">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
 <meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://panoskarabelas.com/blog/posts/screen_space_shadows/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
+
+
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Screen space shadows"/>
 <meta name="twitter:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"/>
 <title>Screen space shadows</title>
@@ -166,7 +171,11 @@ float ScreenSpaceShadows(Surface surface, Light light)
     // Convert to visibility
     return 1.0f - occlusion;
 }
+<<<<<<< HEAD
 </code></pre><h2 id="a-smart-tweak">A smart tweak<a href="#a-smart-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+=======
+</code></pre><h2 id="a-performancequality-tweak">A performance/quality tweak<a href="#a-performancequality-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+>>>>>>> 531969a5f83a84dd3badc9b6ed94ff8f6beca25b
 <p>Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
 Afterall, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right ?
 I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following.</p>

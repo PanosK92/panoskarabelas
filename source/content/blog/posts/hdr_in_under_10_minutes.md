@@ -55,7 +55,7 @@ Your material textures are usually in the sRGB color space.
 For HDR, ensuring correct linearisation of these textures is crucial. While the simple power function approach is common:
 
 ```
-float3 linear_to_srgb(float3 color) 
+float3 srgb_to_linear(float3 color) 
 { 
     float gamma = 2.4f;
     return pow(color, gamma); 

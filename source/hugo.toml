@@ -70,7 +70,7 @@ enableEmoji = true
 
 [[menu.main]]
   name = "Posts"
-  url = "posts/"
+  url = "blog/"
   weight = 10
 
 [[menu.main]]

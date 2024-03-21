@@ -46,6 +46,8 @@ float3 linear_to_hdr10(float3 color, float white_point)
     return color;
 }
 ```
+![image](/media/post_hdr_colorspaces.png)
+
 - **White point:** Typically a value around 300. You might hardcode this value into the shader to get going.
 - **Rec.709 vs. Rec.2020:** Rec.709 defines the standard color space for HD, Rec.2020 broadens this palette for UHD content.
 - **ST.2084 (PQ Curve):** The PQ curve, central to the HDR10 standard, maps brightness levels to align with human visual perception, capable of displaying up to 10,000 nits.

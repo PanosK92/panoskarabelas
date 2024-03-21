@@ -3,6 +3,8 @@ date: 2024-03-21
 title: HDR in under 10 minutes
 ---
 
+![image](/media/post_hdr_banner.jpg)
+
 Recently, I added HDR support to [Spartan](https://github.com/PanosK92/SpartanEngine), expecting it to be a quick task.
 However, it turned into a full day's work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts.
 So, I've decided to simplify things for you. Let's dive straight in and aim to get HDR up and running in under 10 minutes.

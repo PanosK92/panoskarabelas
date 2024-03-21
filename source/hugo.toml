@@ -12,7 +12,7 @@ enableEmoji = true
 
 [params.author]
   name = "Panos Karabelas"
-  about = "Graphics and engine programming, some other things too"
+  about = "Late night coding"
 
 [blackfriday]
   # hrefTargetBlank = true

@@ -7,11 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Screen space shadows</title>
       <link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
       <guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid>
       <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
     </item>

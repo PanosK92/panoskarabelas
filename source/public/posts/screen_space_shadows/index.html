@@ -33,11 +33,11 @@ if (!doNotTrack) {
 <meta itemprop="name" content="Screen space shadows">
 <meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="828">
+<meta itemprop="wordCount" content="1164">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
 <meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/screen_space_shadows/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://localhost:1313/blog/posts/screen_space_shadows/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Screen space shadows"/>
@@ -68,17 +68,10 @@ if (!doNotTrack) {
 	</div>
 
 
-	<main class="site-main section-inner animated fadeIn faster"><article class="thin">
-			<header class="post-header">
-				<div class="post-meta"><span>Jul 5, 2020</span></div>
-				<h1>Screen space shadows</h1>
-			</header>
-			<div class="post-info"><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg><a href="" target="_blank">Panos Karabelas</a></p>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>828 Words</p>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-05 01:00 &#43;0100</p></div>
-			<hr class="post-end">
-			<div class="content">
-				<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Screen space shadows</h1>
+		<div class="content">
+			<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became
 increasingly obvious that there are many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
 any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
@@ -89,16 +82,16 @@ An approach which I believe to be one of the most efficient forms of conveying i
 So, let&rsquo;s explore something that with a little bit of effort, might give us just that.
 Time for some screen space shadows &#x1f604;</p>
 <h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.</p>
-<p><img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
-<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.</p>
-<p><img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
-<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.</p>
-<p><img src="/media/post_sss_active_sss.jpg" alt="Screen space shadows"></p>
-<p>The key lies in enabling both as we can get the best of both worlds.</p>
-<p><img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
-<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?</p>
-<p><img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
+<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
+<img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
+<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
+<img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
+<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.
+<a href="/media/post_sss_active_sss.jpg">Screen space shadows</a></p>
+<p>The key lies in enabling both as we can get the best of both worlds.
+<img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
+<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?
+<img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
 <h2 id="industry-comparison">Industry comparison<a href="#industry-comparison" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a
 large portion of the scene (like directional lights). As we&rsquo;ve seen, screen space shadows can help a lot
@@ -117,29 +110,91 @@ render passes, all of which help alleviate some screen space issues even further
 <p>So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
 We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
 If our ray depth is larger (further away) from the camera&rsquo;s, then we assume that the pixel is in shadow.</p>
-<p><img src="/media/post_sss_idea.png" alt="Can the camera see the ray ? A compromise to decide whether to shadow or not."></p>
+<p>{<img src="/media/post_sss_idea.png" alt="Can the camera see the ray ? A compromise to decide whether to shadow or not."></p>
 <p>As we can already see, we can&rsquo;t reliably tell if a pixel is in shadow or not, using only screen space information.
 But we don&rsquo;t have to worry that, as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
 So the question really is, is this compromise good enough to provide any meaningful information?
 And the answer is that it is quite decent at small distances, but less accurate over long distances.
 So, it&rsquo;s wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.</p>
-<p>[Code and algorithm explanation continues]</p>
-<h2 id="a-performancequality-tweak">A performance/quality tweak<a href="#a-performancequality-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Here is the complete HLSL example with comments were necessary:</p>
+<pre tabindex="0"><code>// Settings
+static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
+static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
+static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
+static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_max_steps;
+
+float ScreenSpaceShadows(Surface surface, Light light)
+{
+    // Compute ray position and direction (in view-space)
+    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
+    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
+
+    // Compute ray step
+    float3 ray_step = ray_dir * g_sss_step_length;
+	
+    // Ray march towards the light
+    float occlusion = 0.0;
+    float2 ray_uv   = 0.0f;
+    for (uint i = 0; i &lt; g_sss_max_steps; i++)
+    {
+        // Step the ray
+        ray_pos += ray_step;
+        ray_uv  = project_uv(ray_pos, g_projection);
+
+        // Ensure the UV coordinates are inside the screen
+        if (is_saturated(ray_uv))
+        {
+            // Compute the difference between the ray&#39;s and the camera&#39;s depth
+            float depth_z     = get_linear_depth(ray_uv);
+            float depth_delta = ray_pos.z - depth_z;
+
+            // Check if the camera can&#39;t &#34;see&#34; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
+            if ((depth_delta &gt; 0.0f) &amp;&amp; (depth_delta &lt; g_sss_thickness))
+            {
+                // Mark as occluded
+                occlusion = 1.0f;
+
+                // Fade out as we approach the edges of the screen
+                occlusion *= screen_fade(ray_uv);
+
+                break;
+            }
+        }
+    }
+
+    // Convert to visibility
+    return 1.0f - occlusion;
+}
+</code></pre><h2 id="a-smart-tweak">A smart tweak<a href="#a-smart-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
-After all, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right?
-I totally understand and would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
+Afterall, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right ?
+I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
 <p>We can choose a noise function and add a temporal factor to it.
 I derived my version from <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
 interleaved gradient noise function, as it works particularly well with TAA.</p>
-<p>Using only 8 samples is fast but introduces banding, or not? &#x1f609;</p>
-<p><img src="/media/post_sss_noise.jpg" alt="Using noise which can be nicely resolved by TAA"></p>
+<pre tabindex="0"><code>float interleaved_gradient_noise(float2 position_screen)
+{
+    position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
+    float3 magic = float3(0.06711056f, 0.00583715f, 52.9829189f);
+    return frac(magic.z * frac(dot(position_screen, magic.xy)));
+}
+</code></pre><p>And then, in our original shader, just before we start ray marching, we offset the start position.
+This effectively increases the step count (over time).</p>
+<pre tabindex="0"><code>// Offset starting position with temporal interleaved gradient noise
+float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
+ray_pos      += ray_step * offset;
+</code></pre><p>Using only 8 samples is fast but introduces banding, or not ? &#x1f609;
+<img src="/media/post_sss_noise.jpg" alt="Using noise which can be nicely resolved by TAA"></p>
 <h2 id="thats-all">That&rsquo;s all<a href="#thats-all" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material &#x1f604;</p>
-<p><img src="/media/post_sss_full.jpg" alt="image"></p>
+<p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material &#x1f604;
+<img src="/media/post_sss_full.jpg" alt="image"></p>
 <p>You can get access to this shader as well as all of my other shaders by clicking <a href="https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders">here</a>.
 If you have any thoughts, don&rsquo;t hesitate to leave a comment or reach out to me via <a href="https://twitter.com/panoskarabelas1">Twitter</a>.
 I hope that you&rsquo;ve found this post interesting and that you enjoyed it, stay safe.</p>
+<h2 id="update">Update<a href="#update" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Bend Studio has released the screen space shadows code they created for Days Gone.
+It&rsquo;s even better and you have to do little work to get it into your engine, check it here:  <a href="https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/">https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/</a></p>
 
     <aside class="admonition tip">
         <div class="admonition-title">
@@ -149,30 +204,7 @@ I hope that you&rsquo;ve found this post interesting and that you enjoyed it, st
 It&rsquo;s even better and you have to do little work to get it into your engine, check it here: <a href="https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/">Inside Bend - Screen Space Shadows</a>.</div>
     </aside>
 
-			</div>
-		</article>
-		<div class="post-nav thin">
 		</div>
-		<div id="comments" class="thin"><div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "https-panoskarabelas-com" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
 	</main>
 
 <footer id="site-footer" class="section-inner thin animated fadeIn faster">

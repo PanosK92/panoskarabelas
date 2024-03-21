@@ -1,3 +1,2 @@
-hugo_extended_0.124.1 -d ../
-start "" ../index.html
+hugo_extended_0.124.1 -v -d ../
 pause

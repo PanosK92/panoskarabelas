@@ -21,7 +21,7 @@ For HDR, you can skip tonemapping (which typically compresses into SDR) and gamm
 ```
 float3 linear_to_hdr10(float3 color, float white_point)
 {
-    // Convert Rec.709 to Rec.2020 color space
+    // Convert Rec.709 to Rec.2020 color space to broaden the palette
     static const float3x3 from709to2020 =
     {
         { 0.6274040f, 0.3292820f, 0.0433136f },
@@ -30,7 +30,7 @@ float3 linear_to_hdr10(float3 color, float white_point)
     };   
     color = mul(from709to2020, color);
 
-    // Normalize HDR scene values ([0..>1] to [0..1]) for the ST.2084 curve
+    // Normalize HDR scene values ([0..>1] to [0..1]) for ST.2084 curve
     const float st2084_max = 10000.0f;
     color *= white_point / st2084_max;
 

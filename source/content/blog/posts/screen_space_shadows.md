@@ -1,5 +1,5 @@
 ---
-date: 2020-07-06
+date: 2020-07-05
 title: Screen space shadows
 ---
 
@@ -18,18 +18,23 @@ Time for some screen space shadows :smile:
 ## Screenshots
 
 Here is a wild west motorcycle (courtesy of [Matija Švaco](https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab)) without any shadows.
+
 ![No shadows](/media/post_sss_active_nothing.jpg)
 
 If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
+
 ![Shadow mapping](/media/post_sss_active_sm.jpg)
 
 What if we enable screen space shadows? Well, we get some nice small-scale detail.
+
 [Screen space shadows](/media/post_sss_active_sss.jpg)
 
 The key lies in enabling both as we can get the best of both worlds.
+
 ![Shadow mapping + Screen space shadows](/media/post_sss_active_sm_sss.jpg)
 
 Let's have a look at a side by side comparison. Beautiful, isn't it?
+
 ![Shadow mapping without and with screen space shadows](/media/post_sss_comparison.jpg)
 
 ## Industry comparison

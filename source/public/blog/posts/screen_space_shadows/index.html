@@ -31,15 +31,15 @@ if (!doNotTrack) {
 <meta name="msapplication-TileColor" content="#494f5c">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
 <meta itemprop="name" content="Screen space shadows">
-<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-07-06T00:00:00+00:00" />
+<meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1129">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
 <meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/blog/posts/screen_space_shadows/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-07-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-06T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Screen space shadows"/>
 <meta name="twitter:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"/>
 <title>Screen space shadows</title>
@@ -82,16 +82,16 @@ An approach which I believe to be one of the most efficient forms of conveying i
 So, let&rsquo;s explore something that with a little bit of effort, might give us just that.
 Time for some screen space shadows &#x1f604;</p>
 <h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
-<img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
-<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
-<img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
-<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.
-<a href="/media/post_sss_active_sss.jpg">Screen space shadows</a></p>
-<p>The key lies in enabling both as we can get the best of both worlds.
-<img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
-<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?
-<img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
+<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.</p>
+<p><img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
+<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.</p>
+<p><img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
+<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.</p>
+<p><a href="/media/post_sss_active_sss.jpg">Screen space shadows</a></p>
+<p>The key lies in enabling both as we can get the best of both worlds.</p>
+<p><img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
+<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?</p>
+<p><img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
 <h2 id="industry-comparison">Industry comparison<a href="#industry-comparison" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a
 large portion of the scene (like directional lights). As we&rsquo;ve seen, screen space shadows can help a lot

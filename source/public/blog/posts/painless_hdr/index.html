@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-171661183-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="15 days">
+<link rel="author" href="/humans.txt">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#494f5c">
+<meta name="msapplication-TileColor" content="#494f5c">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
+<meta itemprop="name" content="HDR in under 10 minutes">
+<meta itemprop="description" content="Recently added HDR support to Spartan, and what should have been a 10-minute job turned into a full day&rsquo;s work. The main issue? A lack of straightforward guides on the subject, forcing me to piece together what I could from various samples and a deep dive into color spaces. So, I&rsquo;ve decided to write this post to hopefully make your life easier. Let&rsquo;s get straight to the point and aim to get HDR up and running in under 10 minutes."><meta itemprop="datePublished" content="2024-03-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="518">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="HDR in under 10 minutes" />
+<meta property="og:description" content="Recently added HDR support to Spartan, and what should have been a 10-minute job turned into a full day&rsquo;s work. The main issue? A lack of straightforward guides on the subject, forcing me to piece together what I could from various samples and a deep dive into color spaces. So, I&rsquo;ve decided to write this post to hopefully make your life easier. Let&rsquo;s get straight to the point and aim to get HDR up and running in under 10 minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/posts/painless_hdr/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-03-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="HDR in under 10 minutes"/>
+<meta name="twitter:description" content="Recently added HDR support to Spartan, and what should have been a 10-minute job turned into a full day&rsquo;s work. The main issue? A lack of straightforward guides on the subject, forcing me to piece together what I could from various samples and a deep dive into color spaces. So, I&rsquo;ve decided to write this post to hopefully make your life easier. Let&rsquo;s get straight to the point and aim to get HDR up and running in under 10 minutes."/>
+<title>HDR in under 10 minutes</title>
+<link rel="stylesheet dns-prefetch preconnect preload prefetch" as="style" href="http://localhost:1313/css/style.min.4db1d7ae9890fa52d389cbb1a1e87680b43ccbf5c1b7be6fe48ebd33215ac5f7.css" integrity="sha256-TbHXrpiQ+lLTicuxoeh2gLQ8y/XBt75v5I69MyFaxfc=" crossorigin="anonymous">
+	</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="http://localhost:1313/">Panos Karabelas</a>
+				</div>
+				<nav class="site-nav hide-in-mobile"><a href="http://localhost:1313/blog/">Posts</a><a href="http://localhost:1313/projects/">Projects</a><a href="http://localhost:1313/about/">About</a></nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/panoskarabelas1" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://www.linkedin.com/in/panoskarabelas/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://www.youtube.com/user/MrKarabelas92" target="_blank" rel="noopener me" title="Youtube"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a><a href="https://www.facebook.com/panos.karabelas92" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="mailto:panosconroe@hotmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="http://localhost:1313/blog/">Posts</a></li>
+			<li><a href="http://localhost:1313/projects/">Projects</a></li>
+			<li><a href="http://localhost:1313/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>HDR in under 10 minutes</h1>
+		<div class="content">
+			<p>Recently added HDR support to <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a>, and what should have been a 10-minute job turned into a full day&rsquo;s work.
+The main issue? A lack of straightforward guides on the subject, forcing me to piece together what I could from various samples and a deep dive into color spaces.
+So, I&rsquo;ve decided to write this post to hopefully make your life easier. Let&rsquo;s get straight to the point and aim to get HDR up and running in under 10 minutes.</p>
+<h2 id="1-swapchain">1. Swapchain<a href="#1-swapchain" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>First stop, the swapchain. Your format of choice should be <code>R10G10B10A2_Unorm</code>, and the color space should be <code>VK_COLOR_SPACE_HDR10_ST2084_EXT</code>.
+You could try other combinations but to follow this post use what I suggested.</p>
+<h2 id="2-output">2. Output<a href="#2-output" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Towards the end of your rendering pipeline, there&rsquo;s usually a shader that, in SDR scenarios, applies some tonemapping and gamma correction.
+When venturing into HDR, forget tonemapping (some operators compress into SDR) and gamma correction. Instead, do this:</p>
+<pre tabindex="0"><code>float3 linear_to_hdr10(float3 color, float white_point)
+{
+    // convert Rec.709 (similar to srgb) to Rec.2020 color space
+    {
+        static const float3x3 from709to2020 =
+        {
+            { 0.6274040f, 0.3292820f, 0.0433136f },
+            { 0.0690970f, 0.9195400f, 0.0113612f },
+            { 0.0163916f, 0.0880132f, 0.8955950f }
+        };
+        
+        color = mul(from709to2020, color);
+    }
+
+    // Adjust color values to match human perception of white under common lighting, like in living rooms or offices.
+    // SDR&#39;s paper white (80 nits) appears grey in bright environments. This normalization aligns HDR visuals
+    // with real-world white perception by factoring in ambient brightness, up to the ST.2084 spec limit of 10,000 nits.
+    const float st2084_max = 10000.0f;
+    color *= white_point / st2084_max;
+
+    // apply ST.2084 (PQ curve) for HDR10 standard
+    {
+        static const float m1 = 2610.0 / 4096.0 / 4;
+        static const float m2 = 2523.0 / 4096.0 * 128;
+        static const float c1 = 3424.0 / 4096.0;
+        static const float c2 = 2413.0 / 4096.0 * 32;
+        static const float c3 = 2392.0 / 4096.0 * 32;
+        float3 cp             = pow(abs(color), m1);
+        color                 = pow((c1 + c2 * cp) / (1 + c3 * cp), m2);
+    }
+
+    return color;
+}
+</code></pre><h2 id="3-materials">3. Materials<a href="#3-materials" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>The material textures you are sampling are usually in srgb color space.
+For HDR, you want to ensure these textures are correctly linearized. Typicall you would do this:</p>
+<pre tabindex="0"><code>float3 linear_to_srgb(float3 color) 
+{ 
+	return pow(color, buffer_frame.gamma); 
+}
+</code></pre><p>However, this method isn&rsquo;t enough for HDR, especially without a high-quality monitor.
+For more precise color accuracy, use this instead:</p>
+<pre tabindex="0"><code>float3 linear_to_srgb(float3 color)
+{
+    float gamma      = 2.4f;
+    float3 srgb_low  = color * 12.92;
+    float3 srgb_high = 1.055 * pow(color, 1.0 / gamma) - 0.055;
+    float3 is_high   = step(0.00313066844250063, color); // 1 if linear &gt; 0.0031308, else 0
+    return lerp(srgb_low, srgb_high, is_high);
+}
+</code></pre><p>And there you have it, a shortcut to more vibrant, true-to-life colors in your rendering. Enjoy!</p>
+<h2 id="notes">Notes<a href="#notes" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>Regarding section 2, the white point is typically a vale around 300, you can hardcode that into the shader to get up and running.</li>
+<li>Regarding section 3, instead of manually linearizing your textures samples, you could also use srgb texture formats.</li>
+</ul>
+<h2 id="references">References<a href="#references" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+    <aside class="admonition tip">
+        <div class="admonition-title">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div><b>References</b>
+        </div>
+        <div class="admonition-content"><ol>
+<li><a href="https://github.com/microsoft/Xbox-ATG-Samples/tree/main/Kits/ATGTK/HDR">Xbox ATG HDR sample</a>.</li>
+<li><a href="https://learn.microsoft.com/en-us/samples/microsoft/directx-graphics-samples/d3d12-hdr-sample-win32/">Direct3D 12 HDR sample</a>.</li>
+<li><a href="https://entropymine.com/imageworsener/srgbformula/">A close look at the sRGB formula</a>.</li>
+</ol>
+</div>
+    </aside>
+
+		</div>
+	</main>
+
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+	<p>
+		&copy; 2024 <a href="http://localhost:1313/">Panos Karabelas</a>
+		&#183;  &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>
+		&#183; Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
+		&#183; Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a>
+		
+		&#183; <a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		
+	</p>
+
+</footer>
+<script async src="http://localhost:1313/js/bundle.min.038214de9d568246fadcfeb06c69349925de3209f332ec123861b6aa031d63c6.js" integrity="sha256-A4IU3p1Wgkb63P6wbGk0mSXeMgnzMuwSOGG2qgMdY8Y=" crossorigin="anonymous"></script>
+</body>
+
+</html>

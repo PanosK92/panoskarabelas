@@ -7,12 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDR in under 10 minutes</title>
+      <link>http://localhost:1313/blog/posts/hdr_in_under_10_minutes/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/hdr_in_under_10_minutes/</guid>
+      <description>Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&amp;rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&amp;rsquo;ve decided to simplify things for you. Let&amp;rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.&#xA;Step 1 - Swapchain First stop, the swapchain.</description>
+    </item>
     <item>
       <title>Screen space shadows</title>
       <link>http://localhost:1313/blog/posts/screen_space_shadows/</link>
-      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/posts/screen_space_shadows/</guid>
       <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
     </item>

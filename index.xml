@@ -7,15 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://panoskarabelas.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Screen space shadows</title>
-      <link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
-      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid>
-      <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
-    </item>
     <item>
       <title>About</title>
       <link>https://panoskarabelas.com/about/</link>
@@ -29,6 +21,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://panoskarabelas.com/projects/</guid>
       <description>2022 to 2023 - Multiple titles Worked with studios across the UK, helping them achieve high performance on AMD GPUs.&#xA;Team: AMD • Platform: PC • Tools: Lot&amp;rsquo;s of them • Location: UK&#xA;2020 - Dirt 5 Worked as a senior graphics programmer.&#xA;Team: Codemasters • Platform: PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • Tools: C++, Neon Engine • Location: UK&#xA;2017 to 2020 - VR game (cancelled) I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled.</description>
+    </item>
+    <item>
+      <title>Screen space shadows</title>
+      <link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid>
+      <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
     </item>
   </channel>
 </rss>

@@ -8,8 +8,8 @@ I believe in hard work, altruism and not compromising. Scroll to the bottom of t
 
 ---
 
-**Games I like**
-- Alan Wake
+**Favourite games**
+- Alan Wake 1/2
 - Colin McRae Rally, Dirt Rally and Dirt
 - Doom
 - Dying Light
@@ -30,7 +30,7 @@ I believe in hard work, altruism and not compromising. Scroll to the bottom of t
 - Uncharted
 - Wolfenstein
 
-**Movies I like**
+**Fabourite Films**
 - 2001: A Space Odyssey (1968)
 - The Thing (1982)
 - Commando (1985)
@@ -46,13 +46,13 @@ I believe in hard work, altruism and not compromising. Scroll to the bottom of t
 - You Don't Mess With The Zohan (2008)
 - John Wick 1/2/3
 
-**Books I like**
-- Rocket Propulsion Elements (George P. Sutton, Oscar Biblarz)
+**Favourite books**
 - Game Engine Architecture (Jason Gregory)
 - Elon Musk - Tesla, SpaceX and the Quest for a Fantastic Future (Ashlee Vance)
 - Total Recall - My unbelievably true life story (Arnold Schwarzenegger)
 - Steve Jobs (Walter Isaacson‎)
 - Leonardo Da Vinci (Walter Isaacson)
+- Be Useful: Seven tools for life (Arnold Schwarzenegger)
 
 **Hobbies**
 - Friday beers

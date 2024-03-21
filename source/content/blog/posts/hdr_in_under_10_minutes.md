@@ -30,9 +30,9 @@ float3 linear_to_hdr10(float3 color, float white_point)
     };   
     color = mul(from709to2020, color);
 
-    // Normalize colors to account for human perception of white under typical lighting conditions.
-    const float st2084_max = 10000.0f;
-    color *= white_point / st2084_max;
+    // Normalize HDR scene values ([0..>1] to [0..1]) for the ST.2084 curve
+	const float st2084_max = 10000.0f;
+	color *= white_point / st2084_max;
 
     // Apply ST.2084 (PQ curve) for HDR10 standard
     static const float m1 = 2610.0 / 4096.0 / 4;

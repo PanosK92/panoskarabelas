@@ -96,6 +96,8 @@ There you have it. Enjoy the enhanced visual fidelity!
 
 ![image](/media/post_sdr_hdr.png)
 
+---
+
 {{< admonition tip "Spartan Engine" >}}
 [If you need context, look at my shaders](https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders)
 {{< /admonition >}}

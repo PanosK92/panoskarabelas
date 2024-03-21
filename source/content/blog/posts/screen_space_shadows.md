@@ -161,6 +161,8 @@ You can get access to this shader as well as all of my other shaders by clicking
 If you have any thoughts, don't hesitate to leave a comment or reach out to me via [X](https://twitter.com/panoskarabelas1).
 I hope that you've found this post interesting and that you enjoyed it, stay safe.
 
+---
+
 {{< admonition tip "Even better screen space shadows" >}}
 Bend Studio has released the screen space shadows code they created for Days Gone.
 It's even better and you have to do little work to get it into your engine, check it here: [Inside Bend - Screen Space Shadows](https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/).

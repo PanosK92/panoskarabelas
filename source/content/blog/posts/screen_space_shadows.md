@@ -1,5 +1,5 @@
 ---
-date: 2020-07-05
+date: 2020-07-06
 title: Screen space shadows
 ---
 
@@ -153,12 +153,8 @@ Before we end this and for the sake of art, let's appreciate the motorcycle with
 ![image](/media/post_sss_full.jpg)
 
 You can get access to this shader as well as all of my other shaders by clicking [here](https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders).
-If you have any thoughts, don't hesitate to leave a comment or reach out to me via [Twitter](https://twitter.com/panoskarabelas1).
+If you have any thoughts, don't hesitate to leave a comment or reach out to me via [X](https://twitter.com/panoskarabelas1).
 I hope that you've found this post interesting and that you enjoyed it, stay safe.
-
-## Update
-Bend Studio has released the screen space shadows code they created for Days Gone.
-It's even better and you have to do little work to get it into your engine, check it here:  https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/
 
 {{< admonition tip "Even better screen space shadows" >}}
 Bend Studio has released the screen space shadows code they created for Days Gone.

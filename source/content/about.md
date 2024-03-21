@@ -3,17 +3,8 @@ title = "About"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine) and an MTS Software Development Engineer @ [AMD](https://www.amd.com/en).
-
-Click [here](/media/cv.pdf) for my CV.
-
-This site is used both for blogging and as a portfolio.
-
----
-
-**Motto**
-
-"If something is important enough, you do it, even if the odds are not in your favor." Elon Musk
+Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine), in the past I explored AMD, Codemasters and Sony.
+I believe in hard work, altruism and not compromising. Scroll to the bottom of the page for my CV.
 
 ---
 

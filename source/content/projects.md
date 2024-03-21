@@ -3,11 +3,11 @@ title = "Projects"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-### 2022 to 2023 - **Multiple game titles**
+### 2022 to 2023 - **Multiple titles**
 
 {{< youtube pBJSZDryt3g >}}
 
-Working with studios across the UK, helping them achieve high performance on AMD GPUs, before they release.
+Worked with studios across the UK, helping them achieve high performance on AMD GPUs.
 
 **Team:** AMD • **Platform:** PC • **Tools**: Lot's of them • **Location:** UK
 
@@ -25,7 +25,7 @@ Worked as a senior graphics programmer.
 
 ### 2017 to 2020 - **VR game (cancelled)**
 
-{{< figure src="/media/projects_sony.png" alt="image" caption="" class="center" >}}
+![image](/media/projects_sony.png)
 
 I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled.
 I worked on some cool things which I am (unfortunately) not allowed to share.
@@ -50,7 +50,7 @@ For a detailed description, source code and binaries, click [here](https://githu
 
 ### 2016 – **Car Simulation Experiments**
 
-{{< figure src="/media/projects_car.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_car.jpg)
 
 An attempt to create a realistic car simulation using physics and variations of [Pacejka's](https://en.wikipedia.org/wiki/Hans_B._Pacejka) tire friction formula.
 
@@ -60,7 +60,7 @@ An attempt to create a realistic car simulation using physics and variations of 
 
 ### 2015 – **Da Vinci’s Ornithopter**
 
-{{< figure src="/media/projects_davincisornithopter.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_davincisornithopter.jpg)
 
 An infinite runner with RPG elements, mini-games and some ok art.
 It was basically a second take at Da Vinci's Flying Machine.
@@ -73,7 +73,7 @@ So the project was put on hold.
 
 ### 2015 – **The Screen Space**
 
-{{< figure src="/media/projects_screenspace.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_screenspace.jpg)
 
 A short game developed with [Kickback Studios](https://www.kickback-studios.com/) (creators of [Lost Echo](https://apps.apple.com/us/app/lost-echo/id693045097)) as a Ludum Dare [entry](https://kickback.itch.io/the-screen-space).
 I implemented the player’s controls, a jetpack mechanic and a rope-bucket mechanic that acted as a grappling hook. All of these mechanics were physics based.
@@ -84,14 +84,14 @@ I implemented the player’s controls, a jetpack mechanic and a rope-bucket mech
 
 ### 2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Redmond, Washington, US
 
-{{< figure src="/media/projects_dementia.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_dementia.jpg)
 
 Dementia was a turn-based table game with RPG elements that we used as an entry for Imagine Cup, a world-wide competition that promotes student entrepreneurship.
 I implemented the user interface, artificial intelligence, path-finding and did most of the gameplay programming among other things.
 The development was a never-ending crunch, the atmosphere in the team was chaotic and despite all that, here we were, sleep deprived, wondering around Microsoft HQ in Redmond as world-wide finalists.
 A unique experience that helped grow in more ways than I expected.
 
-{{< figure src="/media/mental.jpg" alt="image" caption="" class="center" >}}
+![image](/media/mental.jpg)
 
 **Team:** Genesis Game Studios • **Platform:** PC • **Tools**: C#, Unity (with NGUI) • **Location:** Greece
 
@@ -99,7 +99,7 @@ A unique experience that helped grow in more ways than I expected.
 
 ### 2014 – **Website**
 
-{{< figure src="/media/projects_website.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_website.jpg)
 
 A website I got up and running (including studio logo design) while being part of Genesis Game Studios.
 Our team started to gain some attention so we thought it was time to boost our online presence.
@@ -110,7 +110,7 @@ Our team started to gain some attention so we thought it was time to boost our o
 
 ### 2014 – **Hexcraft**
 
-{{< figure src="/media/projects_hexcraft.png" alt="image" caption="" class="center" >}}
+![image](/media/projects_hexcraft.png)
 
 A simple tile based puzzle game. I implemented the UI and the online leaderboards.
 
@@ -120,7 +120,7 @@ A simple tile based puzzle game. I implemented the UI and the online leaderboard
 
 ### 2014 – **2D Audio Mixer**
 
-{{< figure src="/media/projects_2daudiomixer.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_2daudiomixer.jpg)
 
 The dot in the circle is an audio listener, all the other dots are audio sources. 
 The distance between the audio listener and an audio source is the volume. 
@@ -133,7 +133,7 @@ This was a free app geared towards building a Windows Store portfolio.
 
 ### 2014 – **Encircle the rat**
 
-{{< figure src="/media/projects_encircletherat.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_encircletherat.jpg)
 
 A turn-based game where you simply try to encircle a rat. The rat uses A* pathfinding.
 This was a free game geared towards building a Windows Store portfolio.
@@ -144,7 +144,7 @@ This was a free game geared towards building a Windows Store portfolio.
 
 ### 2012 - **Da Vinci’s Flying Machine**
 
-{{< figure src="/media/projects_davincisflyingmachine.jpg" alt="image" caption="" class="center" >}}
+![image](/media/projects_davincisflyingmachine.jpg)
 
 An infinite runner inspired by the works of Leonardo da Vinci, developed as part of a Microsoft Hackathon which took place in Athens.
 Despite being made in a few days, It won 4th place, best splash screen, and did well in the Windows Store as a paid game.
@@ -166,7 +166,7 @@ A basic renderer which consumed Kinect data in order to determine where to place
 
 ### 2011 - **AV8**
 
-{{< figure src="/media/minority_report.jpg" alt="image" caption="" class="center" >}}
+![image](/media/minority_report.jpg)
 
 A collaboration between me, two fellow students and professor Omiros Iatrellis, on a project that enabled control of a PC using Kinect.
 It was developed using the Kinect Beta SDK and it was one of the very first advanced Kinect applications at the time. 
@@ -178,10 +178,10 @@ The project was a success and attracted the attention of the local academic comm
 
 ### 2011 - **Lucky ball-aki**
 
-{{< figure src="/media/projects_luckyballaki.png" alt="image" caption="" class="center" >}}
+![image](/media/projects_luckyballaki.png)
 
 A magic 8-ball game with a name that only makes sense in Greek (ouch).
-A custom physics library and some accelerometer input made this straight forward game one of the winners at an app development competition organized by my university.
+A custom physics library and some accelerometer input made this straightforward game one of the winners at an app development competition organized by my university.
 The prize was a windows phone, good times.
 
 **Team:** Solo • **Platform:** Windows Phone • **Tools**: C#, XNA, Custom physics library • **Location:** Greece
@@ -190,12 +190,17 @@ The prize was a windows phone, good times.
 
 ### 2009 - **Project Cocktail** :smile:
 
-{{< figure src="/media/bartender.jpg" alt="image" caption="Me and El Duderino" class="center" >}}
-{{< figure src="/media/cocktail.jpg" alt="image" caption="Not me" class="right" >}}
-{{< figure src="/media/zakynthos.jpg" alt="image" caption="Zakynthos" class="left" >}}
+![image](/media/bartender.jpg)
+*Me and El Duderino*
+
+![image](/media/cocktail.jpg)
+*Not me*
+
+![image](/media/zakynthos.jpg)
+*Zakynthos*
 
 As a high school student, I didn't have to do anything but after receiving my Certificate of Proficiency in English by the University of Michigan, I decided to get a job as a bartender/waiter.
-Mainly to practice my english in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
+Mainly to practice my English in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
 So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage :smile:
 
 Achievement unlocked: Going low.

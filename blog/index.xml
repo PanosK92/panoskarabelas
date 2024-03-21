@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Panos Karabelas</title>
+    <link>https://panoskarabelas.com/blog/</link>
+    <description>Recent content in Blogs on Panos Karabelas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Screen space shadows</title>
+      <link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid>
+      <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
+    </item>
+  </channel>
+</rss>

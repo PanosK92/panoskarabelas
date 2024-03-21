@@ -1,57 +1,61 @@
+
+
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="theme-color" content="#494f5c">
-	<meta name="msapplication-TileColor" content="#494f5c">
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-171661183-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="15 days">
+<link rel="author" href="/humans.txt">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#494f5c">
+<meta name="msapplication-TileColor" content="#494f5c">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
 <meta itemprop="name" content="Screen space shadows">
 <meta itemprop="description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"><meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1173">
+<meta itemprop="wordCount" content="828">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Screen space shadows" />
 <meta property="og:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://panoskarabelas.com/posts/screen_space_shadows/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Screen space shadows"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Screen space shadows"/>
 <meta name="twitter:description" content="After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition to this slick and fast site you&rsquo;re browsing now!"/>
-
-	<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
-	<link rel="manifest" href="../../site.webmanifest">
-	<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="">
-	<link rel="shortcut icon" href="../../favicon.ico">
-
-	<title>Screen space shadows</title>
-	<link rel="stylesheet" href="https://panoskarabelas.com/css/style.min.037b6ee8f8c1baab6a3d0a9da11c3ff18a7552471f16c59fd98538d5ce99208b.css" integrity="sha256-A3tu6PjBuqtqPQqdoRw/8Yp1UkcfFsWf2YU41c6ZIIs=" crossorigin="anonymous">
-	
-</head>
-
+<title>Screen space shadows</title>
+<link rel="stylesheet dns-prefetch preconnect preload prefetch" as="style" href="https://panoskarabelas.com/css/style.min.4db1d7ae9890fa52d389cbb1a1e87680b43ccbf5c1b7be6fe48ebd33215ac5f7.css" integrity="sha256-TbHXrpiQ+lLTicuxoeh2gLQ8y/XBt75v5I69MyFaxfc=" crossorigin="anonymous">
+	</head>
 <body id="page">
-	
 	<header id="site-header" class="animated slideInUp">
 		<div class="hdr-wrapper section-inner">
 			<div class="hdr-left">
 				<div class="site-branding">
 					<a href="https://panoskarabelas.com/">Panos Karabelas</a>
 				</div>
-				<nav class="site-nav hide-in-mobile">
-					
-				<a href="https://panoskarabelas.com/posts/">Posts</a>
-				<a href="https://panoskarabelas.com/projects/">Projects</a>
-				<a href="https://panoskarabelas.com/about/">About</a>
-
-				</nav>
+				<nav class="site-nav hide-in-mobile"><a href="https://panoskarabelas.com/posts/">Posts</a><a href="https://panoskarabelas.com/projects/">Projects</a><a href="https://panoskarabelas.com/about/">About</a></nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/panoskarabelas1" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://www.linkedin.com/in/panoskarabelas/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://www.youtube.com/user/MrKarabelas92" target="_blank" rel="noopener me" title="Youtube"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a><a href="https://www.facebook.com/panos.karabelas92" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="panosconroe@hotmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/panoskarabelas1" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://www.linkedin.com/in/panoskarabelas/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://www.youtube.com/user/MrKarabelas92" target="_blank" rel="noopener me" title="Youtube"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a><a href="https://www.facebook.com/panos.karabelas92" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="mailto:panosconroe@hotmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -64,61 +68,39 @@
 	</div>
 
 
-	<main class="site-main section-inner animated fadeIn faster">
-		<article class="thin">
+	<main class="site-main section-inner animated fadeIn faster"><article class="thin">
 			<header class="post-header">
 				<div class="post-meta"><span>Jul 5, 2020</span></div>
 				<h1>Screen space shadows</h1>
 			</header>
+			<div class="post-info"><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg><a href="" target="_blank">Panos Karabelas</a></p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>828 Words</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-05 01:00 &#43;0100</p></div>
+			<hr class="post-end">
 			<div class="content">
-				<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became 
+				<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became
 increasingly obvious that there are many interesting things that I could be writing about.
 However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
 any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
 to this slick and fast site you&rsquo;re browsing now!</p>
 <p>I want to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
-You know, something like the kind of instant gratification you get by watching a <a href="https://www.youtube.com/watch?v=lJSshqCBMww">Bob Ross</a> episode. 
-An approach which I believe to be one of the most efficient forms of conveying information. 
+You know, something like the kind of instant gratification you get by watching a <a href="https://www.youtube.com/watch?v=lJSshqCBMww">Bob Ross</a> episode.
+An approach which I believe to be one of the most efficient forms of conveying information.
 So, let&rsquo;s explore something that with a little bit of effort, might give us just that.
-Time for some screen space shadows 😄</p>
+Time for some screen space shadows &#x1f604;</p>
 <h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.
-<figure class="center"><img src="../../media/post_sss_active_nothing.jpg"
-         alt="image"/><figcaption>
-            <p>No shadows</p>
-        </figcaption>
-</figure>
-</p>
-<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.
-<figure class="center"><img src="../../media/post_sss_active_sm.jpg"
-         alt="image"/><figcaption>
-            <p>Shadow mapping</p>
-        </figcaption>
-</figure>
-</p>
-<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.
-<figure class="center"><img src="../../media/post_sss_active_sss.jpg"
-         alt="image"/><figcaption>
-            <p>Screen space shadows</p>
-        </figcaption>
-</figure>
-</p>
-<p>The key lies in enabling both as we can get the best of both worlds.
-<figure class="center"><img src="../../media/post_sss_active_sm_sss.jpg"
-         alt="image"/><figcaption>
-            <p>Shadow mapping + Screen space shadows</p>
-        </figcaption>
-</figure>
-</p>
-<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?
-<figure class="center"><img src="../../media/post_sss_comparison.jpg"
-         alt="image"/><figcaption>
-            <p>Shadow mapping without and with screen space shadows</p>
-        </figcaption>
-</figure>
-</p>
+<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.</p>
+<p><img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
+<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.</p>
+<p><img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
+<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.</p>
+<p><img src="/media/post_sss_active_sss.jpg" alt="Screen space shadows"></p>
+<p>The key lies in enabling both as we can get the best of both worlds.</p>
+<p><img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
+<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?</p>
+<p><img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
 <h2 id="industry-comparison">Industry comparison<a href="#industry-comparison" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a 
+<p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a
 large portion of the scene (like directional lights). As we&rsquo;ve seen, screen space shadows can help a lot
 but before we explore them in further detail, let&rsquo;s see how most of the games we enjoy handle small-scale shadow quality:</p>
 <ul>
@@ -128,134 +110,51 @@ suffer from typical screen space issues but it does involve the hard work of man
 <li>The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by normals as well as information from other
 render passes, all of which help alleviate some screen space issues even further.</li>
 </ul>
-<p>An example of some good-looking screen space shadows from Remedy Entertainment.
-<figure class="center"><img src="../../media/post_sss_quantum_break.jpg"
-         alt="image"/><figcaption>
-            <p>Screen space shadows in Quantum Break</p>
-        </figcaption>
-</figure>
-
-<figure class="center"><img src="../../media/post_sss_control.jpg"
-         alt="image"/><figcaption>
-            <p>Screen space shadows in Control</p>
-        </figcaption>
-</figure>
-</p>
+<p>An example of some good-looking screen space shadows from Remedy Entertainment.</p>
+<p><img src="/media/post_sss_quantum_break.jpg" alt="Screen space shadows in Quantum Break"></p>
+<p><img src="/media/post_sss_control.jpg" alt="Screen space shadows in Control"></p>
 <h2 id="the-algorithm">The algorithm<a href="#the-algorithm" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
 We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
-If our ray depth is larger (further away) from the camera&rsquo;s, then we assume that the pixel is in shadow.
-<figure class="center"><img src="../../media/post_sss_idea.png"
-         alt="image"/><figcaption>
-            <p>Can the camera see the ray ? A compromise to decide whether to shadow or not.</p>
-        </figcaption>
-</figure>
-
-As we can already see, we can&rsquo;t reliably tell if a pixel is in shadow or not, using only screen space information.
+If our ray depth is larger (further away) from the camera&rsquo;s, then we assume that the pixel is in shadow.</p>
+<p><img src="/media/post_sss_idea.png" alt="Can the camera see the ray ? A compromise to decide whether to shadow or not."></p>
+<p>As we can already see, we can&rsquo;t reliably tell if a pixel is in shadow or not, using only screen space information.
 But we don&rsquo;t have to worry that, as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
 So the question really is, is this compromise good enough to provide any meaningful information?
 And the answer is that it is quite decent at small distances, but less accurate over long distances.
 So, it&rsquo;s wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.</p>
-<p>Here is the complete HLSL example with comments were necessary:</p>
-<pre tabindex="0"><code>// Settings
-static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
-static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
-static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
-static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_max_steps;
-
-float ScreenSpaceShadows(Surface surface, Light light)
-{
-    // Compute ray position and direction (in view-space)
-    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
-    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
-
-    // Compute ray step
-    float3 ray_step = ray_dir * g_sss_step_length;
-	
-    // Ray march towards the light
-    float occlusion = 0.0;
-    float2 ray_uv   = 0.0f;
-    for (uint i = 0; i &lt; g_sss_max_steps; i++)
-    {
-        // Step the ray
-        ray_pos += ray_step;
-        ray_uv  = project_uv(ray_pos, g_projection);
-
-        // Ensure the UV coordinates are inside the screen
-        if (is_saturated(ray_uv))
-        {
-            // Compute the difference between the ray&#39;s and the camera&#39;s depth
-            float depth_z     = get_linear_depth(ray_uv);
-            float depth_delta = ray_pos.z - depth_z;
-
-            // Check if the camera can&#39;t &#34;see&#34; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
-            if ((depth_delta &gt; 0.0f) &amp;&amp; (depth_delta &lt; g_sss_thickness))
-            {
-                // Mark as occluded
-                occlusion = 1.0f;
-
-                // Fade out as we approach the edges of the screen
-                occlusion *= screen_fade(ray_uv);
-
-                break;
-            }
-        }
-    }
-
-    // Convert to visibility
-    return 1.0f - occlusion;
-}
-</code></pre><h2 id="a-performancequality-tweak">A performance/quality tweak<a href="#a-performancequality-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>[Code and algorithm explanation continues]</p>
+<h2 id="a-performancequality-tweak">A performance/quality tweak<a href="#a-performancequality-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
-Afterall, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right ?
-I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
+After all, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right?
+I totally understand and would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
 <p>We can choose a noise function and add a temporal factor to it.
 I derived my version from <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
 interleaved gradient noise function, as it works particularly well with TAA.</p>
-<pre tabindex="0"><code>float interleaved_gradient_noise(float2 position_screen)
-{
-    position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
-    float3 magic = float3(0.06711056f, 0.00583715f, 52.9829189f);
-    return frac(magic.z * frac(dot(position_screen, magic.xy)));
-}
-</code></pre><p>And then, in our original shader, just before we start ray marching, we offset the start position.
-This effectively increases the step count (over time).</p>
-<pre tabindex="0"><code>// Offset starting position with temporal interleaved gradient noise
-float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
-ray_pos      += ray_step * offset;
-</code></pre><p>Using only 8 samples is fast but introduces banding, or not ? 😉
-<figure class="center"><img src="../../media/post_sss_noise.jpg"
-         alt="image"/><figcaption>
-            <p>Using noise which can be nicely resolved by TAA</p>
-        </figcaption>
-</figure>
-</p>
+<p>Using only 8 samples is fast but introduces banding, or not? &#x1f609;</p>
+<p><img src="/media/post_sss_noise.jpg" alt="Using noise which can be nicely resolved by TAA"></p>
 <h2 id="thats-all">That&rsquo;s all<a href="#thats-all" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material 😄
-<figure class="center"><img src="../../media/post_sss_full.jpg"
-         alt="image"/>
-</figure>
-</p>
+<p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material &#x1f604;</p>
+<p><img src="/media/post_sss_full.jpg" alt="image"></p>
 <p>You can get access to this shader as well as all of my other shaders by clicking <a href="https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders">here</a>.
 If you have any thoughts, don&rsquo;t hesitate to leave a comment or reach out to me via <a href="https://twitter.com/panoskarabelas1">Twitter</a>.
 I hope that you&rsquo;ve found this post interesting and that you enjoyed it, stay safe.</p>
-<h2 id="update">Update<a href="#update" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>Bend Studio has released the screen space shadows code they created for Days Gone.
-It&rsquo;s even better and you have to do little work to get it into your engine, check it here:  <a href="https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/">https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/</a></p>
+
+    <aside class="admonition tip">
+        <div class="admonition-title">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div><b>Even better screen space shadows</b>
+        </div>
+        <div class="admonition-content">Bend Studio has released the screen space shadows code they created for Days Gone.
+It&rsquo;s even better and you have to do little work to get it into your engine, check it here: <a href="https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/">Inside Bend - Screen Space Shadows</a>.</div>
+    </aside>
 
 			</div>
-			<hr class="post-end">
-			<footer class="post-info">
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1173 Words</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-05 01:00 &#43;0100</p>
-			</footer>
 		</article>
 		<div class="post-nav thin">
 		</div>
-		<div id="comments" class="thin">
-<div id="disqus_thread"></div>
-<script type="application/javascript">
+		<div id="comments" class="thin"><div id="disqus_thread"></div>
+<script>
     window.disqus_config = function () {
     
     
@@ -273,33 +172,22 @@ It&rsquo;s even better and you have to do little work to get it into your engine
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
 	</main>
 
-	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2024 <a href="https://panoskarabelas.com/">Panos Karabelas</a> &#183; <a href="../../media/cv.pdf" target="_blank" rel="noopener">CV</a></p>
-		<p>
-			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://panoskarabelas.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
-		</p>
-	</footer>
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+	<p>
+		&copy; 2024 <a href="https://panoskarabelas.com/">Panos Karabelas</a>
+		&#183;  &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>
+		&#183; Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
+		&#183; Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a>
+		
+		&#183; <a href="https://panoskarabelas.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		
+	</p>
 
-
-
-	<script src="https://panoskarabelas.com/js/bundle.min.8256b8724b9578bbdf6d6f04c894255bc760e78e8a2d60ec0a91ea993acd3b77.js" integrity="sha256-gla4ckuVeLvfbW8EyJQlW8dg546KLWDsCpHqmTrNO3c=" crossorigin="anonymous"></script>
-	
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-171661183-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
+</footer>
+<script async src="https://panoskarabelas.com/js/bundle.min.038214de9d568246fadcfeb06c69349925de3209f332ec123861b6aa031d63c6.js" integrity="sha256-A4IU3p1Wgkb63P6wbGk0mSXeMgnzMuwSOGG2qgMdY8Y=" crossorigin="anonymous"></script>
 </body>
 
 </html>

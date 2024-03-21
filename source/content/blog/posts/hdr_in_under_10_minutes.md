@@ -79,6 +79,8 @@ float3 srgb_to_linear(float3 color)
 }
 ```
 
+- **Gamma:** The sRGB curve for mid tones to high lights resembles a gamma of 2.4.
+
 This function surpasses the basic gamma power approach by accurately reflecting the sRGB standard's piecewise
 linear curve for lower values and a non-linear curve for higher values, enhancing color fidelity, especially in gradients and low light.
 

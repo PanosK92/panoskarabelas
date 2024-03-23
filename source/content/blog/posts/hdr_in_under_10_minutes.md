@@ -60,7 +60,7 @@ Typically you would sample your textures with a simple power function approach, 
 ```
 float3 srgb_to_linear(float3 color) 
 { 
-    float gamma = 2.4f;
+    float gamma = 2.2f;
     return pow(color, gamma); 
 }
 ```

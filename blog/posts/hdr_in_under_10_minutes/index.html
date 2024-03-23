@@ -122,7 +122,7 @@ For HDR, ensuring precise linearisation of these textures is important.
 Typically you would sample your textures with a simple power function approach, like so:</p>
 <pre tabindex="0"><code>float3 srgb_to_linear(float3 color) 
 { 
-    float gamma = 2.4f;
+    float gamma = 2.2f;
     return pow(color, gamma); 
 }
 </code></pre><p>This method falls short for HDR, especially with capable monitors.

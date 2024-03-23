@@ -79,9 +79,8 @@ float3 srgb_to_linear(float3 color)
 }
 ```
 
-The above function accounts for the sRGB standard's nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy.
+The above function accounts for the sRGB standard's nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy (especially with darker tones).
 This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard.
-It does have an observable difference from simpler gamma correction methods, especially in gradients and low luminance portions of the screen.
 
 Let's look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
 The improvements are best seen on modern HDR monitor, the screenshots can only convey so much.

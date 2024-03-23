@@ -65,7 +65,7 @@ float3 srgb_to_linear(float3 color)
 }
 ```
 
-This method falls short for HDR, especially with capable monitors.
+This method falls short for HDR, especially with modern capable monitors which aim for the sRGB standard rather than a simpler gamma 2.2 curve.
 For more accurate color representation, use this instead:
 
 ```
@@ -84,7 +84,7 @@ This approach goes beyond the simpler gamma 2.2 curve that many displays target,
 It does have an observable difference from simpler gamma correction methods, especially in gradients and low luminance portions of the screen.
 
 Let's look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
-The improvements are best seen on good HDR monitor, one that aims for the sRGB standard rather than a basic gamma 2.2 curve, the screenshots can only convey so much.
+The improvements are best seen on modern HDR monitor, the screenshots can only convey so much.
 
 ![image](/media/post_hdr_gamma.jpg)
 
@@ -97,17 +97,14 @@ There you have it. Enjoy the enhanced visual fidelity!
 
 ---
 
-{{< admonition tip "Spartan Engine" >}}
-[If you need context, look at my shaders](https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders)
-{{< /admonition >}}
-
 {{< admonition tip "References" >}}
-1. [Xbox ATG HDR sample](https://github.com/microsoft/Xbox-ATG-Samples/tree/main/Kits/ATGTK/HDR).
-2. [Direct3D 12 HDR sample](https://learn.microsoft.com/en-us/samples/microsoft/directx-graphics-samples/d3d12-hdr-sample-win32/).
-3. [Rec. 709](https://en.wikipedia.org/wiki/Rec._709).
-4. [Rec. 2020](https://en.wikipedia.org/wiki/Rec._2020).
-5. [Perceptual quantizer](https://en.wikipedia.org/wiki/Perceptual_quantizer).
-6. [sRGB](https://en.wikipedia.org/wiki/SRGB).
-7. [A close look at the sRGB formula](https://entropymine.com/imageworsener/srgbformula/).
-8. [Monitor I used: Samsung Odyssey Neo G8](https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/)
+1. Code sample: [Spartan Engine](https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders)
+1. Code sample: [Xbox ATG HDR](https://github.com/microsoft/Xbox-ATG-Samples/tree/main/Kits/ATGTK/HDR).
+2. Code sample: [Direct3D 12 HDR](https://learn.microsoft.com/en-us/samples/microsoft/directx-graphics-samples/d3d12-hdr-sample-win32/).
+3. Wikipedia: [Rec. 709](https://en.wikipedia.org/wiki/Rec._709).
+4. Wikipedia: [Rec. 2020](https://en.wikipedia.org/wiki/Rec._2020).
+5. Wikipedia: [Perceptual quantizer](https://en.wikipedia.org/wiki/Perceptual_quantizer).
+6. Wikipedia: [sRGB](https://en.wikipedia.org/wiki/SRGB).
+7. Post: [A close look at the sRGB formula](https://entropymine.com/imageworsener/srgbformula/).
+8. Monitor I used: [Samsung Odyssey Neo G8](https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/)
 {{< /admonition >}}

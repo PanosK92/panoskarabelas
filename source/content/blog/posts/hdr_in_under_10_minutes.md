@@ -81,11 +81,12 @@ float3 srgb_to_linear(float3 color)
 
 - **Gamma:** The sRGB curve for mid tones to high lights resembles a gamma of 2.4.
 
-This function surpasses the basic gamma power approach by accurately reflecting the sRGB standard's piecewise
-linear curve for lower values and a non-linear curve for higher values, enhancing color fidelity, especially in gradients and low light.
+The above function accounts for the sRGB standard's nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy.
+This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard.
+It does have an observable difference from simpler gamma correction methods, especially in gradients and low luminance portions of the screen.
 
-You’ll notice more pronounced color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
-The improvements are best seen on an HDR-capable monitor, the screenshots can only convey so much.
+Let's look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
+The improvements are best seen on good HDR monitor, the screenshots can only convey so much.
 
 ![image](/media/post_hdr_gamma.jpg)
 

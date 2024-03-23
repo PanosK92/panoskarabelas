@@ -84,7 +84,7 @@ This approach goes beyond the simpler gamma 2.2 curve that many displays target,
 It does have an observable difference from simpler gamma correction methods, especially in gradients and low luminance portions of the screen.
 
 Let's look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
-The improvements are best seen on good HDR monitor, the screenshots can only convey so much.
+The improvements are best seen on good HDR monitor, one that aims for the sRGB standard rather than a basic gamma 2.2 curve, the screenshots can only convey so much.
 
 ![image](/media/post_hdr_gamma.jpg)
 
@@ -104,8 +104,9 @@ There you have it. Enjoy the enhanced visual fidelity!
 {{< admonition tip "References" >}}
 1. [Xbox ATG HDR sample](https://github.com/microsoft/Xbox-ATG-Samples/tree/main/Kits/ATGTK/HDR).
 2. [Direct3D 12 HDR sample](https://learn.microsoft.com/en-us/samples/microsoft/directx-graphics-samples/d3d12-hdr-sample-win32/).
-3. [A close look at the sRGB formula](https://entropymine.com/imageworsener/srgbformula/).
-4. [Rec. 709](https://en.wikipedia.org/wiki/Rec._709).
+3. [Rec. 709](https://en.wikipedia.org/wiki/Rec._709).
 4. [Rec. 2020](https://en.wikipedia.org/wiki/Rec._2020).
-4. [Perceptual quantizer](https://en.wikipedia.org/wiki/Perceptual_quantizer).
+5. [Perceptual quantizer](https://en.wikipedia.org/wiki/Perceptual_quantizer).
+6. [sRGB](https://en.wikipedia.org/wiki/SRGB).
+7. [A close look at the sRGB formula](https://entropymine.com/imageworsener/srgbformula/).
 {{< /admonition >}}

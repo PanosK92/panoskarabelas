@@ -74,7 +74,7 @@ float3 srgb_to_linear(float3 color)
     float gamma        = 2.4f;
     float3 linear_low  = color / 12.92;
     float3 linear_high = pow((color + 0.055) / 1.055, gamma);
-    float3 is_high     = step(0.0404482362771082, color); // Returns 1 if sRGB > 0.04045, else 0
+    float3 is_high     = step(0.0404482362771082, color);
     return lerp(linear_low, linear_high, is_high);
 }
 ```

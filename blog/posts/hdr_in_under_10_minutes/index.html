@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta itemprop="description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain."><meta itemprop="datePublished" content="2024-03-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-03-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="636">
+<meta itemprop="wordCount" content="627">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="HDR in under 10 minutes" />
 <meta property="og:description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain." />
@@ -132,7 +132,7 @@ For more accurate color representation, use this instead:</p>
     float gamma        = 2.4f;
     float3 linear_low  = color / 12.92;
     float3 linear_high = pow((color + 0.055) / 1.055, gamma);
-    float3 is_high     = step(0.0404482362771082, color); // Returns 1 if sRGB &gt; 0.04045, else 0
+    float3 is_high     = step(0.0404482362771082, color);
     return lerp(linear_low, linear_high, is_high);
 }
 </code></pre><ul>

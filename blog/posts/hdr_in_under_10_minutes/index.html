@@ -129,16 +129,13 @@ Typically you would sample your textures with a simple power function approach, 
 For more accurate color representation, use this instead:</p>
 <pre tabindex="0"><code>float3 srgb_to_linear(float3 color)
 {
-    float gamma        = 2.4f;
+    float gamma        = 2.4f; // The sRGB curve for mid tones to high lights resembles a gamma of 2.4
     float3 linear_low  = color / 12.92;
     float3 linear_high = pow((color + 0.055) / 1.055, gamma);
     float3 is_high     = step(0.0404482362771082, color);
     return lerp(linear_low, linear_high, is_high);
 }
-</code></pre><ul>
-<li><strong>Gamma:</strong> The sRGB curve for mid tones to high lights resembles a gamma of 2.4.</li>
-</ul>
-<p>The above function accounts for the sRGB standard&rsquo;s nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy.
+</code></pre><p>The above function accounts for the sRGB standard&rsquo;s nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy.
 This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard.
 It does have an observable difference from simpler gamma correction methods, especially in gradients and low luminance portions of the screen.</p>
 <p>Let&rsquo;s look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet).

@@ -71,15 +71,13 @@ For more accurate color representation, use this instead:
 ```
 float3 srgb_to_linear(float3 color)
 {
-    float gamma        = 2.4f;
+    float gamma        = 2.4f; // The sRGB curve for mid tones to high lights resembles a gamma of 2.4
     float3 linear_low  = color / 12.92;
     float3 linear_high = pow((color + 0.055) / 1.055, gamma);
     float3 is_high     = step(0.0404482362771082, color);
     return lerp(linear_low, linear_high, is_high);
 }
 ```
-
-- **Gamma:** The sRGB curve for mid tones to high lights resembles a gamma of 2.4.
 
 The above function accounts for the sRGB standard's nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy.
 This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard.

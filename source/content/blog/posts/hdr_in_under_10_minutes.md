@@ -66,7 +66,7 @@ float3 srgb_to_linear(float3 color)
 ```
 
 This method falls short for HDR, especially with modern capable monitors which aim for the sRGB standard rather than a simpler gamma 2.2 curve.
-For more accurate color representation, use this instead:
+For more accurate color representation, use this instead (and a good monitor):
 
 ```
 float3 srgb_to_linear(float3 color)

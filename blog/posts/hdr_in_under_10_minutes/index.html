@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta itemprop="description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain."><meta itemprop="datePublished" content="2024-03-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-03-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="650">
+<meta itemprop="wordCount" content="654">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="HDR in under 10 minutes" />
 <meta property="og:description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain." />
@@ -126,7 +126,7 @@ Typically you would sample your textures with a simple power function approach, 
     return pow(color, gamma); 
 }
 </code></pre><p>This method falls short for HDR, especially with modern capable monitors which aim for the sRGB standard rather than a simpler gamma 2.2 curve.
-For more accurate color representation, use this instead:</p>
+For more accurate color representation, use this instead (and a good monitor):</p>
 <pre tabindex="0"><code>float3 srgb_to_linear(float3 color)
 {
     float gamma        = 2.4f; // The sRGB curve for mid tones to high lights resembles a gamma of 2.4

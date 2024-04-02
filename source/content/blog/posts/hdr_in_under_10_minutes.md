@@ -107,5 +107,6 @@ There you have it. Enjoy the enhanced visual fidelity!
 5. Wikipedia: [Perceptual quantizer](https://en.wikipedia.org/wiki/Perceptual_quantizer).
 6. Wikipedia: [sRGB](https://en.wikipedia.org/wiki/SRGB).
 7. Post: [A close look at the sRGB formula](https://entropymine.com/imageworsener/srgbformula/).
-8. Monitor I used: [Samsung Odyssey Neo G8](https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/)
+8. Monitor: [Samsung Odyssey Neo G8](https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/)
+9. Monitor calibration: [Windows HDR Calibration](https://apps.microsoft.com/detail/9n7f2sm5d1lr?rtc=1&hl=en-gb&gl=GB)
 {{< /admonition >}}

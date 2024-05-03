@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta itemprop="description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain."><meta itemprop="datePublished" content="2024-03-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-03-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="637">
+<meta itemprop="wordCount" content="659">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="HDR in under 10 minutes" />
 <meta property="og:description" content="Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.
 Step 1 - Swapchain First stop, the swapchain." />
@@ -136,8 +136,10 @@ For more accurate color representation, use this instead (and a good monitor):</
     return lerp(linear_low, linear_high, is_high);
 }
 </code></pre><p>The above function accounts for the sRGB standard&rsquo;s nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy (especially with darker tones).
-This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard.</p>
-<p><img src="/media/post_hdr_monitor.png" alt="image"></p>
+This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard with a 2.4 gamma.</p>
+<p>For example, this is the Samsung Odyssey Neo G8 targeting sRGB and a 2.4 gamma.
+<img src="/media/post_hdr_monitor.png" alt="image">
+<img src="/media/post_hdr_monitor_2.jpg" alt="image"></p>
 <p>Let&rsquo;s look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet).
 The improvements are best seen on modern HDR monitor, the screenshots can only convey so much.</p>
 <p><img src="/media/post_hdr_gamma.jpg" alt="image"></p>
@@ -160,7 +162,8 @@ The improvements are best seen on modern HDR monitor, the screenshots can only c
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Perceptual_quantizer">Perceptual quantizer</a>.</li>
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a>.</li>
 <li>Post: <a href="https://entropymine.com/imageworsener/srgbformula/">A close look at the sRGB formula</a>.</li>
-<li>Monitor I used: <a href="https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/">Samsung Odyssey Neo G8</a></li>
+<li>Monitor: <a href="https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/">Samsung Odyssey Neo G8</a></li>
+<li>Monitor calibration: <a href="https://apps.microsoft.com/detail/9n7f2sm5d1lr?rtc=1&amp;hl=en-gb&amp;gl=GB">Windows HDR Calibration</a></li>
 </ol>
 </div>
     </aside>

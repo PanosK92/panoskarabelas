@@ -84,7 +84,7 @@ This approach goes beyond the simpler gamma 2.2 curve that many displays target,
 
 For example, this is the Samsung Odyssey Neo G8 targeting sRGB and a 2.4 gamma.
 ![image](/media/post_hdr_monitor.png)
-![image](/media/post_hdr_monitor_2.jpg)
+![image](/media/post_hdr_monitor_3.jpg)
 
 Let's look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet). 
 The improvements are best seen on modern HDR monitor, the screenshots can only convey so much.

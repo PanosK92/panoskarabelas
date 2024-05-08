@@ -7,7 +7,7 @@ featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/
 
 {{< youtube pBJSZDryt3g >}}
 
-Worked with studios across the UK, helping them achieve high performance on AMD GPUs.
+Worked with multiple known studios, helping them achieve high performance on AMD GPUs.
 
 Some of the titles I helped optimise.
 

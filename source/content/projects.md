@@ -3,17 +3,24 @@ title = "Experience"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-### 2022 to 2023 - **Multiple titles**
+### 2022 to 2023 - AMD - **Multiple titles**
 
 {{< youtube pBJSZDryt3g >}}
 
 Worked with studios across the UK, helping them achieve high performance on AMD GPUs.
 
+Some of the titles I helped optimise.
+
+{{< youtube U9rSAmdywD4 >}}
+{{< youtube ov4fJmGCsZM >}}
+{{< youtube uZDGjS5vpIk >}}
+{{< youtube iJ798YVfl1Q >}}
+
 **Team:** AMD • **Platform:** PC • **Tools**: Lot's of them • **Location:** UK
 
 ---
 
-### 2020 - **Dirt 5**
+### 2020 - 2022 - Codemasters (EA) - **Dirt 5**
 
 {{< youtube D81Fs9c6ssY >}}
 
@@ -23,7 +30,7 @@ Worked as a senior graphics programmer.
 
 ---
 
-### 2017 to 2020 - **VR game (cancelled)**
+### 2017 to 2020 - Sony Interactive Entertainment - **VR game (cancelled)**
 
 ![image](/media/projects_sony.png)
 

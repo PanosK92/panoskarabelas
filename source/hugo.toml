@@ -74,7 +74,12 @@ enableEmoji = true
   weight = 10
 
 [[menu.main]]
-  name = "Projects"
+  name = "Spartan Engine"
+  url = "https://github.com/PanosK92/SpartanEngine"
+  weight = 10
+
+[[menu.main]]
+  name = "Experience"
   url = "projects/"
   weight = 20
 

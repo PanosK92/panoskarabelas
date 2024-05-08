@@ -1,5 +1,5 @@
 +++
-title = "Projects"
+title = "Experience"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 

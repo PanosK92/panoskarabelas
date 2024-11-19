@@ -51,10 +51,6 @@ enableEmoji = true
   url = "https://github.com/PanosK92/SpartanEngine"
 
 [[params.socialLinks]]
-  name = "linkedin"
-  url = "https://www.linkedin.com/in/panoskarabelas/"
-
-[[params.socialLinks]]
   name = "youtube"
   url = "https://www.youtube.com/user/MrKarabelas92"
 

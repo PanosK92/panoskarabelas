@@ -52,11 +52,7 @@ enableEmoji = true
 
 [[params.socialLinks]]
   name = "youtube"
-  url = "https://www.youtube.com/user/panos_karabelas"
-
-[[params.socialLinks]]
-  name = "facebook"
-  url = "https://www.facebook.com/panos.karabelas92"
+  url = "https://www.youtube.com/@panos_karabelas"
 
 [[params.socialLinks]]
   name = "email"

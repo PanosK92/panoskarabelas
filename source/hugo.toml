@@ -61,21 +61,26 @@ enableEmoji = true
 [menu]
 
 [[menu.main]]
-  name = "Posts"
-  url = "blog/"
+  name = "Podcast"
+  url = "podcast/"
   weight = 10
 
 [[menu.main]]
   name = "Spartan Engine"
   url = "https://github.com/PanosK92/SpartanEngine"
-  weight = 10
+  weight = 20
+
+[[menu.main]]
+  name = "Posts"
+  url = "blog/"
+  weight = 30
 
 [[menu.main]]
   name = "Experience"
   url = "projects/"
-  weight = 20
+  weight = 40
 
 [[menu.main]]
   name = "About"
   url = "about/"
-  weight = 30
+  weight = 50

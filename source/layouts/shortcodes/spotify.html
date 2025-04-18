@@ -1,0 +1,6 @@
+{{ $id := .Get "id" }}
+<div class="spotify-embed">
+  {{ if .Get "embed" }}
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/{{ $id }}?utm_source=generator" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  {{ end }}
+</div>

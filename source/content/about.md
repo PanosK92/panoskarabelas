@@ -3,7 +3,7 @@ title = "About"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-Hello! My name is Panos, I'm the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine), in the past I explored AMD, Codemasters and Sony.
+Hello! My name is Panos, I'm a podcast host, the author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine), in the past I explored AMD, Codemasters and Sony.
 I believe in hard work, altruism and not compromising. Scroll to the bottom of the page for my CV.
 
 ---

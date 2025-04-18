@@ -12,7 +12,7 @@ enableEmoji = true
 
 [params.author]
   name = "Panos Karabelas"
-  about = "Late night coding"
+  about = "Following the voice of the universe"
 
 [blackfriday]
   # hrefTargetBlank = true
@@ -29,7 +29,7 @@ enableEmoji = true
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
   themeColor = "#494f5c"
-  homeSubtitle = "Late night coding"
+  homeSubtitle = "Following the voice of the universe"
   footerCopyright = ' &#183; <a href="/media/cv.pdf" target="_blank" rel="noopener">CV</a>'
   bgImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/wallpaper.jpg"
   justifyContent = false

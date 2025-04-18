@@ -3,7 +3,7 @@ title = "Podcast"
 featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/ic_space.jpg"
 +++
 
-Join me as i explore the tech world and beyond, meeting the brightest minds across cutting-edge industries and uncovering their stories.
+Join me as I explore the tech world and beyond, meeting the brightest minds across cutting-edge industries and uncovering their stories.
 
 ---
 

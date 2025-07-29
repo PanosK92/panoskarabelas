@@ -30,7 +30,6 @@ enableEmoji = true
   dateformNumTime = "2006-01-02 15:04 -0700"
   themeColor = "#494f5c"
   homeSubtitle = "Following the voice of the universe"
-  footerCopyright = ' &#183; <a href="/media/cv.html" target="_blank" rel="noopener">CV</a>' # Adjust path if needed
   bgImg = "/images/wallpaper.jpg" # Local path if hosted
   justifyContent = false
   relatedPosts = false
@@ -79,9 +78,14 @@ enableEmoji = true
 [[menu.main]]
   name = "Experience"
   url = "projects/"
-  weight = 50 # Swapped with About
+  weight = 40
 
 [[menu.main]]
   name = "About"
   url = "about/"
-  weight = 40 # Swapped with Experience
+  weight = 50
+
+  [[menu.main]]
+  name = "CV"
+  url = "/media/cv.html"
+  weight = 60

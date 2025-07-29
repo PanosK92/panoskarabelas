@@ -4,7 +4,7 @@ featuredImg = "https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/
 +++
 
 Hello! My name is Panos, I'm a podcast host, author of [Spartan Engine](https://github.com/PanosK92/SpartanEngine), and in the past I explored AMD, Codemasters and Sony.
-I believe in hard work, altruism, not compromising and listening to the universe. Scroll to the bottom of the page for my CV.
+I believe in hard work, altruism, not compromising and listening to the universe. Click [here](https://raw.githubusercontent.com/PanosK92/panoskarabelas/master/source/content/media/cv.html) for my CV.
 
 ---
 

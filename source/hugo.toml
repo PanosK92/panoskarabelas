@@ -30,7 +30,7 @@ enableEmoji = true
   dateformNumTime = "2006-01-02 15:04 -0700"
   themeColor = "#494f5c"
   homeSubtitle = "Following the voice of the universe"
-  footerCopyright = ' &#183; <a href="/cv_replica.html" target="_blank" rel="noopener">CV</a>' # Adjust path if needed
+  footerCopyright = ' &#183; <a href="/cv.html" target="_blank" rel="noopener">CV</a>' # Adjust path if needed
   bgImg = "/images/wallpaper.jpg" # Local path if hosted
   justifyContent = false
   relatedPosts = false

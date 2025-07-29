@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Media on Panos Karabelas</title>
+    <link>https://panoskarabelas.com/media/</link>
+    <description>Recent content in Media on Panos Karabelas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://panoskarabelas.com/media/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://panoskarabelas.com/media/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://panoskarabelas.com/media/cv/</guid>
+      <description>&lt;!DOCTYPE html&gt; Panos Karabelas CV Panos Karabelas Rendering/GPU Engineer | Creator of Spartan Engine | Podcast Host I believe in high goals, self-teaching, and hard work. I&#39;m looking to develop bleeding-edge technology, collaborate with top talent, expand my knowledge, and have fun. I value personality over skills.&#xA;📧 panosconroe@hotmail.com 🌐 www.panoskarabelas.com ✖ x.com/panoskarabelas1 📍 Manchester, UK&#xA;WORK EXPERIENCE MTS Developer Technology Engineer&#xA;AMD (2022 - 2024, All of UK, parts of Europe)</description>
+    </item>
+  </channel>
+</rss>

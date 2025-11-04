@@ -30,7 +30,7 @@ I believe in hard work, altruism, not compromising and listening to the universe
 - Uncharted
 - Wolfenstein
 
-**Fabourite Films**
+**Favourite Films**
 - 2001: A Space Odyssey (1968)
 - The Thing (1982)
 - Commando (1985)

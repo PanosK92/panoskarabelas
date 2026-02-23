@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 21 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
+      <link>https://panoskarabelas.com/blog/posts/kiss/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://panoskarabelas.com/blog/posts/kiss/</guid>
+      <description>I&amp;rsquo;ve been building Spartan Engine for over a decade. A real-time 3D engine, from scratch, in C++. Rendering, physics, audio, scripting, editor, the works. Over those years I&amp;rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.&#xA;That&amp;rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns.</description>
+    </item>
     <item>
       <title>HDR in under 10 minutes</title>
       <link>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</link>

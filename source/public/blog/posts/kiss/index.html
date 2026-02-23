@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-171661183-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="15 days">
+<link rel="author" href="/humans.txt">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#494f5c">
+<meta name="msapplication-TileColor" content="#494f5c">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#494f5c"><meta name="author" content="Panos Karabelas">
+<meta itemprop="name" content="What building a game engine for a decade and the SR-71 Blackbird have in common">
+<meta itemprop="description" content="I&rsquo;ve been building Spartan Engine for over a decade. A real-time 3D engine, from scratch, in C&#43;&#43;. Rendering, physics, audio, scripting, editor, the works. Over those years I&rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.
+That&rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns."><meta itemprop="datePublished" content="2026-02-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2026-02-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3062">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="What building a game engine for a decade and the SR-71 Blackbird have in common" />
+<meta property="og:description" content="I&rsquo;ve been building Spartan Engine for over a decade. A real-time 3D engine, from scratch, in C&#43;&#43;. Rendering, physics, audio, scripting, editor, the works. Over those years I&rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.
+That&rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/posts/kiss/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2026-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-02-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What building a game engine for a decade and the SR-71 Blackbird have in common"/>
+<meta name="twitter:description" content="I&rsquo;ve been building Spartan Engine for over a decade. A real-time 3D engine, from scratch, in C&#43;&#43;. Rendering, physics, audio, scripting, editor, the works. Over those years I&rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.
+That&rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns."/>
+<title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
+<link rel="stylesheet dns-prefetch preconnect preload prefetch" as="style" href="http://localhost:1313/css/style.min.4db1d7ae9890fa52d389cbb1a1e87680b43ccbf5c1b7be6fe48ebd33215ac5f7.css" integrity="sha256-TbHXrpiQ+lLTicuxoeh2gLQ8y/XBt75v5I69MyFaxfc=" crossorigin="anonymous">
+	</head>
+<body id="page">
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="http://localhost:1313/">Panos Karabelas</a>
+				</div>
+				<nav class="site-nav hide-in-mobile"><a href="http://localhost:1313/podcast/">Podcast</a><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine</a><a href="http://localhost:1313/blog/">Posts</a><a href="http://localhost:1313/projects/">Experience</a><a href="http://localhost:1313/about/">About</a><a href="http://localhost:1313/media/cv.html">CV</a></nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/panoskarabelas" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://www.youtube.com/@panos_karabelas" target="_blank" rel="noopener me" title="Youtube"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a><a href="mailto:panosconroe@hotmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="http://localhost:1313/podcast/">Podcast</a></li>
+			<li><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine</a></li>
+			<li><a href="http://localhost:1313/blog/">Posts</a></li>
+			<li><a href="http://localhost:1313/projects/">Experience</a></li>
+			<li><a href="http://localhost:1313/about/">About</a></li>
+			<li><a href="http://localhost:1313/media/cv.html">CV</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>What building a game engine for a decade and the SR-71 Blackbird have in common</h1>
+		<div class="content">
+			<p><img src="/media/dramatic_blackbird_in_flight.jpg" alt="image"></p>
+<p>I&rsquo;ve been building <a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine</a> for over a decade. A real-time 3D engine, from scratch, in C++. Rendering, physics, audio, scripting, editor, the works. Over those years I&rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.</p>
+<p>That&rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns. But the opposite happened. My engine got <em>simpler</em>. Not because I was cutting corners, but because I was finally understanding what the problem actually needed.</p>
+<p>It took me a long time to realize I wasn&rsquo;t discovering something new. I was just slowly, painfully arriving at a principle that an aerospace engineer had articulated sixty years before me. I&rsquo;m not comparing my work to his. But the underlying truth is the same.</p>
+<h2 id="the-man-who-built-the-impossible">The man who built the impossible<a href="#the-man-who-built-the-impossible" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>In the 1960s, Kelly Johnson led a small team at Lockheed&rsquo;s Skunk Works division. Their task: build a reconnaissance aircraft that could fly at Mach 3.2 at 85,000 feet. At the edge of space. Faster than any missile could chase it. The airframe would endure surface temperatures of over 300°C from friction alone. No existing material, engine, or design paradigm could handle it.</p>
+<p>The result was the SR-71 Blackbird. It held the world speed record for over 30 years. It was never, not once, shot down. To this day, it remains one of the most extraordinary machines ever built.</p>
+<p>But here&rsquo;s what most people miss about the Blackbird: it wasn&rsquo;t built by a massive team drowning in process. Johnson&rsquo;s Skunk Works operated with a small group of sharp engineers and a set of principles that would make most modern project managers nervous. Minimal paperwork. Direct communication. Small teams with full ownership. And above all, one rule that governed everything: <strong>keep it simple, stupid.</strong></p>
+<p><img src="/media/kelly_johnson_with_blackbird_bnw.jpg" alt="image"></p>
+<p>Johnson is the person who coined the KISS principle. The story goes that he handed his design engineers a handful of standard tools and told them that whatever they built had to be repairable by an average mechanic in the field using only these tools. If the design couldn&rsquo;t meet that constraint, the design was wrong. Not the mechanic.</p>
+<p>Think about that. The fastest, most advanced aircraft on the planet, designed with the constraint that a field mechanic with a basic wrench should be able to service it. That&rsquo;s not a compromise. That&rsquo;s the insight.</p>
+<p>And it wasn&rsquo;t just a slogan. Johnson&rsquo;s team lived it in every design decision they made.</p>
+<h2 id="the-beauty-of-spartan-design">The beauty of Spartan design<a href="#the-beauty-of-spartan-design" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><img src="/media/skin_panels.jpg" alt="image"></p>
+<p><strong>The leaking fuel tanks.</strong> At Mach 3.2, the airframe heats to over 300°C. Titanium expands. Johnson&rsquo;s team could have engineered complex high-temperature sealing systems: flexible joints, exotic gaskets, pressurized compartments. Instead, they designed the skin panels with deliberate gaps. On the ground, the Blackbird famously leaked fuel through them. In flight, thermal expansion sealed the gaps tight. The &ldquo;flaw&rdquo; <em>was</em> the solution. No extra parts, no seals to fail, no maintenance overhead. They turned a law of physics into a feature.</p>
+<p><strong>One material.</strong> Roughly 85% of the airframe was titanium alloy. At a time when conventional aircraft used complex multi-material composites, Johnson chose a single primary structural material. One set of thermal calculations. One set of manufacturing processes. One set of maintenance procedures. It simplified everything downstream because it eliminated the combinatorial complexity of mixing materials that expand, flex, and fatigue at different rates.</p>
+<p><img src="/media/pratt_n_whitney_j58_engine.jpg" alt="image"></p>
+<p><strong>One engine that did two jobs.</strong> The Pratt &amp; Whitney J58 was a turboramjet. At low speeds it functioned as a turbojet. At high speeds it bypassed the compressor and operated as a ramjet. Instead of carrying two separate propulsion systems with two sets of fuel lines, two sets of controls, and two failure modes, they designed one engine that transitioned between modes. The concept was sophisticated. The implementation was mechanically simpler than the alternative.</p>
+<p><strong>Stars for navigation.</strong> The SR-71 used an astro-inertial navigation system that tracked stars even in broad daylight, providing accuracy within 300 feet at Mach 3+. Why stars? Because they can&rsquo;t be jammed. No external radio signals needed, no ground stations to depend on, no electronic countermeasures to worry about. Johnson&rsquo;s team reached back to the oldest navigation reference in human history and paired it with modern sensors. The simplest possible dependency, the sky, made it the most reliable navigation system of its era.</p>
+<p>Every one of these choices followed the same logic: don&rsquo;t add a part when physics already gives you the answer. Don&rsquo;t add a system when one system can do two jobs. Don&rsquo;t add a dependency when you can depend on something that&rsquo;s been there for a billion years.</p>
+<p><img src="/media/spartan_engine_impressive_screenshot.png" alt="image"></p>
+<p>This philosophy, this stripped-to-the-bone, nothing-unnecessary approach to building something extraordinary, is what resonated with me so deeply that about three or four years into development, I renamed my engine. It used to have a different name. I called it <strong>Spartan</strong> because that&rsquo;s the design ethos I was converging on, whether I realized it at the time or not.</p>
+<p>But I didn&rsquo;t arrive at that ethos through inspiration. I arrived at it through pain.</p>
+<h2 id="how-i-got-here-the-hard-way">How I got here (the hard way)<a href="#how-i-got-here-the-hard-way" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>If you open Spartan&rsquo;s source code, you might be surprised. It doesn&rsquo;t look like what universities teach you &ldquo;proper&rdquo; C++ should look like. People see it and think I chose to write it this way out of some stylistic preference. I didn&rsquo;t. I got <em>burned</em> into writing it this way.</p>
+<p>Every complex design I ever wrote came back to bite me. Every clever abstraction, every &ldquo;just in case&rdquo; layer, every pattern applied because the book said so. Over the course of a decade, at the scale of a full engine, they all became liabilities. Not immediately. That&rsquo;s the trap. They feel productive when you write them.</p>
+<p>And the smarter the engineer, the bigger the trap. Really sharp engineers get a dopamine hit from engineering itself. Designing an elegant type system, building a perfectly generic abstraction, architecting a framework that handles every conceivable edge case. It <em>feels good</em>. It&rsquo;s intellectually satisfying. I get it, because I&rsquo;ve been there. But when you&rsquo;re serious about what you&rsquo;re building, when you&rsquo;re shipping something real, at scale, over years, that dopamine-driven complexity becomes a liability. The cleverness that felt so rewarding to write becomes the thing you curse at 2 AM when it breaks in a way nobody can debug. Intelligence is not the problem. Channeling it toward addition when it should be channeled toward subtraction, that&rsquo;s the problem.</p>
+<p>The cost shows up six months later when you&rsquo;re refactoring a system and you have to untangle seven layers of indirection to change one behavior. Or two years later when a new contributor opens the codebase and can&rsquo;t figure out where anything actually happens because the logic is scattered across interfaces, managers, and abstract base classes.</p>
+<p>Complexity compounds. At small scale, you don&rsquo;t feel it. At engine scale, over a decade, it will crush you. So everything you see in my code now is scar tissue. It&rsquo;s what&rsquo;s left after the unnecessary parts burned away.</p>
+<p>Let me show you what that looks like.</p>
+<h2 id="the-scars">The scars<a href="#the-scars" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><strong>Static classes everywhere.</strong> My <code>Renderer</code>, <code>Input</code>, <code>Profiler</code>, <code>FileSystem</code>, <code>Engine</code>, they&rsquo;re all static. There&rsquo;s only ever one renderer. There&rsquo;s only ever one input system. I used to instantiate these. I used to pass them around, manage their lifetimes, inject them as dependencies. And for what? There was never going to be a second renderer. There was never going to be a second input system. I was managing complexity that had no reason to exist.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">array</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="mi">107</span><span class="o">&gt;</span> <span class="n">Input</span><span class="o">::</span><span class="n">m_keys</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">Input</span><span class="o">::</span><span class="n">GetKey</span><span class="p">(</span><span class="k">const</span> <span class="n">KeyCode</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">m_keys</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">key</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">Input</span><span class="o">::</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="k">const</span> <span class="n">KeyCode</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">GetKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">m_keys_previous_frame</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">key</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Two arrays and some boolean logic. No InputManager. No InputEventQueue. No InputBuffer with a strategy pattern. Just the thing itself, doing the thing. Not because I think simple is cute, but because everything else failed me over time.</p>
+<p>Now, I&rsquo;m aware that static/global state has real tradeoffs. It makes unit testing harder. It creates implicit dependencies. In a large team with dozens of engineers touching the same subsystem, you might genuinely need the guardrails that come with dependency injection and clear ownership boundaries. I&rsquo;m not pretending those concerns don&rsquo;t exist. But for this project, at this scale, the tradeoff is overwhelmingly in favor of simplicity. The cognitive overhead of managing singleton lifetimes and passing objects through five layers of constructors was costing me more than it was protecting me from.</p>
+<p><strong>Anonymous namespaces in the .cpp files.</strong> I used to put helper functions and internal state in private class members. It bloated every header. Every file that included that header recompiled when I changed an implementation detail. It coupled things that had no business being coupled. Now, implementation details live in anonymous namespaces in the .cpp, invisible to the rest of the codebase, existing only where they&rsquo;re used.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">spartan</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="c1">// anonymous, invisible outside this file
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">float</span> <span class="n">distance_deactivate</span> <span class="o">=</span> <span class="mf">80.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">float</span> <span class="n">distance_activate</span>   <span class="o">=</span> <span class="mf">40.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">PxTransform</span> <span class="nf">to_px_transform</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector3</span><span class="o">&amp;</span> <span class="n">pos</span><span class="p">,</span> <span class="k">const</span> <span class="n">Quaternion</span><span class="o">&amp;</span> <span class="n">rot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">PxTransform</span><span class="p">(</span><span class="n">PxVec3</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">z</span><span class="p">),</span> <span class="n">PxQuat</span><span class="p">(</span><span class="n">rot</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">w</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Public data members.</strong> My <code>Vector3</code> has <code>x</code>, <code>y</code>, <code>z</code> as public floats. Not <code>GetX()</code>, not <code>SetX()</code>. I know this violates what every C++ textbook tells you. But there&rsquo;s no invariant to protect here. There&rsquo;s no setter logic. Wrapping these in accessors would be adding ceremony for the sake of ceremony, and I&rsquo;ve learned the hard way that ceremony has a cost, even when it looks free.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Vector3</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Vector3</span><span class="p">()</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Vector3</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p><strong>Standard types used directly.</strong> My entity hierarchy is a raw pointer to a parent and a <code>std::vector</code> of children. I tried custom containers early on. Custom trees, custom allocators, custom everything. They all became maintenance burdens that solved problems I didn&rsquo;t actually have.</p>
+<p>Are standard types perfect? No. I&rsquo;m well aware that <code>std::vector</code> isn&rsquo;t always cache-optimal, that <code>std::shared_ptr</code> has overhead from reference counting, that in certain hot paths you absolutely want custom allocators or flat arrays. The point isn&rsquo;t that standard types are always the best choice. The point is that they should be the <em>default</em> choice, and you should only replace them when profiling tells you to. Not because someone on a forum said you should, not because a blog post made you feel like you aren&rsquo;t a real engineer unless you roll your own.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Entity</span> <span class="o">:</span> <span class="k">public</span> <span class="n">SpartanObject</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Entity</span><span class="o">*</span>                  <span class="n">m_parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">*&gt;</span>     <span class="n">m_children</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Component</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ComponentType</span><span class="o">::</span><span class="n">Max</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">m_components</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>A parent pointer, a vector of children, and an array of components. That&rsquo;s what the problem needs. That&rsquo;s what the code is.</p>
+<p><strong>Assertions instead of defensive programming.</strong> Early in the project I wrote defensive code. Null checks that returned silently, fallback paths that hid errors. It felt safe. It was the opposite of safe. Bugs didn&rsquo;t crash, they <em>hid</em>. I&rsquo;d spend days tracking down why something wasn&rsquo;t rendering, only to find a silent <code>return</code> five call levels deep that was swallowing a null pointer that should never have been null.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">SP_ASSERT_MSG</span><span class="p">(</span><span class="n">physical_devices</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;No physical devices detected&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">SP_ASSERT_MSG</span><span class="p">(</span><span class="n">width</span>  <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Width can&#39;t be zero&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">SP_ASSERT</span><span class="p">(</span><span class="n">m_cmd_list_present</span><span class="o">-&gt;</span><span class="n">GetState</span><span class="p">()</span> <span class="o">==</span> <span class="n">RHI_CommandListState</span><span class="o">::</span><span class="n">Recording</span><span class="p">);</span>
+</span></span></code></pre></div><p>If something is wrong, I want to know <em>now</em>. Not six frames later. Not after a silent cascade of incorrect state. The assert fires, and you fix the root cause. Right there. Right then.</p>
+<p>To be clear: assertions are a development tool. In shipping builds, you handle errors gracefully where it matters for the end user. But during development, which is where you spend 99% of your time, silent failures are the enemy. The faster a bug screams at you, the faster you fix it, and the less time it has to quietly corrupt everything downstream.</p>
+<h2 id="why-the-book-isnt-enough">Why &ldquo;the book&rdquo; isn&rsquo;t enough<a href="#why-the-book-isnt-enough" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>I see a version of this tension in my Discord server and pull requests constantly. Well-intentioned contributors propose things like additional abstraction layers, wrapper classes around standard types, or manager-of-manager patterns. The conversation usually goes something like this:</p>
+<p><em>&ldquo;Hey, I think we should add an event bus system so subsystems can communicate through messages.&rdquo;</em></p>
+<p>Why? What would it give us?</p>
+<p><em>&ldquo;Well, we could decouple things and make the architecture more flexible and&hellip;&rdquo;</em></p>
+<p>Will it produce measurable, quantifiable differences in the output?</p>
+<p><em>&ldquo;Not really. Maybe marginal gains.&rdquo;</em></p>
+<p>Then it&rsquo;s unnecessary complexity.</p>
+<p>It always comes back to the same question: <strong>does the problem actually need this, or are you adding it because it&rsquo;s what you were taught to do?</strong></p>
+<p>I want to be clear. I&rsquo;m not anti-education. Universities and textbooks teach you patterns for a reason. Factory patterns, observer patterns, strategy patterns, abstract base classes, dependency injection. These are real tools that solve real problems. You should learn them. You should understand them deeply.</p>
+<p>But here&rsquo;s what nobody tells you: <strong>they&rsquo;re guides, not laws of physics.</strong> No finite set of rules can cover every situation you&rsquo;ll encounter. The moment you treat patterns as gospel, as things you must always apply, you stop thinking about your specific problem and start forcing it into someone else&rsquo;s solution. Sometimes the right answer is a pattern from the book. Sometimes the right answer is something the book never considered. And sometimes the right answer is to throw the book away entirely and let the problem itself show you what it needs.</p>
+<p>The greatest innovations in engineering didn&rsquo;t come from following the manual. They came from someone who understood the manual deeply enough to know when to deviate from it. Kelly Johnson knew every rule of aircraft design. He just also knew which ones didn&rsquo;t apply at Mach 3.2.</p>
+<h2 id="nature-dictates-the-design">Nature dictates the design<a href="#nature-dictates-the-design" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>This is the deeper idea underneath all of it, and the one that took me the longest to see.</p>
+<p>When you work on a problem long enough, really work on it, for years, you start to see that the problem itself tells you what the solution needs to be. Not what your education says it should be. Not what the patterns book recommends. Not what the latest conference talk suggests. The <em>problem</em> dictates the design. Nature dictates the form.</p>
+<p>Kelly Johnson didn&rsquo;t start with a desire to build a simple aircraft. He started with a set of brutal constraints: Mach 3.2, 85,000 feet, titanium that didn&rsquo;t exist in the supply chain, fuel that doubled as coolant. Those constraints <em>forced</em> simplicity. Every unnecessary part was thermal mass that could crack. Every extra system was a failure point at the edge of the atmosphere. The Blackbird became simple not because Johnson liked simplicity as an aesthetic, but because the laws of physics left no room for anything unnecessary.</p>
+<p>The same is true in a game engine. When you&rsquo;re shipping frames every 16 milliseconds, when you&rsquo;re managing thousands of draw calls, when you&rsquo;re synchronizing CPU and GPU across multiple command lists, the physics of the problem don&rsquo;t leave room for an <code>AbstractDrawCallFactoryManagerInterface</code>. The frame budget is your Mach 3.2. The GPU memory is your titanium. The constraints are real and unforgiving, and they&rsquo;ll burn away everything that doesn&rsquo;t need to be there.</p>
+<p>The SR-71 didn&rsquo;t have unnecessary parts because unnecessary parts would have killed the pilot. Your game engine shouldn&rsquo;t have unnecessary abstractions because unnecessary abstractions will kill your frame rate, your iteration speed, and your ability to debug the thing at 2 AM when something breaks and you&rsquo;re six layers deep in indirection wondering which virtual dispatch is eating your cache line.</p>
+<h2 id="what-ten-years-taught-me">What ten years taught me<a href="#what-ten-years-taught-me" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>After a decade of learning this the hard way, here&rsquo;s what I know:</p>
+<ol>
+<li>
+<p><strong>If a class doesn&rsquo;t need multiple instances, make it static.</strong> Don&rsquo;t create complexity to manage a lifetime that doesn&rsquo;t need managing.</p>
+</li>
+<li>
+<p><strong>If a piece of state is only used in one file, put it in an anonymous namespace.</strong> Don&rsquo;t pollute headers with implementation details.</p>
+</li>
+<li>
+<p><strong>If the standard library type does the job, use it.</strong> Don&rsquo;t wrap <code>std::vector</code> in a custom class just to feel like you&rsquo;re engineering something.</p>
+</li>
+<li>
+<p><strong>If something breaks, let it break loudly.</strong> Assert. Don&rsquo;t write defensive code that hides bugs behind graceful degradation.</p>
+</li>
+<li>
+<p><strong>If you can&rsquo;t measure the difference, it doesn&rsquo;t exist.</strong> Don&rsquo;t add a custom allocator, a custom vector, or a custom anything unless you can point to a profiler trace that says you need it.</p>
+</li>
+<li>
+<p><strong>If the code does what it needs to in three lines, don&rsquo;t write a framework.</strong> Three similar lines of code is better than a premature abstraction.</p>
+</li>
+</ol>
+<p>None of these are absolute laws. Context matters. Team size matters. Project requirements matter. If you&rsquo;re building a plugin architecture that genuinely needs to support third-party extensibility, you might need those abstract interfaces. If you&rsquo;re working on a codebase with 200 engineers, you might need stricter encapsulation to prevent people from stepping on each other. I&rsquo;m not saying these rules apply universally to every project in every situation.</p>
+<p>What I am saying is this: <strong>the default should be simplicity, and complexity should require justification.</strong> Not the other way around. Most codebases I&rsquo;ve seen, including my own early work, get it backwards. They start complex and never ask why.</p>
+<p>Every one of these rules is the same rule, restated: <strong>if the problem doesn&rsquo;t demand it, don&rsquo;t add it.</strong> That&rsquo;s KISS. That&rsquo;s what Kelly Johnson knew. That&rsquo;s what the Blackbird was built on. That&rsquo;s what ten years of engine development taught me the slow way.</p>
+<p>The best part is no part. The best code is no code. And the best abstraction is the one you had the discipline not to write.</p>
+<h2 id="this-is-just-the-beginning">This is just the beginning<a href="#this-is-just-the-beginning" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>After a decade, the engine is better than it&rsquo;s ever been, and I feel like I&rsquo;m just getting started. The lessons above didn&rsquo;t make things easier. They made things <em>possible</em>. When your codebase is simple enough that you can hold the whole thing in your head, you can move fast. You can take risks. You can attempt things that would be unthinkable in a tangled mess of abstractions.</p>
+<p>That&rsquo;s where I am now. Not at the finish line. At the starting line, with a decade of hard-won clarity behind me and the most ambitious version of Spartan still ahead.</p>
+<p>If any of this resonated with you, come check out the project. It&rsquo;s open source, it&rsquo;s alive, and there&rsquo;s a growing community around it.</p>
+<p><strong><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine on GitHub</a></strong></p>
+
+		</div>
+	</main>
+
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+	<p>
+		&copy; 2026 <a href="http://localhost:1313/">Panos Karabelas</a>
+		&#183; 
+		&#183; Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
+		&#183; Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a>
+		
+		&#183; <a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		
+	</p>
+
+</footer>
+<script async src="http://localhost:1313/js/bundle.min.038214de9d568246fadcfeb06c69349925de3209f332ec123861b6aa031d63c6.js" integrity="sha256-A4IU3p1Wgkb63P6wbGk0mSXeMgnzMuwSOGG2qgMdY8Y=" crossorigin="anonymous"></script>
+</body>
+
+</html>

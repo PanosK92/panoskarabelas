@@ -51,6 +51,8 @@ But I didn't arrive at that ethos through inspiration. I arrived at it through p
 
 ## How I got here (the hard way)
 
+![image](/media/panos_working.jpg)
+
 If you open Spartan's source code, you might be surprised. It doesn't look like what universities teach you "proper" C++ should look like. People see it and think I chose to write it this way out of some stylistic preference. I didn't. I got *burned* into writing it this way.
 
 Every complex design I ever wrote came back to bite me. Every clever abstraction, every "just in case" layer, every pattern applied because the book said so. Over the course of a decade, at the scale of a full engine, they all became liabilities. Not immediately. That's the trap. They feel productive when you write them.

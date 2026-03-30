@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://panoskarabelas.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You are the universe looking at itself</title>
+      <link>https://panoskarabelas.com/blog/posts/consciousness/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://panoskarabelas.com/blog/posts/consciousness/</guid>
+      <description>There&amp;rsquo;s a question I keep circling back to. Not a technical question, not a design question, but the kind of question that quietly rearranges everything once you take it seriously.&#xA;What if consciousness isn&amp;rsquo;t something that matter produces? What if it&amp;rsquo;s the other way around?&#xA;I know how that sounds. I&amp;rsquo;m a game developer, not a philosopher. But this isn&amp;rsquo;t about credentials. It&amp;rsquo;s about following a thread and seeing where it goes.</description>
+    </item>
     <item>
       <title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
       <link>https://panoskarabelas.com/blog/posts/kiss/</link>

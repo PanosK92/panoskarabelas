@@ -1,6 +1,6 @@
 ---
 date: 2026-03-30
-title: You are the universe looking at itself
+title: Spacetime is the headset. Consciousness is what's there when you take it off.
 ---
 
 ![image](/media/post_consciousness_1.jpg)

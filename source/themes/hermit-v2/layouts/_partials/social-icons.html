@@ -1,3 +1,7 @@
 {{ range . -}}
-<a href="{{ .url | safeURL }}" target="_blank" rel="noopener me" title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a>
+{{- $title := .name | humanize -}}
+{{- if or (eq .name "x") (eq .name "twitter") -}}
+{{- $title = "X" -}}
+{{- end -}}
+<a href="{{ .url | safeURL }}" target="_blank" rel="noopener me" title="{{ $title }}">{{ partial "svg.html" . }}</a>
 {{- end -}}

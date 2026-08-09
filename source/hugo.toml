@@ -43,7 +43,7 @@ enableRobotsTXT = true
 
   [[params.socialLinks]]
     name = "x"
-    url = "https://twitter.com/panoskarabelas"
+    url = "https://x.com/panoskarabelas"
 
   [[params.socialLinks]]
     name = "github"

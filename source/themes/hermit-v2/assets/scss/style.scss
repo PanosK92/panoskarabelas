@@ -1,158 +1,409 @@
-@import "predefined.scss";
-@import "normalize.scss";
-@import "syntax.scss";
-@import "animate.scss";
-@import "_scroll.scss";
-@import "_admonition.scss";
-@import "_socialshare.scss";
-{{ if (fileExists "assets/scss/userstyles.scss") }}
-@import "userstyles.scss";
-{{ end }}
+// ==========================================
+// STYLESHEET IMPORTS AND DEPENDENCIES
+// ==========================================
+// Import base styling modules for colors, fonts, and core functionality
+@import "normalize";
+{{- if ne false .Site.Params.usesAnimation }}@import "animate";{{ end -}} /* Conditionally import animation styles if enabled in site configuration */
+@import "colors";
+@import "fonts";
+@import "variables";
+@import "admonition";
+@import "mixins";
+@import "syntax";
+@import "accessibility";
+{{- if and .Site.Params.shareSocial (templates.Exists "_partials/social-share.html") }}@import "socialshare";{{ end -}} /* Conditionally import share social styles if enabled in site configuration */
+{{- with .Site.Params.gallery -}} /* Conditionally import gallery styles and set thumbnail size if gallery feature is enabled */
+  {{- if .enable }}
+$thumbnail: {{ printf "%spx" (.thumbnail | default "300") }};
+@import "gallery";
+  {{- end }}
+{{- end -}}
+// ==========================================
+// DYNAMIC ACCENT COLOR CONFIGURATION
+// ==========================================
+// Override default accent color variables with site-specific accent color from hugo.toml
+// If no custom accent color is specified, fallback values from _colors.scss will be used
+{{- with .Site.Params.accentColor }}
+$aTag-mixin-a-box-shadow: {{.}};
+$aTag-mixin-a-hover-box-shadow: {{.}};
+$content-anchor-hover: {{.}};
+$footnote-ref-hover-background: {{.}};
+$post-description-a-hover-border-bottom: {{.}};
+$tableofcontents-a-hover-border-bottom: {{.}};
+$scrolltotop-arrow: {{.}};
+$typewriter: {{.}};
+$marked-background: {{.}};
+$inserted-text-underline: {{.}};
+{{ end -}}
 
-/* text selection */
+{{- if and (.Site.Params.scrollToTop) }}@import "scrolltotop";{{ end -}}  /* Conditionally import scroll to top styles if enabled in site configuration */
+
+
+// ==========================================
+// TEXT SELECTION STYLING
+// ==========================================
+// Customize the background color of selected text across browsers
 ::-moz-selection {
-  background: $highlight-grey;
+  background: $text-select;
 }
 
 ::selection {
-  background: $highlight-grey;
+  background: $text-select;
 }
 
-/* Webkit Scrollbar Customize */
+// ==========================================
+// WEBKIT SCROLLBAR CUSTOMIZATION
+// ==========================================
+// Style the main page scrollbar for webkit-based browsers
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: $midnightblue;
+  width: $page-scrollbar-width;
+  height: $page-scrollbar-height;
+  background: $pagescrollbar-background;
 }
 
+// Style the scrollbar thumb (draggable portion) with hover effects
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $pagescrollbar-thumb;
 
   &:hover {
-    background: $text;
+    background: $pagescrollbar-thumb-hover;
   }
 }
 
+// ==========================================
+// BASE HTML AND BODY STYLING
+// ==========================================
+// Set global HTML properties including background, typography, and smooth scrolling
 html {
-  background: $light-grey;
-  line-height: 1.6;
-  letter-spacing: .06em;
-  scroll-behavior: smooth;
+  background: $html-background;
+  line-height: $html-line-height;
+  letter-spacing: $html-letter-spacing;
+  scroll-behavior: $html-scroll-behavior;
 }
 
+// Apply consistent text color to all interactive and text elements
+body,
+button,
+input,
+select,
+textarea,
+a {
+  color: $text;
+}
+
+// Set primary font family for all form elements and body text
 body,
 button,
 input,
 select,
 textarea {
-  color: $text;
   font-family: $fonts;
 }
 
+// ==========================================
+// CODE AND TYPOGRAPHY STYLING
+// ==========================================
+// Apply monospace font family to all code-related elements
 pre,
 code,
 pre tt {
   font-family: $code-fonts;
 }
 
+// Style highlighted text (mark element) with custom colors
+mark {
+  color: $marked-text;
+  background-color: $marked-background;
+}
+
+// Style inserted text with custom underline color
+ins {
+  text-decoration: underline;
+  -webkit-text-decoration-color: $inserted-text-underline;
+  text-decoration-color: $inserted-text-underline;
+}
+
+// Style preformatted code blocks with syntax highlighting support
 pre {
-  padding: .7em 1.1em;
-  font-size: .9em;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  color: #eee;
-  background: $midnightblue;
+  padding: $pre-block-padding;
+  font-size: $pre-block-font-size;
+  line-height: $pre-block-line-height;
+  letter-spacing: $pre-block-letter-spacing;
+  white-space: $pre-block-white-space;
+  background: $pre-background;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-
+  
+  // Special background for Mermaid diagrams
+  &.mermaid {
+    background: $mermaid-background;
+  }
+  
+  // Style inline code within pre blocks
   code {
-    padding: 0;
-    margin: 0;
-    color: #eee;
-    background: transparent;
+    padding:0;
+    background: $pre-code-background;
   }
 }
 
+// Style inline code elements with rounded corners and spacing
 code {
-  color: hsl(0, 1%, 67%);
-  background: $dark-grey;
-  border-radius: 3px;
-  padding: 0 3px;
-  margin: 0 4px;
-  word-wrap: break-word;
-  letter-spacing: normal;
+  color: $code-color;
+  background: $code-background;
+  border-radius: $code-border-radius;
+  padding: $code-padding;
+  margin: $code-margin;
+  word-wrap: $code-word-wrap;
+  letter-spacing: $code-letter-spacing;
 }
 
+// Style blockquotes with left border and italic text
 blockquote {
-  border-left: .25em solid;
-  margin: 1em;
-  padding: 0 1em;
-  font-style: italic;
+  border-left: $blockquote-border-left;
+  margin: $blockquote-margin;
+  padding: $blockquote-padding;
+  font-style: $blockquote-font-style;
 
+  // Style citation elements within blockquotes
   cite {
-    font-weight: bold;
-    font-style: normal;
+    font-weight: $blockquote-cite-font-weight;
+    font-style: $blockquote-cite-font-style;
 
+    // Add em dash before citations
     &::before {
-      content: "—— ";
+      content: $blockquote-cite-before;
     }
   }
 }
 
+// ==========================================
+// LINK AND INTERACTIVE ELEMENT STYLING
+// ==========================================
+// Style all links with smooth color transitions and hover effects
 a {
-  color: $text;
-  text-decoration: none;
-  border: none;
-  transition-property: color;
-  transition-duration: .4s;
-  transition-timing-function: ease-out;
+  text-decoration: $link-text-decoration;
+  border: $link-border;
+  transition: $link-transition;
 
   &:hover {
-    color: #fff;
-    text-shadow: 0 0 1px #fff;
+    color: $a-hover;
+    text-shadow: $link-hover-text-shadow;
   }
 }
 
+// Style horizontal rule elements with dashed appearance
 hr {
-  opacity: .2;
-  border-width: 0 0 5px 0;
-  border-style: dashed;
-  background: transparent;
-  width: 50%;
-  margin: 1.8em auto;
+  opacity: $hr-opacity;
+  border-width: $hr-border-width;
+  border-style: $hr-border-style;
+  background: $hr-background;
+  width: $hr-width;
+  margin: $hr-margin;
 }
 
+// ==========================================
+// TABLE STYLING
+// ==========================================
+// Style data tables with consistent borders and spacing
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  empty-cells: show;
-  width: 100%;
-  max-width: 100%;
+  border-collapse: $table-border-collapse;
+  border-spacing: $table-border-spacing;
+  empty-cells: $table-empty-cells;
+  width: $table-width;
+  max-width: $table-max-width;
 
   th,
   td {
-    padding: 1.5%;
-    border: 1px solid;
+    padding: $table-th-td-padding;
+    border: $table-th-td-border;
   }
 
   th {
-    font-weight: 700;
-    vertical-align: bottom;
+    font-weight: $table-th-font-weight;
+    vertical-align: $table-th-vertical-align;
   }
 }
 
+// ==========================================
+// CODE COPY BUTTON FUNCTIONALITY
+// ==========================================
+// Container positioning for syntax highlighted code blocks
+.highlight {
+    position: relative;
+}
+
+// Ensure proper overflow handling for code blocks
+.highlight div,
+.highlight pre {
+  overflow-x: auto;
+  border-radius: $highlight-pre-border-radius;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Style the copy-to-clipboard button for code blocks
+.highlight-copy-btn {
+    position: $highlight-copy-btn-position;
+    bottom: $highlight-copy-btn-bottom;
+    right: $highlight-copy-btn-right;
+    border: $highlight-copy-btn-border;
+    border-radius: $highlight-copy-btn-border-radius;
+    padding: $highlight-copy-btn-padding;
+    font-size: $highlight-copy-btn-font-size;
+    line-height: $highlight-copy-btn-line-height;
+    color: $highlight-copy-btn;
+    background-color: $highlight-copy-btn-background;
+    opacity: $highlight-copy-btn-opacity;
+    min-width: $highlight-copy-btn-min-width;
+    text-align: $highlight-copy-btn-text-align;
+}
+
+// ==========================================
+// SITE HEADER AND NAVIGATION
+// ==========================================
+// Fixed bottom header with shadow and animation support
+#site-header {
+  position: $site-header-position;
+  z-index: $site-header-z-index;
+  bottom: $site-header-bottom;
+  width: $site-header-width;
+  box-sizing: $site-header-box-sizing;
+  box-shadow: $site-header-box-shadow;
+  background-color: $site-header-background;
+  animation-duration: $site-header-animation-duration;
+  animation-fill-mode: $site-header-animation-fill-mode;
+}
+
+// Header wrapper with flexbox layout for navigation elements
+.hdr-wrapper {
+  display: $hdr-wrapper-display;
+  justify-content: $hdr-wrapper-justify-content;
+  align-items: $hdr-wrapper-align-items;
+  padding: $hdr-wrapper-padding;
+  font-size: $hdr-wrapper-font-size;
+
+  // Site homepage title styling
+  .site-branding {
+    display: $site-branding-display;
+    margin-right: $site-branding-margin-right;
+    font-size: $site-branding-font-size;
+  }
+
+  // Main navigation menu styling
+  .site-nav {
+    display: $site-nav-display;
+    font-size: $site-nav-font-size;
+    opacity: $site-nav-opacity;
+
+    // Parent menu items with children indicators
+    .has-children {
+      padding-right: $site-nav-children-padding-right;
+      border-right: $site-nav-children-border-right;
+    }
+
+    // Sub-menu item spacing
+    .sub-menu > a{
+      margin-left: $site-nav-sub-menu-a-margin-left;
+    }
+
+    // General navigation link spacing
+    a {
+      margin-left: $site-nav-a-margin-left;
+    }
+  }
+}
+
+// Header icon container styling
+.hdr-icons {
+  font-size: $hdr-icons-font-size;
+}
+
+// Header link container for external links
+.hdr-links {
+  display: $hdr-links-display;
+  margin-left: $hdr-links-margin-left;
+
+  &>a {
+    margin-left: $hdr-links-a-margin-left;
+  }
+}
+
+// Base styling for header buttons
+.hdr-btn {
+  border: $hdr-btn-border;
+  background: $hdr-btn-background;
+  padding: $hdr-btn-padding;
+  margin-left: $hdr-btn-margin-left;
+  cursor: $hdr-btn-cursor;
+}
+
+// Mobile hamburger menu button (hidden by default)
+#menu-btn {
+  display: $menu-btn-display;
+  margin-left: $menu-btn-margin-left;
+  cursor: $menu-btn-cursor;
+}
+
+// Mobile dropdown menu overlay
+#mobile-menu {
+  position: $mobile-menu-position;
+  bottom: $mobile-menu-bottom;
+  right: $mobile-menu-right;
+  display: none;
+  padding: $mobile-menu-padding;
+  z-index: $mobile-menu-z-index;
+  border-radius: $mobile-menu-border-radius;
+  border: $mobile-menu-border $mobile-menu-border-color;
+  border-style: $mobile-menu-border-style;
+  box-sizing: $mobile-menu-box-sizing;
+  box-shadow: $mobile-menu-box-shadow;
+  background-color: $mobile-menu-background;
+
+  ul {
+    list-style: $mobile-menu-ul-list-style;
+    margin: $mobile-menu-ul-margin;
+    padding: $mobile-menu-ul-padding;
+    line-height: $mobile-menu-ul-line-height;
+    font-size: $mobile-menu-ul-font-size;
+  }
+}
+
+// ==========================================
+// SITE FOOTER
+// ==========================================
+// Simple centered footer with appropriate spacing
+#site-footer {
+  text-align: $site-footer-text-align;
+  font-size: $site-footer-font-size;
+  margin-bottom: $site-footer-margin-bottom;
+  margin-top: $site-footer-margin-top;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Hover state for the copy button
+.highlight-copy-btn:hover {
+    background-color: $highlight-copy-btn-hover;
+}
+
+// ==========================================
+// LAYOUT CONTAINER CLASSES
+// ==========================================
+// Main content container with responsive width and centering
 .section-inner {
   margin: 0 auto;
   max-width: 1200px;
   width: 93%;
 }
 
+// Narrow content container for better readability
 .thin {
   max-width: 720px;
   margin: auto;
 }
 
+// Icon styling for consistent feather icon display
 .feather {
   display: inline-block;
   vertical-align: -.125em;
@@ -160,189 +411,20 @@ table {
   height: 1em;
 }
 
+// Sub-menu text sizing
 .sub-menu {
-  font-size: .7em;
+  font-size: $sub-menu-font-size;
 }
 
+// Elements that are hidden on mobile and shown only on desktop
 .desktop-only, .desktop-only-ib {
   display: none;
 }
 
-// Code copy buttons
-//
-
-.highlight {
-    position: relative;
-}
-
-.highlight div,
-.highlight pre {
-  overflow-x: auto;
-  border-radius: 4px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.highlight-copy-btn {
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-    border: 0;
-    border-radius: 4px;
-    padding: 1px;
-    font-size: 0.7em;
-    line-height: 1.8;
-    color: #fff;
-    background-color: #777;
-    opacity: 0.6;
-    min-width: 55px;
-    text-align: center;
-}
-
-.highlight-copy-btn:hover {
-    background-color: #666;
-}
-
-// Accessibility
-//
-.screen-reader-text {
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important;
-}
-
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	clip-path: none;
-	color: #21759b;
-	display: block;
-	font-size: 0.875rem;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-}
-
-// Header & Footer
-//
-#site-header {
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
-  animation-duration: .3s;
-}
-
-.hdr-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .5em 0;
-  font-size: 1.2rem;
-
-  .site-branding {
-    display: inline-block;
-    margin-right: .8em;
-    font-size: 1.2em;
-  }
-
-  .site-nav {
-    display: inline-block;
-    font-size: 1.1em;
-    opacity: .8;
-
-    .has-children {
-      padding-right: .5em;
-      border-right: 2px solid $highlight-grey;
-    }
-
-    .sub-menu > a{
-      margin-left: .3em;
-    }
-
-    a {
-      margin-left: .8em;
-    }
-  }
-}
-
-.hdr-icons {
-  font-size: 1.2em;
-}
-
-.hdr-social {
-  display: inline-block;
-  margin-left: .6em;
-
-  &>a {
-    margin-left: .4em;
-  }
-}
-
-.hdr-btn {
-  border: none;
-  background: none;
-  padding: 0;
-  margin-left: .4em;
-  cursor: pointer;
-}
-
-#menu-btn {
-  display: none;
-  margin-left: .6em;
-  cursor: pointer;
-}
-
-#mobile-menu {
-  position: fixed;
-  bottom: 4.8em;
-  right: 4.5em;
-  display: none;
-  padding: .6em 1.8em;
-  z-index: 1;
-  box-sizing: border-box;
-  box-shadow: -1px -2px 3px 0px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 2;
-    font-size: 1.2em;
-  }
-}
-
-#site-footer {
-  text-align: center;
-  font-size: .9em;
-  margin-bottom: 96px;
-  margin-top: 64px;
-
-  p {
-    margin: 0;
-  }
-}
-
-// Spotlight
-//
+// ==========================================
+// SPOTLIGHT/HOMEPAGE LAYOUT
+// ==========================================
+// Full-height centered layout for homepage and error pages
 #spotlight {
   display: flex;
   min-height: 100vh;
@@ -351,30 +433,33 @@ table {
   justify-content: center;
   max-width: 93%;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: $spotlight-font-size;
 
+  // Special layout for 404 error pages
   &.error-404 {
     flex-direction: row;
     line-height: normal;
   }
 }
 
+// 404 error page illustration container
 p.img-404 {
   margin: 0;
 
   svg {
-    width: 180px;
+    width: $img-404-svg-width;
     max-width: 100%;
     height: auto;
   }
 }
 
+// 404 error page content and action buttons
 .banner-404 {
   margin-left: 2em;
 
   h1 {
-    font-size: 3em;
-    margin: .5rem 0;
+    font-size: $banner-404-h1-font-size;
+    margin: $banner-404-h1-margin;
   }
 
   p {
@@ -382,13 +467,13 @@ p.img-404 {
   }
 
   .btn-404 {
-    font-size: .8em;
+    font-size: $banner-404-btn-font-size;
 
     a {
       display: inline-block;
-      border: 2px solid $text;
-      border-radius: 5px;
-      padding: 5px;
+      border: 2px solid $btn-404-a-border;
+      border-radius: $banner-404-btn-border-radius;
+      padding: $banner-404-btn-padding;
       transition-property: color, border-color;
 
       &:first-child {
@@ -396,7 +481,7 @@ p.img-404 {
       }
 
       &:hover {
-        border-color: #fff;
+        border-color: $btn-404-a-hover;
       }
 
       svg {
@@ -406,6 +491,7 @@ p.img-404 {
   }
 }
 
+// Homepage central content container
 #home-center {
   display: flex;
   flex-grow: 1;
@@ -413,33 +499,26 @@ p.img-404 {
   justify-content: center;
 }
 
+// Homepage main title styling
 #home-title {
   margin: 0;
   text-align: center;
 }
 
-#home-subtitle {
-  margin-top: 0;
-  margin-bottom: 1.5em;
+// Homepage social/external links
+#home-links {
+  font-size: $home-links-font-size;
   text-align: center;
-  line-height: normal;
-  font-size: .7em;
-  font-style: italic;
-  opacity: .9;
-}
-
-#home-social {
-  font-size: 1.4em;
-  text-align: center;
-  opacity: .8;
+  opacity: $home-links-opacity;
 
   a {
     margin: 0 .2em;
   }
 }
 
+// Homepage internal navigation links
 #home-nav {
-  opacity: .8;
+  opacity: $home-nav-opacity;
 
   a {
     display: block;
@@ -448,9 +527,12 @@ p.img-404 {
   }
 }
 
+// Homepage footer content
 #home-footer {
   text-align: center;
-  font-size: .6em;
+  font-size: $home-footer-font-size;
+  white-space: nowrap;
+  overflow: hidden;
   line-height: normal;
   @include dimmed;
 
@@ -459,17 +541,20 @@ p.img-404 {
   }
 }
 
-// list.html
-//
+// ==========================================
+// BLOG POST LISTING PAGE (list.html)
+// ==========================================
+// Yearly post grouping container with flexible layout
 .posts-group {
   display: flex;
-  margin-bottom: 1.9em;
+  margin-bottom: $posts-group-margin-bottom;
   line-height: normal;
 
+  // Year header for post groupings
   .post-year {
-    padding-top: 6px;
-    margin-right: 1.8em;
-    font-size: 1.6em;
+    padding-top: $post-year-padding-top;
+    margin-right: $post-year-margin-right;
+    font-size: $post-year-font-size;
     @include dimmed;
 
     &:hover {
@@ -477,6 +562,7 @@ p.img-404 {
     }
   }
 
+  // List of posts within each year group
   .posts-list {
     flex-grow: 1;
     margin: 0;
@@ -484,34 +570,63 @@ p.img-404 {
     list-style: none;
   }
 
+  // Individual post item styling with divider
   .post-item {
-    border-bottom: 1px $highlight-grey dashed;
+    border-bottom: $post-item-border-width $post-item-border-bottom $post-item-border-style;
 
     a {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 12px 0;
+      padding: 10px 0;
     }
   }
 
+  // Post publication date display
   .post-day {
     flex-shrink: 0;
-    margin-left: 1em;
+    margin-left: $post-day-margin-left;
     @include dimmed;
   }
+
+  // Post taxonomy (tags and categories) styling
+  .post-tags,
+  .post-categories {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    font-size: xx-small;
+    @include dimmed;
+
+    a {
+      margin-right: $post-tag-margin-right;
+    }
+  }
+  
+  .post-tags {
+    padding-right: $post-tags-padding-right;
+  }
+
+  // Post excerpt/description styling
   .post-description {
     font-size:x-small;
-    flex-shrink: 0;
     @include dimmed;
+  }
+  
+  // Container for post metadata (tags, categories)
+  .post-taxonomy {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
   }
 }
 
+// Special styling for pinned/featured posts
 .pinned-posts-group {
   display: flex;
-  margin-bottom: 1.9em;
+  margin-bottom: $posts-group-margin-bottom;
   line-height: normal;
-  border-bottom: 2px $highlight-grey solid;
+  border-bottom: 2px $pinned-posts-group-border-bottom solid;
 
   .pinned-posts-list {
     flex-grow: 1;
@@ -524,16 +639,18 @@ p.img-404 {
     display: flex;
     justify-content: start;
     align-items: baseline;
-    padding: 12px 0;
+    padding: $pinned-post-item-padding;
 
     a {
-      padding-left: 12px;
+      padding-left: $pinned-post-item-a-padding-left;
     }
   }
 }
 
-// single.html
-//
+// ==========================================
+// SINGLE POST PAGE STYLING (single.html)
+// ==========================================
+// Full-screen background image overlay functionality
 .bg-img {
   width: 100vw;
   height: 100vh;
@@ -548,36 +665,74 @@ p.img-404 {
   transition: opacity .5s;
 }
 
+// Active state for background image overlay
 .show-bg-img {
   z-index: 100;
   opacity: 1;
   cursor: pointer;
 }
 
+// Copyright notice overlay for featured background images
+.bg-img-copyright {
+  position: fixed;                                // Positioned relative to the viewport
+  bottom: $bg-img-copyright-bottom;              // Adjust padding from the bottom as needed
+  left: 0;
+  right: 0;                                       // Stretches across the full width
+  padding: $bg-img-copyright-padding;            // Vertical and horizontal padding
+  color: $featured-image-text;                    // Light text color, suitable for overlays
+  background-color: $featured-image-background;  // Semi-transparent dark background for readability
+  font-size: $bg-img-copyright-font-size;        // Smaller font size for copyright text
+  text-align: center;
+  z-index: 100;                                   // z-index should be high enough to be visible with the shown background.
+  
+  // Initially hidden: opacity for fade, visibility to remove from layout/interaction
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; // Prevent any interaction when hidden
+
+  // Transition opacity smoothly. Visibility changes will be immediate.
+  transition: opacity 0.5s ease;
+
+  @include aTag;
+}
+
+// Show copyright when background image is active
+.bg-img.show-bg-img + .bg-img-copyright {
+  opacity: 1;
+  visibility: visible; // Make it visible
+  pointer-events: auto; // Allow interaction
+}
+
+// Post header section with title and metadata
 .post-header {
-  margin-top: 1.2em;
+  margin-top: $post-header-margin-top;
   line-height: normal;
 
-  .post-meta {
-    font-size: .9em;
+  .post-date {
+    font-size: $post-header-date-font-size;
     letter-spacing: normal;
     @include dimmed;
   }
 
   h1 {
-    margin-top: .1em;
+    margin-top: $post-header-h1-margin-top;
   }
 }
 
+// Decorative horizontal rule at post end
 hr.post-end {
-  width: 50%;
-  margin-top: 1.6em;
-  margin-bottom: .8em;
+  width: $post-end-hr-width;
+  margin-top: $post-end-hr-margin-top;
+  margin-bottom: $post-end-hr-margin-bottom;
   margin-left: 0;
-  border-style: solid;
-  border-bottom-width: 4px;
+  border-style: $post-end-hr-border-style;
+  border-bottom-width: $post-end-hr-border-bottom-width;
 }
 
+// ==========================================
+// MAIN CONTENT AREA STYLING
+// ==========================================
+// Primary post content container with optional text justification
 .content {
   {{- with .Site.Params.justifyContent }}
   text-align: justify;
@@ -586,73 +741,84 @@ hr.post-end {
 
   @include aTag;
 
+  // Figure and image handling with various alignment options
   figure {
     max-width: 100%;
     height: auto;
     margin: 0;
     text-align: center;
 
+    // Figure captions styling
     p {
-      font-size: .8em;
+      font-size: $content-figure-caption-font-size;
       font-style: italic;
       @include dimmed;
     }
   }
 
+  // Left-aligned figures for text wrapping
   figure.left {
     float: left;
     margin-right: 1.5em;
     max-width: 50%;
   }
 
+  // Right-aligned figures for text wrapping
   figure.right {
     float: right;
     margin-left: 1.5em;
     max-width: 50%;
   }
 
+  // Full-width figures that extend beyond content bounds
   figure.big {
     max-width: 100vw;
   }
 
+  // Responsive image styling with rounded corners
   img {
     display: block;
     max-width: 100%;
     height: auto;
     margin: auto;
-    border-radius: 4px;
+    border-radius: $content-img-border-radius;
   }
 
+  // List styling with consistent indentation
   ul,
   ol {
     padding: 0;
-    margin-left: 1.8em;
+    margin-left: $content-list-margin-left;
   }
 
+  // Heading anchor links for deep linking to sections
   a.anchor {
     float: left;
-    margin-left: -20px;
-    padding-right: 6px;
+    margin-left: $content-anchor-margin-left;
+    padding-right: $content-anchor-padding-right;
     box-shadow: none;
-    opacity: .8;
+    opacity: $content-anchor-opacity;
+    
     &:hover {
       background: none;
-      color: $theme;
+      color: $content-anchor-hover;
       opacity: 1;
     }
 
     svg {
       display: inline-block;
       width: 14px;
-      height: 14px;
+      height: auto;
       vertical-align: baseline;
       visibility: hidden;
     }
+    
     &:focus svg {
       visibility: visible;
     }
   }
 
+  // Show anchor links on heading hover for better UX
   h1:hover a.anchor svg,
   h2:hover a.anchor svg,
   h3:hover a.anchor svg,
@@ -663,8 +829,12 @@ hr.post-end {
   }
 }
 
+// ==========================================
+// FOOTNOTES STYLING
+// ==========================================
+// Footnotes section with smaller text and specialized link handling
 .footnotes {
-  font-size: .85em;
+  font-size: $footnotes-font-size;
 
   a {
     box-shadow: none;
@@ -681,100 +851,126 @@ hr.post-end {
   }
 
   ol {
-    line-height: 1.8;
+    line-height: $footnotes-ol-line-height;
   }
 }
 
+// Inline footnote reference links with background highlighting
 a.footnote-ref {
   box-shadow: none;
   text-decoration: none;
-  padding: 2px;
-  border-radius: 2px;
-  background-color: $midnightblue;
+  padding: $footnote-ref-padding;
+  border-radius: $footnote-ref-border-radius;
+  background-color: $footnote-ref-background;
 
   &:hover{
     box-shadow: none;
-    background-color: $theme;
+    background-color: $footnote-ref-hover-background;
     transition-property: background-color;
   }
 }
 
-.post-info {
-  font-size: .8rem;
+// ==========================================
+// TAXONOMY (TAGS AND CATEGORIES) STYLING
+// ==========================================
+// Tag styling with customizable prefix symbol
+.tag {
+  text-transform: lowercase;
+  &::before {
+    {{- with .Site.Params.tagSymbol | default "#" -}}content: "{{ . }}"{{- end -}}
+  }
+}
+
+// Category styling with customizable prefix symbol
+.category {
+  &::before {
+    {{- with .Site.Params.categorySymbol | default "⊲" -}}content: "{{ . }}"{{- end -}}
+  }
+}
+
+// Post metadata and taxonomy display
+.post-description {
+  font-size: $post-description-font-size;
   line-height: normal;
   @include dimmed;
 
   p {
-    margin: .8em 0;
+    margin: $post-description-p-margin;
   }
 
   a:hover {
-    border-bottom: 1px solid $theme;
+    border-bottom: 1px solid $post-description-a-hover-border-bottom;
   }
 
   svg {
-    margin-right: .8em;
+    margin-right: $post-description-svg-margin-right;
   }
 
-  .tag {
-    margin-right: .5em;
-
-    &::before {
-      {{- with .Site.Params.tagSymbol | default "#" -}}content: "{{ . }}"{{- end -}}
-    }
-  }
+  .tag, 
   .category {
-    margin-right: .5em;
-
-    &::before {
-      {{- with .Site.Params.categorySymbol | default "⊲" -}}content: "{{ . }}"{{- end -}}
-    }
+    margin-right: $post-description-tag-margin-right;
   }
 }
 
+// ==========================================
+// TABLE OF CONTENTS (TOC) FUNCTIONALITY
+// ==========================================
+// Fixed-position table of contents for long articles
 #toc {
   position: fixed;
   left: 50%;
   top: 0;
   display: none;
+  background-color: $tableofcontents-background;
 }
 
+// Table of contents title styling
 .toc-title {
-  margin-left: 1em;
-  margin-bottom: .5em;
-  font-size: .8em;
+  margin-left: $toc-title-margin-left;
+  margin-bottom: $toc-title-margin-bottom;
+  font-size: $toc-title-font-size;
   font-weight: bold;
 }
 
+// Main table of contents container with custom scrollbar
 #TableOfContents {
-  font-size: .8em;
+  font-size: $toc-content-font-size;
   @include dimmed;
+  scroll-target-group: auto;
 
   ul {
-    padding-left: 1em;
+    padding: 0 1em;
     margin: 0;
+  }
+
+  &>::-webkit-scrollbar { width: 4px; }
+  &>::-webkit-scrollbar-track { background: $tableofcontents-scrollbar-track; }
+  &>::-webkit-scrollbar-thumb {
+    background: $tableofcontents-scrollbar-thumb;
+    &:hover { background: $tableofcontents-scrollbar-thumb-hover; }
   }
 
   &>ul {
     list-style-type: none;
-
-    ul ul {
-      font-size: .9em;
-    }
+    overflow-y: auto;
+    height: calc(100vh - 300px);
+    ul ul { font-size: $toc-content-nested-font-size; }
   }
 
-  a:hover {
-    border-bottom: $theme 1px solid;
-  }
+  a:hover, :target-current { border-bottom: $tableofcontents-a-hover-border-bottom 1px solid; }
 }
 
 
+// ==========================================
+// POST NAVIGATION (PREV/NEXT LINKS)
+// ==========================================
+// Navigation between consecutive blog posts
 .post-nav {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5em;
-  margin-bottom: 2.5em;
-  font-size: 1.2em;
+  margin-top: $post-nav-margin-top;
+  margin-bottom: $post-nav-margin-bottom;
+  font-size: $post-nav-font-size;
 
   a {
     flex-basis: 50%;
@@ -785,18 +981,22 @@ a.footnote-ref {
   .prev-post {text-align: right; padding-left: 5px;}
 
   .post-nav-label {
-    font-size: .8em;
-    opacity: .8;
+    font-size: $post-nav-label-font-size;
+    opacity: $post-nav-label-opacity;
     text-transform: uppercase;
   }
 }
 
+// ==========================================
+// RELATED POSTS SECTION
+// ==========================================
+// Suggested related posts at the end of articles
 .related-posts {
-  padding: .8em;
-  margin-top: 1.5em;
-  font-size: .8rem;
-  border: 3px dashed rgba(255, 255, 255, .2);
-  border-radius: 5px;
+  padding: $related-posts-padding;
+  margin-top: $related-posts-margin-top;
+  font-size: $related-posts-font-size;
+  border: $related-posts-border;
+  border-radius: $related-posts-border-radius;
 
   h2{
     margin: 0;
@@ -804,113 +1004,127 @@ a.footnote-ref {
   }
 
   ul {
-    margin-top: .5em;
+    margin-top: $related-posts-ul-margin-top;
     margin-bottom: 0;
   }
 }
 
+// Positioning of brainmade label at the end of articles
+.human{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $human-margin-top;
+}
 
-// Media Queries
-//
-@media (min-width: 800px) {
-  .site-main {
-    margin-top: 3em;
+// ==========================================
+// TYPEWRITER ANIMATION EFFECT SYSTEM
+// ==========================================
+#typewriter-container {
+  width: 100%;
+  max-width: $width-desktop; 
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
+#home-subtitle {
+  margin: 0;
+  line-height: $home-subtitle-line-height;
+  font-size: $home-subtitle-font-size;
+  font-style: italic;
+  opacity: $home-subtitle-opacity;
+  display: inline-block;               // make container block-level for predictable centering
+  text-align: center;
+  position: relative;
+  max-width: $home-subtitle-max-width;              // keep readable measure similar to desktop
+  margin-left: auto;
+  margin-right: auto;
+
+  /* reliable wrapping rules */
+  white-space: pre-wrap;        // preserve multiple spaces but allow wrapping
+  overflow-wrap: anywhere;      // breaks long words if needed
+  hyphens: auto;
+}
+
+
+// 2. ANIMATION LOGIC (Conditional)
+// Only applied if homeSubtitlePrinter is set to true in config
+{{- if .Site.Params.homeSubtitlePrinter -}}
+// Enhanced typewriter animation functionality when printer feature is enabled
+#home-subtitle {
+  .char {
+    opacity: 0;
+    transition: none;
+    position: relative;    // required for cursor pseudo-element anchoring
+
+    /* Allow wrapping while preserving multiple spaces */
+    white-space: pre-wrap;
+    display: inline;       // let chars flow inline and wrap naturally
+  }
+}
+
+
+// STATE 1: READY (Waiting to start)
+#home-subtitle.ready .char:first-child {
+  opacity: 1;
+  color: transparent; 
+}
+#home-subtitle.ready .char:first-child::after {
+  @include cursor-block;
+  left: 0;            // Sits ON the first hidden character
+  animation: blink 1s infinite;
+}
+
+// STATE 2: TYPING (Active)
+// Cursor is anchored to the RIGHT of the current character
+.char.cursor-active::after {
+  @include cursor-block;
+  left: 100%;         // Jumps to the right of the visible char
+  animation: none;    // Solid while typing
+}
+
+// STATE 3: IDLE (Finished)
+// Cursor remains on the right of the last character
+.char.cursor-idle::after {
+  @include cursor-block;
+  left: 100%;
+  animation: blink 1s infinite;
+}
+
+// Blink Animation
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+{{- end -}}
+
+// ==========================================
+// RESPONSIVE DESIGN MEDIA QUERIES
+// ==========================================
+// Progressive enhancement for different screen sizes and devices
+
+// Extra Small Mobile Devices - Phones in portrait mode (up to 520px)
+@media (max-width: 520px) {
+
+  .content figure.left,
+  .content figure.right {
+    float: unset;
+    max-width: 100%;
+    margin: 0;
   }
 
   hr.post-end {
-    width: 40%;
+    width: 60%;
+  }
+
+  #mobile-menu {
+    right: 4.2em;
   }
 }
 
-@media (min-width: 960px) {
-  .site-main {
-    margin-top: 6em;
-  }
-}
-
-@media (min-width: 1300px) {
-  .site-main {
-    margin-top: 8em;
-  }
-
-  .desktop-only,
-  #toc.show-toc {
-    display: block;
-  }
-
-  .desktop-only-ib {
-    display: inline-block;
-  }
-
-  figure.left {
-    margin-left: -240px;
-    p {
-      text-align: left;
-    }
-  }
-
-  figure.right {
-    margin-right: -240px;
-    p {
-      text-align: right;
-    }
-  }
-
-  figure.big {
-    width: 1200px;
-    margin-left: -240px;
-  }
-
-  hr.post-end {
-    width: 30%;
-  }
-
-  #toc {
-    top: 13em;
-    margin-left: 370px;
-    max-width: 220px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .site-main {
-    margin-top: 10em;
-  }
-
-  .section-inner {
-    max-width: 1600px;
-  }
-
-  .thin {
-    max-width: 960px;
-  }
-
-  figure.left {
-    max-width: 75%;
-    margin-left: -320px;
-  }
-
-  figure.right {
-    max-width: 75%;
-    margin-right: -320px;
-  }
-
-  figure.big {
-    width: 1600px;
-    margin-left: -320px;
-  }
-
-  hr.post-end {
-    width: 30%;
-  }
-
-  #toc {
-    top: 15em;
-    margin-left: 490px;
-    max-width: 300px;
-  }
-}
-
+// Small Mobile Devices - Phones and small tablets (up to 760px)
 @media (max-width: 760px) {
 
   .hide-in-mobile,
@@ -938,49 +1152,167 @@ a.footnote-ref {
       margin: 0;
     }
   }
+
+  #home-subtitle {
+    font-size: .7rem;
+  }
+
+  // Mobile-specific typewriter container sizing
+  #typewriter-container {
+    width: $width-mobile;
+    font-size: $font-size-mobile;
+        width: 90vw;
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Remove artificial height limits */
+  #home-subtitle {
+    min-height: auto !important;
+    width: 100%;
+    max-width: 100%;
+        white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+
+  /* CRITICAL: stop per-character whitespace preservation */
+  #home-subtitle .char {
+    white-space: normal;
+  }
+
+  .content a.anchor {
+    float: inherit;
+    margin-left: 10px;
+  }
 }
 
-@media (max-width: 520px) {
+// Above Mobile - Desktop and tablet devices (761px and up)
+@media (min-width: 761px) {
+  #mobile-menu {
+    display: none !important;
+  }
+}
 
-  .content figure.left,
-  .content figure.right {
-    float: unset;
-    max-width: 100%;
-    margin: 0;
+// Medium Tablet Devices - iPads and similar (768px to 1023px)
+@media (min-width: 768px) and (max-width: 1023px) {
+  #typewriter-container {
+    width: $width-tablet;
+  }
+}
+
+// Small Desktop - Laptops and smaller desktops (800px and up)
+@media (min-width: 800px) {
+  .site-main {
+    margin-top: 3em;
   }
 
   hr.post-end {
-    width: 60%;
-  }
-
-  #mobile-menu {
-    right: 4.2em;
-  }
-  #home-subtitle {
-    font-size: 0.5em;
+    width: 40%;
   }
 }
 
-// If homeSubtitlePrinter is true
-{{ if .Site.Params.homeSubtitlePrinter }}
-  #home-subtitle{
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .5em solid $typewriter; /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto 1.5em auto; /* Gives that scrolling effect as the typing happens */
-    // letter-spacing: .100em; /* Adjust as needed */
-    animation: typing 5s steps({{ strings.RuneCount .Site.Params.homeSubtitle }}, end),blink-caret .75s linear 5.1s infinite;
+// Medium Desktop - Standard desktop screens (960px and up)
+@media (min-width: 960px) {
+  .site-main {
+    margin-top: 6em;
+  }
+}
+
+// Large Desktop - Wide desktop monitors (1300px and up)
+@media (min-width: 1300px) {
+  .site-main {
+    margin-top: 8em;
   }
 
-  /* The typing effect */
-  @keyframes typing {
-    from {max-width: 0;}
-    to {max-width: 100%;}
+  // Show desktop-only elements and table of contents
+  .desktop-only,
+  #toc.show-toc {
+    display: block;
   }
 
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: $typewriter}
+  .desktop-only-ib {
+    display: inline-block;
   }
-{{ end }}
+
+  // Extended figure positioning for wide screens
+  figure.left {
+    margin-left: -240px;
+    p {
+      text-align: left;
+    }
+  }
+
+  figure.right {
+    margin-right: -240px;
+    p {
+      text-align: right;
+    }
+  }
+
+  figure.big {
+    width: 1200px;
+    margin-left: -240px;
+  }
+
+  hr.post-end {
+    width: 30%;
+  }
+
+  // Position table of contents in sidebar area
+  #toc {
+    top: 13em;
+    margin-left: 370px;
+    max-width: 220px;
+  }
+}
+
+// Extra Large Desktop - Ultra-wide monitors (1800px and up)
+@media (min-width: 1800px) {
+  .site-main {
+    margin-top: 10em;
+  }
+
+  // Expanded content container for ultra-wide screens
+  .section-inner {
+    max-width: 1600px;
+  }
+
+  .thin {
+    max-width: 960px;
+  }
+
+  // Further extended figure positioning for ultra-wide displays
+  figure.left {
+    max-width: 75%;
+    margin-left: -320px;
+  }
+
+  figure.right {
+    max-width: 75%;
+    margin-right: -320px;
+  }
+
+  figure.big {
+    width: 1600px;
+    margin-left: -320px;
+  }
+
+  hr.post-end {
+    width: 30%;
+  }
+
+  // Adjusted table of contents positioning for ultra-wide layouts
+  #toc {
+    top: 15em;
+    margin-left: 490px;
+    max-width: 300px;
+  }
+}
+
+// ==========================================
+// USER CUSTOMIZATION OVERRIDE
+// ==========================================
+// Import user-specific custom styles if they exist - these will override all built-in styles
+{{ with resources.Get "scss/_userstyles.scss" }}@import "userstyles";{{ end }}

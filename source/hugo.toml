@@ -1,62 +1,64 @@
 baseURL = "https://panoskarabelas.com/"
-languageCode = "en-us"
+locale = "en-US"
 defaultContentLanguage = "en"
 theme = "hermit-v2"
-
 title = "Panos Karabelas"
-pygmentsCodefences  = true
-pygmentsUseClasses  = true
+
+pygmentsCodefences = true
+pygmentsUseClasses = true
 rssLimit = 10
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 enableEmoji = true
-
-[params.author]
-  name = "Panos Karabelas"
-  about = "Following the voice of the universe"
-
-[blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
+enableRobotsTXT = true
 
 [taxonomies]
   tag = "tags"
-  # category = "categories" # Uncomment if you wish to use categories
+
+[params.author]
+  name = "Panos Karabelas"
+  about = "about"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
   themeColor = "#494f5c"
+  accentColor = "#018472"
   homeSubtitle = "Following the voice of the universe"
-  bgImg = "/images/wallpaper.jpg" # Local path if hosted
+  footerCopyright = "Following the voice of the universe"
+  bgImg = "/images/wallpaper.jpg"
   justifyContent = false
-  relatedPosts = false
   code_copy_button = true
-  # textColor = "#ffffff" # Uncomment if needed for contrast
+  homeSubtitlePrinter = true
+  scrollToTop = true
+  shareSocial = true
 
-[services.googleAnalytics]
-  id = "UA-171661183-1"
+  [params.pages]
+    relatedPosts = false
+    readTimeSeparator = " · reading time: "
+
+  [params.dateform]
+    CopyrightDate = "2006"
+    LongDate = "Jan 2, 2006"
+    ShortDate = "Jan 2"
+    NumDateShort = "2006-01-02"
+    NumDateLong = "2006-01-02 15:04 -0700"
+
+  [[params.socialLinks]]
+    name = "x"
+    url = "https://twitter.com/panoskarabelas"
+
+  [[params.socialLinks]]
+    name = "github"
+    url = "https://github.com/PanosK92/SpartanEngine"
+
+  [[params.socialLinks]]
+    name = "youtube"
+    url = "https://www.youtube.com/@panos_karabelas"
+
+  [[params.socialLinks]]
+    name = "email"
+    url = "mailto:panosconroe@hotmail.com"
 
 [services.disqus]
-  shortname = "panoskarabelas" # Update with your actual Disqus shortname
-
-[[params.socialLinks]]
-  name = "twitter"
-  url = "https://twitter.com/panoskarabelas"
-
-[[params.socialLinks]]
-  name = "github"
-  url = "https://github.com/PanosK92/SpartanEngine"
-
-[[params.socialLinks]]
-  name = "youtube"
-  url = "https://www.youtube.com/@panos_karabelas"
-
-[[params.socialLinks]]
-  name = "email"
-  url = "mailto:panosconroe@hotmail.com"
+  shortname = "panoskarabelas"
 
 [menu]
 
@@ -85,7 +87,7 @@ enableEmoji = true
   url = "about/"
   weight = 50
 
-  [[menu.main]]
+[[menu.main]]
   name = "CV"
   url = "/media/cv.html"
   weight = 60

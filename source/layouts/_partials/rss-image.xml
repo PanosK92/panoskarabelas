@@ -1,0 +1,38 @@
+{{/* Generates RSS enclosure/media tags for a post's image.
+     Local rooted paths (/media/...) stay as site URLs.
+     No GetRemote, avoids publishing hashed remote copies into the site root. */}}
+{{- with $path := .path -}}
+
+  {{- $isRemote := or (strings.HasPrefix $path "http://") (strings.HasPrefix $path "https://") -}}
+  {{- $isRooted := strings.HasPrefix $path "/" -}}
+
+  {{- $url := "" -}}
+  {{- $type := "image/jpeg" -}}
+
+  {{- if $isRemote -}}
+    {{- $url = $path -}}
+  {{- else if $isRooted -}}
+    {{- $url = $path | absURL -}}
+    {{- if strings.HasSuffix $path ".png" -}}
+      {{- $type = "image/png" -}}
+    {{- else if strings.HasSuffix $path ".svg" -}}
+      {{- $type = "image/svg+xml" -}}
+    {{- else if strings.HasSuffix $path ".webp" -}}
+      {{- $type = "image/webp" -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with resources.Get $path -}}
+      {{- $url = .RelPermalink | absURL -}}
+      {{- $type = .MediaType.Type -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- with $url -}}
+<enclosure url="{{ . }}" length="" type="{{ $type }}" />
+<media:thumbnail url="{{ . }}" />
+<media:content url="{{ . }}" medium="image" type="{{ $type }}">
+    <media:title type="html">{{ $path }}</media:title>
+</media:content>
+  {{- end -}}
+
+{{- end -}}

@@ -1,0 +1,332 @@
+// assets/scss/_gallery.scss
+//
+// Styles for the image gallery shortcode and its lightbox.
+//
+// Expected SCSS variables (set before @import in your theme):
+//   $thumbnail                         — grid cell size, e.g. 300px
+//   $gallery-item-box-shadow           — shadow on figure cells
+//   $gallery-item-hover-box-shadow     — shadow on figure cells (hover)
+//   $gallery-item-caption-background   — overlay caption background (rgba)
+//   $gallery-item-caption-color        — overlay caption text colour
+//   $lightbox-overlay-background       — lightbox backdrop colour (rgba)
+//   $lightbox-image-box-shadow         — shadow on the enlarged lightbox image
+//   $lightbox-caption-color            — lightbox caption text colour
+//   $lightbox-close-nav-color          — close / nav button colour
+//   $lightbox-close-color-hover        — close button colour on hover
+//   $lightbox-nav-background-color     — nav button background (rgba)
+//   $lightbox-nav-background-color-hover — nav button background on hover
+
+
+// ---------------------------------------------------------------------------
+// Shared figure styles (apply to both grid and masonry)
+// ---------------------------------------------------------------------------
+
+.image-gallery {
+    // Shared gap and padding regardless of layout variant.
+    gap: 10px;
+    padding: 10px 0;
+
+    figure {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        margin: 0; // Reset browser default figure margin.
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:not(.figure--no-shadow) {
+            box-shadow: $gallery-item-box-shadow;
+        }
+
+        &:hover {
+            transform: scale(1.03);
+            &:not(.figure--no-shadow) {
+                box-shadow: $gallery-item-hover-box-shadow;
+            }
+            figcaption {
+                opacity: 1;
+                transform: translateY(0); // Slide into view on hover.
+            }
+        }
+
+        // Anchor wrapping the image (present when figure's `link` param is set).
+        // Must fill the figure so the whole cell is clickable.
+        > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        // <picture> element (used for local asset resources).
+        picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;       // Crop to fill; maintains aspect ratio.
+            object-position: center;
+        }
+
+        // Caption overlaid at the bottom of the figure cell.
+        // Visible only on hover via the parent :hover rule above.
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: $gallery-item-caption-background;
+            color: $gallery-item-caption-color;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9em;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(100%); // Start off-screen below the cell.
+            transition: opacity 0.3s ease, transform 0.3s ease;
+
+            // The figure shortcode may render an h4 title + p caption.
+            // Suppress the h4 inside gallery thumbnails — too noisy at small size.
+            h4 { display: none; }
+            p  { margin: 0; }
+        }
+
+        // No-JS hover overlay: covers the figure with a warning message.
+        // Shown by default; gallery.js sets [data-js] on the .image-gallery
+        // container once it runs, which suppresses this via the rule below.
+        &::after {
+            content: '\26A0\FE0F  Lightbox requires JavaScript'; // ⚠️
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $gallery-item-caption-background;
+            color: $gallery-item-caption-color;
+            font-size: 0.85em;
+            text-align: center;
+            padding: 1em;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none; // Do not block mouse events on the figure itself.
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+
+    // Suppress the no-JS overlay once gallery.js has confirmed JS is active.
+    &[data-js] figure::after {
+        display: none;
+    }
+}
+
+
+// ---------------------------------------------------------------------------
+// Grid layout  (.image-gallery--grid)
+// Fixed square cells; images are cropped to fill each cell uniformly.
+//
+// Uses flexbox (not CSS Grid) because `justify-content: center` on a flex
+// container applies per-row when wrapping — so a partial last row (1 or 2
+// leftover images) is centred independently. CSS Grid's justify-content
+// centres the entire column track group as a single unit, which leaves
+// leftover items pinned to the leftmost column rather than centred.
+// ---------------------------------------------------------------------------
+
+.content .image-gallery--grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; // Centres each row independently — last row always centred.
+
+    figure {
+        width: $thumbnail;
+        height: $thumbnail !important;   // Fixed square size.
+        flex: 0 0 $thumbnail; // No grow, no shrink — cells never distort.
+
+        > a,
+        picture {
+            height: 100%;
+        }
+
+        img {
+            height: 100%; // Must be 100% so object-fit: cover fills the square.
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------
+// Masonry layout  (.image-gallery--masonry)
+// Images retain their natural aspect ratios; columns are packed tightly.
+//
+// Uses native CSS Grid masonry where supported (Chrome 135+, Safari TP,
+// Firefox behind a flag). Falls back to CSS columns for wider compatibility.
+// ---------------------------------------------------------------------------
+
+.image-gallery--masonry {
+
+    // --- Native masonry (CSS Grid level 3) ---
+    @supports (grid-template-rows: masonry) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax($thumbnail, 1fr)); // auto-fit collapses empty tracks.
+        grid-template-rows: masonry;
+        align-tracks: start;
+        justify-content: center; // Centre column group when fewer images than columns.
+
+        figure {
+            width: 100%;
+
+            > a,
+            picture {
+                height: auto;
+            }
+
+            img {
+                height: auto; // Natural height — masonry relies on varying heights.
+            }
+        }
+    }
+
+    // --- Flexbox fallback (browsers without native masonry support) ---
+    // CSS columns cannot be centred or stretched via justify-content, so we
+    // use flex-wrap instead. Items align to the top (masonry-like stagger),
+    // justify-content: center handles sparse rows, and wrapping fills the
+    // container when there are enough images.
+    @supports not (grid-template-rows: masonry) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; // Centre items when a row is not full.
+        align-items: flex-start; // Align to top — preserves variable heights.
+
+        figure {
+            width: $thumbnail;
+            flex: 0 0 auto;
+            display: inline-block;
+
+            > a,
+            picture {
+                height: auto;
+            }
+
+            img {
+                height: auto;
+            }
+        }
+    }
+
+    // Per-item alignment overrides — declared outside both @supports blocks so
+    // they apply in every browser (flexbox fallback AND native CSS Grid masonry).
+    // Note: in native masonry each cell is sized to its own content, so
+    // align-self has no visible effect there — but it is harmless to include.
+    figure {
+        &.align-top    { align-self: flex-start; }
+        &.align-center { align-self: center; }
+        &.align-bottom { align-self: flex-end; }
+    }
+}
+
+
+// ---------------------------------------------------------------------------
+// Lightbox
+// ---------------------------------------------------------------------------
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0; // Shorthand for top/right/bottom/left: 0.
+    background-color: $lightbox-overlay-background;
+    display: none;         // Hidden by default; JS adds .active to show.
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    // Content box: holds the enlarged image and its caption.
+    .lightbox-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.9); // Pop-in effect — scales to 1 when active.
+        transition: transform 0.3s ease-in-out;
+
+        img {
+            display: block;
+            object-fit: contain; // Show the full image; letterbox if needed.
+            border-radius: 4px;
+            box-shadow: $lightbox-image-box-shadow;
+            flex-shrink: 1;
+            min-height: 0;   // Prevents flex overflow in some browsers.
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .lightbox-title {
+            color: $lightbox-caption-color;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 0 10px;
+            flex-shrink: 0;
+        }
+
+        .lightbox-caption {
+            color: $lightbox-caption-color;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1em;
+            padding: 5px 10px;
+            flex-shrink: 0; // Caption never shrinks — image does instead.
+        }
+    }
+
+    &.active .lightbox-content {
+        transform: scale(1);
+    }
+
+    // Shared styles for close button and prev/next arrows.
+    .lightbox-close,
+    .lightbox-nav {
+        position: absolute;
+        color: $lightbox-close-nav-color;
+        cursor: pointer;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        user-select: none;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+        font-weight: bold;
+        &:hover { color: $lightbox-close-color-hover; }
+    }
+
+    .lightbox-nav {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        font-weight: bold;
+        background-color: $lightbox-nav-background-color;
+        padding: 10px 15px;
+        border-radius: 20%;
+        &:hover { background-color: $lightbox-nav-background-color-hover; }
+        &.prev { left: 15px; }
+        &.next { right: 15px; }
+    }
+}

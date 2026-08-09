@@ -1,0 +1,9 @@
+.vs/
+*.suo
+*.user
+source/resources/_gen/
+source/filecache/
+source/.hugo_build.lock
+source/public/
+Thumbs.db
+Desktop.ini

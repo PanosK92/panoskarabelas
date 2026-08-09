@@ -1,0 +1,12 @@
+User-agent: *
+{{- range where site.Pages ".Params.robots" false }}
+Disallow: {{ .RelPermalink -}}
+{{ end }}
+{{- with .Sitemap }}
+Sitemap: {{ .Filename | default "sitemap.xml" | relURL -}}
+{{ end }}
+{{- if hugo.IsMultilingual }}
+{{- range site.Home.AllTranslations }}
+Sitemap: {{ printf "/%s/sitemap.xml" .Language.Lang | relURL -}}
+{{ end }}
+{{- end }}

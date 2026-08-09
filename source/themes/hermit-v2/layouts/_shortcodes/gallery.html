@@ -1,0 +1,53 @@
+{{/* layouts/_shortcodes/gallery.html */}}
+{{/*
+    Wraps nested {{< figure >}} shortcodes in a responsive gallery container.
+    Sets page-scoped store keys before rendering .Inner so that figure.html
+    can detect the gallery context and generate thumbnails automatically.
+
+    Parameters:
+      mode  "grid" | "masonry"  Layout mode. Overrides hugo.toml gallery.layout.
+
+    hugo.toml params (under [params.gallery]):
+      enable     bool    Required — must be true for the gallery to render.
+      thumbnail  string  Thumbnail cell size in px, e.g. "300". Default: "300".
+      layout     string  Default layout mode. "grid" | "masonry". Default: "grid".
+
+    Usage:
+      {{< gallery mode="masonry" >}}
+        {{< figure src="a.jpg" caption="Caption A" attr="John" >}}
+        {{< figure src="b.jpg" caption="Caption B" class="wide" >}}
+      {{< /gallery >}}
+*/}}
+
+{{- if not (and $.Site.Params.gallery $.Site.Params.gallery.enable) -}}
+    {{- warnf "Gallery shortcode used on page '%s', but 'params.gallery.enable' is not true in hugo.toml." .Page.Path -}}
+{{- else -}}
+
+    {{/*
+        Resolve layout mode.
+        Priority: shortcode param → hugo.toml gallery.layout → "grid"
+    */}}
+    {{- $mode := .Get "mode" | default ($.Site.Params.gallery.layout | default "grid") -}}
+
+    {{- if not (in (slice "grid" "masonry") $mode) -}}
+        {{- warnf "Gallery shortcode on page '%s': unknown mode %q. Accepted: \"grid\", \"masonry\". Falling back to \"grid\"." .Page.Path $mode -}}
+        {{- $mode = "grid" -}}
+    {{- end -}}
+
+    {{/* Thumbnail dimension: hugo.toml value or "300". */}}
+    {{- $thumbnailWidth := $.Site.Params.gallery.width | default "300" -}}
+
+    {{/* Unique gallery ID derived from inner content. */}}
+    {{- $galleryId := printf "gallery-%s" (substr (md5 .Inner) 0 8) -}}
+
+    <div class="image-gallery image-gallery--{{ $mode }}"
+         id="{{ $galleryId }}"
+         data-gallery-id="{{ $galleryId }}"
+         role="region"
+         aria-label="Image gallery"
+         itemscope
+         itemtype="https://schema.org/ImageGallery">
+        {{- .Inner -}}
+    </div>
+
+{{- end -}}

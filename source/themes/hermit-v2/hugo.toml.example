@@ -8,6 +8,7 @@ baseURL = "CHANGE BASE URL"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 #theme = "hermit-v2"
+#enableRobotsTXT = true ## set to true to enable inbuilt robots.txt
 
 #[languages]
 #  [languages.en]
@@ -26,7 +27,7 @@ defaultContentLanguageInSubdir = true
 #      homeSubtitle = "CHANGE ME"
 #    weight = 3
  
-languageCode = "en-us"
+locale = "en-US"
 
 # title = "CHANGE ME"
 # enableGitInfo = true
@@ -46,13 +47,6 @@ enableEmoji = true
 #  [services.googleAnalytics]
 #    id = ''
 
-[frontmatter]
-date = ["date", "publishDate", "lastmod"]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
-publishDate = ["publishDate", "date"]
-expiryDate = ["expiryDate"]
-
-
 [params.author]
   name = "CHANGE SITE AUTHOR"
   about = "CHANGE SITE AUTHOR ABOUT"
@@ -71,6 +65,7 @@ expiryDate = ["expiryDate"]
 #[markup]
 #  [markup.goldmark]
 #    [markup.goldmark.extensions]
+#      typographer = true
 #      [markup.goldmark.extensions.passthrough]
 #        enable = true
 #        [markup.goldmark.extensions.passthrough.delimiters]
@@ -79,30 +74,21 @@ expiryDate = ["expiryDate"]
 
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
-
   # description = "CHANGE ME SITE DESCRIPTION"
   # images = [""]
   themeColor = "#494f5c"
+  accentColor = "#018472"
 
   #homeSubtitle = "CHANGE ME HOME SUBTITLE"
   footerCopyright = "CHANGE ME FOOTER COPYRIGHT"
+  # footerHideThemeName = false
   # bgImg = ""
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
-
   justifyContent = false
-
-  relatedPosts = true
   code_copy_button = true
-
   homeSubtitlePrinter = true
   scrollToTop = true 
   global_mathjax = false
-  readTime = true
-  readTimeSeparator = "CHANGE ME READ TIME"
   # legacyLayout = false
   shareSocial = true
   # googleTagManager = "GTM-XXXXXXXX"
@@ -110,8 +96,36 @@ expiryDate = ["expiryDate"]
   # categorySymbol = "⊲"
   # pinned = "Pinned Posts"
   # pinnedSVGname = "pin"
-  # descriptionInPosts= true
+  # listLayout = ["description","tags","categories","legacy"]
   # initialPublish = "Initally Posted on: "
+  # human = ["single","posts"]
+  # noIndex = false
+  # denyRobots = "noindex, nofollow, noarchive"
+  # allowRobots = "index, follow"
+  # siteNoIndex = false
+  # noIndexPages = ["404 Page not found"]
+  # usesAnimation = true
+  # mathjaxLib = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  # mermaidLib = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
+
+  [params.pages]
+    LastmodOpen = '['
+    LastmodClose = ']'
+    readTimeSeparator = "\u2026 \u23F2 Reading Time:"
+    lastUpdatedOn = "Last updated on: "
+    relatedPosts = true
+
+  [params.gallery]
+    enable = true
+    width = '300'
+    layout = "grid"
+
+  [params.dateform]
+    CopyrightDate = "2006"
+    LongDate = "Jan 2, 2006"
+    ShortDate = "Jan 2"
+    NumDateShort = "2006-01-02"
+    NumDateLong = "2006-01-02 15:04 -0700"
   
   [[params.socialLinks]]
     name = "mastodon"

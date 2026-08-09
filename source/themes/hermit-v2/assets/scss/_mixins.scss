@@ -1,0 +1,35 @@
+// These are default SCSS mixins
+// This mixin is used to provide darkish effect in
+// #home-footer, .post-year (in list), .post-day (in list), .post-description (in list), .post-date, .post-description, #TableOfContents
+@mixin dimmed {
+  opacity: $dimmed-opacity;
+}
+
+@mixin aTag {
+  a {
+    word-wrap: break-word;
+    border: none;
+    position: relative;
+    box-shadow: inset 0 -4px 0 $aTag-mixin-a-box-shadow;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: inset 0 calc(-1.5em - 5px) 0 $aTag-mixin-a-hover-box-shadow;
+    }
+  }
+}
+
+// --- HOME SUBTITLE PRINTER CURSOR STYLES ---
+
+// Define the visual look of the cursor
+@mixin cursor-block {
+  content: "";
+  display: block;
+  width: 0.6em; // Adjust width if the block feels too fat/thin
+  height: 1.2em; // Matches standard line-height
+  background-color: $typewriter;
+
+  // Positioning: Anchored relative to the character span
+  position: absolute;
+  bottom: 0; // Aligns with the text baseline
+}

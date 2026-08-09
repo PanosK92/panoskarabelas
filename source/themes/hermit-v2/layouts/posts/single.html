@@ -15,54 +15,56 @@
 {{ define "main" }}
 	{{- if (or .Params.images .Params.featuredImg) }}
 	<div class="bg-img"></div>
+	{{- if .Params.ImgCopyright }}<div class="bg-img-copyright">{{ .Params.ImgCopyright | safeHTML }}</div>{{- end }}
 	{{- end }}
-	<main class="site-main section-inner animated fadeIn faster">
+	<main class="site-main section-inner {{- if ne false .Site.Params.usesAnimation }} animated fadeIn faster {{- end -}}">
 		{{- if and (not (eq .Site.Params.legacyLayout nil)) (.Site.Params.legacyLayout) -}}
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>{{ .Date.Format .Site.Params.dateform }}</span></div>
+				<div class="post-date"><span>{{ .Date.Format (default "Jan 2, 2006" .Site.Params.dateform.LongDate) }}</span></div>
 				<h1>{{ .Title }}</h1>
 			</header>
 			<div class="content">
-				{{ .Content | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a>${3}` | safeHTML }}
+				{{ .Content | safeHTML }}
 			</div>
-			{{- if .Site.Params.relatedPosts }}
+			{{- if $.Site.Params.pages.relatedPosts }}
 			{{- partial "related-posts.html" . -}}
 			{{- end }}
 			<hr class="post-end">
-			<footer class="post-info">{{- partial "posts_single_info.html" . -}}</footer>		
+			<footer class="post-description">{{- partial "posts_single_info.html" . -}}</footer>		
 		</article>
 		{{- else -}}
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>{{ .Date.Format .Site.Params.dateform }}</span></div>
+				<div class="post-date"><span>{{ .Date.Format (default "Jan 2, 2006" .Site.Params.dateform.LongDate) }}</span></div>
 				<h1>{{ .Title }}</h1>
 			</header>
-			<div class="post-info">{{- partial "posts_single_info.html" . -}}</div>
+			<div class="post-description">{{- partial "posts_single_info.html" . -}}</div>
 			<hr class="post-end">
 			<div class="content">
-				{{ .Content | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a>${3}` | safeHTML }}
+				 {{ .Content | safeHTML }}
 			</div>
-			{{- if .Site.Params.relatedPosts }}
+			{{ partial "brainMade.html" . }}
+			{{- if $.Site.Params.pages.relatedPosts }}
 			{{- partial "related-posts.html" . -}}
 			{{- end }}
 		</article>
 		{{- end -}}
 		{{- if .Params.toc }}
 		<aside id="toc">
-			<div class="toc-title">{{ i18n "tableOfContents" }}</div>
+			<div class="toc-title">{{- if fileExists "i18n" -}} {{ i18n "tableOfContents" }} {{- else -}} Table of Contents {{- end -}}</div>
 			{{ .TableOfContents }}
 		</aside>
 		{{- end }}
 		<div class="post-nav thin">
 			{{- with .NextInSection }}
 			<a class="next-post" href="{{ .Permalink }}">
-				<span class="post-nav-label">{{- partial "svg.html" (dict "context" . "name" "next") -}}&nbsp;{{ i18n "newer" }}</span><br><span>{{ .Title }}</span>
+				<span class="post-nav-label">{{- partial "svg.html" (dict "context" . "name" "next") -}}&nbsp;{{- if fileExists "i18n" -}} {{ i18n "newer" }} {{- else -}} Newer {{- end -}}</span><br><span>{{ .Title }}</span>
 			</a>
 			{{- end }}
 			{{- with .PrevInSection }}
 			<a class="prev-post" href="{{ .Permalink }}">
-				<span class="post-nav-label">{{ i18n "older" }}&nbsp;{{- partial "svg.html" (dict "context" . "name" "previous") -}}</span><br><span>{{ .Title }}</span>
+				<span class="post-nav-label">{{- if fileExists "i18n" -}} {{ i18n "older" }} {{- else -}} Older {{- end -}}&nbsp;{{- partial "svg.html" (dict "context" . "name" "previous") -}}</span><br><span>{{ .Title }}</span>
 			</a>
 			{{- end }}
 		</div>
@@ -72,6 +74,5 @@
 	</main>
 {{ end }}
 
-{{ define "footer" }}
-{{ partialCached "footer.html" . }}
+{{ define "footer" }}<footer id="site-footer" class="section-inner thin {{- if ne false .Site.Params.usesAnimation }} animated fadeIn faster {{- end -}}">{{- if templates.Exists "_partials/posts-footer.html" -}}{{- partialCached "posts-footer.html" . -}}{{- else -}}{{- partial "footer.html" . -}}{{- end -}}</footer>
 {{ end }}

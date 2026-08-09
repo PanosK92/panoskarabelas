@@ -31,7 +31,14 @@ let lastScrollPosition = window.pageYOffset;
 
 const autoHideHeader = () => {
   let currentScrollPosition = Math.max(window.pageYOffset, 0);
-  if (currentScrollPosition > lastScrollPosition) {
+  // Check if the user has scrolled to the bottom of the page.
+  const atBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 1;
+
+  if (atBottom) {
+    // If at the bottom, always show the header
+    header.classList.remove('slideOutDown');
+    header.classList.add('slideInUp');
+  } else if (currentScrollPosition > lastScrollPosition) {
     header.classList.remove('slideInUp');
     header.classList.add('slideOutDown');
   } else {
@@ -54,7 +61,8 @@ const toggleMobileMenu = () => {
     mobileMenuVisible = true;
   } else {
     mobileMenu.style.animationName = 'bounceOutRight';
-    mobileMenu.style.webkitAnimationName = 'bounceOutRight'
+    mobileMenu.style.webkitAnimationName = 'bounceOutRight';
+    mobileMenu.style.display = 'none';
     mobileMenuVisible = false;
   }
 }
@@ -71,7 +79,8 @@ const shareMobileMenu = () => {
     shareMenuVisible = true;
   } else {
     shareMenu.style.animationName = 'bounceOutRight';
-    shareMenu.style.webkitAnimationName = 'bounceOutRight'
+    shareMenu.style.webkitAnimationName = 'bounceOutRight';
+    shareMenu.style.display = 'none';
     shareMenuVisible = false;
   }
 }
@@ -100,7 +109,7 @@ if (header !== null) {
   listen('#img-btn', "click", showImg);
   listen('.bg-img', "click", hideImg);
 
-  document.querySelectorAll('.post-year').forEach((ele)=> {
+  document.querySelectorAll('.post-year').forEach((ele) => {
     ele.addEventListener('click', () => {
       window.location.hash = '#' + ele.id;
     });

@@ -1,41 +1,566 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Blogs on Panos Karabelas</title>
-    <link>https://panoskarabelas.com/blog/</link>
-    <description>Recent content in Blogs on Panos Karabelas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Spacetime is the headset. Consciousness is what&#39;s there when you take it off.</title>
-      <link>https://panoskarabelas.com/blog/posts/consciousness/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://panoskarabelas.com/blog/posts/consciousness/</guid>
-      <description>There&amp;rsquo;s a question I keep circling back to. Not a technical question, not a design question, but the kind of question that quietly rearranges everything once you take it seriously.&#xA;What if consciousness isn&amp;rsquo;t something that matter produces? What if it&amp;rsquo;s the other way around?&#xA;I know how that sounds. I&amp;rsquo;m a game developer, not a philosopher. But this isn&amp;rsquo;t about credentials. It&amp;rsquo;s about following a thread and seeing where it goes.</description>
-    </item>
-    <item>
-      <title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
-      <link>https://panoskarabelas.com/blog/posts/kiss/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://panoskarabelas.com/blog/posts/kiss/</guid>
-      <description>I&amp;rsquo;ve been building Spartan Engine for over a decade. A real-time 3D engine, from scratch, in C++. Rendering, physics, audio, scripting, editor, the works. Over those years I&amp;rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.&#xA;That&amp;rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns.</description>
-    </item>
-    <item>
-      <title>HDR in under 10 minutes</title>
-      <link>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</link>
-      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</guid>
-      <description>Recently, I added HDR support to Spartan, expecting it to be a quick task. However, it turned into a full day&amp;rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts. So, I&amp;rsquo;ve decided to simplify things for you. Let&amp;rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.&#xA;Step 1 - Swapchain First stop, the swapchain.</description>
-    </item>
-    <item>
-      <title>Screen space shadows</title>
-      <link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
-      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid>
-      <description>After working on Spartan game engine for so long, it became increasingly obvious that there are many interesting things that I could be writing about. However, I kept postponing it as I was growing fond of Hugo and didn&amp;rsquo;t want to invest any content (or money) on WordPress anymore. The good thing is that I&amp;rsquo;ve finally found the courage to transition to this slick and fast site you&amp;rsquo;re browsing now!</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>Posts on Panos Karabelas</title><link>https://panoskarabelas.com/blog/</link><description>Recent content in Posts on Panos Karabelas</description><generator>Hugo -- 0.164.0</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Spacetime is the headset. Consciousness is what's there when you take it off.</title><link>https://panoskarabelas.com/blog/posts/consciousness/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/blog/posts/consciousness/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p><img src="/media/post_consciousness_1.jpg" alt="image"></p>
+<p>There&rsquo;s a question I keep circling back to. Not a technical question, not a design question, but the kind of question that quietly rearranges everything once you take it seriously.</p>
+<p>What if consciousness isn&rsquo;t something that matter produces? What if it&rsquo;s the other way around?</p>
+<p>I know how that sounds. I&rsquo;m a game developer, not a philosopher. But this isn&rsquo;t about credentials. It&rsquo;s about following a thread and seeing where it goes. And the more I pull on this one, the more I think our default assumption, that the physical world is fundamental and consciousness is some accident that emerged from sufficiently complex arrangements of atoms, might be exactly backwards.</p>
+<p>I should say upfront why I&rsquo;m even thinking about this. In 2014, I had an experience that I can only describe as an ontological shock. Something happened that didn&rsquo;t fit into any model of reality I&rsquo;d been given. Not by school, not by science, not by culture. The model I&rsquo;d inherited from society, the one where matter is all there is and consciousness is just something brains do, stopped being adequate overnight. Not because I read a book or watched a lecture. Because I experienced something that the model couldn&rsquo;t account for.</p>
+<p>Since then I&rsquo;ve also spent time in meditation, and in deep practice I&rsquo;ve touched something that I can only describe as the thing underneath everything else. Not a vision, not a concept. A direct encounter with raw awareness itself, stripped of identity and content. Just <em>being</em>, without a who or a what attached to it. David Lynch, who meditated every day for over fifty years, described something similar. He said that inside every human being is an ocean of pure, vibrant consciousness, and that meditation is how you dive down into it. The deeper you go, the bigger the ideas you catch. He called them fish. I think what he was catching was something more fundamental than ideas. I think he was touching the substrate.</p>
+<p>None of this proves anything. I know that. But it&rsquo;s why I can&rsquo;t look away from these questions the way I probably would have otherwise. When your direct experience tells you that the map is wrong, you don&rsquo;t keep following the map. You start looking at the territory.</p>
+<h2 id="the-hard-problem-nobody-solved">The hard problem nobody solved<a href="#the-hard-problem-nobody-solved" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>For centuries, the dominant view in science has been physicalism: matter is what&rsquo;s real, and consciousness is what matter does when it gets complicated enough. Neurons fire in certain patterns, electrochemical signals cross synapses, and somehow, out of all that mechanical activity, there&rsquo;s something it&rsquo;s like to be you. You don&rsquo;t just process light at 700 nanometers. You <em>experience</em> red.</p>
+<p>This is what philosopher David Chalmers famously called the hard problem of consciousness. Not &ldquo;how does the brain process information,&rdquo; because we&rsquo;re making real progress on that. The hard problem is: why is there <em>experience</em> at all? Why does information processing feel like anything?</p>
+<p>Here&rsquo;s the thing that doesn&rsquo;t get said enough: despite centuries of effort by brilliant minds, nobody has come close to solving it. Not even close. There&rsquo;s no physicalist theory that explains how mindless particles, following deterministic laws, produce the felt quality of tasting coffee or hearing music. There are proposals. Maybe it&rsquo;s information complexity, maybe it&rsquo;s neural synchronization, maybe it&rsquo;s functional organization. But none of these remotely approach a real explanation. They describe correlates, not causes. They show you which brain areas light up when you see blue, but they never bridge the gap between the neural activity and the blueness itself.</p>
+<p>At some point you have to ask: what if the hard problem isn&rsquo;t hard because we haven&rsquo;t been clever enough? What if it&rsquo;s hard because we&rsquo;re starting from the wrong end?</p>
+<p><img src="/media/post_consciousness_2.jpg" alt="image"></p>
+<h2 id="flipping-the-hierarchy">Flipping the hierarchy<a href="#flipping-the-hierarchy" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Here&rsquo;s the idea, stated plainly: consciousness is not a product of spacetime. Spacetime is a product of consciousness.</p>
+<p>This isn&rsquo;t mysticism dressed up in scientific language. This is an ontological claim, a claim about what&rsquo;s fundamental and what&rsquo;s derivative. And it has serious thinkers behind it. Not mystics. Not philosophers sitting in armchairs. Physicists and engineers who built things.</p>
+<p>Max Planck, the father of quantum theory, said it plainly: &ldquo;I regard consciousness as fundamental. I regard matter as derivative from consciousness. We cannot get behind consciousness. Everything that we talk about, everything that we regard as existing, postulates consciousness.&rdquo; That was over a century ago. The man who launched the quantum revolution looked at what he&rsquo;d found and concluded that mind comes first, not matter.</p>
+<p>Federico Faggin invented the microprocessor. The Intel 4004. The piece of silicon that made the modern world possible. Every phone, every computer, every server running every AI model traces its lineage back to his work. After decades of building the most sophisticated information-processing machines on Earth, Faggin arrived at a conclusion that should give any materialist pause: consciousness cannot be produced by computation. No amount of information processing, no matter how complex, will ever generate subjective experience. He&rsquo;s looked at this from the inside. He built the machine. And he&rsquo;s telling you the machine can&rsquo;t do what your mind does.</p>
+<p>Faggin now argues that consciousness is the ground of being, that the physical universe is its expression rather than the other way around. He calls the totality of what exists &ldquo;One,&rdquo; and proposes that One has an inherent drive to know itself. The physical universe, in his model, is not dead matter following blind laws. It is the outer, symbolic face of an inner conscious reality. Spacetime and matter, he says, are the permanent memory of the experience of the self-knowing of One.</p>
+<p>Donald Hoffman, a cognitive scientist at UC Irvine, arrives at the same conclusion from a completely different direction. Hoffman argues that spacetime and physical objects are not the ground truth of reality but a species-specific user interface. Think about the icons on your desktop. They aren&rsquo;t the actual files, electrons, and magnetic states inside your computer. They&rsquo;re a simplified representation designed to be <em>useful</em>. Our perceived reality of tables, chairs, and brains works the same way: a representation designed by evolution for survival, not for truth. What exists underneath that interface, according to Hoffman, is a network of conscious agents interacting in ways we can&rsquo;t directly perceive.</p>
+<p>Hoffman&rsquo;s argument starts with a mathematical result from evolutionary game theory: organisms that perceive reality accurately are consistently outcompeted by organisms that perceive fitness payoffs. Evolution doesn&rsquo;t reward truth. It rewards <em>usefulness</em>. So the idea that our perceptions give us a faithful window onto objective reality has it backwards. Our perceptions hide reality from us because hiding it is what kept us alive.</p>
+<p>Bernardo Kastrup, an analytic philosopher with a background in computer engineering, has formalized these intuitions into a rigorous philosophical framework called analytic idealism. Kastrup argues that all of reality is a manifestation of a single, transpersonal stream of consciousness, and that what we call the physical world is what this consciousness looks like from the outside. Your brain doesn&rsquo;t generate your mind. Your brain is what your mind looks like when observed through the lens of perception. It&rsquo;s the appearance of a process, not the cause of it.</p>
+<p>If you take this seriously, and the math checks out, then spacetime isn&rsquo;t the stage on which consciousness performs. Spacetime is the headset. Consciousness is what&rsquo;s actually there when you take it off.</p>
+<h2 id="the-fingerprint-of-consciousness">The fingerprint of consciousness<a href="#the-fingerprint-of-consciousness" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Once you start looking at reality through this lens, you notice something. There&rsquo;s a pattern that keeps showing up, at every scale, that physicalism has never adequately explained.</p>
+<p>The second law of thermodynamics says the universe trends toward disorder. Entropy increases. Things fall apart. That&rsquo;s the arrow of time, the fundamental direction of physical reality. And yet, everywhere you look, you see pockets of the universe doing the exact opposite. You see order emerging from chaos. Structure assembling itself. Complexity increasing locally while the cosmos as a whole winds down.</p>
+<p>A molecule folds into a protein. A cell repairs its own DNA. An embryo develops from a single fertilized egg into a trillion-cell organism of staggering complexity. An ecosystem maintains dynamic equilibrium across thousands of interlocking species. A galaxy holds its spiral structure across billions of years.</p>
+<p><img src="/media/post_consciousness_3.jpg" alt="image"></p>
+<p>This is negative entropy, the local reversal of disorder, and it is, I think, the fingerprint of consciousness at work.</p>
+<p>Physicalism hand-waves this as &ldquo;just what complex systems do.&rdquo; But that&rsquo;s not an explanation. It&rsquo;s a label. <em>Why</em> do complex systems spontaneously organize? What drives a universe that&rsquo;s supposedly made of dead matter following blind laws to keep producing islands of extraordinary order?</p>
+<p>If consciousness is fundamental, you have an answer. These aren&rsquo;t accidents. They&rsquo;re expressions. Consciousness manifests as the tendency toward organization, toward coherence, toward knowing. And it does this at every scale. From the quantum level, where particles maintain entangled states across vast distances, to the galactic level, where structures persist that by pure thermodynamics should have dissolved long ago. The scale changes. The fingerprint doesn&rsquo;t.</p>
+<h2 id="the-quantum-thread">The quantum thread<a href="#the-quantum-thread" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>This brings us to physics, and to a line of reasoning that converges on the same conclusion from yet another direction.</p>
+<p>Consider the double-slit experiment, the most famous demonstration in quantum mechanics. When you fire particles at a barrier with two slits, they produce an interference pattern on the other side, behaving like waves. But the moment you set up a detector to observe which slit each particle goes through, the interference pattern vanishes. The particles start behaving like particles. The act of observation changes the outcome. Not the detector as a physical device. The <em>information becoming available</em>. Physics has been wrestling with this for a century, and the most straightforward reading is the most unsettling one: observation isn&rsquo;t passive. It&rsquo;s participatory. The universe doesn&rsquo;t fully decide what it&rsquo;s doing until something is watching.</p>
+<p>John Wheeler, one of the most important physicists of the twentieth century, the man who coined the term &ldquo;black hole&rdquo; and worked alongside Einstein and Bohr, took this idea to its logical conclusion. He proposed that we live in a &ldquo;participatory universe,&rdquo; one that doesn&rsquo;t exist in a fully defined state independent of observation. His famous phrase was &ldquo;it from bit&rdquo;: the idea that every particle, every field, every physical quantity derives its existence from observations, from information, from answers to yes-or-no questions. In Wheeler&rsquo;s view, the universe isn&rsquo;t a machine that produced observers as an afterthought. The observers are what make the machine real.</p>
+<p>Roger Penrose, Nobel laureate and one of the most rigorous mathematical physicists alive, has argued since the 1990s that consciousness is connected to quantum processes in the brain. Specifically, to structures called microtubules: tiny protein cylinders inside neurons that make up the cellular skeleton. Together with anesthesiologist Stuart Hameroff, Penrose proposed the Orchestrated Objective Reduction theory, known as Orch OR.</p>
+<p><img src="/media/post_consciousness_4.jpg" alt="image"></p>
+<p>The core claim is this. Quantum superpositions occur within microtubule networks in the brain, and when these superpositions reach a certain gravitational threshold, they undergo a spontaneous collapse. Penrose calls this objective reduction. Each such collapse is a moment of proto-conscious experience. When these moments are orchestrated across billions of microtubules, the result is what we experience as consciousness.</p>
+<p>For years, Orch OR was dismissed. The brain was considered too warm, too wet, too noisy for quantum effects to survive. Quantum coherence, the conventional wisdom went, requires near-absolute-zero temperatures and pristine isolation. A biological system at 37°C? Impossible.</p>
+<p>Except the evidence started going the other way. Quantum coherence has been demonstrated in plant photosynthesis at room temperature, in bird navigation, in our sense of smell. And more recently, direct evidence has emerged for quantum effects in microtubules themselves. A 2025 paper in <em>Neuroscience of Consciousness</em> reviewed experimental findings showing that anesthetics, the chemicals that switch consciousness off, specifically target microtubules, not just synaptic activity. The same paper reported evidence of a macroscopic quantum entangled state in the living human brain, correlated with conscious awareness and working memory.</p>
+<p>That last finding is remarkable. If consciousness is just classical computation, neurons firing in patterns like transistors in a computer, then why would disrupting quantum states in microtubules turn it off? And why would quantum entanglement in the brain correlate with whether someone is conscious or not?</p>
+<p>This is the mechanism, I think, by which consciousness taps into our deterministic reality. Quantum processes in biological structures aren&rsquo;t a curiosity. They&rsquo;re the interface between the fundamental conscious layer and the spacetime layer we navigate every day. The microtubule is the antenna. The quantum collapse is the signal.</p>
+<h2 id="the-question-of-free-will">The question of free will<a href="#the-question-of-free-will" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>This is where it gets personal.</p>
+<p>If we are purely classical systems, if the brain is a biological computer executing deterministic algorithms, then free will is an illusion. Everything you think, feel, and decide was determined by the state of your neurons, which was determined by the state of the neurons before that, which was determined by the laws of physics all the way back to the Big Bang. You&rsquo;re watching a movie that was already filmed. You just don&rsquo;t know the ending yet, so it <em>feels</em> like you&rsquo;re choosing.</p>
+<p>A lot of neuroscience implicitly holds this view. The famous Libet experiments in the 1980s showed that the brain&rsquo;s &ldquo;readiness potential,&rdquo; the electrical buildup before a voluntary movement, begins several hundred milliseconds before a person consciously decides to act. Your brain starts preparing the action before &ldquo;you&rdquo; decide. The implication seemed clear: the conscious decision is an afterthought. The machinery was already in motion.</p>
+<p>But if Penrose and Hameroff are right, there&rsquo;s a crack in this determinism. Quantum mechanics introduces genuine indeterminacy. When a quantum system is in superposition, existing in multiple possible states simultaneously, and it collapses to a definite state, that collapse is not determined by what came before. It is, as far as we can tell, fundamentally non-computable. No algorithm, no matter how powerful, could have predicted which state it would land on.</p>
+<p>If consciousness involves quantum state reduction, if each moment of awareness is a genuine collapse from possibility to actuality, then we are not deterministic machines watching a pre-recorded movie. We are something else entirely. We are the point where possibility becomes reality. The place where the wave function resolves.</p>
+<p><img src="/media/post_consciousness_5.jpg" alt="image"></p>
+<p>And this is not randomness. Randomness would be just as useless for free will as determinism. You don&rsquo;t want your choices to be coin flips. What Penrose proposes is something subtler: the outcome of objective reduction is influenced by a non-computable factor embedded in the fundamental geometry of spacetime. Not deterministic, not random, but something outside both categories. Something that our current mathematical frameworks cannot capture.</p>
+<p>Penrose arrived at this position not through mysticism but through Gödel&rsquo;s incompleteness theorems. Gödel proved that any consistent formal system powerful enough to describe arithmetic contains truths that the system itself cannot prove. Penrose&rsquo;s argument is that human mathematical understanding transcends what any algorithmic process can achieve. We can see the truth of Gödel sentences that no computer ever could. If human thought is genuinely non-computable, then the brain cannot be a classical computer. Something else is going on.</p>
+<p>This is the fork in the road. If we are genuinely collapsing quantum states, if our brains are sites of non-computable objective reduction, then we have real agency. Real participation in the unfolding of reality. But if we&rsquo;re not, if the quantum effects in the brain turn out to be noise or artifact, then we&rsquo;re classical machines. Automata. Extraordinarily complex, but automata nonetheless, executing a program that was written at the beginning of time.</p>
+<p>I know which possibility I find more compelling. But more importantly, I know which one the evidence is starting to favor.</p>
+<h2 id="the-only-way-to-know-yourself">The only way to know yourself<a href="#the-only-way-to-know-yourself" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Here&rsquo;s where I step furthest from the safe ground of established science. But it&rsquo;s what I actually think, so I&rsquo;m going to say it.</p>
+<p>If consciousness is everything, if it&rsquo;s the fundamental substrate from which all of reality emerges, then it has a problem. It can&rsquo;t experience itself.</p>
+<p>Think about it. If you are literally everything that exists, there is no vantage point from which to observe yourself. You can&rsquo;t hold up a mirror because you <em>are</em> the mirror. You can&rsquo;t step back to get perspective because there&rsquo;s nowhere to step back to. There is no outside. Total unity is total blindness.</p>
+<p>The only way for consciousness to know itself is to forget that it&rsquo;s everything. To fragment. To pour itself into finite, limited perspectives that can look outward and see what appears to be &ldquo;other,&rdquo; and in doing so, experience something. Anything.</p>
+<p>That&rsquo;s us. That&rsquo;s what we are.</p>
+<p>Not accidents of chemistry on an unremarkable rock orbiting an average star. Not the lucky output of a universe that didn&rsquo;t know what it was doing. We are consciousness fractured into billions of limited viewpoints so that it can do the one thing that totality cannot: <em>experience</em>.</p>
+<p>Erwin Schrödinger, the physicist whose wave equation is the backbone of quantum mechanics, arrived at the same conclusion decades ago. In <em>What is Life?</em> and <em>Mind and Matter</em>, he wrote that consciousness is a singular, that the total number of minds in the universe is one. What we experience as separate minds, he argued, is an illusion produced by the conditions of spacetime. There is only one consciousness, and it is the one looking through all of our eyes.</p>
+<p>And here&rsquo;s the part that&rsquo;s hardest to sit with: we are all the same one. You and me. The person you love and the stranger you&rsquo;ll never meet. The person you agree with and the person you can&rsquo;t stand. We experience ourselves as separate. We feel separate. Everything about the interface of spacetime is designed to make us feel separate. But if consciousness is the substrate, and we are all expressions of it, then separation is the illusion, not the unity. There is one consciousness wearing eight billion faces, looking out through eight billion pairs of eyes, and none of them recognize each other.</p>
+<p><img src="/media/post_consciousness_6.jpg" alt="image"></p>
+<p>Faggin puts this beautifully. He says that One, the totality of what exists, knows itself through our own knowing of ourselves. We are parts that contain the whole. Each of us is a unique expression of universal consciousness, carrying within us the full depth of the thing we emerged from, but experiencing it through a single, unrepeatable perspective. That&rsquo;s why your experience matters. Not in a sentimental way. In a structural way. Without your particular viewpoint, there is a way of knowing that the universe simply cannot access.</p>
+<p>Every moment of awareness, every perception, every feeling: these aren&rsquo;t byproducts. They&rsquo;re the whole point. Consciousness creates spacetime the way a dreamer creates a dream. Not as something separate from itself, but as the medium through which it can have experiences it otherwise couldn&rsquo;t. You can&rsquo;t know what warmth feels like if you <em>are</em> warmth. You have to become something small enough to stand next to a fire.</p>
+<p>This puts a different spin on quantum entanglement. Two particles, separated by any distance, remain instantaneously correlated because they were never really separate. They look separate through the headset of spacetime, but underneath, there&rsquo;s no distance at all. There&rsquo;s just consciousness, undivided, experiencing itself through what appears to be multiplicity. And what&rsquo;s true for particles is true for us. The separation is real at the level of the interface. It is not real at the level of what the interface is made of.</p>
+<h2 id="not-a-god">Not a god<a href="#not-a-god" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>I want to be careful here, because this sounds like religion. It isn&rsquo;t. Or rather, it isn&rsquo;t quite.</p>
+<p>The ancient intuition that there&rsquo;s something fundamental and all-encompassing behind reality, something that connects everything, something that was there before the physical universe and will be there after it. I think that intuition was pointing at something real. Every major tradition has some version of it. A ground of being. An ultimate nature. A source.</p>
+<p>But every tradition also got it wrong, because every tradition personified it. They turned it into a deity with preferences and commandments, a being that watches and judges and intervenes. They wrapped it in stories and doctrine and hierarchy. They made it into something that cares whether you eat pork or which direction you face when you pray.</p>
+<p>The reality, I think, is simpler and stranger than any of that. There is consciousness, and it just <em>is</em>. It doesn&rsquo;t have opinions. It doesn&rsquo;t have a plan. It&rsquo;s not watching you. It&rsquo;s not testing you. It&rsquo;s <em>being</em> you. And being everything else simultaneously. Not as an act of will or design, but because that&rsquo;s what consciousness does. It experiences.</p>
+<p>Religion was close. Philosophy was close. Now physics might be getting close too. But the thing they&rsquo;re all circling is not a who. It&rsquo;s not even a what, really. It&rsquo;s the fact that there is experience at all, and that this fact might be the most fundamental thing there is.</p>
+<p><img src="/media/post_consciousness_7.jpg" alt="image"></p>
+<h2 id="or-maybe-not">Or maybe not<a href="#or-maybe-not" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>I want to be honest about the uncertainty here. Everything above sits on a spectrum from well-established science to personal speculation, and I&rsquo;ve tried to be clear about which parts are which.</p>
+<p>Orch OR remains controversial. Many neuroscientists and physicists reject it. The decoherence objection, that quantum states can&rsquo;t survive long enough in the warm, wet brain, has been weakened by recent experiments but not fully eliminated. The direct link between microtubule quantum states and conscious experience is still circumstantial. We have correlations and suggestive experimental results, not proof.</p>
+<p>The consciousness-causes-collapse interpretation of quantum mechanics, while taken seriously by von Neumann and Wigner in the early days, was later abandoned by Wigner himself. Most working physicists today do not ascribe a special role to consciousness in quantum measurement. Decoherence theory, many-worlds interpretations, and other frameworks provide explanations for the appearance of wave function collapse without invoking consciousness at all.</p>
+<p>Hoffman&rsquo;s interface theory, while mathematically interesting, is criticized for potentially being unfalsifiable. If <em>everything</em> we perceive is an interface, how could we ever gather evidence for what lies underneath?</p>
+<p>And the negative entropy argument, my own observation and not a published theory, is admittedly pattern-matching. Physicalism has explanations for self-organization: thermodynamic gradients, autocatalytic cycles, natural selection. Whether these explanations are <em>sufficient</em> or whether they&rsquo;re describing the <em>how</em> while missing the <em>why</em> is a matter of interpretation, not proof.</p>
+<p>I don&rsquo;t have answers to these objections. I don&rsquo;t think anyone does yet. But I find it telling that the hard problem remains unsolved after centuries, that quantum mechanics still has no consensus interpretation after a hundred years, and that the more we learn about the brain, the weirder consciousness looks, not the more explicable.</p>
+<h2 id="why-im-writing-this">Why I&rsquo;m writing this<a href="#why-im-writing-this" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>I&rsquo;m writing this because I think these questions matter more than most of what fills our feeds. Not because they have practical applications, though Penrose and Hameroff suggest that understanding quantum processes in microtubules could lead to treatments for neurological and cognitive conditions. But because they sit at the center of what it means to be whatever we are.</p>
+<p>Are we classical machines, deterministic automata executing a program that was set in motion 13.8 billion years ago? Or are we something else, something that participates in the creation of reality through the very act of experiencing it?</p>
+<p>I don&rsquo;t know. But I think the honest answer is that nobody knows, and anyone who tells you they do is confusing confidence with understanding.</p>
+<p>What I do think is this: the materialist assumption that consciousness is an emergent accident of matter is not the default scientific position that it pretends to be. It&rsquo;s a metaphysical assumption, as unproven as any other. And there are serious, rigorous, mathematically grounded reasons to consider the alternative. That consciousness is fundamental, that spacetime is its shadow, that the separation between you and everything else is the constructed part, not the togetherness. And that every moment of awareness is the universe doing what it has always done: knowing itself, one collapse at a time.</p>
+<p>I&rsquo;m not trying to sell you this model. I&rsquo;m not asking you to believe anything. What I&rsquo;m asking is simpler than that: just keep it in mind. Carry it with you for a while. The next time you notice order emerging where there should be chaos, or feel a connection you can&rsquo;t explain, or catch yourself wondering why there&rsquo;s experience at all, look at it through this lens. See if it fits.</p>
+<p>And if you&rsquo;re lucky enough to have a few revelations of your own along the way, you&rsquo;ll come back to this article. Not because I convinced you of anything. Because reality did.</p>
+<p><img src="/media/post_consciousness_8.jpg" alt="image"></p>
+]]></content></item><item><title>What building a game engine for a decade and the SR-71 Blackbird have in common</title><link>https://panoskarabelas.com/blog/posts/kiss/</link><pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/blog/posts/kiss/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p><img src="/media/dramatic_blackbird_in_flight.jpg" alt="image"></p>
+<p>I&rsquo;ve been building <a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine</a> for over a decade. A real-time 3D engine, from scratch, in C++. Rendering, physics, audio, scripting, editor, the works. Over those years I&rsquo;ve rewritten almost every system multiple times. And every single time, the rewrite was simpler than what it replaced.</p>
+<p>That&rsquo;s not what people expect to hear. Most assume that as a system matures, it gets more sophisticated. More layers. More abstractions. More patterns. But the opposite happened. My engine got <em>simpler</em>. Not because I was cutting corners, but because I was finally understanding what the problem actually needed.</p>
+<p>It took me a long time to realize I wasn&rsquo;t discovering something new. I was just slowly, painfully arriving at a principle that an aerospace engineer had articulated sixty years before me. I&rsquo;m not comparing my work to his. But the underlying truth is the same.</p>
+<h2 id="the-man-who-built-the-impossible">The man who built the impossible<a href="#the-man-who-built-the-impossible" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>In the 1960s, Kelly Johnson led a small team at Lockheed&rsquo;s Skunk Works division. Their task: build a reconnaissance aircraft that could fly at Mach 3.2 at 85,000 feet. At the edge of space. Faster than any missile could chase it. The airframe would endure surface temperatures of over 300°C from friction alone. No existing material, engine, or design paradigm could handle it.</p>
+<p>The result was the SR-71 Blackbird. It held the world speed record for over 30 years. It was never, not once, shot down. To this day, it remains one of the most extraordinary machines ever built.</p>
+<p>But here&rsquo;s what most people miss about the Blackbird: it wasn&rsquo;t built by a massive team drowning in process. Johnson&rsquo;s Skunk Works operated with a small group of sharp engineers and a set of principles that would make most modern project managers nervous. Minimal paperwork. Direct communication. Small teams with full ownership. And above all, one rule that governed everything: <strong>keep it simple, stupid.</strong></p>
+<p><img src="/media/kelly_johnson_with_blackbird_bnw.jpg" alt="image"></p>
+<p>Johnson is the person who coined the KISS principle. The story goes that he handed his design engineers a handful of standard tools and told them that whatever they built had to be repairable by an average mechanic in the field using only these tools. If the design couldn&rsquo;t meet that constraint, the design was wrong. Not the mechanic.</p>
+<p>Think about that. The fastest, most advanced aircraft on the planet, designed with the constraint that a field mechanic with a basic wrench should be able to service it. That&rsquo;s not a compromise. That&rsquo;s the insight.</p>
+<p>And it wasn&rsquo;t just a slogan. Johnson&rsquo;s team lived it in every design decision they made.</p>
+<h2 id="the-beauty-of-spartan-design">The beauty of Spartan design<a href="#the-beauty-of-spartan-design" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p><img src="/media/skin_panels.jpg" alt="image"></p>
+<p><strong>The leaking fuel tanks.</strong> At Mach 3.2, the airframe heats to over 300°C. Titanium expands. Johnson&rsquo;s team could have engineered complex high-temperature sealing systems: flexible joints, exotic gaskets, pressurized compartments. Instead, they designed the skin panels with deliberate gaps. On the ground, the Blackbird famously leaked fuel through them. In flight, thermal expansion sealed the gaps tight. The &ldquo;flaw&rdquo; <em>was</em> the solution. No extra parts, no seals to fail, no maintenance overhead. They turned a law of physics into a feature.</p>
+<p><strong>One material.</strong> Roughly 85% of the airframe was titanium alloy. At a time when conventional aircraft used complex multi-material composites, Johnson chose a single primary structural material. One set of thermal calculations. One set of manufacturing processes. One set of maintenance procedures. It simplified everything downstream because it eliminated the combinatorial complexity of mixing materials that expand, flex, and fatigue at different rates.</p>
+<p><img src="/media/pratt_n_whitney_j58_engine.jpg" alt="image"></p>
+<p><strong>One engine that did two jobs.</strong> The Pratt &amp; Whitney J58 was a turboramjet. At low speeds it functioned as a turbojet. At high speeds it bypassed the compressor and operated as a ramjet. Instead of carrying two separate propulsion systems with two sets of fuel lines, two sets of controls, and two failure modes, they designed one engine that transitioned between modes. The concept was sophisticated. The implementation was mechanically simpler than the alternative.</p>
+<p><strong>Stars for navigation.</strong> The SR-71 used an astro-inertial navigation system that tracked stars even in broad daylight, providing accuracy within 300 feet at Mach 3+. Why stars? Because they can&rsquo;t be jammed. No external radio signals needed, no ground stations to depend on, no electronic countermeasures to worry about. Johnson&rsquo;s team reached back to the oldest navigation reference in human history and paired it with modern sensors. The simplest possible dependency, the sky, made it the most reliable navigation system of its era.</p>
+<p>Every one of these choices followed the same logic: don&rsquo;t add a part when physics already gives you the answer. Don&rsquo;t add a system when one system can do two jobs. Don&rsquo;t add a dependency when you can depend on something that&rsquo;s been there for a billion years.</p>
+<p><img src="/media/spartan_engine_impressive_screenshot.png" alt="image"></p>
+<p>This philosophy, this stripped-to-the-bone, nothing-unnecessary approach to building something extraordinary, is what resonated with me so deeply that about three or four years into development, I renamed my engine. It used to have a different name. I called it <strong>Spartan</strong> because that&rsquo;s the design ethos I was converging on, whether I realized it at the time or not.</p>
+<p>But I didn&rsquo;t arrive at that ethos through inspiration. I arrived at it through pain.</p>
+<h2 id="how-i-got-here-the-hard-way">How I got here (the hard way)<a href="#how-i-got-here-the-hard-way" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p><img src="/media/panos_working.jpg" alt="image"></p>
+<p>If you open Spartan&rsquo;s source code, you might be surprised. It doesn&rsquo;t look like what universities teach you &ldquo;proper&rdquo; C++ should look like. People see it and think I chose to write it this way out of some stylistic preference. I didn&rsquo;t. I got <em>burned</em> into writing it this way.</p>
+<p>Every complex design I ever wrote came back to bite me. Every clever abstraction, every &ldquo;just in case&rdquo; layer, every pattern applied because the book said so. Over the course of a decade, at the scale of a full engine, they all became liabilities. Not immediately. That&rsquo;s the trap. They feel productive when you write them.</p>
+<p>And the smarter the engineer, the bigger the trap. Really sharp engineers get a dopamine hit from engineering itself. Designing an elegant type system, building a perfectly generic abstraction, architecting a framework that handles every conceivable edge case. It <em>feels good</em>. It&rsquo;s intellectually satisfying. I get it, because I&rsquo;ve been there. But when you&rsquo;re serious about what you&rsquo;re building, when you&rsquo;re shipping something real, at scale, over years, that dopamine-driven complexity becomes a liability. The cleverness that felt so rewarding to write becomes the thing you curse at 2 AM when it breaks in a way nobody can debug. Intelligence is not the problem. Channeling it toward addition when it should be channeled toward subtraction, that&rsquo;s the problem.</p>
+<p>The cost shows up six months later when you&rsquo;re refactoring a system and you have to untangle seven layers of indirection to change one behavior. Or two years later when a new contributor opens the codebase and can&rsquo;t figure out where anything actually happens because the logic is scattered across interfaces, managers, and abstract base classes.</p>
+<p>Complexity compounds. At small scale, you don&rsquo;t feel it. At engine scale, over a decade, it will crush you. So everything you see in my code now is scar tissue. It&rsquo;s what&rsquo;s left after the unnecessary parts burned away.</p>
+<p>Let me show you what that looks like.</p>
+<h2 id="the-scars">The scars<a href="#the-scars" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p><strong>Static classes everywhere.</strong> My <code>Renderer</code>, <code>Input</code>, <code>Profiler</code>, <code>FileSystem</code>, <code>Engine</code>, they&rsquo;re all static. There&rsquo;s only ever one renderer. There&rsquo;s only ever one input system. I used to instantiate these. I used to pass them around, manage their lifetimes, inject them as dependencies. And for what? There was never going to be a second renderer. There was never going to be a second input system. I was managing complexity that had no reason to exist.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">array</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="mi">107</span><span class="o">&gt;</span> <span class="n">Input</span><span class="o">::</span><span class="n">m_keys</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">Input</span><span class="o">::</span><span class="n">GetKey</span><span class="p">(</span><span class="k">const</span> <span class="n">KeyCode</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">m_keys</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">key</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">Input</span><span class="o">::</span><span class="n">GetKeyDown</span><span class="p">(</span><span class="k">const</span> <span class="n">KeyCode</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">GetKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">m_keys_previous_frame</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">key</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Two arrays and some boolean logic. No InputManager. No InputEventQueue. No InputBuffer with a strategy pattern. Just the thing itself, doing the thing. Not because I think simple is cute, but because everything else failed me over time.</p>
+<p>Now, I&rsquo;m aware that static/global state has real tradeoffs. It makes unit testing harder. It creates implicit dependencies. In a large team with dozens of engineers touching the same subsystem, you might genuinely need the guardrails that come with dependency injection and clear ownership boundaries. I&rsquo;m not pretending those concerns don&rsquo;t exist. But for this project, at this scale, the tradeoff is overwhelmingly in favor of simplicity. The cognitive overhead of managing singleton lifetimes and passing objects through five layers of constructors was costing me more than it was protecting me from.</p>
+<p><strong>Anonymous namespaces in the .cpp files.</strong> I used to put helper functions and internal state in private class members. It bloated every header. Every file that included that header recompiled when I changed an implementation detail. It coupled things that had no business being coupled. Now, implementation details live in anonymous namespaces in the .cpp, invisible to the rest of the codebase, existing only where they&rsquo;re used.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">spartan</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="c1">// anonymous, invisible outside this file
+</span></span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">float</span> <span class="n">distance_deactivate</span> <span class="o">=</span> <span class="mf">80.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">float</span> <span class="n">distance_activate</span>   <span class="o">=</span> <span class="mf">40.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">PxTransform</span> <span class="nf">to_px_transform</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector3</span><span class="o">&amp;</span> <span class="n">pos</span><span class="p">,</span> <span class="k">const</span> <span class="n">Quaternion</span><span class="o">&amp;</span> <span class="n">rot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">PxTransform</span><span class="p">(</span><span class="n">PxVec3</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">z</span><span class="p">),</span> <span class="n">PxQuat</span><span class="p">(</span><span class="n">rot</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="n">rot</span><span class="p">.</span><span class="n">w</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Public data members.</strong> My <code>Vector3</code> has <code>x</code>, <code>y</code>, <code>z</code> as public floats. Not <code>GetX()</code>, not <code>SetX()</code>. I know this violates what every C++ textbook tells you. But there&rsquo;s no invariant to protect here. There&rsquo;s no setter logic. Wrapping these in accessors would be adding ceremony for the sake of ceremony, and I&rsquo;ve learned the hard way that ceremony has a cost, even when it looks free.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Vector3</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Vector3</span><span class="p">()</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Vector3</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p><strong>Standard types used directly.</strong> My entity hierarchy is a raw pointer to a parent and a <code>std::vector</code> of children. I tried custom containers early on. Custom trees, custom allocators, custom everything. They all became maintenance burdens that solved problems I didn&rsquo;t actually have.</p>
+<p>Are standard types perfect? No. I&rsquo;m well aware that <code>std::vector</code> isn&rsquo;t always cache-optimal, that <code>std::shared_ptr</code> has overhead from reference counting, that in certain hot paths you absolutely want custom allocators or flat arrays. The point isn&rsquo;t that standard types are always the best choice. The point is that they should be the <em>default</em> choice, and you should only replace them when profiling tells you to. Not because someone on a forum said you should, not because a blog post made you feel like you aren&rsquo;t a real engineer unless you roll your own.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Entity</span> <span class="o">:</span> <span class="k">public</span> <span class="n">SpartanObject</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Entity</span><span class="o">*</span>                  <span class="n">m_parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">*&gt;</span>     <span class="n">m_children</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Component</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ComponentType</span><span class="o">::</span><span class="n">Max</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">m_components</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>A parent pointer, a vector of children, and an array of components. That&rsquo;s what the problem needs. That&rsquo;s what the code is.</p>
+<p><strong>Assertions instead of defensive programming.</strong> Early in the project I wrote defensive code. Null checks that returned silently, fallback paths that hid errors. It felt safe. It was the opposite of safe. Bugs didn&rsquo;t crash, they <em>hid</em>. I&rsquo;d spend days tracking down why something wasn&rsquo;t rendering, only to find a silent <code>return</code> five call levels deep that was swallowing a null pointer that should never have been null.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">SP_ASSERT_MSG</span><span class="p">(</span><span class="n">physical_devices</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;No physical devices detected&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">SP_ASSERT_MSG</span><span class="p">(</span><span class="n">width</span>  <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Width can&#39;t be zero&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">SP_ASSERT</span><span class="p">(</span><span class="n">m_cmd_list_present</span><span class="o">-&gt;</span><span class="n">GetState</span><span class="p">()</span> <span class="o">==</span> <span class="n">RHI_CommandListState</span><span class="o">::</span><span class="n">Recording</span><span class="p">);</span>
+</span></span></code></pre></div><p>If something is wrong, I want to know <em>now</em>. Not six frames later. Not after a silent cascade of incorrect state. The assert fires, and you fix the root cause. Right there. Right then.</p>
+<p>To be clear: assertions are a development tool. In shipping builds, you handle errors gracefully where it matters for the end user. But during development, which is where you spend 99% of your time, silent failures are the enemy. The faster a bug screams at you, the faster you fix it, and the less time it has to quietly corrupt everything downstream.</p>
+<h2 id="why-the-book-isnt-enough">Why &ldquo;the book&rdquo; isn&rsquo;t enough<a href="#why-the-book-isnt-enough" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>I see a version of this tension in my Discord server and pull requests constantly. Well-intentioned contributors propose things like additional abstraction layers, wrapper classes around standard types, or manager-of-manager patterns. The conversation usually goes something like this:</p>
+<p><em>&ldquo;Hey, I think we should add an event bus system so subsystems can communicate through messages.&rdquo;</em></p>
+<p>Why? What would it give us?</p>
+<p><em>&ldquo;Well, we could decouple things and make the architecture more flexible and&hellip;&rdquo;</em></p>
+<p>Will it produce measurable, quantifiable differences in the output?</p>
+<p><em>&ldquo;Not really. Maybe marginal gains.&rdquo;</em></p>
+<p>Then it&rsquo;s unnecessary complexity.</p>
+<p>It always comes back to the same question: <strong>does the problem actually need this, or are you adding it because it&rsquo;s what you were taught to do?</strong></p>
+<p>I want to be clear. I&rsquo;m not anti-education. Universities and textbooks teach you patterns for a reason. Factory patterns, observer patterns, strategy patterns, abstract base classes, dependency injection. These are real tools that solve real problems. You should learn them. You should understand them deeply.</p>
+<p>But here&rsquo;s what nobody tells you: <strong>they&rsquo;re guides, not laws of physics.</strong> No finite set of rules can cover every situation you&rsquo;ll encounter. The moment you treat patterns as gospel, as things you must always apply, you stop thinking about your specific problem and start forcing it into someone else&rsquo;s solution. Sometimes the right answer is a pattern from the book. Sometimes the right answer is something the book never considered. And sometimes the right answer is to throw the book away entirely and let the problem itself show you what it needs.</p>
+<p>The greatest innovations in engineering didn&rsquo;t come from following the manual. They came from someone who understood the manual deeply enough to know when to deviate from it. Kelly Johnson knew every rule of aircraft design. He just also knew which ones didn&rsquo;t apply at Mach 3.2.</p>
+<h2 id="nature-dictates-the-design">Nature dictates the design<a href="#nature-dictates-the-design" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>This is the deeper idea underneath all of it, and the one that took me the longest to see.</p>
+<p>When you work on a problem long enough, really work on it, for years, you start to see that the problem itself tells you what the solution needs to be. Not what your education says it should be. Not what the patterns book recommends. Not what the latest conference talk suggests. The <em>problem</em> dictates the design. Nature dictates the form.</p>
+<p>Kelly Johnson didn&rsquo;t start with a desire to build a simple aircraft. He started with a set of brutal constraints: Mach 3.2, 85,000 feet, titanium that didn&rsquo;t exist in the supply chain, fuel that doubled as coolant. Those constraints <em>forced</em> simplicity. Every unnecessary part was thermal mass that could crack. Every extra system was a failure point at the edge of the atmosphere. The Blackbird became simple not because Johnson liked simplicity as an aesthetic, but because the laws of physics left no room for anything unnecessary.</p>
+<p>The same is true in a game engine. When you&rsquo;re shipping frames every 16 milliseconds, when you&rsquo;re managing thousands of draw calls, when you&rsquo;re synchronizing CPU and GPU across multiple command lists, the physics of the problem don&rsquo;t leave room for an <code>AbstractDrawCallFactoryManagerInterface</code>. The frame budget is your Mach 3.2. The GPU memory is your titanium. The constraints are real and unforgiving, and they&rsquo;ll burn away everything that doesn&rsquo;t need to be there.</p>
+<p>The SR-71 didn&rsquo;t have unnecessary parts because unnecessary parts would have killed the pilot. Your game engine shouldn&rsquo;t have unnecessary abstractions because unnecessary abstractions will kill your frame rate, your iteration speed, and your ability to debug the thing at 2 AM when something breaks and you&rsquo;re six layers deep in indirection wondering which virtual dispatch is eating your cache line.</p>
+<h2 id="what-ten-years-taught-me">What ten years taught me<a href="#what-ten-years-taught-me" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>After a decade of learning this the hard way, here&rsquo;s what I know:</p>
+<ol>
+<li>
+<p><strong>If a class doesn&rsquo;t need multiple instances, make it static.</strong> Don&rsquo;t create complexity to manage a lifetime that doesn&rsquo;t need managing.</p>
+</li>
+<li>
+<p><strong>If a piece of state is only used in one file, put it in an anonymous namespace.</strong> Don&rsquo;t pollute headers with implementation details.</p>
+</li>
+<li>
+<p><strong>If the standard library type does the job, use it.</strong> Don&rsquo;t wrap <code>std::vector</code> in a custom class just to feel like you&rsquo;re engineering something.</p>
+</li>
+<li>
+<p><strong>If something breaks, let it break loudly.</strong> Assert. Don&rsquo;t write defensive code that hides bugs behind graceful degradation.</p>
+</li>
+<li>
+<p><strong>If you can&rsquo;t measure the difference, it doesn&rsquo;t exist.</strong> Don&rsquo;t add a custom allocator, a custom vector, or a custom anything unless you can point to a profiler trace that says you need it.</p>
+</li>
+<li>
+<p><strong>If the code does what it needs to in three lines, don&rsquo;t write a framework.</strong> Three similar lines of code is better than a premature abstraction.</p>
+</li>
+</ol>
+<p>None of these are absolute laws. Context matters. Team size matters. Project requirements matter. If you&rsquo;re building a plugin architecture that genuinely needs to support third-party extensibility, you might need those abstract interfaces. If you&rsquo;re working on a codebase with 200 engineers, you might need stricter encapsulation to prevent people from stepping on each other. I&rsquo;m not saying these rules apply universally to every project in every situation.</p>
+<p>What I am saying is this: <strong>the default should be simplicity, and complexity should require justification.</strong> Not the other way around. Most codebases I&rsquo;ve seen, including my own early work, get it backwards. They start complex and never ask why.</p>
+<p>Every one of these rules is the same rule, restated: <strong>if the problem doesn&rsquo;t demand it, don&rsquo;t add it.</strong> That&rsquo;s KISS. That&rsquo;s what Kelly Johnson knew. That&rsquo;s what the Blackbird was built on. That&rsquo;s what ten years of engine development taught me the slow way.</p>
+<p>The best part is no part. The best code is no code. And the best abstraction is the one you had the discipline not to write.</p>
+<h2 id="this-is-just-the-beginning">This is just the beginning<a href="#this-is-just-the-beginning" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>After a decade, the engine is better than it&rsquo;s ever been, and I feel like I&rsquo;m just getting started. The lessons above didn&rsquo;t make things easier. They made things <em>possible</em>. When your codebase is simple enough that you can hold the whole thing in your head, you can move fast. You can take risks. You can attempt things that would be unthinkable in a tangled mess of abstractions.</p>
+<p>That&rsquo;s where I am now. Not at the finish line. At the starting line, with a decade of hard-won clarity behind me and the most ambitious version of Spartan still ahead.</p>
+<p>If any of this resonated with you, come check out the project. It&rsquo;s open source, it&rsquo;s alive, and there&rsquo;s a growing community around it.</p>
+<p><strong><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine on GitHub</a></strong></p>
+]]></content></item><item><title>HDR in under 10 minutes</title><link>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</link><pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p><img src="/media/post_hdr_banner.jpg" alt="image"></p>
+<p>Recently, I added HDR support to <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a>, expecting it to be a quick task.
+However, it turned into a full day&rsquo;s work. The main issue? I could only find bits and pieces of code and no all-in-one blog posts.
+So, I&rsquo;ve decided to simplify things for you. Let&rsquo;s dive straight in and aim to get HDR up and running in under 10 minutes.</p>
+<h2 id="step-1---swapchain">Step 1 - Swapchain<a href="#step-1---swapchain" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>First stop, the swapchain. Opt for the <code>VK_FORMAT_A2B10G10R10_UNORM_PACK32 (DXGI_FORMAT_R10G10B10A2_UNORM)</code> format and the <code>VK_COLOR_SPACE_HDR10_ST2084_EXT (DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020)</code> color space.
+While other combinations are possible, I recommend sticking to these for the purposes of this post.</p>
+<h2 id="step-2---output">Step 2 - Output<a href="#step-2---output" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>At the tail end of your rendering pipeline, there’s typically a shader that, in SDR scenarios, applies tonemapping and gamma correction.
+For HDR, you can skip tonemapping (which typically compresses into SDR) and gamma correction. Instead, use the following approach:</p>
+<pre tabindex="0"><code>float3 linear_to_hdr10(float3 color, float white_point)
+{
+    // Convert Rec.709 to Rec.2020 color space to broaden the palette
+    static const float3x3 from709to2020 =
+    {
+        { 0.6274040f, 0.3292820f, 0.0433136f },
+        { 0.0690970f, 0.9195400f, 0.0113612f },
+        { 0.0163916f, 0.0880132f, 0.8955950f }
+    };   
+    color = mul(from709to2020, color);
+
+    // Normalize HDR scene values ([0..&gt;1] to [0..1]) for ST.2084 curve
+    const float st2084_max = 10000.0f;
+    color *= white_point / st2084_max;
+
+    // Apply ST.2084 (PQ curve) for HDR10 standard
+    static const float m1 = 2610.0 / 4096.0 / 4;
+    static const float m2 = 2523.0 / 4096.0 * 128;
+    static const float c1 = 3424.0 / 4096.0;
+    static const float c2 = 2413.0 / 4096.0 * 32;
+    static const float c3 = 2392.0 / 4096.0 * 32;
+    float3 cp             = pow(abs(color), m1);
+    color                 = pow((c1 + c2 * cp) / (1 + c3 * cp), m2);
+
+    return color;
+}
+</code></pre><p><img src="/media/post_hdr_colorspaces.png" alt="image"></p>
+<ul>
+<li><strong>White point:</strong> Typically a value around 350. You might hardcode this value into the shader to get going.</li>
+<li><strong>Rec.709 vs. Rec.2020:</strong> Rec.709 defines the standard color space for HD, Rec.2020 broadens this palette for UHD content.</li>
+<li><strong>ST.2084 (PQ Curve):</strong> The PQ curve, central to the HDR10 standard, maps brightness levels to align with human visual perception, capable of displaying up to 10,000 nits.</li>
+</ul>
+<h1 id="step-3---materials">Step 3 - Materials<a href="#step-3---materials" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<p>Your material textures are usually in the sRGB color space.
+For HDR, ensuring precise linearisation of these textures is important.
+Typically you would sample your textures with a simple power function approach, like so:</p>
+<pre tabindex="0"><code>float3 srgb_to_linear(float3 color) 
+{ 
+    float gamma = 2.2f;
+    return pow(color, gamma); 
+}
+</code></pre><p>This method falls short for HDR, especially with modern capable monitors which aim for the sRGB standard rather than a simpler gamma 2.2 curve.
+For more accurate color representation, use this instead (and a good monitor):</p>
+<pre tabindex="0"><code>float3 srgb_to_linear(float3 color)
+{
+    float gamma        = 2.4f; // The sRGB curve for mid tones to high lights resembles a gamma of 2.4
+    float3 linear_low  = color / 12.92;
+    float3 linear_high = pow((color + 0.055) / 1.055, gamma);
+    float3 is_high     = step(0.0404482362771082, color);
+    return lerp(linear_low, linear_high, is_high);
+}
+</code></pre><p>The above function accounts for the sRGB standard&rsquo;s nuanced behavior with both a piecewise linear and a non-linear curve, providing better color accuracy (especially with darker tones).
+This approach goes beyond the simpler gamma 2.2 curve that many displays target, aligning more closely with modern displays aiming for the sRGB standard with a 2.4 gamma.</p>
+<p>For example, this is the Samsung Odyssey Neo G8 targeting sRGB and a 2.4 gamma.
+<img src="/media/post_hdr_monitor.png" alt="image">
+<img src="/media/post_hdr_monitor_3.jpg" alt="image"></p>
+<p>Let&rsquo;s look at the image below, observe the obvious color shifts in darker areas (say ImGui) and subtle changes in brighter spots (say the helmet).
+The improvements are best seen on modern HDR monitor, the screenshots can only convey so much.</p>
+<p><img src="/media/post_hdr_gamma.jpg" alt="image"></p>
+<p>Note: You could also use sRGB texture formats to bypass manual linearisation.</p>
+<h1 id="conclusion">Conclusion<a href="#conclusion" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<p>There you have it. Enjoy the enhanced visual fidelity!</p>
+<p><img src="/media/post_sdr_hdr.png" alt="image"></p>
+<hr>
+<aside class="admonition tip">
+    <div class="admonition-title"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+   </svg></span><b>References</b></div>
+    <div class="admonition-content"><ol>
+<li>Code sample: <a href="https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders">Spartan Engine</a></li>
+<li>Code sample: <a href="https://github.com/microsoft/Xbox-ATG-Samples/tree/main/Kits/ATGTK/HDR">Xbox ATG HDR</a>.</li>
+<li>Code sample: <a href="https://learn.microsoft.com/en-us/samples/microsoft/directx-graphics-samples/d3d12-hdr-sample-win32/">Direct3D 12 HDR</a>.</li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Rec._709">Rec. 709</a>.</li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Rec._2020">Rec. 2020</a>.</li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Perceptual_quantizer">Perceptual quantizer</a>.</li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a>.</li>
+<li>Post: <a href="https://entropymine.com/imageworsener/srgbformula/">A close look at the sRGB formula</a>.</li>
+<li>Monitor: <a href="https://www.samsung.com/uk/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-240hz-1ms-curved-uhd-4k-ls32bg850npxxu/">Samsung Odyssey Neo G8</a></li>
+<li>Monitor calibration: <a href="https://apps.microsoft.com/detail/9n7f2sm5d1lr?rtc=1&amp;hl=en-gb&amp;gl=GB">Windows HDR Calibration</a></li>
+</ol>
+</div>
+</aside>
+]]></content></item><item><title>Screen space shadows</title><link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link><pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/blog/posts/screen_space_shadows/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p>After working on <a href="https://github.com/PanosK92/SpartanEngine">Spartan</a> game engine for so long, it became
+increasingly obvious that there are many interesting things that I could be writing about.
+However, I kept postponing it as I was growing fond of <a href="https://gohugo.io/">Hugo</a> and didn&rsquo;t want to invest
+any content (or money) on WordPress anymore. The good thing is that I&rsquo;ve finally found the courage to transition
+to this slick and fast site you&rsquo;re browsing now!</p>
+<p>I want to start things off with a simple and short blog post, yet have some immediate results we can enjoy.
+You know, something like the kind of instant gratification you get by watching a <a href="https://www.youtube.com/watch?v=lJSshqCBMww">Bob Ross</a> episode.
+An approach which I believe to be one of the most efficient forms of conveying information.
+So, let&rsquo;s explore something that with a little bit of effort, might give us just that.
+Time for some screen space shadows &#x1f604;</p>
+<h2 id="screenshots">Screenshots<a href="#screenshots" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Here is a wild west motorcycle (courtesy of <a href="https://sketchfab.com/3d-models/wild-west-motorcycle-6038a0b13fbe434f901af27fec8391ab">Matija Švaco</a>) without any shadows.</p>
+<p><img src="/media/post_sss_active_nothing.jpg" alt="No shadows"></p>
+<p>If we enable shadow mapping, we can introduce some nice large-scale detail, a nice first step.</p>
+<p><img src="/media/post_sss_active_sm.jpg" alt="Shadow mapping"></p>
+<p>What if we enable screen space shadows? Well, we get some nice small-scale detail.</p>
+<p><a href="/media/post_sss_active_sss.jpg">Screen space shadows</a></p>
+<p>The key lies in enabling both as we can get the best of both worlds.</p>
+<p><img src="/media/post_sss_active_sm_sss.jpg" alt="Shadow mapping + Screen space shadows"></p>
+<p>Let&rsquo;s have a look at a side by side comparison. Beautiful, isn&rsquo;t it?</p>
+<p><img src="/media/post_sss_comparison.jpg" alt="Shadow mapping without and with screen space shadows"></p>
+<h2 id="industry-comparison">Industry comparison<a href="#industry-comparison" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Loss of small-scale detail when doing shadow mapping is a typical problem, especially with lights that aim to cover a
+large portion of the scene (like directional lights). As we&rsquo;ve seen, screen space shadows can help a lot
+but before we explore them in further detail, let&rsquo;s see how most of the games we enjoy handle small-scale shadow quality:</p>
+<ul>
+<li>The player is allowed to keep increasing the shadow resolution. It&rsquo;s a costly approach but it works and it happens to be the most common.</li>
+<li>The player sees lights with very high shadow resolution, during key moments like character close-ups. This approach doesn&rsquo;t
+suffer from typical screen space issues but it does involve the hard work of manually tweaking lights, per scene.</li>
+<li>The player gets the extra treatment that is screen space shadows. In some cases, the shadows are even aided by normals as well as information from other
+render passes, all of which help alleviate some screen space issues even further.</li>
+</ul>
+<p>An example of some good-looking screen space shadows from Remedy Entertainment.</p>
+<p><img src="/media/post_sss_quantum_break.jpg" alt="Screen space shadows in Quantum Break"></p>
+<p><img src="/media/post_sss_control.jpg" alt="Screen space shadows in Control"></p>
+<h2 id="the-algorithm">The algorithm<a href="#the-algorithm" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>So how do we go about it? Well, the basic idea is that we start by moving from the pixel to the light.
+We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
+If our ray depth is larger (further away) from the camera&rsquo;s, then we assume that the pixel is in shadow.</p>
+<p><img src="/media/post_sss_idea.png" alt="Can the camera see the ray? A compromise to decide whether to shadow or not."></p>
+<p>As we can already see, we can&rsquo;t reliably tell if a pixel is in shadow or not, using only screen space information.
+But we don&rsquo;t have to worry that, as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
+So the question really is, is this compromise good enough to provide any meaningful information?
+And the answer is that it is quite decent at small distances, but less accurate over long distances.
+So, it&rsquo;s wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
+can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.</p>
+<p>Here is the complete HLSL example with comments where necessary:</p>
+<pre tabindex="0"><code>// Settings
+static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
+static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
+static const float g_sss_thickness        = 0.02f;  // Depth testing thickness.
+static const float g_sss_step_length      = g_sss_ray_max_distance / (float)g_sss_max_steps;
+
+float ScreenSpaceShadows(Surface surface, Light light)
+{
+    // Compute ray position and direction (in view-space)
+    float3 ray_pos = mul(float4(surface.position, 1.0f), g_view).xyz;
+    float3 ray_dir = mul(float4(-light.direction, 0.0f), g_view).xyz;
+
+    // Compute ray step
+    float3 ray_step = ray_dir * g_sss_step_length;
+	
+    // Ray march towards the light
+    float occlusion = 0.0;
+    float2 ray_uv   = 0.0f;
+    for (uint i = 0; i &lt; g_sss_max_steps; i++)
+    {
+        // Step the ray
+        ray_pos += ray_step;
+        ray_uv  = project_uv(ray_pos, g_projection);
+
+        // Ensure the UV coordinates are inside the screen
+        if (is_saturated(ray_uv))
+        {
+            // Compute the difference between the ray&#39;s and the camera&#39;s depth
+            float depth_z     = get_linear_depth(ray_uv);
+            float depth_delta = ray_pos.z - depth_z;
+
+            // Check if the camera can&#39;t &#34;see&#34; the ray (ray depth must be larger than the camera depth, so positive depth_delta)
+            if ((depth_delta &gt; 0.0f) &amp;&amp; (depth_delta &lt; g_sss_thickness))
+            {
+                // Mark as occluded
+                occlusion = 1.0f;
+
+                // Fade out as we approach the edges of the screen
+                occlusion *= screen_fade(ray_uv);
+
+                break;
+            }
+        }
+    }
+
+    // Convert to visibility
+    return 1.0f - occlusion;
+}
+</code></pre><h2 id="a-smart-tweak">A smart tweak<a href="#a-smart-tweak" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Like with many effects, we can just set a high step count, get good looking results, accept the performance hit and call it a day.
+Afterall, who has the time to trade banding for noise by offsetting the ray&rsquo;s start position, blur it, and only then be able to use it, right ?
+I totally understand and I would like to mention that if we have a TAA implementation in our project, we can do the following.</p>
+<p>We can choose a noise function and add a temporal factor to it.
+I derived my version from <a href="http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare">Jorge Jimenez&rsquo;s</a>
+interleaved gradient noise function, as it works particularly well with TAA.</p>
+<pre tabindex="0"><code>float interleaved_gradient_noise(float2 position_screen)
+{
+    position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
+    float3 magic = float3(0.06711056f, 0.00583715f, 52.9829189f);
+    return frac(magic.z * frac(dot(position_screen, magic.xy)));
+}
+</code></pre><p>And then, in our original shader, just before we start ray marching, we offset the start position.
+This effectively increases the step count (over time).</p>
+<pre tabindex="0"><code>// Offset starting position with temporal interleaved gradient noise
+float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
+ray_pos      += ray_step * offset;
+</code></pre><p>Using only 8 samples is fast but introduces banding, or not ? &#x1f609;
+<img src="/media/post_sss_noise.jpg" alt="Using noise which can be nicely resolved by TAA"></p>
+<h2 id="thats-all">That&rsquo;s all<a href="#thats-all" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<p>Before we end this and for the sake of art, let&rsquo;s appreciate the motorcycle with a material &#x1f604;
+<img src="/media/post_sss_full.jpg" alt="image"></p>
+<p>You can get access to this shader as well as all of my other shaders by clicking <a href="https://github.com/PanosK92/SpartanEngine/tree/master/data/shaders">here</a>.
+If you have any thoughts, don&rsquo;t hesitate to leave a comment or reach out to me via <a href="https://twitter.com/panoskarabelas1">X</a>.
+I hope that you&rsquo;ve found this post interesting and that you enjoyed it, stay safe.</p>
+<hr>
+<aside class="admonition tip">
+    <div class="admonition-title"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+   </svg></span><b>Even better screen space shadows</b></div>
+    <div class="admonition-content">Bend Studio has released the screen space shadows code they created for Days Gone.
+It&rsquo;s even better and you have to do little work to get it into your engine, check it here: <a href="https://www.bendstudio.com/blog/inside-bend-screen-space-shadows/">Inside Bend - Screen Space Shadows</a>.</div>
+</aside>
+]]></content></item></channel></rss>

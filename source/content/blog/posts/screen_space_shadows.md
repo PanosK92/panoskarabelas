@@ -60,7 +60,7 @@ So how do we go about it? Well, the basic idea is that we start by moving from t
 We move in steps, in each step, we compare the depth of our ray against the depth that the camera perceives.
 If our ray depth is larger (further away) from the camera's, then we assume that the pixel is in shadow.
 
-{![Can the camera see the ray ? A compromise to decide whether to shadow or not.](/media/post_sss_idea.png)
+![Can the camera see the ray? A compromise to decide whether to shadow or not.](/media/post_sss_idea.png)
 
 As we can already see, we can't reliably tell if a pixel is in shadow or not, using only screen space information.
 But we don't have to worry that, as if we recall the comparison pictures we saw previously, we only need to supplement shadow mapping, not replace it.
@@ -69,7 +69,7 @@ And the answer is that it is quite decent at small distances, but less accurate 
 So, it's wise to keep this effect at a small scale. This is also why some people refer to screen space shadows as contact shadows, because shadows
 can only (reliably) show up when the pixel is very close to its occluder, they almost make contact.
 
-Here is the complete HLSL example with comments were necessary:
+Here is the complete HLSL example with comments where necessary:
 
 ```
 // Settings

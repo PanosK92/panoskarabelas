@@ -28,10 +28,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e9a13c">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00d4aa">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/main.75bd12d59eb51c023f8f2ba4ac9468ad369e5955027c244d3cf6e45a80f00f28.css" integrity="sha256-db0S1Z61HAI/jyukrJRorTaeWVUCfCRNPPbkWoDwDyg=">
+<link rel="stylesheet" href="/css/main.6af4a31191e00a334c56b1876e7a6cfc6e567ab011315ebd0e9cbde867eacb68.css" integrity="sha256-avSjEZHgCjNMVrGHbnps/G5WerARMV69Dpy96Gfqy2g=">
 
     
 </head>
@@ -251,23 +251,48 @@
         </div>
         <div class="spec-grid">
             <section class="spec reveal">
-                <h3>The renderer</h3>
+                <h3>Architecture</h3>
                 <ul class="career__points">
-                    <li>Zero-binding draw path. All per-draw data lives in one bindless storage buffer, and push constants carry an index and nothing else.</li>
-                    <li>GPU-driven indirect rendering with per-meshlet frustum, Hi-Z occlusion and backface cone culling. One DrawIndexedIndirectCount per pass.</li>
-                    <li>ReSTIR path tracing with spatiotemporal reservoir resampling. Multi-bounce global illumination with no bake step and no light probes.</li>
-                    <li>Hardware ray-traced reflections and shadows through ray queries, sharing the same vertex-pulling path as the rasteriser.</li>
-                    <li>One universal HLSL codebase compiled to both SPIR-V and DXIL, so Vulkan and DirectX 12 run the same shaders.</li>
+                    <li>Zero-binding draw path, all per-draw data in a single bindless storage buffer with push constants carrying only an index</li>
+                    <li>One global vertex and index buffer for all geometry, with vertex pulling that bypasses the input assembler and is shared by rasterisation and ray tracing</li>
+                    <li>GPU-driven indirect rendering with per-meshlet frustum, Hi-Z occlusion and backface cone culling, one DrawIndexedIndirectCount per pass</li>
+                    <li>Meshlet clustering via meshoptimizer, with no mesh shader dependency</li>
+                    <li>Universal HLSL compiled for both Vulkan (SPIR-V) and DirectX 12</li>
+                    <li>GPU-side asset processing: mip generation and texture compression at load time, not baked offline</li>
                 </ul>
             </section>
             <section class="spec reveal">
-                <h3>The rest of the engine</h3>
+                <h3>Lighting and global illumination</h3>
                 <ul class="career__points">
-                    <li>Physically based camera and lights in real units. The sun is set in kelvin and lux, not in arbitrary multipliers.</li>
-                    <li>FSR 3, XeSS 3 and TAAU upscaling, with variable rate shading and dynamic resolution scaling.</li>
-                    <li>Tessendorf FFT ocean in compute, volumetric clouds with multi-scatter lighting, and froxel fog with temporal reprojection.</li>
-                    <li>Vehicle dynamics at 200 Hz. Pacejka MF 5.2 tyres with thermal, pressure and wear models, LSD differentials and thermal brake fade.</li>
-                    <li>Lua 5.4 through Sol2 with the full engine API, and an Nsight-style profiler with separate graphics and async compute lanes.</li>
+                    <li>ReSTIR path tracing with spatiotemporal reservoir resampling for real-time multi-bounce global illumination</li>
+                    <li>Clustered deferred shading on a GPU-built logarithmic-Z grid, scaling to many local lights at near-constant per-pixel cost</li>
+                    <li>Hardware ray-traced reflections and shadows via ray queries</li>
+                    <li>Volumetric clouds baked into the sky panorama, with multi-scatter lighting and aerial perspective</li>
+                    <li>Froxel volumetric fog with temporal reprojection, sun shafts and underwater caustics</li>
+                    <li>Tessendorf FFT ocean with multi-cascade IFFT in compute, driving a camera-following clipmap</li>
+                    <li>Screen-space shadows and XeGTAO ambient occlusion</li>
+                </ul>
+            </section>
+            <section class="spec reveal">
+                <h3>Performance and image quality</h3>
+                <ul class="career__points">
+                    <li>Variable rate shading and dynamic resolution scaling</li>
+                    <li>TAAU, Halton-jittered with variance-clip history reprojection</li>
+                    <li>Intel XeSS 3 upscaling</li>
+                    <li>Physically based camera with auto-exposure and physical light units in lumens and kelvin</li>
+                    <li>ACES, AgX and Gran Turismo 7 tonemappers, with HDR10 output</li>
+                    <li>Custom GPU breadcrumbs for crash tracing and post-mortem debugging</li>
+                </ul>
+            </section>
+            <section class="spec reveal">
+                <h3>Beyond rendering</h3>
+                <ul class="career__points">
+                    <li>Vehicle dynamics at 200 Hz: Pacejka MF 5.2 tyres with thermal, pressure and wear models, LSD differentials, thermal brake fade and ABS</li>
+                    <li>PhysX rigid bodies, character kinematics and vehicle physics</li>
+                    <li>Full skeletal animation with crossfade blending and two-bone IK with ground-aware foot planting</li>
+                    <li>Lua 5.4 scripting through Sol2, with the full engine API and lifecycle callbacks</li>
+                    <li>Nsight-style profiler with separate graphics and async compute lanes, plus a memory fragmentation viewer</li>
+                    <li>OpenXR VR with multiview single-pass stereo, work in progress</li>
                 </ul>
             </section>
         </div>
@@ -285,19 +310,6 @@
         <div class="engine-gallery reveal">
             <figure class="frame frame--caption">
                 <img
-    src="/media/engine/world_sponza_hu_2dda90b999086c63.webp"
-    srcset="/media/engine/world_sponza_hu_923bee4ce6bd1ebe.webp 640w, /media/engine/world_sponza_hu_2dda90b999086c63.webp 1080w"
-    sizes="(max-width: 760px) 100vw, 540px"
-    width="1080"
-    height="588"
-    alt="The Sponza atrium with curtains and ivy in the Spartan Engine editor, with the renderer options panel showing ReSTIR path tracing, ray-traced reflections and ray-traced shadows all enabled"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    ><figcaption>sponza — read the renderer panel on the right rather than taking my word for it. ReSTIR path tracing, ray-traced reflections and ray-traced shadows all on, rendering at 1920x1080 and upscaling to 3180x1553 with FSR 3.</figcaption>
-            </figure>
-            <figure class="frame frame--caption">
-                <img
     src="/media/engine/world_showroom_a_hu_4deb2a59844aa074.webp"
     srcset="/media/engine/world_showroom_a_hu_f44229fee07afb7f.webp 640w, /media/engine/world_showroom_a_hu_4deb2a59844aa074.webp 1080w"
     sizes="(max-width: 760px) 100vw, 540px"
@@ -307,7 +319,7 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>showroom — the emissive bars overhead are the only lights in the scene. Everything on the car and the floor is bounce, path traced per frame.</figcaption>
+    ><figcaption>ferrari_showcase — a turntable lit entirely by emissive light bars</figcaption>
             </figure>
             <figure class="frame frame--caption">
                 <img
@@ -320,7 +332,20 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>liminal — a single ceiling panel, and a room that is legible anyway. This is the case that breaks renderers which lean on ambient terms.</figcaption>
+    ><figcaption>liminal_space — one light source, everything else is bounce</figcaption>
+            </figure>
+            <figure class="frame frame--caption">
+                <img
+    src="/media/engine/world_sponza_hu_2dda90b999086c63.webp"
+    srcset="/media/engine/world_sponza_hu_923bee4ce6bd1ebe.webp 640w, /media/engine/world_sponza_hu_2dda90b999086c63.webp 1080w"
+    sizes="(max-width: 760px) 100vw, 540px"
+    width="1080"
+    height="588"
+    alt="The Sponza atrium with curtains and ivy, open in the Spartan Engine editor"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>sponza — the classic atrium, with curtains and ivy</figcaption>
             </figure>
             <figure class="frame frame--caption">
                 <img
@@ -333,7 +358,7 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>the launcher — nine worlds ship with the engine, all physics-enabled, none of them canned demos.</figcaption>
+    ><figcaption>Nine worlds ship with the engine. None of them are canned demos.</figcaption>
             </figure>
         </div>
     </div>

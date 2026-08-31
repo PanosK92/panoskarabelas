@@ -78,18 +78,13 @@
             </a>
         </div>
 
-        <figure class="frame frame--caption reveal">
+        <div class="frame reveal">
             {{ partial "image.html" (dict
                 "src" "/media/engine/world_forest.jpg"
-                "alt" "The Spartan Engine editor rendering a terrain at sunset, with the scene hierarchy and the directional light's properties panel visible beside the viewport"
+                "alt" "The Spartan Engine editor rendering a procedural forest at sunset, with the scene hierarchy, inspector and profiler visible"
                 "sizes" "(max-width: 1200px) 100vw, 1120px"
                 "widths" (slice 800 1280 1920)) }}
-            <figcaption>
-                terrain at sunset — the light panel on the right is in physical units. the sun is a
-                3800 K directional light at 5000 lux, with shadows and screen-space shadows on. the
-                water and the grass respond to that, rather than to a hand-tuned colour.
-            </figcaption>
-        </figure>
+        </div>
 
         <p class="engine-quote reveal" style="max-width:60ch;margin-top:var(--s-6)">{{ .lead }}</p>
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "en" }}">
+<head>
+    {{ partial "head.html" . }}
+    {{ block "head" . }}{{ end }}
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {{ partial "header.html" . }}
+
+    <main id="main">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        {{ partial "icon.html" "arrow-up" }}
+    </button>
+
+    {{ $js := resources.Get "js/site.js" | js.Build (dict "minify" true) | fingerprint }}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>

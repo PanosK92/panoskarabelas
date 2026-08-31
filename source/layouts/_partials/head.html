@@ -1,0 +1,88 @@
+{{- $site := .Site -}}
+{{- $isHome := .IsHome -}}
+
+{{- $title := "" -}}
+{{- if $isHome -}}
+    {{- $title = printf "%s — %s" $site.Title ($site.Params.tagline | default "Rendering & Engine Programmer") -}}
+{{- else -}}
+    {{- $title = printf "%s · %s" .Title $site.Title -}}
+{{- end -}}
+
+{{- $desc := .Params.description | default .Params.summary -}}
+{{- if not $desc -}}
+    {{- $desc = $site.Params.description -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | truncate 180 -}}
+
+{{- /* social card, generated from an asset so it is always the right size */ -}}
+{{- $ogSrc := .Params.image | default $site.Params.ogImage -}}
+{{- $ogURL := "" -}}
+{{- with resources.Get (strings.TrimPrefix "/" ($ogSrc | default "")) -}}
+    {{- if in (slice "jpeg" "png" "webp") .MediaType.SubType -}}
+        {{- $ogURL = (.Fill "1200x630 smart q86 jpg").Permalink -}}
+    {{- end -}}
+{{- end -}}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ $site.Params.author.name | default $site.Title }}">
+<meta name="theme-color" content="#0a0b0f">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<meta property="og:site_name" content="{{ $site.Title }}">
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with $ogURL }}
+<meta property="og:image" content="{{ . }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{- end }}
+{{- if .IsPage }}
+{{- with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{- end }}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+{{- with $site.Params.twitterHandle }}
+<meta name="twitter:creator" content="{{ . }}">
+{{- end }}
+{{- with $ogURL }}
+<meta name="twitter:image" content="{{ . }}">
+{{- end }}
+
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | relURL }}" color="#00d4aa">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
+
+{{- with resources.Get "fonts/inter-latin-wght-normal.woff2" }}
+<link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/woff2" crossorigin>
+{{- end }}
+
+{{- $css := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | toCSS (dict "outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $site.Title }}">
+{{- end }}
+
+{{- if $isHome }}
+<script type="application/ld+json">
+{{- dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" ($site.Params.author.name | default $site.Title)
+    "url" $site.BaseURL
+    "jobTitle" ($site.Params.jobTitle | default "Graphics Programmer")
+    "description" $desc
+    "sameAs" (slice "https://github.com/PanosK92" "https://x.com/panoskarabelas1" "https://www.youtube.com/@panos_karabelas")
+    | jsonify (dict "indent" "  ") | safeJS -}}
+</script>
+{{- end }}

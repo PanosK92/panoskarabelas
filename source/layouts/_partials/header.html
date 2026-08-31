@@ -1,0 +1,52 @@
+{{- $page := . -}}
+{{- $cv := .Site.Params.cvURL | default "/media/cv.html" -}}
+<header class="header">
+    <div class="container header__inner">
+        <a class="brand" href="{{ "" | relURL }}">
+            <span class="brand__mark" aria-hidden="true">PK</span>
+            <span class="brand__name">{{ .Site.Title }}</span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <ul class="nav__list">
+                {{- range .Site.Menus.main }}
+                {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
+                <li>
+                    <a class="nav__link{{ if hasPrefix .URL "http" }} nav__link--external{{ end }}"
+                       href="{{ .URL }}"
+                       {{ if hasPrefix .URL "http" }}target="_blank" rel="noopener"{{ end }}
+                       {{ if $active }}aria-current="page"{{ end }}>{{ .Name }}{{ if hasPrefix .URL "http" }} <span aria-hidden="true">&#8599;</span>{{ end }}</a>
+                </li>
+                {{- end }}
+            </ul>
+        </nav>
+
+        <div class="header__actions">
+            {{ partial "social.html" $page }}
+            <a class="btn btn--ghost btn--sm" href="{{ $cv | relURL }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "file-text" }} CV
+            </a>
+        </div>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menu">
+            {{ partial "icon.html" "menu" }}
+        </button>
+    </div>
+</header>
+
+<div class="nav-drawer" id="nav-drawer">
+    <ul class="nav-drawer__list">
+        {{- range .Site.Menus.main }}
+        <li>
+            <a href="{{ .URL }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>
+                {{ .Name }}
+                {{ if hasPrefix .URL "http" }}<span aria-hidden="true">&#8599;</span>{{ end }}
+            </a>
+        </li>
+        {{- end }}
+        <li>
+            <a href="{{ $cv | relURL }}" target="_blank" rel="noopener">CV <span aria-hidden="true">&#8599;</span></a>
+        </li>
+    </ul>
+    {{ partial "social.html" $page }}
+</div>

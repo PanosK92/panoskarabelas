@@ -1,6 +1,8 @@
 ---
 date: 2026-03-30
 title: Spacetime is the headset. Consciousness is what's there when you take it off.
+image: /media/post_consciousness_1.jpg
+description: Spacetime as an interface rather than a substrate, and what that leaves consciousness to be.
 ---
 
 ![image](/media/post_consciousness_1.jpg)

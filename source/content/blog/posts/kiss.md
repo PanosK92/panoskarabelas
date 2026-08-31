@@ -1,6 +1,8 @@
 ---
 date: 2026-02-23
 title: What building a game engine for a decade and the SR-71 Blackbird have in common
+image: /media/dramatic_blackbird_in_flight.jpg
+description: Twelve years of rewrites taught me the same lesson Kelly Johnson wrote down sixty years earlier. Every rewrite came out simpler.
 ---
 
 ![image](/media/dramatic_blackbird_in_flight.jpg)

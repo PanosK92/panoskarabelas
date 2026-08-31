@@ -1,6 +1,8 @@
 ---
 date: 2024-03-21
 title: HDR in under 10 minutes
+image: /media/post_hdr_banner.jpg
+description: "The shortest path to correct HDR output in a real renderer: Rec.2020, the PQ curve, and getting sRGB linearisation right."
 ---
 
 ![image](/media/post_hdr_banner.jpg)
@@ -18,7 +20,7 @@ While other combinations are possible, I recommend sticking to these for the pur
 At the tail end of your rendering pipeline, there’s typically a shader that, in SDR scenarios, applies tonemapping and gamma correction.
 For HDR, you can skip tonemapping (which typically compresses into SDR) and gamma correction. Instead, use the following approach:
 
-```
+```hlsl
 float3 linear_to_hdr10(float3 color, float white_point)
 {
     // Convert Rec.709 to Rec.2020 color space to broaden the palette
@@ -57,7 +59,7 @@ Your material textures are usually in the sRGB color space.
 For HDR, ensuring precise linearisation of these textures is important. 
 Typically you would sample your textures with a simple power function approach, like so:
 
-```
+```hlsl
 float3 srgb_to_linear(float3 color) 
 { 
     float gamma = 2.2f;
@@ -68,7 +70,7 @@ float3 srgb_to_linear(float3 color)
 This method falls short for HDR, especially with modern capable monitors which aim for the sRGB standard rather than a simpler gamma 2.2 curve.
 For more accurate color representation, use this instead (and a good monitor):
 
-```
+```hlsl
 float3 srgb_to_linear(float3 color)
 {
     float gamma        = 2.4f; // The sRGB curve for mid tones to high lights resembles a gamma of 2.4

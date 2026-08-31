@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article>
+    <div class="container container--prose">
+        <header class="post-head">
+            <p class="post-head__meta">
+                <a href="{{ "/blog/" | relURL }}" class="mono">Writing</a>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 January 2006" }}</time>
+                <span>{{ .ReadingTime }} min read</span>
+            </p>
+            <h1 class="post-head__title">{{ .Title }}</h1>
+            {{- with .Params.description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+        </header>
+
+        <div class="prose">{{ .Content }}</div>
+
+        {{- if or .NextInSection .PrevInSection }}
+        <nav aria-label="More posts">
+            <ul class="post-nav">
+                {{- with .NextInSection }}
+                <li>
+                    <a href="{{ .RelPermalink }}">
+                        <span class="post-nav__label">Newer</span>
+                        <span class="post-nav__title">{{ .Title }}</span>
+                    </a>
+                </li>
+                {{- end }}
+                {{- with .PrevInSection }}
+                <li>
+                    <a href="{{ .RelPermalink }}">
+                        <span class="post-nav__label">Older</span>
+                        <span class="post-nav__title">{{ .Title }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            </ul>
+        </nav>
+        {{- end }}
+    </div>
+</article>
+{{ end }}

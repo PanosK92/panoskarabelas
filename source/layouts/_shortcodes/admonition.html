@@ -1,0 +1,28 @@
+{{- /* usage: {{< admonition tip "Title" >}}body{{< /admonition >}} */ -}}
+{{- $inner := .Inner | .Page.RenderString -}}
+{{- $type := "note" -}}
+{{- $title := "" -}}
+{{- if .IsNamedParams -}}
+    {{- $type = .Get "type" | default "note" -}}
+    {{- $title = .Get "title" | default $type -}}
+{{- else -}}
+    {{- $type = .Get 0 | default "note" -}}
+    {{- $title = .Get 1 | default $type -}}
+{{- end -}}
+{{- $icon := "link" -}}
+{{- if eq $type "tip" -}}{{- $icon = "star" -}}
+{{- else if eq $type "warning" -}}{{- $icon = "cpu" -}}
+{{- else if eq $type "code" -}}{{- $icon = "code" -}}
+{{- end -}}
+
+{{- if eq $type "summary" -}}
+<details class="callout callout--summary">
+    <summary class="callout__title">{{ $title | strings.FirstUpper }}</summary>
+    <div class="callout__body">{{ $inner }}</div>
+</details>
+{{- else -}}
+<aside class="callout callout--{{ $type }}">
+    <p class="callout__title">{{ partial "icon.html" $icon }}{{ $title | strings.FirstUpper }}</p>
+    <div class="callout__body">{{ $inner }}</div>
+</aside>
+{{- end -}}

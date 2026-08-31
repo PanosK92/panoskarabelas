@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-head">
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with .Params.lead | default .Params.description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+</div>
+
+<section class="section">
+    <div class="container">
+        {{- with .Content }}<div class="prose" style="margin-bottom:var(--s-7)">{{ . }}</div>{{ end }}
+        {{- with .RegularPagesRecursive.ByDate.Reverse }}
+        <ul class="entries">
+            {{- range . }}
+            <li>
+                <a class="entry" href="{{ .RelPermalink }}">
+                    <span class="entry__date">{{ .Date.Format "Jan 2006" }}</span>
+                    <div class="entry__body">
+                        <h3 class="entry__title">{{ .Title }}</h3>
+                        <span class="entry__meta">{{ .ReadingTime }} min read</span>
+                    </div>
+                    <span class="entry__arrow" aria-hidden="true">{{ partial "icon.html" "arrow-right" }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+        {{- end }}
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,19 @@
+{{- /*
+    star count resolved at build time, falls back quietly when the api is
+    unreachable so a build never depends on the network
+
+    usage: {{ $n := partial "gh-stars.html" (dict "repo" "owner/name" "fallback" 3100) }}
+*/ -}}
+{{- $stars := .fallback | default 3000 -}}
+{{- $url := printf "https://api.github.com/repos/%s" (.repo | default "PanosK92/SpartanEngine") -}}
+{{- with try (resources.GetRemote $url) -}}
+    {{- if not .Err -}}
+        {{- with .Value -}}
+            {{- $data := .Content | transform.Unmarshal -}}
+            {{- with $data.stargazers_count -}}
+                {{- $stars = . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- return $stars -}}

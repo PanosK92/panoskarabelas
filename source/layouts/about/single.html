@@ -1,0 +1,129 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+
+<div class="container">
+    <header class="page-head">
+        <p class="mono section-head__eyebrow">About</p>
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+</div>
+
+<section class="section">
+    <div class="container about__grid">
+        <div class="prose">{{ .Content }}</div>
+
+        <aside class="about__aside">
+            {{- with $p.portrait }}
+            <div class="about__portrait">
+                {{ partial "image.html" (dict
+                    "src" .
+                    "alt" ($p.portraitAlt | default "")
+                    "sizes" "(max-width: 900px) 220px, 300px"
+                    "widths" (slice 360 640)) }}
+            </div>
+            {{- end }}
+
+            {{- with $p.facts }}
+            <dl class="about__facts">
+                {{- range . }}
+                <div class="about__fact">
+                    <dt>{{ .key }}</dt>
+                    <dd>{{ .value }}</dd>
+                </div>
+                {{- end }}
+                {{- with $p.hobbies }}
+                <div class="about__fact">
+                    <dt>Off the clock</dt>
+                    <dd>
+                        <ul class="chips" style="margin-top:var(--s-2)">
+                            {{- range . }}<li class="chip">{{ . }}</li>{{ end }}
+                        </ul>
+                    </dd>
+                </div>
+                {{- end }}
+            </dl>
+            {{- end }}
+        </aside>
+    </div>
+</section>
+
+{{- with $p.taste }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Taste</p>
+                <h2 class="section-head__title">Five each, and why</h2>
+                <p class="section-head__lead">Five ranked beats thirty unranked. If you want the unabridged lists, they are at the bottom.</p>
+            </div>
+        </div>
+
+        <div class="taste reveal">
+            {{- range . }}
+            <section class="taste__col">
+                <h3>{{ .name }}</h3>
+                <ol class="taste__list">
+                    {{- range .picks }}
+                    <li>
+                        <span class="taste__pick">{{ .pick }}</span>
+                        <span class="taste__why">{{ .why }}</span>
+                    </li>
+                    {{- end }}
+                </ol>
+            </section>
+            {{- end }}
+        </div>
+
+        {{- with $p.longLists }}
+        <details class="disclose">
+            <summary>The long version{{ with .note }} — {{ . }}{{ end }}</summary>
+            <div class="long-lists">
+                {{- range .columns }}
+                <div>
+                    <h3>{{ .heading }}</h3>
+                    <ul>
+                        {{- range .items }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                </div>
+                {{- end }}
+            </div>
+        </details>
+        {{- end }}
+    </div>
+</section>
+{{- end }}
+
+<section class="section">
+    <div class="container">
+        <div class="promo reveal">
+            <div class="promo__grid">
+                <div>
+                    <p class="mono section-head__eyebrow">Say hello</p>
+                    <h2>I read everything that is not a recruiter template</h2>
+                    <p>Questions about the engine, rendering, or the podcast are always welcome. So is telling me I got something wrong.</p>
+                    <div class="promo__actions btn-row">
+                        {{- range .Site.Params.socialLinks }}
+                        {{- if eq .name "email" }}
+                        <a class="btn btn--primary" href="{{ .url }}">
+                            {{ partial "icon.html" "email" }} Email me
+                        </a>
+                        {{- end }}
+                        {{- end }}
+                        <a class="btn btn--ghost" href="{{ .Site.Params.engineDiscord }}" target="_blank" rel="noopener">
+                            {{ partial "icon.html" "discord" }} Or find me on Discord
+                        </a>
+                    </div>
+                </div>
+                <div class="frame">
+                    {{ partial "image.html" (dict
+                        "src" "/media/zakynthos.jpg"
+                        "alt" "The coast of Zakynthos, Greece"
+                        "sizes" "(max-width: 860px) 100vw, 420px"
+                        "widths" (slice 480 840)) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

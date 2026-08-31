@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-head">
+        <p class="mono section-head__eyebrow">Writing</p>
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with .Params.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+</div>
+
+<section class="section">
+    <div class="container">
+        {{- $pages := .RegularPagesRecursive.ByDate.Reverse }}
+        {{- range $pages.GroupByDate "2006" }}
+        <div class="year-group">
+            <h2 class="year-group__label">{{ .Key }}</h2>
+            <ul class="entries">
+                {{- range .Pages }}
+                <li>
+                    <a class="entry" href="{{ .RelPermalink }}">
+                        <span class="entry__date">{{ .Date.Format "02 Jan" }}</span>
+                        <div class="entry__body">
+                            <h3 class="entry__title">{{ .Title }}</h3>
+                            <span class="entry__meta">{{ .ReadingTime }} min read &middot; {{ .WordCount }} words</span>
+                        </div>
+                        <span class="entry__arrow" aria-hidden="true">{{ partial "icon.html" "arrow-right" }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            </ul>
+        </div>
+        {{- end }}
+
+        {{- with .OutputFormats.Get "rss" }}
+        <p style="margin-top:var(--s-7)">
+            <a class="link-arrow" href="{{ .Permalink }}">{{ partial "icon.html" "rss" }} Subscribe by RSS</a>
+        </p>
+        {{- end }}
+    </div>
+</section>
+{{ end }}

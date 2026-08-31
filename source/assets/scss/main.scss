@@ -1,0 +1,32 @@
+/*
+* panoskarabelas.com stylesheet entry point
+* this file is run through hugo's template engine before sass, so font
+* resources can be resolved here, partials below are plain sass
+*/
+
+{{ with resources.Get "fonts/inter-latin-wght-normal.woff2" -}}
+@font-face {
+    font-family: "Inter var";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("{{ .RelPermalink }}") format("woff2-variations");
+}
+{{- end }}
+
+{{ with resources.Get "fonts/jetbrains-mono-latin-wght-normal.woff2" -}}
+@font-face {
+    font-family: "JetBrains Mono var";
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url("{{ .RelPermalink }}") format("woff2-variations");
+}
+{{- end }}
+
+@import "tokens";
+@import "base";
+@import "layout";
+@import "components";
+@import "pages";
+@import "syntax";

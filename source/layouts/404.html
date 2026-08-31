@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="container">
+    <section class="notfound">
+        <div>
+            <p class="notfound__code">404</p>
+            <h1 style="margin-top:var(--s-4)">This page does not exist</h1>
+            <p>Either it moved, or you found a link I broke. Both are fixable.</p>
+            <div class="btn-row">
+                <a class="btn btn--primary" href="{{ "" | relURL }}">
+                    {{ partial "icon.html" "arrow-right" }} Back to the homepage
+                </a>
+                <a class="btn btn--ghost" href="{{ "/engine/" | relURL }}">
+                    {{ partial "icon.html" "cpu" }} Spartan Engine
+                </a>
+                <a class="btn btn--ghost" href="{{ "/blog/" | relURL }}">
+                    {{ partial "icon.html" "pen" }} Writing
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+{{ end }}

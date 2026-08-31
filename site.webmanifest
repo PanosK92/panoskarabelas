@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Panos Karabelas",
+    "short_name": "Panos K",
+    "description": "Rendering and engine programmer. Creator of Spartan Engine.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +14,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    "theme_color": "#0a0b0f",
+    "background_color": "#0a0b0f",
+    "display": "standalone",
+    "start_url": "/"
 }

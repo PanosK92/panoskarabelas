@@ -1,0 +1,151 @@
+/* chroma syntax highlighting, tuned to the site palette */
+
+.highlight {
+    margin: var(--s-6) 0;
+}
+
+.highlight pre {
+    margin: 0;
+}
+
+.highlight .hl {
+    display: block;
+    background: rgba(0, 212, 170, .08);
+}
+
+.highlight .lnt,
+.highlight .ln {
+    padding-right: var(--s-4);
+    color: #4a4f60;
+    user-select: none;
+}
+
+/* comments */
+.highlight .c,
+.highlight .ch,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs,
+.highlight .cp,
+.highlight .cpf {
+    color: #6b7183;
+    font-style: italic;
+}
+
+/* keywords */
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr {
+    color: #ff7bb0;
+}
+
+.highlight .kt {
+    color: #7fd6ff;
+}
+
+/* names */
+.highlight .n {
+    color: #e8e8f0;
+}
+
+.highlight .nf,
+.highlight .nd {
+    color: #8ab6ff;
+}
+
+.highlight .nc,
+.highlight .nn,
+.highlight .ne {
+    color: #ffd479;
+}
+
+.highlight .na,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+    color: #c7a6ff;
+}
+
+.highlight .nb,
+.highlight .bp {
+    color: #7fd6ff;
+}
+
+.highlight .nt {
+    color: #ff7bb0;
+}
+
+/* strings */
+.highlight .s,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .s1,
+.highlight .ss,
+.highlight .sr {
+    color: var(--c-accent);
+}
+
+.highlight .se {
+    color: #ffd479;
+}
+
+/* numbers */
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
+    color: #ffb86b;
+}
+
+/* operators and punctuation */
+.highlight .o,
+.highlight .ow {
+    color: #ff7bb0;
+}
+
+.highlight .p {
+    color: #9aa0b4;
+}
+
+/* generic / diff */
+.highlight .gd {
+    color: #ff8a8a;
+    background: rgba(255, 82, 82, .08);
+}
+
+.highlight .gi {
+    color: #7ee2a8;
+    background: rgba(0, 200, 83, .08);
+}
+
+.highlight .gh,
+.highlight .gu {
+    color: #8ab6ff;
+    font-weight: 600;
+}
+
+.highlight .ge {
+    font-style: italic;
+}
+
+.highlight .gs {
+    font-weight: 600;
+}
+
+.highlight .err {
+    color: #ff8a8a;
+}

@@ -1,0 +1,12 @@
+{{- /* usage: {{< youtube VIDEOID >}} or {{< youtube id="VIDEOID" title="..." >}} */ -}}
+{{- $id := "" -}}
+{{- if .IsNamedParams -}}
+    {{- $id = .Get "id" -}}
+{{- else -}}
+    {{- $id = .Get 0 -}}
+{{- end -}}
+{{ partial "video.html" (dict
+    "id" $id
+    "title" (.Get "title" | default "")
+    "caption" (.Get "caption" | default "")
+    "start" (.Get "start" | default "")) }}

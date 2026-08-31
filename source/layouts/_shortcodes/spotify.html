@@ -1,0 +1,13 @@
+{{- /* usage: {{< spotify id="SHOWID" type="show" >}} */ -}}
+{{- $id := .Get "id" -}}
+{{- $type := .Get "type" | default "show" -}}
+{{- $height := .Get "height" | default "232" -}}
+{{- with $id }}
+<iframe
+    src="https://open.spotify.com/embed/{{ $type }}/{{ . }}?utm_source=generator&theme=0"
+    width="100%" height="{{ $height }}"
+    style="border-radius:8px"
+    loading="lazy"
+    title="Spotify player"
+    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+{{- end -}}

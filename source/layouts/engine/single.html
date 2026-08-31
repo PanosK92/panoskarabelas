@@ -1,0 +1,176 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+{{- $stars := partial "gh-stars.html" (dict "repo" "PanosK92/SpartanEngine" "fallback" 3100) -}}
+{{- $starsPretty := cond (ge $stars 1000) (printf "%.1fk" (div (float $stars) 1000.0)) (printf "%d" $stars) -}}
+{{- $repo := .Site.Params.engineRepo -}}
+{{- $discord := .Site.Params.engineDiscord -}}
+
+<section class="engine-hero">
+    <div class="container engine-hero__inner">
+        <p class="mono section-head__eyebrow">{{ $p.hero.eyebrow }}</p>
+        <h1 class="engine-hero__title">{{ .Title }}</h1>
+        <p class="engine-hero__lead">{{ $p.hero.lead }}</p>
+        <div class="btn-row" style="margin-top:var(--s-6)">
+            <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "github" }} Source on GitHub
+            </a>
+            <a class="btn btn--ghost" href="{{ $discord }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "discord" }} Discord
+            </a>
+            <a class="btn btn--ghost" href="{{ .Site.Params.engineSponsor }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "star" }} Sponsor
+            </a>
+        </div>
+    </div>
+</section>
+
+{{- with $p.stats }}
+<div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
+    <div class="stats reveal">
+        {{- range . }}
+        <div class="stat">
+            <span class="stat__value">{{ if eq .value "live-stars" }}<em>{{ $starsPretty }}</em>{{ else }}{{ .value }}{{ end }}</span>
+            <span class="stat__label">{{ .label }}</span>
+        </div>
+        {{- end }}
+    </div>
+</div>
+{{- end }}
+
+<section class="section" style="border-top:1px solid var(--c-line)">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">The trailer</p>
+                <h2 class="section-head__title">See it move</h2>
+            </div>
+        </div>
+        {{ partial "video.html" (dict
+            "id" .Site.Params.engineTrailer
+            "title" "Spartan Engine — 10 year anniversary") }}
+    </div>
+</section>
+
+{{- with $p.principle }}
+<section class="section">
+    <div class="container">
+        <p class="mono section-head__eyebrow">The principle</p>
+        <h2 class="engine-principle reveal">{{ .title }}</h2>
+        <p class="engine-principle__body reveal">{{ .body }}</p>
+    </div>
+</section>
+{{- end }}
+
+{{- with $p.groups }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Under the hood</p>
+                <h2 class="section-head__title">What is actually in there</h2>
+            </div>
+        </div>
+        <div class="spec-grid">
+            {{- range . }}
+            <section class="spec reveal">
+                <h3>{{ .name }}</h3>
+                <ul class="career__points">
+                    {{- range .items }}
+                    <li>{{ . }}</li>
+                    {{- end }}
+                </ul>
+            </section>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- with $p.gallery }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Worlds</p>
+                <h2 class="section-head__title">Nine of them ship with the engine</h2>
+                <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
+            </div>
+        </div>
+        <div class="engine-gallery reveal">
+            {{- range . }}
+            <figure class="frame frame--caption">
+                {{ partial "image.html" (dict
+                    "src" .src
+                    "alt" .alt
+                    "sizes" "(max-width: 760px) 100vw, 540px"
+                    "widths" (slice 640 1080)) }}
+                {{- with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+            </figure>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+{{- with .Content }}
+<section class="section">
+    <div class="container container--prose">
+        <div class="prose">{{ . }}</div>
+    </div>
+</section>
+{{- end }}
+
+{{- with $p.usedby }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Out in the wild</p>
+                <h2 class="section-head__title">Where this code ended up</h2>
+                <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
+            </div>
+        </div>
+        <div class="record reveal">
+            {{- range . }}
+            <a class="record__item" href="{{ .url }}" target="_blank" rel="noopener">
+                <div class="record__top">
+                    <h3 class="record__org">{{ .name }}</h3>
+                    <span class="record__years" aria-hidden="true">&#8599;</span>
+                </div>
+                <p class="record__note">{{ .note }}</p>
+            </a>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+<section class="section">
+    <div class="container">
+        <div class="promo reveal">
+            <div class="promo__grid">
+                <div>
+                    <p class="mono section-head__eyebrow">Get involved</p>
+                    <h2>Build it, break it, or just come and argue about it</h2>
+                    <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
+                    <div class="promo__actions btn-row">
+                        <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
+                            {{ partial "icon.html" "github" }} Clone the repo
+                        </a>
+                        <a class="btn btn--ghost" href="{{ $discord }}" target="_blank" rel="noopener">
+                            {{ partial "icon.html" "discord" }} Join the Discord
+                        </a>
+                    </div>
+                </div>
+                <div class="frame">
+                    {{ partial "image.html" (dict
+                        "src" "/media/engine/world_liminal_a.png"
+                        "alt" "A dim liminal corridor lit by a single ceiling panel, rendered in Spartan Engine"
+                        "sizes" "(max-width: 860px) 100vw, 420px"
+                        "widths" (slice 480 840)) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

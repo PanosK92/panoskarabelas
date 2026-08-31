@@ -1,0 +1,77 @@
+{{- /*
+    responsive image from assets, falls back to a plain tag when the source
+    is not a processable asset
+
+    params: src (required), alt, class, sizes, widths, eager, quality
+*/ -}}
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "(max-width: 760px) 100vw, 760px" -}}
+{{- $widths := .widths | default (slice 640 1024 1600) -}}
+{{- $quality := .quality | default 80 -}}
+{{- $loading := cond (.eager | default false) "eager" "lazy" -}}
+{{- $priority := cond (.eager | default false) "high" "auto" -}}
+
+{{- $res := resources.Get (strings.TrimPrefix "/" $src) -}}
+{{- $processable := false -}}
+{{- $intrinsic := 0 -}}
+{{- if $res -}}
+    {{- if in (slice "jpeg" "png" "webp" "tiff" "bmp") $res.MediaType.SubType -}}
+        {{- /* a wrong extension makes decoding fail, so probe before committing */ -}}
+        {{- with try $res.Width -}}
+            {{- if .Err -}}
+                {{- warnf "image.html: %q is not a decodable image, serving it untouched" $src -}}
+            {{- else -}}
+                {{- $processable = true -}}
+                {{- $intrinsic = .Value -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $variants := slice -}}
+{{- if $processable -}}
+    {{- $targets := slice -}}
+    {{- range $widths -}}
+        {{- if le . $intrinsic -}}
+            {{- $targets = $targets | append . -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if not $targets -}}
+        {{- $targets = slice $intrinsic -}}
+    {{- end -}}
+    {{- range $targets -}}
+        {{- with try ($res.Resize (printf "%dx webp q%d" . $quality)) -}}
+            {{- if .Err -}}
+                {{- warnf "image.html: cannot process %q, falling back to the original file" $src -}}
+            {{- else -}}
+                {{- $variants = $variants | append .Value -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if $variants -}}
+    {{- $largest := index $variants (sub (len $variants) 1) -}}
+    {{- $srcset := slice -}}
+    {{- range $variants -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) -}}
+    {{- end -}}
+<img
+    src="{{ $largest.RelPermalink }}"
+    {{ with $srcset }}srcset="{{ delimit . ", " }}"
+    sizes="{{ $sizes }}"{{ end }}
+    width="{{ $largest.Width }}"
+    height="{{ $largest.Height }}"
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    fetchpriority="{{ $priority }}"
+    {{ with $class }}class="{{ . }}"{{ end }}>
+{{- else -}}
+    {{- /* publish the original so the url resolves even without processing */ -}}
+    {{- $href := $src | relURL -}}
+    {{- with $res }}{{ $href = .RelPermalink }}{{ end -}}
+<img src="{{ $href }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ with $class }} class="{{ . }}"{{ end }}>
+{{- end -}}

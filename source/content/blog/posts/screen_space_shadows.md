@@ -1,6 +1,8 @@
 ---
 date: 2020-07-05
 title: Screen space shadows
+image: /media/post_sss_full.jpg
+description: Recovering the small-scale contact detail that shadow mapping loses, with a short ray march in screen space and a noise trick that lets TAA do the rest.
 ---
 
 After working on [Spartan](https://github.com/PanosK92/SpartanEngine) game engine for so long, it became 
@@ -27,15 +29,16 @@ If we enable shadow mapping, we can introduce some nice large-scale detail, a ni
 
 What if we enable screen space shadows? Well, we get some nice small-scale detail.
 
-[Screen space shadows](/media/post_sss_active_sss.jpg)
+![Screen space shadows](/media/post_sss_active_sss.jpg)
 
-The key lies in enabling both as we can get the best of both worlds.
+The key lies in enabling both as we can get the best of both worlds. Drag the handle to compare.
 
-![Shadow mapping + Screen space shadows](/media/post_sss_active_sm_sss.jpg)
-
-Let's have a look at a side by side comparison. Beautiful, isn't it?
-
-![Shadow mapping without and with screen space shadows](/media/post_sss_comparison.jpg)
+{{< compare
+    before="/media/post_sss_active_sm.jpg"
+    after="/media/post_sss_active_sm_sss.jpg"
+    labelBefore="Shadow mapping"
+    labelAfter="+ Screen space shadows"
+    caption="Shadow mapping alone, versus shadow mapping supplemented by screen space shadows." >}}
 
 ## Industry comparison
 
@@ -71,7 +74,7 @@ can only (reliably) show up when the pixel is very close to its occluder, they a
 
 Here is the complete HLSL example with comments where necessary:
 
-```
+```hlsl
 // Settings
 static const uint  g_sss_max_steps        = 16;     // Max ray steps, affects quality and performance.
 static const float g_sss_ray_max_distance = 0.05f;  // Max shadow length, longer shadows are less accurate.
@@ -131,7 +134,7 @@ We can choose a noise function and add a temporal factor to it.
 I derived my version from [Jorge Jimenez's](http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare)
 interleaved gradient noise function, as it works particularly well with TAA.
 
-```
+```hlsl
 float interleaved_gradient_noise(float2 position_screen)
 {
     position_screen += g_frame * any(g_taa_jitter_offset); // temporal factor
@@ -143,7 +146,7 @@ float interleaved_gradient_noise(float2 position_screen)
 And then, in our original shader, just before we start ray marching, we offset the start position.
 This effectively increases the step count (over time).
 
-```
+```hlsl
 // Offset starting position with temporal interleaved gradient noise
 float offset = interleaved_gradient_noise(g_resolution * surface.uv) * 2.0f - 1.0f;
 ray_pos      += ray_step * offset;

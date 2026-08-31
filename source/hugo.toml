@@ -4,90 +4,107 @@ defaultContentLanguage = "en"
 theme = "hermit-v2"
 title = "Panos Karabelas"
 
-pygmentsCodefences = true
-pygmentsUseClasses = true
-rssLimit = 10
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 enableEmoji = true
 enableRobotsTXT = true
+rssLimit = 10
+
+# tag and category pages are not used, no post declares them
+disableKinds = ["taxonomy", "term"]
 
 [taxonomies]
-  tag = "tags"
+
+[markup]
+  [markup.goldmark.parser]
+    wrapStandAloneImageWithinParagraph = false
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNumbersInTable = false
+    tabWidth = 4
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.jpeg]
+    quality = 84
+  [imaging.webp]
+    quality = 82
+
+[params]
+  tagline = "Rendering & Engine Programmer"
+  jobTitle = "Graphics / Engine Programmer"
+  description = "Panos Karabelas builds renderers and the engines around them. Creator of Spartan Engine, a bindless GPU-driven engine with real-time path-traced global illumination. Previously AMD, Codemasters and Sony."
+  ogImage = "/media/engine/world_showroom_a.png"
+  cvURL = "/media/cv.html"
+  twitterHandle = "@panoskarabelas"
+  footerTagline = "Renderers, engines, and the odd conversation with people worth listening to."
+  footerNote = "Hand built. No trackers."
+
+  # current position, shown in the hero status pill and the work timeline
+  currentRole = "Graphics / Engine Programmer"
+  currentOrg = "BeamNG"
+
+  # canonical external destinations
+  engineRepo = "https://github.com/PanosK92/SpartanEngine"
+  engineDiscord = "https://discord.gg/TG5r2BS"
+  engineSponsor = "https://github.com/sponsors/PanosK92"
+  engineTrailer = "TMZ0epSVwCk"
+  podcastSpotify = "https://open.spotify.com/show/5F27nWKn9TZdClc5db9efY"
+  podcastYoutube = "https://www.youtube.com/@panos_karabelas"
 
 [params.author]
   name = "Panos Karabelas"
   about = "about"
 
-[params]
-  themeColor = "#494f5c"
-  accentColor = "#018472"
-  homeSubtitle = "Following the voice of the universe"
-  footerCopyright = "Following the voice of the universe"
-  bgImg = "/images/wallpaper.jpg"
-  justifyContent = false
-  code_copy_button = true
-  homeSubtitlePrinter = true
-  scrollToTop = true
-  shareSocial = true
+[[params.socialLinks]]
+  name = "github"
+  label = "GitHub"
+  url = "https://github.com/PanosK92"
 
-  [params.pages]
-    relatedPosts = false
-    readTimeSeparator = " · reading time: "
+[[params.socialLinks]]
+  name = "x"
+  label = "X"
+  url = "https://x.com/panoskarabelas"
 
-  [params.dateform]
-    CopyrightDate = "2006"
-    LongDate = "Jan 2, 2006"
-    ShortDate = "Jan 2"
-    NumDateShort = "2006-01-02"
-    NumDateLong = "2006-01-02 15:04 -0700"
+[[params.socialLinks]]
+  name = "youtube"
+  label = "YouTube"
+  url = "https://www.youtube.com/@panos_karabelas"
 
-  [[params.socialLinks]]
-    name = "x"
-    url = "https://x.com/panoskarabelas"
+[[params.socialLinks]]
+  name = "discord"
+  label = "Discord"
+  url = "https://discord.gg/TG5r2BS"
 
-  [[params.socialLinks]]
-    name = "github"
-    url = "https://github.com/PanosK92/SpartanEngine"
-
-  [[params.socialLinks]]
-    name = "youtube"
-    url = "https://www.youtube.com/@panos_karabelas"
-
-  [[params.socialLinks]]
-    name = "email"
-    url = "mailto:panosconroe@hotmail.com"
-
-[services.disqus]
-  shortname = "panoskarabelas"
+[[params.socialLinks]]
+  name = "email"
+  label = "Email"
+  url = "mailto:panosconroe@hotmail.com"
 
 [menu]
 
 [[menu.main]]
-  name = "Podcast"
-  url = "podcast/"
+  name = "Engine"
+  url = "/engine/"
   weight = 10
 
 [[menu.main]]
-  name = "Spartan Engine"
-  url = "https://github.com/PanosK92/SpartanEngine"
+  name = "Work"
+  url = "/projects/"
   weight = 20
 
 [[menu.main]]
-  name = "Posts"
-  url = "blog/"
+  name = "Writing"
+  url = "/blog/"
   weight = 30
 
 [[menu.main]]
-  name = "Experience"
-  url = "projects/"
+  name = "Podcast"
+  url = "/podcast/"
   weight = 40
 
 [[menu.main]]
   name = "About"
-  url = "about/"
+  url = "/about/"
   weight = 50
-
-[[menu.main]]
-  name = "CV"
-  url = "/media/cv.html"
-  weight = 60

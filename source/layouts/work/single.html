@@ -1,0 +1,180 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+
+<div class="container">
+    <header class="page-head">
+        <p class="mono section-head__eyebrow">Experience</p>
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+</div>
+
+{{- with $p.career }}
+<section class="section">
+    <div class="container">
+        <ol class="career">
+            {{- range . }}
+            {{- $e := . }}
+            <li class="career__item{{ if $e.current }} career__item--current{{ end }}">
+                <div class="career__rail">
+                    <p class="career__years">{{ $e.years }}</p>
+                </div>
+                <div class="career__content reveal">
+                    <h2 class="career__org">
+                        {{ $e.org }}
+                        {{- if $e.current }}<span class="chip chip--accent">Current</span>{{ end }}
+                    </h2>
+                    <p class="career__role">{{ $e.role }}</p>
+
+                    {{- if or $e.body $e.points }}
+                    <div class="career__body">
+                        {{- with $e.body }}<p>{{ . }}</p>{{ end }}
+                        {{- with $e.points }}
+                        <ul class="career__points">
+                            {{- range . }}<li>{{ . }}</li>{{ end }}
+                        </ul>
+                        {{- end }}
+                    </div>
+                    {{- end }}
+
+                    {{- with $e.image }}
+                    <div class="career__media frame">
+                        {{ partial "image.html" (dict
+                            "src" .
+                            "alt" ($e.imageAlt | default "")
+                            "sizes" "(max-width: 760px) 100vw, 640px"
+                            "widths" (slice 640 1280)) }}
+                    </div>
+                    {{- end }}
+
+                    {{- with $e.video }}
+                    <div class="career__media">
+                        {{ partial "video.html" (dict "id" .) }}
+                    </div>
+                    {{- end }}
+
+                    {{- with $e.videos }}
+                    <div class="career__media career__media--wide">
+                        {{- with $e.videoNote }}<p class="mono career__video-note">{{ . }}</p>{{ end }}
+                        <div class="video-grid">
+                            {{- range . }}
+                            {{ partial "video.html" (dict "id" .id "title" .title) }}
+                            {{- end }}
+                        </div>
+                    </div>
+                    {{- end }}
+
+                    {{- with $e.tags }}
+                    <ul class="chips career__meta">
+                        {{- range . }}<li class="chip">{{ . }}</li>{{ end }}
+                    </ul>
+                    {{- end }}
+
+                    {{- with $e.location }}
+                    <p class="career__location mono">{{ . }}</p>
+                    {{- end }}
+                </div>
+            </li>
+            {{- end }}
+        </ol>
+    </div>
+</section>
+{{- end }}
+
+<section class="section">
+    <div class="container">
+        <a class="engine-callout reveal" href="{{ "/engine/" | relURL }}">
+            <div class="engine-callout__body">
+                <p class="mono section-head__eyebrow">Running through all of it</p>
+                <h2>Spartan Engine</h2>
+                <p>Twelve years, one codebase, one engineer. A bindless GPU-driven renderer with real-time path-traced global illumination. It is the reason AMD hired me, and the reason their clients trusted me once I was there.</p>
+                <span class="link-arrow">The full breakdown {{ partial "icon.html" "arrow-right" }}</span>
+            </div>
+            <div class="engine-callout__media">
+                {{ partial "image.html" (dict
+                    "src" "/media/engine/world_showroom_a.png"
+                    "alt" "A LaFerrari rendered in Spartan Engine with path-traced lighting"
+                    "sizes" "(max-width: 860px) 100vw, 460px"
+                    "widths" (slice 540 1080)) }}
+            </div>
+        </a>
+    </div>
+</section>
+
+{{- with $p.education }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Education and distinctions</p>
+                <h2 class="section-head__title">Where it started</h2>
+            </div>
+        </div>
+        <ul class="archive reveal">
+            {{- range . }}
+            <li class="archive__item">
+                <span class="archive__year">{{ .years }}</span>
+                <h3 class="archive__title">{{ .what }}</h3>
+                <p class="archive__note">{{ .note }}</p>
+                <span class="archive__tag">{{ .where }}</span>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+</section>
+{{- end }}
+
+{{- with $p.archive }}
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Earlier work</p>
+                <h2 class="section-head__title">2011 to 2016, in Greece</h2>
+                <p class="section-head__lead">Student projects, hackathon builds and Windows Store experiments. Small, scrappy, and the reason the rest of this page exists.</p>
+            </div>
+        </div>
+        <ul class="archive reveal">
+            {{- range . }}
+            {{- $a := . }}
+            <li class="archive__item">
+                <span class="archive__year">{{ $a.year }}</span>
+                <h3 class="archive__title">
+                    {{- if $a.url -}}
+                    <a href="{{ $a.url }}" target="_blank" rel="noopener">{{ $a.title }} <span aria-hidden="true">&#8599;</span></a>
+                    {{- else -}}
+                    {{ $a.title }}
+                    {{- end -}}
+                </h3>
+                <p class="archive__note">{{ $a.note }}</p>
+                <span class="archive__tag">{{ $a.tag }}</span>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+</section>
+{{- end }}
+
+{{- with $p.closing }}
+<section class="section">
+    <div class="container">
+        <div class="promo reveal">
+            <div class="promo__grid">
+                <div>
+                    <p class="mono section-head__eyebrow">Going low</p>
+                    <h2>{{ .title }}</h2>
+                    <p>{{ .body }}</p>
+                </div>
+                <div class="frame">
+                    {{ partial "image.html" (dict
+                        "src" .image
+                        "alt" .imageAlt
+                        "sizes" "(max-width: 860px) 100vw, 420px"
+                        "widths" (slice 480 840)) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{- end }}
+{{ end }}

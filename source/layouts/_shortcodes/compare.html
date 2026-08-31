@@ -1,0 +1,30 @@
+{{- /*
+    drag to compare two renders
+
+    usage: {{< compare before="/media/a.jpg" after="/media/b.jpg"
+                      labelBefore="Off" labelAfter="On" >}}
+*/ -}}
+{{- $before := .Get "before" -}}
+{{- $after := .Get "after" -}}
+{{- $lb := .Get "labelBefore" | default "Before" -}}
+{{- $la := .Get "labelAfter" | default "After" -}}
+{{- $caption := .Get "caption" | default "" -}}
+
+{{- if and $before $after -}}
+<figure>
+    <div class="compare" tabindex="0" role="slider"
+         aria-label="Compare {{ $lb }} with {{ $la }}"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        {{ partial "image.html" (dict "src" $before "alt" $lb "sizes" "(max-width: 860px) 100vw, 760px") }}
+        <div class="compare__after">
+            {{ partial "image.html" (dict "src" $after "alt" $la "sizes" "(max-width: 860px) 100vw, 760px") }}
+        </div>
+        <div class="compare__handle" aria-hidden="true">
+            <span class="compare__grip">{{ partial "icon.html" "compare" }}</span>
+        </div>
+        <span class="compare__tag compare__tag--before">{{ $lb }}</span>
+        <span class="compare__tag compare__tag--after">{{ $la }}</span>
+    </div>
+    {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
+{{- end -}}

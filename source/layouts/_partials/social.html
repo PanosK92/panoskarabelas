@@ -1,0 +1,10 @@
+{{- with .Site.Params.socialLinks -}}
+<div class="social">
+    {{- range . }}
+    <a href="{{ .url }}" title="{{ .label | default (.name | title) }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener"{{ end }}>
+        <span class="visually-hidden">{{ .label | default (.name | title) }}</span>
+        {{ partial "icon.html" .name }}
+    </a>
+    {{- end }}
+</div>
+{{- end -}}

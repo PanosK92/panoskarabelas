@@ -1,0 +1,67 @@
+/* design tokens, single source of truth for the whole site */
+
+:root {
+    /* surfaces */
+    --c-bg: #0a0b0f;
+    --c-bg-elev: #12141a;
+    --c-bg-elev-2: #171a21;
+    --c-line: rgba(255, 255, 255, .07);
+    --c-line-strong: rgba(255, 255, 255, .16);
+
+    /* text */
+    /* all three clear AA against --c-bg: 15.1:1, 8.2:1 and 5.2:1 */
+    --c-text: #e8e8f0;
+    --c-text-dim: #a2a7ba;
+    --c-text-mute: #7d8296;
+
+    /* accent, carried over from the cv so both artefacts match */
+    --c-accent: #00d4aa;
+    --c-accent-hi: #4ff0d0;
+    --c-accent-dim: rgba(0, 212, 170, .13);
+    --c-accent-line: rgba(0, 212, 170, .32);
+    --c-accent-glow: rgba(0, 212, 170, .22);
+
+    /* type families */
+    --f-sans: "Inter var", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --f-mono: "JetBrains Mono var", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* fluid type scale */
+    --fs-display: clamp(2.75rem, calc(1.5rem + 5vw), 5.5rem);
+    --fs-h1: clamp(2rem, calc(1.35rem + 2.6vw), 3.25rem);
+    --fs-h2: clamp(1.5rem, calc(1.2rem + 1.2vw), 2.125rem);
+    --fs-h3: clamp(1.125rem, calc(1.03rem + .4vw), 1.375rem);
+    --fs-body: clamp(1rem, calc(.975rem + .12vw), 1.0625rem);
+    --fs-sm: .875rem;
+    --fs-xs: .75rem;
+    --fs-2xs: .6875rem;
+
+    /* spacing scale */
+    --s-1: .25rem;
+    --s-2: .5rem;
+    --s-3: .75rem;
+    --s-4: 1rem;
+    --s-5: 1.5rem;
+    --s-6: 2rem;
+    --s-7: 3rem;
+    --s-8: 4rem;
+    --s-9: 6rem;
+    --s-10: 8rem;
+
+    /* layout */
+    --w-page: 1120px;
+    --w-prose: 46rem;
+    --w-gutter: clamp(1.25rem, 4vw, 2.5rem);
+    --h-header: 60px;
+
+    /* radii */
+    --r-sm: 4px;
+    --r-md: 8px;
+    --r-lg: 14px;
+    --r-pill: 999px;
+
+    /* motion */
+    --t-fast: 140ms;
+    --t-base: 240ms;
+    --t-slow: 420ms;
+    --e-out: cubic-bezier(.22, .61, .36, 1);
+}

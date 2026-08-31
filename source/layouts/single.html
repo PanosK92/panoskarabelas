@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="container container--prose">
+    <header class="page-head">
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with .Params.lead | default .Params.description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose" style="margin-top:var(--s-6);padding-bottom:var(--s-8)">{{ .Content }}</div>
+</div>
+{{ end }}

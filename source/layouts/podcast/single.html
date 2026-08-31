@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{- $p := .Params -}}
+
+<div class="container">
+    <header class="page-head">
+        <p class="mono section-head__eyebrow">Podcast</p>
+        <h1 class="page-head__title">{{ .Title }}</h1>
+        {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+        <div class="btn-row" style="margin-top:var(--s-5)">
+            <a class="btn btn--primary" href="{{ .Site.Params.podcastSpotify }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "spotify" }} Follow on Spotify
+            </a>
+            <a class="btn btn--ghost" href="{{ .Site.Params.podcastYoutube }}" target="_blank" rel="noopener">
+                {{ partial "icon.html" "youtube" }} Subscribe on YouTube
+            </a>
+        </div>
+    </header>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="podcast__players">
+            {{- with $p.spotifyId }}
+            <div class="player reveal">
+                <h2>{{ partial "icon.html" "spotify" }} Listen</h2>
+                <iframe
+                    src="https://open.spotify.com/embed/show/{{ . }}?utm_source=generator&theme=0"
+                    width="100%" height="352"
+                    style="border-radius:8px"
+                    loading="lazy"
+                    title="Spotify player"
+                    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+            {{- end }}
+
+            {{- with $p.episodes }}
+            <div class="player reveal">
+                <h2>{{ partial "icon.html" "youtube" }} Watch</h2>
+                {{- range . }}
+                {{ partial "video.html" (dict "id" .id "title" .title) }}
+                {{- end }}
+            </div>
+            {{- end }}
+        </div>
+
+        {{- with .Content }}
+        <div class="prose" style="max-width:var(--w-prose);margin-top:var(--s-7)">{{ . }}</div>
+        {{- end }}
+    </div>
+</section>
+{{ end }}

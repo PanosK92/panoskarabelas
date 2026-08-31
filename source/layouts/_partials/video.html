@@ -1,0 +1,50 @@
+{{- /*
+    click to load youtube facade
+
+    the poster frame is fetched at build time and re-encoded locally, so the page
+    makes no third party request until the visitor actually presses play
+
+    params: id (required), title, caption, start
+*/ -}}
+{{- $id := .id -}}
+{{- $label := .title | default "" -}}
+{{- $caption := .caption | default "" -}}
+{{- $start := .start | default "" -}}
+
+{{- if $id -}}
+{{- $poster := "" -}}
+{{- range slice "maxresdefault" "hqdefault" -}}
+    {{- if not $poster -}}
+        {{- $url := printf "https://i.ytimg.com/vi/%s/%s.jpg" $id . -}}
+        {{- with try (resources.GetRemote $url) -}}
+            {{- if not .Err -}}
+                {{- with .Value -}}
+                    {{- with try (.Resize "960x webp q80") -}}
+                        {{- if not .Err -}}
+                            {{- $target := printf "media/video/%s.webp" $id -}}
+                            {{- $poster = (resources.Copy $target .Value).RelPermalink -}}
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+<figure class="video">
+    <div class="video__shell" data-video="{{ $id }}"{{ with $start }} data-start="{{ . }}"{{ end }}>
+        {{- if $poster }}
+        <img src="{{ $poster }}" alt="" width="960" height="540" loading="lazy" decoding="async">
+        {{- else }}
+        <img src="https://i.ytimg.com/vi/{{ $id }}/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+        {{- end }}
+        <button class="video__btn" type="button" data-title="{{ $label | default "YouTube video" }}">
+            <span class="video__play" aria-hidden="true">{{ partial "icon.html" "play" }}</span>
+            <span class="visually-hidden">Play video{{ with $label }}: {{ . }}{{ end }}</span>
+        </button>
+    </div>
+    {{- /* the title sits below the frame, thumbnails often have baked-in text */ -}}
+    {{- with $label }}<figcaption class="video__title">{{ . }}</figcaption>{{ end }}
+    {{- with $caption }}<figcaption class="video__caption">{{ . }}</figcaption>{{ end }}
+</figure>
+{{- end -}}

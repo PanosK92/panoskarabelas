@@ -1,0 +1,54 @@
+{{- $page := . -}}
+{{- $email := "" -}}
+{{- range .Site.Params.socialLinks -}}
+    {{- if eq .name "email" -}}{{- $email = .url -}}{{- end -}}
+{{- end -}}
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__col footer__col--brand">
+                <a class="brand" href="{{ "" | relURL }}">
+                    <span class="brand__mark" aria-hidden="true">PK</span>
+                    <span class="brand__name">{{ .Site.Title }}</span>
+                </a>
+                <p class="footer__tagline">{{ .Site.Params.footerTagline | default .Site.Params.tagline }}</p>
+                <div class="footer__cta">
+                    {{- with $email }}
+                    <a class="btn btn--primary btn--sm" href="{{ . }}">
+                        {{ partial "icon.html" "email" }} Get in touch
+                    </a>
+                    {{- end }}
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h2>Site</h2>
+                <ul>
+                    {{- range .Site.Menus.main }}
+                    <li><a href="{{ .URL }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
+                    {{- end }}
+                    <li><a href="{{ (.Site.Params.cvURL | default "/media/cv.html") | relURL }}" target="_blank" rel="noopener">CV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    {{- range .Site.Params.socialLinks }}
+                    <li>
+                        <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="me noopener"{{ end }}>{{ .label | default (.name | title) }}</a>
+                    </li>
+                    {{- end }}
+                    {{- with .OutputFormats.Get "rss" }}
+                    <li><a href="{{ .Permalink }}">RSS</a></li>
+                    {{- end }}
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bar">
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
+            <p>{{ .Site.Params.footerNote | default "Built and maintained by hand." }}</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,10 @@
+{{- /* every markdown image becomes a responsive webp figure */ -}}
+{{- $alt := .Text -}}
+{{- if or (eq $alt "image") (eq $alt "img") -}}
+    {{- $alt = "" -}}
+{{- end -}}
+{{- $caption := .Title -}}
+<figure>
+    {{ partial "image.html" (dict "src" .Destination "alt" $alt "sizes" "(max-width: 860px) 100vw, 760px") }}
+    {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>

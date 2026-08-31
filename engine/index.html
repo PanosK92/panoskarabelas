@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spartan Engine · Panos Karabelas</title>
+<meta name="description" content="Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years.">
+<meta name="author" content="Panos Karabelas">
+<meta name="theme-color" content="#0a0b0f">
+<link rel="canonical" href="https://panoskarabelas.com/engine/">
+
+<meta property="og:site_name" content="Panos Karabelas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spartan Engine · Panos Karabelas">
+<meta property="og:description" content="Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years.">
+<meta property="og:url" content="https://panoskarabelas.com/engine/">
+<meta property="og:image" content="https://panoskarabelas.com/media/engine/world_showroom_a_hu_ad39e2cd277b50a3.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spartan Engine · Panos Karabelas">
+<meta name="twitter:description" content="Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years.">
+<meta name="twitter:creator" content="@panoskarabelas">
+<meta name="twitter:image" content="https://panoskarabelas.com/media/engine/world_showroom_a_hu_ad39e2cd277b50a3.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00d4aa">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/main.6af4a31191e00a334c56b1876e7a6cfc6e567ab011315ebd0e9cbde867eacb68.css" integrity="sha256-avSjEZHgCjNMVrGHbnps/G5WerARMV69Dpy96Gfqy2g=">
+
+    
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header">
+    <div class="container header__inner">
+        <a class="brand" href="/">
+            <span class="brand__mark" aria-hidden="true">PK</span>
+            <span class="brand__name">Panos Karabelas</span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <ul class="nav__list">
+                <li>
+                    <a class="nav__link"
+                       href="/engine/"
+                       
+                       >Engine</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/projects/"
+                       
+                       >Work</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/blog/"
+                       
+                       >Writing</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/podcast/"
+                       
+                       >Podcast</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/about/"
+                       
+                       >About</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__actions">
+            <div class="social">
+    <a href="https://github.com/PanosK92" title="GitHub" target="_blank" rel="me noopener">
+        <span class="visually-hidden">GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://x.com/panoskarabelas" title="X" target="_blank" rel="me noopener">
+        <span class="visually-hidden">X</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@panos_karabelas" title="YouTube" target="_blank" rel="me noopener">
+        <span class="visually-hidden">YouTube</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://discord.gg/TG5r2BS" title="Discord" target="_blank" rel="me noopener">
+        <span class="visually-hidden">Discord</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    </a>
+    <a href="mailto:panosconroe@hotmail.com" title="Email">
+        <span class="visually-hidden">Email</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    </a>
+</div>
+            <a class="btn btn--ghost btn--sm" href="/media/cv.html" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg> CV
+            </a>
+        </div>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+        </button>
+    </div>
+</header>
+
+<div class="nav-drawer" id="nav-drawer">
+    <ul class="nav-drawer__list">
+        <li>
+            <a href="/engine/">
+                Engine
+                
+            </a>
+        </li>
+        <li>
+            <a href="/projects/">
+                Work
+                
+            </a>
+        </li>
+        <li>
+            <a href="/blog/">
+                Writing
+                
+            </a>
+        </li>
+        <li>
+            <a href="/podcast/">
+                Podcast
+                
+            </a>
+        </li>
+        <li>
+            <a href="/about/">
+                About
+                
+            </a>
+        </li>
+        <li>
+            <a href="/media/cv.html" target="_blank" rel="noopener">CV <span aria-hidden="true">&#8599;</span></a>
+        </li>
+    </ul>
+    <div class="social">
+    <a href="https://github.com/PanosK92" title="GitHub" target="_blank" rel="me noopener">
+        <span class="visually-hidden">GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://x.com/panoskarabelas" title="X" target="_blank" rel="me noopener">
+        <span class="visually-hidden">X</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@panos_karabelas" title="YouTube" target="_blank" rel="me noopener">
+        <span class="visually-hidden">YouTube</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://discord.gg/TG5r2BS" title="Discord" target="_blank" rel="me noopener">
+        <span class="visually-hidden">Discord</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    </a>
+    <a href="mailto:panosconroe@hotmail.com" title="Email">
+        <span class="visually-hidden">Email</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    </a>
+</div>
+</div>
+
+
+    <main id="main">
+        <section class="engine-hero">
+    <div class="container engine-hero__inner">
+        <p class="mono section-head__eyebrow">One engineer. Twelve years.</p>
+        <h1 class="engine-hero__title">Spartan Engine</h1>
+        <p class="engine-hero__lead">A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for.</p>
+        <div class="btn-row" style="margin-top:var(--s-6)">
+            <a class="btn btn--primary" href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> Source on GitHub
+            </a>
+            <a class="btn btn--ghost" href="https://discord.gg/TG5r2BS" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Discord
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/sponsors/PanosK92" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.7 6.3.9-4.6 4.4 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.6l6.3-.9z"/></svg> Sponsor
+            </a>
+        </div>
+    </div>
+</section>
+<div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
+    <div class="stats reveal">
+        <div class="stat">
+            <span class="stat__value"><em>3.1k</em></span>
+            <span class="stat__label">GitHub stars</span>
+        </div>
+        <div class="stat">
+            <span class="stat__value">600&#43;</span>
+            <span class="stat__label">Engineers on Discord</span>
+        </div>
+        <div class="stat">
+            <span class="stat__value">272</span>
+            <span class="stat__label">Forks</span>
+        </div>
+        <div class="stat">
+            <span class="stat__value">MIT</span>
+            <span class="stat__label">Licence, free with attribution</span>
+        </div>
+    </div>
+</div>
+
+<section class="section" style="border-top:1px solid var(--c-line)">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">The trailer</p>
+                <h2 class="section-head__title">See it move</h2>
+            </div>
+        </div>
+        <figure class="video">
+    <div class="video__shell" data-video="TMZ0epSVwCk">
+        <img src="/media/video/TMZ0epSVwCk.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+        <button class="video__btn" type="button" data-title="Spartan Engine — 10 year anniversary">
+            <span class="video__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor" stroke="none"/></svg></span>
+            <span class="visually-hidden">Play video: Spartan Engine — 10 year anniversary</span>
+        </button>
+    </div><figcaption class="video__title">Spartan Engine — 10 year anniversary</figcaption>
+</figure>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <p class="mono section-head__eyebrow">The principle</p>
+        <h2 class="engine-principle reveal">The GPU owns the data</h2>
+        <p class="engine-principle__body reveal">Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. No per-draw descriptor updates. No per-draw resource binding. No CPU-side draw loops. One philosophy applied without compromise: favour real-time over baked, dynamic over static, modern over safe.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Under the hood</p>
+                <h2 class="section-head__title">What is actually in there</h2>
+            </div>
+        </div>
+        <div class="spec-grid">
+            <section class="spec reveal">
+                <h3>Architecture</h3>
+                <ul class="career__points">
+                    <li>Zero-binding draw path, all per-draw data in a single bindless storage buffer with push constants carrying only an index</li>
+                    <li>One global vertex and index buffer for all geometry, with vertex pulling that bypasses the input assembler and is shared by rasterisation and ray tracing</li>
+                    <li>GPU-driven indirect rendering with per-meshlet frustum, Hi-Z occlusion and backface cone culling, one DrawIndexedIndirectCount per pass</li>
+                    <li>Meshlet clustering via meshoptimizer, with no mesh shader dependency</li>
+                    <li>Universal HLSL compiled for both Vulkan (SPIR-V) and DirectX 12</li>
+                    <li>GPU-side asset processing: mip generation and texture compression at load time, not baked offline</li>
+                </ul>
+            </section>
+            <section class="spec reveal">
+                <h3>Lighting and global illumination</h3>
+                <ul class="career__points">
+                    <li>ReSTIR path tracing with spatiotemporal reservoir resampling for real-time multi-bounce global illumination</li>
+                    <li>Clustered deferred shading on a GPU-built logarithmic-Z grid, scaling to many local lights at near-constant per-pixel cost</li>
+                    <li>Hardware ray-traced reflections and shadows via ray queries</li>
+                    <li>Volumetric clouds baked into the sky panorama, with multi-scatter lighting and aerial perspective</li>
+                    <li>Froxel volumetric fog with temporal reprojection, sun shafts and underwater caustics</li>
+                    <li>Tessendorf FFT ocean with multi-cascade IFFT in compute, driving a camera-following clipmap</li>
+                    <li>Screen-space shadows and XeGTAO ambient occlusion</li>
+                </ul>
+            </section>
+            <section class="spec reveal">
+                <h3>Performance and image quality</h3>
+                <ul class="career__points">
+                    <li>Variable rate shading and dynamic resolution scaling</li>
+                    <li>TAAU, Halton-jittered with variance-clip history reprojection</li>
+                    <li>Intel XeSS 3 upscaling</li>
+                    <li>Physically based camera with auto-exposure and physical light units in lumens and kelvin</li>
+                    <li>ACES, AgX and Gran Turismo 7 tonemappers, with HDR10 output</li>
+                    <li>Custom GPU breadcrumbs for crash tracing and post-mortem debugging</li>
+                </ul>
+            </section>
+            <section class="spec reveal">
+                <h3>Beyond rendering</h3>
+                <ul class="career__points">
+                    <li>Vehicle dynamics at 200 Hz: Pacejka MF 5.2 tyres with thermal, pressure and wear models, LSD differentials, thermal brake fade and ABS</li>
+                    <li>PhysX rigid bodies, character kinematics and vehicle physics</li>
+                    <li>Full skeletal animation with crossfade blending and two-bone IK with ground-aware foot planting</li>
+                    <li>Lua 5.4 scripting through Sol2, with the full engine API and lifecycle callbacks</li>
+                    <li>Nsight-style profiler with separate graphics and async compute lanes, plus a memory fragmentation viewer</li>
+                    <li>OpenXR VR with multiview single-pass stereo, work in progress</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Worlds</p>
+                <h2 class="section-head__title">Nine of them ship with the engine</h2>
+                <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
+            </div>
+        </div>
+        <div class="engine-gallery reveal">
+            <figure class="frame frame--caption">
+                <img
+    src="/media/engine/world_showroom_a_hu_4deb2a59844aa074.webp"
+    srcset="/media/engine/world_showroom_a_hu_f44229fee07afb7f.webp 640w, /media/engine/world_showroom_a_hu_4deb2a59844aa074.webp 1080w"
+    sizes="(max-width: 760px) 100vw, 540px"
+    width="1080"
+    height="526"
+    alt="A LaFerrari on a lit turntable, rendered with path-traced global illumination and ray-traced reflections"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>ferrari_showcase — a turntable lit entirely by emissive light bars</figcaption>
+            </figure>
+            <figure class="frame frame--caption">
+                <img
+    src="/media/engine/world_liminal_a_hu_d5afd6d82c0caec9.webp"
+    srcset="/media/engine/world_liminal_a_hu_c53d731d1e3dc112.webp 640w, /media/engine/world_liminal_a_hu_d5afd6d82c0caec9.webp 1080w"
+    sizes="(max-width: 760px) 100vw, 540px"
+    width="1080"
+    height="526"
+    alt="A dim liminal corridor with a single ceiling light, rendered with real-time global illumination"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>liminal_space — one light source, everything else is bounce</figcaption>
+            </figure>
+            <figure class="frame frame--caption">
+                <img
+    src="/media/engine/world_sponza_hu_2dda90b999086c63.webp"
+    srcset="/media/engine/world_sponza_hu_923bee4ce6bd1ebe.webp 640w, /media/engine/world_sponza_hu_2dda90b999086c63.webp 1080w"
+    sizes="(max-width: 760px) 100vw, 540px"
+    width="1080"
+    height="588"
+    alt="The Sponza atrium with curtains and ivy, open in the Spartan Engine editor"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>sponza — the classic atrium, with curtains and ivy</figcaption>
+            </figure>
+            <figure class="frame frame--caption">
+                <img
+    src="/media/engine/world_selection_4_hu_ca275f98a3623fde.webp"
+    srcset="/media/engine/world_selection_4_hu_6854798f349f2a75.webp 640w, /media/engine/world_selection_4_hu_ca275f98a3623fde.webp 1080w"
+    sizes="(max-width: 760px) 100vw, 540px"
+    width="1080"
+    height="609"
+    alt="The Spartan Engine world launcher showing nine selectable worlds"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Nine worlds ship with the engine. None of them are canned demos.</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container container--prose">
+        <div class="prose"><h2 id="why-it-exists">Why it exists<a class="anchor" href="#why-it-exists" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>I had to &ldquo;finish&rdquo; this project inside a year so I could use it as a ticket out of Greece and into a
+studio that would have me. To get there I worked 100-hour weeks, roughly fourteen hours a day, every
+day. It worked. It also never stopped.</p>
+<p>Twelve years later it is still the same codebase, and I have rewritten almost every system in it
+multiple times. Every single rewrite came out <strong>simpler</strong> than what it replaced. That is not what
+people expect to hear about a maturing system, and it is the most useful thing I have learned from
+building this.</p>
+<p>This is what a codebase looks like when one person owns every line for a decade. No legacy
+committees. No half-migrated architectures. No &ldquo;we&rsquo;ll fix it in the next version.&rdquo;</p>
+<p>It is a personal R&amp;D engine, not a commercial product. No roadmap promises, no support queue, no
+compromises on the vision. There is a destination that gives all of this a purpose — the plan is in
+the repository if you are curious.</p>
+</div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="mono section-head__eyebrow">Out in the wild</p>
+                <h2 class="section-head__title">Where this code ended up</h2>
+                <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
+            </div>
+        </div>
+        <div class="record reveal">
+            <a class="record__item" href="https://github.com/godotengine/godot/blob/37d51d2cb7f6e47bef8329887e9e1740a914dc4e/servers/rendering/renderer_rd/shaders/effects/taa_resolve.glsl#L2" target="_blank" rel="noopener">
+                <div class="record__top">
+                    <h3 class="record__org">Godot Engine</h3>
+                    <span class="record__years" aria-hidden="true">&#8599;</span>
+                </div>
+                <p class="record__note">Ships Spartan&#39;s temporal anti-aliasing resolve.</p>
+            </a>
+            <a class="record__item" href="https://www.moddb.com/mods/stalker-anomaly/addons/screen-space-shaders" target="_blank" rel="noopener">
+                <div class="record__top">
+                    <h3 class="record__org">S.T.A.L.K.E.R. Anomaly</h3>
+                    <span class="record__years" aria-hidden="true">&#8599;</span>
+                </div>
+                <p class="record__note">A rendering addon built on Spartan&#39;s source.</p>
+            </a>
+            <a class="record__item" href="https://www.amazon.com/dp/B0CXG1CMNK" target="_blank" rel="noopener">
+                <div class="record__top">
+                    <h3 class="record__org">A published programming book</h3>
+                    <span class="record__years" aria-hidden="true">&#8599;</span>
+                </div>
+                <p class="record__note">Jesse Guerrero&#39;s beginner programming book features Spartan&#39;s code and community.</p>
+            </a>
+            <a class="record__item" href="https://en.wikipedia.org/wiki/University_of_Thessaly" target="_blank" rel="noopener">
+                <div class="record__top">
+                    <h3 class="record__org">University of Thessaly</h3>
+                    <span class="record__years" aria-hidden="true">&#8599;</span>
+                </div>
+                <p class="record__note">Where it began, as a thesis and portfolio piece.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="promo reveal">
+            <div class="promo__grid">
+                <div>
+                    <p class="mono section-head__eyebrow">Get involved</p>
+                    <h2>Build it, break it, or just come and argue about it</h2>
+                    <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
+                    <div class="promo__actions btn-row">
+                        <a class="btn btn--primary" href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> Clone the repo
+                        </a>
+                        <a class="btn btn--ghost" href="https://discord.gg/TG5r2BS" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Join the Discord
+                        </a>
+                    </div>
+                </div>
+                <div class="frame">
+                    <img
+    src="/media/engine/world_liminal_a_hu_499efeaa179df256.webp"
+    srcset="/media/engine/world_liminal_a_hu_2e6963688d71fd62.webp 480w, /media/engine/world_liminal_a_hu_499efeaa179df256.webp 840w"
+    sizes="(max-width: 860px) 100vw, 420px"
+    width="840"
+    height="409"
+    alt="A dim liminal corridor lit by a single ceiling panel, rendered in Spartan Engine"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__col footer__col--brand">
+                <a class="brand" href="/">
+                    <span class="brand__mark" aria-hidden="true">PK</span>
+                    <span class="brand__name">Panos Karabelas</span>
+                </a>
+                <p class="footer__tagline">Renderers, engines, and the odd conversation with people worth listening to.</p>
+                <div class="footer__cta">
+                    <a class="btn btn--primary btn--sm" href="mailto:panosconroe@hotmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> Get in touch
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h2>Site</h2>
+                <ul>
+                    <li><a href="/engine/">Engine</a></li>
+                    <li><a href="/projects/">Work</a></li>
+                    <li><a href="/blog/">Writing</a></li>
+                    <li><a href="/podcast/">Podcast</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/media/cv.html" target="_blank" rel="noopener">CV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/PanosK92" target="_blank" rel="me noopener">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/panoskarabelas" target="_blank" rel="me noopener">X</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@panos_karabelas" target="_blank" rel="me noopener">YouTube</a>
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/TG5r2BS" target="_blank" rel="me noopener">Discord</a>
+                    </li>
+                    <li>
+                        <a href="mailto:panosconroe@hotmail.com">Email</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bar">
+            <p>&copy; 2026 Panos Karabelas</p>
+            <p>Hand built. No trackers.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+    </button>
+
+    
+    <script defer src="/js/site.983680d900e3428beb6b0789cdedf4974ec54f8c208655e8f145bd8ecaf9234a.js" integrity="sha256-mDaA2QDjQovraweJze30l07FT4wghlXo8UW9jsr5I0o="></script>
+    
+</body>
+</html>

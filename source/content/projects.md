@@ -1,213 +1,166 @@
 +++
-title = "Experience"
-featuredImg = "/media/ic_space.jpg"
+title = "Work"
+type = "work"
+description = "Fifteen years of shipped work: BeamNG, AMD, Codemasters and Sony, plus the solo engine that made all of it possible."
+image = "/media/engine/world_showroom_a.png"
+
+lead = "Fifteen years, four countries' worth of studios, and one codebase I never put down. The recent work is at the top. The scrappy stuff that got me here is at the bottom, and I am not hiding it."
+
+[[career]]
+  org = "BeamNG"
+  role = "Graphics / Engine Programmer"
+  years = "2024 — Present"
+  location = "Remote"
+  current = true
+
+[[career]]
+  org = "AMD"
+  role = "MTS Developer Technology Engineer"
+  years = "2022 — 2024"
+  location = "UK and Europe"
+  body = "Studios ship on AMD hardware whether or not it runs well on it. My job was making sure it ran well on it."
+  points = [
+    "Embedded with top studios, Rocksteady among them, on site and remote, profiling their frames and rewriting the parts that did not hold up.",
+    "Took the same material on stage, delivering technical talks across the UK and Europe.",
+    "Worked across a number of shipped titles, several of which I still cannot name.",
+  ]
+  videoNote = "Some of the titles I worked on during those two years."
+  tags = ["GPU profiling", "Radeon GPU Profiler", "Vulkan", "DirectX 12", "HLSL"]
+
+  [[career.videos]]
+    id = "ov4fJmGCsZM"
+    title = "Returnal"
+
+  [[career.videos]]
+    id = "U9rSAmdywD4"
+    title = "The Callisto Protocol"
+
+  [[career.videos]]
+    id = "uZDGjS5vpIk"
+    title = "Suicide Squad: Kill the Justice League"
+
+  [[career.videos]]
+    id = "iJ798YVfl1Q"
+    title = "Fort Solis"
+
+[[career]]
+  org = "Codemasters (EA)"
+  role = "Senior Graphics Programmer"
+  years = "2020 — 2022"
+  location = "Manchester, UK"
+  body = "Shipped Dirt 5 on the in-house Neon engine, across six platforms with wildly different budgets — from Stadia streaming to Xbox Series X."
+  video = "D81Fs9c6ssY"
+  tags = ["C++", "Neon Engine", "PC", "PS4", "PS5", "Xbox One", "Xbox Series X", "Stadia"]
+
+[[career]]
+  org = "Sony Interactive Entertainment"
+  role = "Generalist Programmer"
+  years = "2016 — 2019"
+  location = "Manchester, UK"
+  body = "I left Greece for the UK to work on an ambitious PSVR title. It was cancelled after a few years, which is the risk you take. The work itself was some of the most interesting I have done."
+  points = [
+    "Built an environmental-analysis AI driven by fuzzy logic, so agents picked cover and navigation routes that read as human rather than as pathfinding.",
+    "Built the tooling around it: a 3D and VR debug GUI, and Jenkins CI integration for the team.",
+  ]
+  image = "/media/projects_sony.png"
+  imageAlt = "Sony Interactive Entertainment"
+  tags = ["C++", "Unreal Engine 4", "PS4", "PSVR"]
+
+[[education]]
+  what = "BSc Computer Science & Telecommunications"
+  where = "University of Thessaly"
+  years = "2010 — 2016"
+  note = "Built a Kinect-based natural user interface that drew national attention, and became a Microsoft Student Partner off the back of it."
+
+[[education]]
+  what = "Imagine Cup World Finalist"
+  where = "Microsoft, Redmond, Washington"
+  years = "2014"
+  note = "World-class distinction in the games category, with a turn-based strategy game built by a permanently sleep-deprived student team."
+
+[[education]]
+  what = "Certificate of Proficiency in English"
+  where = "University of Michigan"
+  years = "2010"
+  note = "The end of a ten-year study programme. It is the reason I could take the job in the UK when it came."
+
+[[archive]]
+  year = "2016"
+  title = "Car simulation experiments"
+  note = "A realistic car model built on variations of Pacejka's tyre friction formula. The first pass at what is now a 200 Hz simulation inside my engine."
+  tag = "C#, Unity"
+
+[[archive]]
+  year = "2015"
+  title = "Da Vinci's Ornithopter"
+  note = "An infinite runner with RPG elements and mini-games. Six months in I accepted that it needed a programmer, an artist, a designer and a sound engineer. I was one of those."
+  tag = "C#, Unity"
+
+[[archive]]
+  year = "2015"
+  title = "The Screen Space"
+  note = "A Ludum Dare entry with Kickback Studios. I built the player controls, a jetpack, and a rope-and-bucket grappling hook, all physics driven."
+  tag = "C#, Unity"
+  url = "https://kickback.itch.io/the-screen-space"
+
+[[archive]]
+  year = "2014"
+  title = "Dementia"
+  note = "A turn-based table game with RPG elements, and our Imagine Cup entry. I did the UI, the AI, the pathfinding and most of the gameplay. A never-ending crunch that ended with us wandering around Microsoft HQ as world finalists."
+  tag = "C#, Unity"
+
+[[archive]]
+  year = "2014"
+  title = "Genesis Game Studios site"
+  note = "Our team started getting attention, so I built and shipped the studio's web presence, logo included."
+  tag = "WordPress, Azure"
+
+[[archive]]
+  year = "2014"
+  title = "Hexcraft"
+  note = "A tile-based puzzle game. I built the UI and the online leaderboards."
+  tag = "C#, Unity, Azure"
+
+[[archive]]
+  year = "2014"
+  title = "2D Audio Mixer"
+  note = "A spatial approach to mixing: the dot in the circle is the listener, every other dot is a source, and distance is volume."
+  tag = "C#, Unity"
+  url = "https://www.microsoft.com/el-gr/p/2d-audio-mixer/9wzdncrdqmmg?activetab=pivot:overviewtab"
+
+[[archive]]
+  year = "2014"
+  title = "Encircle the Rat"
+  note = "A turn-based game where you try to corner a rat. The rat uses A* and is better at this than you are."
+  tag = "C#, Unity"
+
+[[archive]]
+  year = "2012"
+  title = "Da Vinci's Flying Machine"
+  note = "Built in a few days at a Microsoft hackathon in Athens. Won fourth place and best splash screen, then did well as a paid Windows Store game. It bought me a gaming PC and taught me what shipping a product actually means."
+  tag = "C#, MonoGame"
+
+[[archive]]
+  year = "2012"
+  title = "Kinect experimentations"
+  note = "A basic renderer that consumed Kinect depth data to decide where to put a virtual camera."
+  tag = "C#, XNA"
+
+[[archive]]
+  year = "2011"
+  title = "AV8"
+  note = "Controlling a PC with a Kinect, built on the beta SDK with two fellow students and Professor Omiros Iatrellis. One of the first advanced Kinect applications anywhere, and it got the attention of the local academic community and press."
+  tag = "C#, Kinect SDK"
+
+[[archive]]
+  year = "2011"
+  title = "Lucky ball-aki"
+  note = "A magic 8-ball game with a name that only works in Greek. A custom physics library and accelerometer input won it a university competition. The prize was a Windows Phone."
+  tag = "C#, XNA"
+
+[closing]
+  title = "2009 — Project Cocktail"
+  image = "/media/bartender.webp"
+  imageAlt = "Panos behind a bar in Zakynthos, Greece"
+  body = "Before any of this, I was a high school student with a Certificate of Proficiency in English and no obligation to do anything at all. So I took a job as a bartender in Zakynthos — partly to use the English in real situations, mostly because I have always believed hard work builds character. If you had a cold drink on that island around then, there is a decent chance I poured it. It is still the job I am most proud of."
 +++
-
-### 2022 to 2023 - AMD - **Multiple titles**
-
-{{< youtube pBJSZDryt3g >}}
-
-Worked with multiple known studios, helping them achieve high performance on AMD GPUs.
-
-Some of the titles I helped optimise.
-
-{{< youtube U9rSAmdywD4 >}}
-{{< youtube ov4fJmGCsZM >}}
-{{< youtube uZDGjS5vpIk >}}
-{{< youtube iJ798YVfl1Q >}}
-
-**Team:** AMD • **Platform:** PC • **Tools**: Lots of them • **Location:** UK
-
----
-
-### 2020 - 2022 - Codemasters (EA) - **Dirt 5**
-
-{{< youtube D81Fs9c6ssY >}}
-
-Worked as a senior graphics programmer.
-
-**Team:** Codemasters • **Platform:** PC, Stadia, PS4, PS5, Xbox One, Xbox Series X • **Tools**: C++, Neon Engine • **Location:** UK
-
----
-
-### 2017 to 2020 - Sony Interactive Entertainment - **VR game (cancelled)**
-
-![image](/media/projects_sony.png)
-
-I left Greece and moved to the UK to work on an ambitious VR title which after a few years, was cancelled.
-I worked on some cool things which I am (unfortunately) not allowed to share.
-
-**Team:** Sony Interactive Entertainment Europe - Manchester Studio • **Platform:** PS4 • **Tools**: C++, UE4 • **Location:** UK
-
----
-
-### 2016 - **Spartan Engine**
-
-{{< youtube JSQ4gocCXeU >}}
-
-I had to "finish" this project within a year so I could use it as a ticket out of Greece and into a well known studio/company.
-To achieve this, I did 100+ work hour weeks, that's about 14 hours per day, every day.
-
-As of today, it's one of the most complete, one-man, open-source game engines on GitHub.
-For a detailed description, source code and binaries, click [here](https://github.com/PanosK92/SpartanEngine) to visit the GitHub page.
-
-**Team:** Solo • **Platform:** [PC](https://github.com/PanosK92/SpartanEngine) • **Tools**: Yes • **Location:** Everywhere, all the time
-
----
-
-### 2016 – **Car Simulation Experiments**
-
-![image](/media/projects_car.jpg)
-
-An attempt to create a realistic car simulation using physics and variations of [Pacejka's](https://en.wikipedia.org/wiki/Hans_B._Pacejka) tire friction formula.
-
-**Team:** Solo • **Platform:** PC • **Tools**: C#, Unity • **Location:** Greece
-
----
-
-### 2015 – **Da Vinci’s Ornithopter**
-
-![image](/media/projects_davincisornithopter.jpg)
-
-An infinite runner with RPG elements, mini-games and some ok art.
-It was basically a second take at Da Vinci's Flying Machine.
-After 6 months of development, I realised that this idea needed a programmer, an artist, a designer and a sound engineer.
-So the project was put on hold.
-
-**Team:** Solo • **Platform:** PC • **Tools**: C#, Unity (with NGUI) • **Location:** Greece
-
----
-
-### 2015 – **The Screen Space**
-
-![image](/media/projects_screenspace.jpg)
-
-A short game developed with [Kickback Studios](https://www.kickback-studios.com/) (creators of [Lost Echo](https://apps.apple.com/us/app/lost-echo/id693045097)) as a Ludum Dare [entry](https://kickback.itch.io/the-screen-space).
-I implemented the player’s controls, a jetpack mechanic and a rope-bucket mechanic that acted as a grappling hook. All of these mechanics were physics based.
-
-**Team:** Kickback Studios • **Platform:** [PC](https://kickback.itch.io/the-screen-space) • **Tools**: C#, Unity • **Location:** Greece
-
----
-
-### 2014 – **Dementia** – Microsoft Imagine Cup World Finalist, Redmond, Washington, US
-
-![image](/media/projects_dementia.jpg)
-
-Dementia was a turn-based table game with RPG elements that we used as an entry for Imagine Cup, a world-wide competition that promotes student entrepreneurship.
-I implemented the user interface, artificial intelligence, path-finding and did most of the gameplay programming among other things.
-The development was a never-ending crunch, the atmosphere in the team was chaotic and despite all that, here we were, sleep deprived, wondering around Microsoft HQ in Redmond as world-wide finalists.
-A unique experience that helped grow in more ways than I expected.
-
-![image](/media/mental.jpg)
-
-**Team:** Genesis Game Studios • **Platform:** PC • **Tools**: C#, Unity (with NGUI) • **Location:** Greece
-
----
-
-### 2014 – **Website**
-
-![image](/media/projects_website.jpg)
-
-A website I got up and running (including studio logo design) while being part of Genesis Game Studios.
-Our team started to gain some attention so we thought it was time to boost our online presence.
-
-**Team:** Genesis Game Studios • **Platform:** WordPress • **Tools**: Microsoft Azure • **Location:** Greece
-
----
-
-### 2014 – **Hexcraft**
-
-![image](/media/projects_hexcraft.png)
-
-A simple tile based puzzle game. I implemented the UI and the online leaderboards.
-
-**Team:** Genesis Game Studios • **Platform:** Windows Store • **Tools**: C#, Unity, Microsoft Azure • **Location:** Greece
-
----
-
-### 2014 – **2D Audio Mixer**
-
-![image](/media/projects_2daudiomixer.jpg)
-
-The dot in the circle is an audio listener, all the other dots are audio sources. 
-The distance between the audio listener and an audio source is the volume. 
-A spatial approach to audio mixing.
-This was a free app geared towards building a Windows Store portfolio.
-
-**Team:** Solo • **Platform:** [Windows Store](https://www.microsoft.com/el-gr/p/2d-audio-mixer/9wzdncrdqmmg?activetab=pivot:overviewtab) • **Tools**: C#, Unity (with NGUI), Visual Studio • **Location:** Greece
-
----
-
-### 2014 – **Encircle the rat**
-
-![image](/media/projects_encircletherat.jpg)
-
-A turn-based game where you simply try to encircle a rat. The rat uses A* pathfinding.
-This was a free game geared towards building a Windows Store portfolio.
-
-**Team:** Solo • **Platform:** Windows Store • **Tools**: C#, Unity (with NGUI) • **Location:** Greece
-
----
-
-### 2012 - **Da Vinci’s Flying Machine**
-
-![image](/media/projects_davincisflyingmachine.jpg)
-
-An infinite runner inspired by the works of Leonardo da Vinci, developed as part of a Microsoft Hackathon which took place in Athens.
-Despite being made in a few days, It won 4th place, best splash screen, and did well in the Windows Store as a paid game.
-This little game bought me a gaming PC and was the first lesson on how to craft a product.
-
-**Team:** Solo • **Platform:** Windows Store • **Tools**: C#, MonoGame, Farseer Physics • **Location:** Greece
-
----
-
-### 2012 - **Kinect Experimentations**
-
-{{< youtube TenrEyq8cpw >}}
-
-A basic renderer which consumed Kinect data in order to determine where to place a virtual camera.
-
-**Team:** Solo • **Platform:** PC • **Tools**: C#, XNA • **Location:** Greece
-
----
-
-### 2011 - **AV8**
-
-![image](/media/minority_report.jpg)
-
-A collaboration between me, two fellow students and professor Omiros Iatrellis, on a project that enabled control of a PC using Kinect.
-It was developed using the Kinect Beta SDK and it was one of the very first advanced Kinect applications at the time. 
-The project was a success and attracted the attention of the local academic community and press.
-
-**Team:** University • **Platform:** PC • **Tools**: C#, Kinect SDK • **Location:** Greece
-
----
-
-### 2011 - **Lucky ball-aki**
-
-![image](/media/projects_luckyballaki.png)
-
-A magic 8-ball game with a name that only makes sense in Greek (ouch).
-A custom physics library and some accelerometer input made this straightforward game one of the winners at an app development competition organized by my university.
-The prize was a windows phone, good times.
-
-**Team:** Solo • **Platform:** Windows Phone • **Tools**: C#, XNA, Custom physics library • **Location:** Greece
-
----
-
-### 2009 - **Project Cocktail** :smile:
-
-![image](/media/bartender.jpg)
-*Me and El Duderino*
-
-![image](/media/cocktail.jpg)
-*Not me*
-
-![image](/media/zakynthos.jpg)
-*Zakynthos*
-
-As a high school student, I didn't have to do anything but after receiving my Certificate of Proficiency in English by the University of Michigan, I decided to get a job as a bartender/waiter.
-Mainly to practice my English in real-life scenarios and have fun, but most of all because I've always believed that hard work builds character.
-So chances are that if you visited Zakynthos, Greece during that period, I was the guy serving you your refreshing cold beverage :smile:
-
-Achievement unlocked: Going low.

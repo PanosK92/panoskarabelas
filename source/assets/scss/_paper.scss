@@ -1,0 +1,467 @@
+/*
+* paper: the document layer
+* a main text column with a narrower margin column beside it for notes,
+* numbered sections, numbered plates and real tables instead of cards
+*/
+
+/* ==========================================================================
+   document shell
+   ========================================================================== */
+
+.doc {
+    width: 100%;
+    max-width: calc(var(--w-main) + var(--w-margin) + var(--s-7));
+    margin-inline: auto;
+    padding-inline: var(--w-gutter);
+}
+
+/* text holds a readable measure, plates and tables run the full width */
+.doc-section > * {
+    max-width: var(--w-main);
+}
+
+.doc-section > .plate,
+.doc-section > .ledger-wrap,
+.doc-section > .doc-row {
+    max-width: none;
+}
+
+.masthead__meta,
+.masthead__title,
+.masthead__role,
+.lede {
+    max-width: var(--w-main);
+}
+
+.doc-section {
+    padding-block: var(--s-8);
+    border-top: 1px solid var(--c-line);
+}
+
+.doc-section > * + * {
+    margin-top: var(--s-5);
+}
+
+.doc-section > h2 + * {
+    margin-top: var(--s-6);
+}
+
+/* a paragraph paired with a note that sits out in the margin beside it */
+.doc-row {
+    display: grid;
+    grid-template-columns: minmax(0, var(--w-main)) var(--w-margin);
+    column-gap: var(--s-7);
+    align-items: start;
+}
+
+.doc-note {
+    font-size: var(--fs-xs);
+    line-height: 1.6;
+    color: var(--c-text-mute);
+}
+
+.doc-note b {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: var(--fs-2xs);
+    font-weight: 500;
+    color: var(--c-text-dim);
+}
+
+/* ==========================================================================
+   masthead
+   ========================================================================== */
+
+.masthead {
+    padding-top: clamp(3rem, 8vw, 6rem);
+    padding-bottom: var(--s-7);
+}
+
+.masthead__meta {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-mute);
+}
+
+.masthead__title {
+    margin-top: var(--s-4);
+    font-size: var(--fs-display);
+    font-weight: 600;
+    line-height: 1.02;
+}
+
+.masthead__role {
+    margin-top: var(--s-3);
+    font-size: var(--fs-h3);
+    font-style: italic;
+    color: var(--c-text-dim);
+}
+
+.masthead__rule {
+    max-width: none;
+    margin-block: var(--s-6);
+    border-top: 1px solid var(--c-text);
+}
+
+.lede {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--c-text);
+}
+
+.lede::first-line {
+    font-variant-caps: small-caps;
+    letter-spacing: .03em;
+}
+
+.lede + .lede {
+    margin-top: var(--s-4);
+    font-size: var(--fs-body);
+    color: var(--c-text-dim);
+}
+
+.lede + .lede::first-line {
+    font-variant-caps: normal;
+    letter-spacing: normal;
+}
+
+/* ==========================================================================
+   plates, the only imagery on the page and always captioned
+   ========================================================================== */
+
+.plate {
+    margin: var(--s-7) 0;
+}
+
+.plate img {
+    width: 100%;
+    border: 1px solid var(--c-line-strong);
+}
+
+.plate figcaption {
+    max-width: 66ch;
+    margin-top: var(--s-3);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    color: var(--c-text-mute);
+}
+
+.plate__num {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    color: var(--c-accent);
+}
+
+/* ==========================================================================
+   section numbering
+   ========================================================================== */
+
+.secnum {
+    margin-right: .6em;
+    font-family: var(--f-mono);
+    font-size: .5em;
+    font-weight: 400;
+    color: var(--c-accent);
+    vertical-align: .32em;
+}
+
+/* ==========================================================================
+   data, a leader dot table instead of stat cards
+   ========================================================================== */
+
+.data {
+    margin: var(--s-6) 0;
+}
+
+.data__row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    padding-block: var(--s-2);
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+}
+
+.data__key {
+    color: var(--c-text-dim);
+}
+
+.data__dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--c-line-strong);
+    transform: translateY(-.3em);
+}
+
+.data__val {
+    font-weight: 500;
+    color: var(--c-text);
+}
+
+/* ==========================================================================
+   ledger, the track record as a table
+   ========================================================================== */
+
+.ledger-wrap {
+    margin: var(--s-6) 0;
+    overflow-x: auto;
+}
+
+.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.ledger thead th {
+    padding: 0 var(--s-5) var(--s-2) 0;
+    font-size: var(--fs-xs);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--c-text-mute);
+    border-bottom: 1px solid var(--c-text);
+}
+
+.ledger td {
+    padding: var(--s-4) var(--s-5) var(--s-4) 0;
+    font-size: var(--fs-sm);
+    vertical-align: baseline;
+    border-bottom: 1px solid var(--c-line);
+}
+
+.ledger tr:last-child td {
+    border-bottom: 0;
+}
+
+.ledger__year {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-mute);
+    white-space: nowrap;
+}
+
+.ledger__org {
+    font-weight: 600;
+    color: var(--c-text);
+    white-space: nowrap;
+}
+
+.ledger__org em {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: var(--fs-2xs);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--c-accent);
+}
+
+.ledger__note {
+    color: var(--c-text-dim);
+}
+
+/* ==========================================================================
+   index list, used for writing
+   ========================================================================== */
+
+.index-list {
+    margin: var(--s-6) 0;
+    list-style: none;
+    counter-reset: idx;
+}
+
+.index-list li {
+    border-bottom: 1px solid var(--c-line);
+}
+
+.index-list li:last-child {
+    border-bottom: 0;
+}
+
+.index-list a {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--s-4);
+    padding-block: var(--s-4);
+    color: var(--c-text);
+}
+
+.index-list a::before {
+    counter-increment: idx;
+    content: counter(idx, decimal-leading-zero);
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-accent);
+}
+
+.index-list__title {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.index-list a:hover .index-list__title {
+    color: var(--c-accent);
+}
+
+.index-list__meta {
+    display: block;
+    margin-top: var(--s-1);
+    font-size: var(--fs-xs);
+    font-style: italic;
+    color: var(--c-text-mute);
+}
+
+.index-list__date {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-mute);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   inline links in prose, underlined the way print does it
+   ========================================================================== */
+
+.doc-section p a,
+.lede a,
+.doc-note a {
+    color: var(--c-text);
+    text-decoration: underline;
+    text-decoration-color: var(--c-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.doc-section p a:hover,
+.lede a:hover,
+.doc-note a:hover {
+    color: var(--c-accent);
+}
+
+/* a plain text link that ends a section, set off by a printers arrow */
+.jump {
+    display: inline-block;
+    margin-top: var(--s-5);
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-accent);
+    text-decoration: none;
+}
+
+.jump:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ==========================================================================
+   overrides, strip the screen era decoration out of the shared shell
+   ========================================================================== */
+
+.header {
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-line);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.header.is-scrolled {
+    background: var(--c-bg);
+    border-bottom-color: var(--c-line-strong);
+}
+
+.brand {
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+.brand__mark {
+    color: var(--c-bg);
+    background: var(--c-text);
+    border-color: var(--c-text);
+}
+
+.brand:hover .brand__mark {
+    box-shadow: none;
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+}
+
+.nav__link {
+    font-size: var(--fs-sm);
+    font-weight: 400;
+}
+
+.nav-drawer {
+    background: var(--c-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.social a:hover {
+    transform: none;
+    color: var(--c-accent);
+}
+
+.footer {
+    background: none;
+}
+
+.footer__col h2 {
+    font-family: var(--f-serif);
+    font-size: var(--fs-xs);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+/* the monospaced eyebrow was the loudest screen era tell, quiet it down */
+.section-head__eyebrow {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--c-accent);
+}
+
+.section-head__eyebrow::before {
+    display: none;
+}
+
+.btn {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    font-weight: 400;
+    letter-spacing: normal;
+    border-radius: 0;
+}
+
+.btn--primary {
+    color: var(--c-bg);
+    background: var(--c-text);
+    border-color: var(--c-text);
+    box-shadow: none;
+}
+
+.btn--primary:hover {
+    color: var(--c-bg);
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   narrow screens: the margin column folds back into the text column
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .doc-row {
+        grid-template-columns: 1fr;
+        row-gap: var(--s-4);
+    }
+
+    .doc-note {
+        padding-left: var(--s-4);
+        border-left: 2px solid var(--c-accent-line);
+    }
+}

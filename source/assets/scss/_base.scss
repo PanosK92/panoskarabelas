@@ -8,7 +8,7 @@
 
 html {
     background: var(--c-bg);
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--h-header) + var(--s-5));
     -webkit-text-size-adjust: 100%;
@@ -37,20 +37,19 @@ h5,
 h6 {
     margin: 0;
     color: var(--c-text);
-    font-weight: 650;
-    line-height: 1.15;
-    letter-spacing: -.022em;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
     text-wrap: balance;
 }
 
 h1 {
     font-size: var(--fs-h1);
-    letter-spacing: -.032em;
+    letter-spacing: -.006em;
 }
 
 h2 {
     font-size: var(--fs-h2);
-    letter-spacing: -.026em;
 }
 
 h3 {
@@ -133,22 +132,20 @@ samp {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a2e3a;
+    background: var(--c-line-strong);
     border: 2px solid var(--c-bg);
-    border-radius: var(--r-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3a404f;
+    background: var(--c-text-mute);
 }
 
-/* utility: monospaced label, used for years, tags and section eyebrows */
+/* utility: monospaced label for years, figures and data, reads as annotation
+   rather than as a marketing eyebrow, so no tracking and no uppercasing */
 .mono {
     font-family: var(--f-mono);
     font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    font-weight: 400;
     color: var(--c-text-mute);
 }
 
@@ -187,13 +184,10 @@ samp {
     color: var(--c-bg);
 }
 
-/* scroll reveal, opt out entirely when the user asked for less motion */
+/* scroll reveal, a fade only, a page of type should not slide around */
 .reveal {
     opacity: 0;
-    transform: translateY(18px);
-    transition:
-        opacity var(--t-slow) var(--e-out),
-        transform var(--t-slow) var(--e-out);
+    transition: opacity var(--t-slow) var(--e-out);
 }
 
 .reveal.is-visible {

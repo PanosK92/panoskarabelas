@@ -1,203 +1,174 @@
 {{ define "main" }}
-{{- $p := .Params -}}
+{{- $d := .Params.doc -}}
 {{- $stars := partial "gh-stars.html" (dict "repo" "PanosK92/SpartanEngine" "fallback" 3100) -}}
-{{- $starsPretty := cond (ge $stars 1000) (printf "%.1fk" (div (float $stars) 1000.0)) (printf "%d" $stars) -}}
 {{- $repo := .Site.Params.engineRepo -}}
 {{- $discord := .Site.Params.engineDiscord -}}
 
-<section class="hero">
-    <div class="container hero__inner">
-        <div class="hero__copy">
-            {{- with .Site.Params.currentOrg }}
-            <p class="status">
-                <span class="status__dot" aria-hidden="true"></span>
-                Currently: {{ $.Site.Params.currentRole }} at {{ . }}
-            </p>
-            {{- end }}
+<div class="doc">
 
-            <h1 class="hero__name">{{ .Site.Title }}</h1>
-            <p class="hero__tagline">{{ $p.hero.tagline }}</p>
-            <p class="hero__lead">{{ $p.hero.lead }}</p>
+    <header class="masthead">
+        <p class="masthead__meta">
+            Manchester, UK
+            {{- with .Site.Params.currentOrg }} &middot; {{ $.Site.Params.currentRole }} at {{ . }}{{ end }}
+        </p>
+        <h1 class="masthead__title">{{ .Site.Title }}</h1>
+        <p class="masthead__role">{{ $d.role }}</p>
+        <hr class="masthead__rule">
+        <p class="lede">{{ $d.lede }}</p>
+        <p class="lede">{{ $d.ledeTwo }}</p>
+    </header>
 
-            <div class="hero__actions btn-row">
-                <a class="btn btn--primary" href="{{ "/engine/" | relURL }}">
-                    {{ partial "icon.html" "cpu" }} Explore Spartan Engine
-                </a>
-                <a class="btn btn--ghost" href="{{ .Site.Params.cvURL | relURL }}" target="_blank" rel="noopener">
-                    {{ partial "icon.html" "file-text" }} Read the CV
-                </a>
+    <figure class="plate reveal">
+        {{ partial "image.html" (dict
+            "src" "/media/engine/world_forest.jpg"
+            "alt" "The Spartan Engine editor rendering a lake at sunset, with the scene hierarchy and the directional light's properties panel visible beside the viewport"
+            "sizes" "(max-width: 900px) 100vw, 840px"
+            "widths" (slice 640 1024 1680)
+            "eager" true) }}
+        <figcaption>
+            <span class="plate__num">Fig. 1</span> &mdash; Spartan Engine, editing a terrain at sunset.
+            The light panel on the right is in physical units: the sun is a 3600 K directional light at
+            5000 lux, which is why the water and the grass behave the way they do rather than because
+            anyone hand-tuned a colour.
+        </figcaption>
+    </figure>
+
+    <section class="doc-section" id="engine">
+        <h2><span class="secnum">§ 1</span> Spartan Engine</h2>
+
+        <div class="doc-row">
+            <p>{{ $d.engineOne }}</p>
+            <aside class="doc-note">
+                <b>{{ $d.engineNoteTitle }}</b>
+                {{ $d.engineNote }}
+            </aside>
+        </div>
+
+        <p>{{ $d.engineTwo }}</p>
+
+        <div class="data">
+            <div class="data__row">
+                <span class="data__key">Stars on GitHub</span>
+                <span class="data__dots" aria-hidden="true"></span>
+                <span class="data__val">{{ lang.FormatNumberCustom 0 $stars }}</span>
+            </div>
+            <div class="data__row">
+                <span class="data__key">Years in development</span>
+                <span class="data__dots" aria-hidden="true"></span>
+                <span class="data__val">12</span>
+            </div>
+            <div class="data__row">
+                <span class="data__key">Engineers in the Discord</span>
+                <span class="data__dots" aria-hidden="true"></span>
+                <span class="data__val">600+</span>
+            </div>
+            <div class="data__row">
+                <span class="data__key">Graphics APIs</span>
+                <span class="data__dots" aria-hidden="true"></span>
+                <span class="data__val">Vulkan, D3D12</span>
+            </div>
+            <div class="data__row">
+                <span class="data__key">Shipping elsewhere</span>
+                <span class="data__dots" aria-hidden="true"></span>
+                <span class="data__val">Godot, S.T.A.L.K.E.R. Anomaly</span>
             </div>
         </div>
 
-        <div class="hero__media">
-            <div class="hero__frame">
-                <div class="hero__chrome" aria-hidden="true">
-                    <span></span><span></span><span></span>
-                    <p>spartan engine — showroom</p>
-                </div>
-                {{ partial "image.html" (dict
-                    "src" "/media/engine/world_showroom_a.png"
-                    "alt" $p.hero.imageAlt
-                    "sizes" "(max-width: 940px) 100vw, 560px"
-                    "widths" (slice 640 1024 1440)
-                    "eager" true) }}
-            </div>
-            <div class="hero__badge">
-                <b>{{ $starsPretty }}</b>
-                <span>GitHub stars</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{- with $p.stats }}
-<section class="section" style="padding-block:clamp(2rem,4vw,3rem)">
-    <div class="container">
-        <div class="stats reveal">
-            {{- range . }}
-            <div class="stat">
-                <span class="stat__value">{{ if eq .value "live-stars" }}<em>{{ $starsPretty }}</em>{{ else }}{{ .value }}{{ end }}</span>
-                <span class="stat__label">{{ .label }}</span>
-            </div>
-            {{- end }}
-        </div>
-    </div>
-</section>
-{{- end }}
-
-{{- with $p.engine }}
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">{{ .eyebrow }}</p>
-                <h2 class="section-head__title" style="max-width:26ch">{{ .title }}</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/engine/" | relURL }}">
-                The full breakdown {{ partial "icon.html" "arrow-right" }}
-            </a>
-        </div>
-
-        <div class="frame reveal">
+        <figure class="plate reveal">
             {{ partial "image.html" (dict
-                "src" "/media/engine/world_forest.jpg"
-                "alt" "The Spartan Engine editor rendering a procedural forest at sunset, with the scene hierarchy, inspector and profiler visible"
-                "sizes" "(max-width: 1200px) 100vw, 1120px"
-                "widths" (slice 800 1280 1920)) }}
+                "src" "/media/engine/world_sponza.png"
+                "alt" "The Spartan Engine editor rendering the Sponza atrium, with the renderer options panel showing ReSTIR path tracing, ray-traced reflections and shadows all enabled"
+                "sizes" "(max-width: 900px) 100vw, 840px"
+                "widths" (slice 640 1024 1680)) }}
+            <figcaption>
+                <span class="plate__num">Fig. 2</span> &mdash; Sponza, the scene every renderer gets
+                tested against. The renderer options panel is the honest version of this page: ReSTIR
+                path tracing, ray-traced reflections and ray-traced shadows all on, rendering at
+                1920&times;1080 and upscaling to 3180&times;1553 with FSR 3.
+            </figcaption>
+        </figure>
+
+        <p>
+            <a href="{{ "/engine/" | relURL }}">The full technical breakdown</a> covers the render graph,
+            the culling pipeline and the vehicle dynamics. The source is
+            <a href="{{ $repo }}" target="_blank" rel="noopener">on GitHub</a>, and there are
+            <a href="{{ $discord }}" target="_blank" rel="noopener">600-odd engineers on Discord</a> who
+            will happily tell you what I got wrong.
+        </p>
+    </section>
+
+    {{- with .Params.record }}
+    <section class="doc-section" id="record">
+        <h2><span class="secnum">§ 2</span> Track record</h2>
+
+        <p>{{ $d.recordProse }}</p>
+
+        <div class="ledger-wrap">
+            <table class="ledger">
+                <thead>
+                    <tr>
+                        <th scope="col">Years</th>
+                        <th scope="col">Studio</th>
+                        <th scope="col">Role and what came of it</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{- range . }}
+                    <tr>
+                        <td class="ledger__year">{{ .years }}</td>
+                        <td class="ledger__org">
+                            {{ .org }}
+                            {{- if .current }}<em>current</em>{{ end }}
+                        </td>
+                        <td class="ledger__note">
+                            {{ .role }}{{ with .note }}. {{ . }}{{ end }}
+                        </td>
+                    </tr>
+                    {{- end }}
+                </tbody>
+            </table>
         </div>
 
-        <p class="engine-quote reveal" style="max-width:60ch;margin-top:var(--s-6)">{{ .lead }}</p>
+        <a class="jump" href="{{ "/projects/" | relURL }}">See the full history, back to 2009 &rarr;</a>
+    </section>
+    {{- end }}
 
-        <ul class="feature-grid reveal">
-            {{- range .features }}
-            <li class="feature">
-                <h3>{{ .title }}</h3>
-                <p>{{ .body }}</p>
-            </li>
-            {{- end }}
-        </ul>
+    {{- $posts := where .Site.RegularPages "Section" "blog" -}}
+    {{- with $posts }}
+    <section class="doc-section" id="writing">
+        <h2><span class="secnum">§ 3</span> Writing</h2>
 
-        <div class="btn-row reveal" style="margin-top:var(--s-6)">
-            <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
-                {{ partial "icon.html" "github" }} Source on GitHub
-            </a>
-            <a class="btn btn--ghost" href="{{ $discord }}" target="_blank" rel="noopener">
-                {{ partial "icon.html" "discord" }} Join 600+ engineers
-            </a>
-        </div>
-    </div>
-</section>
-{{- end }}
-
-{{- with $p.record }}
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">Track record</p>
-                <h2 class="section-head__title">Where the work has shipped</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/projects/" | relURL }}">
-                Full history {{ partial "icon.html" "arrow-right" }}
-            </a>
-        </div>
-
-        <div class="record reveal">
-            {{- range . }}
-            <article class="record__item{{ if .current }} record__item--current{{ end }}">
-                <div class="record__top">
-                    <h3 class="record__org">{{ .org }}</h3>
-                    <span class="record__years">{{ .years }}</span>
-                </div>
-                <p class="record__role">{{ .role }}</p>
-                {{- with .note }}<p class="record__note">{{ . }}</p>{{ end }}
-            </article>
-            {{- end }}
-        </div>
-    </div>
-</section>
-{{- end }}
-
-{{- $posts := where .Site.RegularPages "Section" "blog" -}}
-{{- with $posts }}
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">Writing</p>
-                <h2 class="section-head__title">Notes from the renderer</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/blog/" | relURL }}">
-                All posts {{ partial "icon.html" "arrow-right" }}
-            </a>
-        </div>
-
-        <ul class="entries reveal">
+        <ol class="index-list">
             {{- range first 4 (sort . "Date" "desc") }}
             <li>
-                <a class="entry" href="{{ .RelPermalink }}">
-                    <span class="entry__date">{{ .Date.Format "Jan 2006" }}</span>
-                    <div class="entry__body">
-                        <h3 class="entry__title">{{ .Title }}</h3>
-                        <span class="entry__meta">{{ .ReadingTime }} min read</span>
-                    </div>
-                    <span class="entry__arrow" aria-hidden="true">{{ partial "icon.html" "arrow-right" }}</span>
+                <a href="{{ .RelPermalink }}">
+                    <span>
+                        <span class="index-list__title">{{ .Title }}</span>
+                        <span class="index-list__meta">{{ .ReadingTime }} min read</span>
+                    </span>
+                    <span class="index-list__date">{{ .Date.Format "Jan 2006" }}</span>
                 </a>
             </li>
             {{- end }}
-        </ul>
-    </div>
-</section>
-{{- end }}
+        </ol>
 
-{{- with $p.podcast }}
-<section class="section">
-    <div class="container">
-        <div class="promo reveal">
-            <div class="promo__grid">
-                <div>
-                    <p class="mono section-head__eyebrow">The podcast</p>
-                    <h2>{{ .title }}</h2>
-                    <p>{{ .lead }}</p>
-                    <div class="promo__actions btn-row">
-                        <a class="btn btn--primary" href="{{ $.Site.Params.podcastSpotify }}" target="_blank" rel="noopener">
-                            {{ partial "icon.html" "spotify" }} Listen on Spotify
-                        </a>
-                        <a class="btn btn--ghost" href="{{ "/podcast/" | relURL }}">
-                            {{ partial "icon.html" "mic" }} Episodes
-                        </a>
-                    </div>
-                </div>
-                <div class="frame">
-                    {{ partial "image.html" (dict
-                        "src" "/media/panos_working.jpg"
-                        "alt" "Panos Karabelas at a desk surrounded by monitors and hand-drawn GPU diagrams"
-                        "sizes" "(max-width: 860px) 100vw, 420px"
-                        "widths" (slice 480 840)) }}
-                </div>
-            </div>
+        <a class="jump" href="{{ "/blog/" | relURL }}">Everything I have written &rarr;</a>
+    </section>
+    {{- end }}
+
+    <section class="doc-section" id="podcast">
+        <h2><span class="secnum">§ 4</span> Podcast</h2>
+
+        <div class="doc-row">
+            <p>{{ $d.podcastProse }}</p>
+            <aside class="doc-note">
+                <b>Listen</b>
+                <a href="{{ .Site.Params.podcastSpotify }}" target="_blank" rel="noopener">Spotify</a>,
+                <a href="{{ .Site.Params.podcastYoutube }}" target="_blank" rel="noopener">YouTube</a>,
+                or <a href="{{ "/podcast/" | relURL }}">the episode list</a>.
+            </aside>
         </div>
-    </div>
-</section>
-{{- end }}
+    </section>
+
+</div>
 {{ end }}

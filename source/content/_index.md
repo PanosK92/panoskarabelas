@@ -1,6 +1,54 @@
 +++
 title = "Panos Karabelas"
 
+[doc]
+  role = "Rendering and engine programmer"
+
+  lede = """
+I build renderers, and the engines around them. For twelve years that has mostly meant one
+codebase, written on nights and weekends, which now renders real-time path-traced global
+illumination on a single GPU. Enough people have taken it apart that pieces of it ship inside
+Godot Engine and a S.T.A.L.K.E.R. Anomaly rendering addon.
+"""
+
+  ledeTwo = """
+During the day I work on graphics and engine code at BeamNG. Before that I spent two years at AMD
+embedded inside other studios' engines making their frames faster, shipped Dirt 5 at Codemasters,
+and built environmental-analysis AI for an unreleased PSVR title at Sony.
+"""
+
+  engineOne = """
+Spartan Engine is built around a single principle: the GPU owns the data. Every resource — geometry,
+materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible
+buffers. There are no per-draw descriptor updates and no CPU-side draw loops. A pass issues one
+indirect call and the GPU decides what to draw.
+"""
+
+  engineTwo = """
+Lighting is ReSTIR path tracing with spatiotemporal reservoir resampling, so global illumination is
+multi-bounce and fully dynamic with no bake step and no light probes. Reflections and shadows are
+hardware ray-queried through the same vertex-pulling path the rasteriser uses, and the shaders are
+one universal HLSL codebase compiled to both SPIR-V and DXIL.
+"""
+
+  engineNoteTitle = "Twelve years"
+
+  engineNote = """
+The first commit was a university thesis. Almost every system has been rewritten several times
+since, and every rewrite came out smaller than the thing it replaced.
+"""
+
+  recordProse = """
+Fifteen years, four studios, and a great many frame captures. The job has been the same in all of
+them: find out where the frame is actually going, then fix it.
+"""
+
+  podcastProse = """
+I sit down with the most interesting people I can get in front of a microphone and ask the questions
+I actually want answered, rather than the ones that make for a tidy episode. If a conversation is
+worth ninety minutes, it gets ninety minutes.
+"""
+
 [hero]
   tagline = "I build renderers, and the engines around them."
   lead = "Twelve years on a solo engine with real-time path-traced global illumination. Before that, shipped titles at AMD, Codemasters and Sony. The rendering code I write on nights and weekends now runs inside Godot Engine and S.T.A.L.K.E.R. Anomaly."

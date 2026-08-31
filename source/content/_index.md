@@ -54,7 +54,7 @@ title = "Panos Karabelas"
 [[record]]
   org = "BeamNG"
   role = "Graphics / Engine Programmer"
-  years = "2024 — Present"
+  years = "2025 — Present"
   current = true
 
 [[record]]

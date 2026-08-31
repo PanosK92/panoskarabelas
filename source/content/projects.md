@@ -9,7 +9,7 @@ lead = "Fifteen years, four countries' worth of studios, and one codebase I neve
 [[career]]
   org = "BeamNG"
   role = "Graphics / Engine Programmer"
-  years = "2024 — Present"
+  years = "2025 — Present"
   location = "Remote"
   current = true
 

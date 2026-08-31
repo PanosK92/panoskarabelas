@@ -14,12 +14,12 @@
     --c-text-dim: #a2a7ba;
     --c-text-mute: #7d8296;
 
-    /* accent, carried over from the cv so both artefacts match */
-    --c-accent: #00d4aa;
-    --c-accent-hi: #4ff0d0;
-    --c-accent-dim: rgba(0, 212, 170, .13);
-    --c-accent-line: rgba(0, 212, 170, .32);
-    --c-accent-glow: rgba(0, 212, 170, .22);
+    /* accent, sampled from the sunset in the engine's own terrain render, 8.6:1 on --c-bg */
+    --c-accent: #e9a13c;
+    --c-accent-hi: #f9c078;
+    --c-accent-dim: rgba(233, 161, 60, .13);
+    --c-accent-line: rgba(233, 161, 60, .34);
+    --c-accent-glow: rgba(233, 161, 60, .2);
 
     /* type families */
     --f-sans: "Inter var", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

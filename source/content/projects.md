@@ -4,7 +4,7 @@ type = "work"
 description = "Fifteen years of shipped work: BeamNG, AMD, Codemasters and Sony, plus the solo engine that made all of it possible."
 image = "/media/engine/world_showroom_a.png"
 
-lead = "Fifteen years, four countries' worth of studios, and one codebase I never put down. The recent work is at the top. The scrappy stuff that got me here is at the bottom, and I am not hiding it."
+lead = "Fifteen years, four countries' worth of studios, and one codebase I never put down."
 
 [[career]]
   org = "BeamNG"

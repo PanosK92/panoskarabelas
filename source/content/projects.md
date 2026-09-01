@@ -12,6 +12,7 @@ lead = "Fifteen years, four countries' worth of studios, and one codebase I neve
   years = "2025 — Present"
   location = "Remote"
   current = true
+  video = "4ms-LHkN6YQ"
 
 [[career]]
   org = "AMD"

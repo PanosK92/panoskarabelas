@@ -6,7 +6,7 @@
 <title>Spartan Engine · Panos Karabelas</title>
 <meta name="description" content="Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years.">
 <meta name="author" content="Panos Karabelas">
-<meta name="theme-color" content="#0a0b0f">
+<meta name="theme-color" content="#10110f">
 <link rel="canonical" href="https://panoskarabelas.com/engine/">
 
 <meta property="og:site_name" content="Panos Karabelas">
@@ -28,10 +28,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8fbcff">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8fceff">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/main.898f69a033c61dcb013654ce838eb8394aafd454d72662eb2bc01fec83c5017b.css" integrity="sha256-iY9poDPGHcsBNlTOg464OUqv1FTXJmLrK8Af7IPFAXs=">
+<link rel="stylesheet" href="/css/main.cfc6f206d91d94419796697206fda56217591f8e7f994584f998c8c570b22258.css" integrity="sha256-z8byBtkdlEGXlmlyBv2lYhdZH45/mUWE&#43;ZjIxXCyIlg=">
 
     
 </head>
@@ -51,7 +51,7 @@
                     <a class="nav__link"
                        href="/engine/"
                        
-                       >Engine</a>
+                       aria-current="page">Engine</a>
                 </li>
                 <li>
                     <a class="nav__link"
@@ -117,7 +117,7 @@
 <div class="nav-drawer" id="nav-drawer">
     <ul class="nav-drawer__list">
         <li>
-            <a href="/engine/">
+            <a href="/engine/" aria-current="page">
                 Engine
                 
             </a>
@@ -178,6 +178,7 @@
     <main id="main">
         <section class="engine-hero">
     <div class="container engine-hero__inner">
+        <div>
         <p class="mono section-head__eyebrow">One engineer. Twelve years.</p>
         <h1 class="engine-hero__title">Spartan Engine</h1>
         <p class="engine-hero__lead">A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for.</p>
@@ -192,6 +193,21 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.7 6.3.9-4.6 4.4 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.6l6.3-.9z"/></svg> Sponsor
             </a>
         </div>
+        </div>
+        <a class="engine-hero__visual" href="#engine-trailer" aria-label="Watch the Spartan Engine trailer">
+            <img
+    src="/media/engine/world_showroom_a_hu_42d117685582198c.webp"
+    srcset="/media/engine/world_showroom_a_hu_f44229fee07afb7f.webp 640w, /media/engine/world_showroom_a_hu_42d117685582198c.webp 1280w"
+    sizes="(max-width: 800px) 100vw, 50vw"
+    width="1280"
+    height="624"
+    alt="Path-traced lighting on a LaFerrari in Spartan Engine"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    >
+            <span class="mono">Spartan Engine / In motion <span aria-hidden="true">↗</span></span>
+        </a>
     </div>
 </section>
 <div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
@@ -215,7 +231,7 @@
     </div>
 </div>
 
-<section class="section" style="border-top:1px solid var(--c-line)">
+<section class="section" id="engine-trailer" style="border-top:1px solid var(--c-line)">
     <div class="container">
         <div class="section-head">
             <div>
@@ -309,6 +325,7 @@
         </div>
         <div class="engine-gallery reveal">
             <figure class="frame frame--caption">
+                <a class="gallery-zoom" href="/media/engine/world_showroom_a_hu_12659a004770c130.webp" data-gallery-image data-caption="ferrari_showcase — a turntable lit entirely by emissive light bars" aria-label="Enlarge: A LaFerrari on a lit turntable, rendered with path-traced global illumination and ray-traced reflections">
                 <img
     src="/media/engine/world_showroom_a_hu_4deb2a59844aa074.webp"
     srcset="/media/engine/world_showroom_a_hu_f44229fee07afb7f.webp 640w, /media/engine/world_showroom_a_hu_4deb2a59844aa074.webp 1080w"
@@ -319,9 +336,11 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>ferrari_showcase — a turntable lit entirely by emissive light bars</figcaption>
+    >
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>ferrari_showcase — a turntable lit entirely by emissive light bars</figcaption>
             </figure>
             <figure class="frame frame--caption">
+                <a class="gallery-zoom" href="/media/engine/world_liminal_a_hu_ecc9d8e86e7ef71d.webp" data-gallery-image data-caption="liminal_space — one light source, everything else is bounce" aria-label="Enlarge: A dim liminal corridor with a single ceiling light, rendered with real-time global illumination">
                 <img
     src="/media/engine/world_liminal_a_hu_d5afd6d82c0caec9.webp"
     srcset="/media/engine/world_liminal_a_hu_c53d731d1e3dc112.webp 640w, /media/engine/world_liminal_a_hu_d5afd6d82c0caec9.webp 1080w"
@@ -332,9 +351,11 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>liminal_space — one light source, everything else is bounce</figcaption>
+    >
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>liminal_space — one light source, everything else is bounce</figcaption>
             </figure>
             <figure class="frame frame--caption">
+                <a class="gallery-zoom" href="/media/engine/world_sponza_hu_497f9f3d8cac86ea.webp" data-gallery-image data-caption="sponza — the classic atrium, with curtains and ivy" aria-label="Enlarge: The Sponza atrium with curtains and ivy, open in the Spartan Engine editor">
                 <img
     src="/media/engine/world_sponza_hu_2dda90b999086c63.webp"
     srcset="/media/engine/world_sponza_hu_923bee4ce6bd1ebe.webp 640w, /media/engine/world_sponza_hu_2dda90b999086c63.webp 1080w"
@@ -345,9 +366,11 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>sponza — the classic atrium, with curtains and ivy</figcaption>
+    >
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>sponza — the classic atrium, with curtains and ivy</figcaption>
             </figure>
             <figure class="frame frame--caption">
+                <a class="gallery-zoom" href="/media/engine/world_selection_4_hu_40415129d319ebd7.webp" data-gallery-image data-caption="Nine worlds ship with the engine. None of them are canned demos." aria-label="Enlarge: The Spartan Engine world launcher showing nine selectable worlds">
                 <img
     src="/media/engine/world_selection_4_hu_ca275f98a3623fde.webp"
     srcset="/media/engine/world_selection_4_hu_6854798f349f2a75.webp 640w, /media/engine/world_selection_4_hu_ca275f98a3623fde.webp 1080w"
@@ -358,7 +381,8 @@
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    ><figcaption>Nine worlds ship with the engine. None of them are canned demos.</figcaption>
+    >
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>Nine worlds ship with the engine. None of them are canned demos.</figcaption>
             </figure>
         </div>
     </div>
@@ -457,12 +481,16 @@ the repository if you are curious.</p>
         </div>
     </div>
 </section>
-
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+    <div class="image-dialog__bar"><h2 id="image-dialog-title" class="mono">Spartan Engine / Render gallery</h2><button class="image-dialog__close" type="button" aria-label="Close image viewer">Close <span aria-hidden="true">×</span></button></div>
+    <img class="image-dialog__image" alt="">
+    <div class="image-dialog__footer"><p class="image-dialog__caption"></p><div class="image-dialog__controls"><button type="button" data-gallery-prev aria-label="Previous image">←</button><span class="mono" data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Next image">→</button></div></div>
+</dialog>
     </main>
 
     <footer class="footer">
     <div class="container">
-        <div class="footer__grid">
+        <div class="footer__invitation"><div><p class="mono">Good work starts with a conversation.</p><a href="mailto:panosconroe@hotmail.com">Let's talk.</a></div><span aria-hidden="true">↗</span></div><div class="footer__grid">
             <div class="footer__col footer__col--brand">
                 <a class="brand" href="/">
                     <span class="brand__mark" aria-hidden="true">PK</span>
@@ -518,12 +546,12 @@ the repository if you are curious.</p>
 </footer>
 
 
-    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
     </button>
 
     
-    <script defer src="/js/site.983680d900e3428beb6b0789cdedf4974ec54f8c208655e8f145bd8ecaf9234a.js" integrity="sha256-mDaA2QDjQovraweJze30l07FT4wghlXo8UW9jsr5I0o="></script>
+    <script defer src="/js/site.993e3bb0db583b79688a6eb1fc0daceb46fa99bda3a66a4a04d940a30ece0a94.js" integrity="sha256-mT47sNtYO3loim6x/A2s60b6mb2jpmpKBNlAow7OCpQ="></script>
     
 </body>
 </html>

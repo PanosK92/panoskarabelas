@@ -2,30 +2,7 @@
 title = "Panos Karabelas"
 
 [hero]
-  tagline = "I build renderers, and the engines around them."
-  lead = "Twelve years on a solo engine with real-time path-traced global illumination. Before that, shipped titles at AMD, Codemasters and Sony. The rendering code I write on nights and weekends now runs inside Godot Engine and S.T.A.L.K.E.R. Anomaly."
-  imageAlt = "The Spartan Engine editor rendering the Sponza scene with real-time path-traced global illumination"
-
-[[stats]]
-  value = "live-stars"
-  label = "GitHub stars on Spartan Engine"
-
-[[stats]]
-  value = "12 yrs"
-  label = "One engine, one engineer, near-daily"
-
-[[stats]]
-  value = "600+"
-  label = "Engineers in the Spartan Discord"
-
-[[stats]]
-  value = "Godot"
-  label = "…and S.T.A.L.K.E.R. Anomaly ship my rendering code"
-
-[engine]
-  eyebrow = "Spartan Engine"
-  title = "A bindless, GPU-driven engine with real-time path-traced global illumination"
-  lead = "Built around one principle: the GPU owns the data. Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. No per-draw descriptor updates. No CPU-side draw loops."
+  lead = "Creator of Spartan Engine. Graphics programmer at BeamNG. Previously AMD, Codemasters, and Sony. Twelve years of turning a personal obsession into pixels."
 
 [[engine.features]]
   title = "ReSTIR path tracing"
@@ -38,18 +15,6 @@ title = "Panos Karabelas"
 [[engine.features]]
   title = "Hardware ray tracing"
   body = "Ray-queried reflections and shadows sharing one vertex-pulling path with the rasteriser."
-
-[[engine.features]]
-  title = "200 Hz vehicle dynamics"
-  body = "Pacejka MF 5.2 tyres with thermal, pressure and wear models, inside the PhysX fixed-timestep loop."
-
-[[engine.features]]
-  title = "Vulkan and DirectX 12"
-  body = "One universal HLSL codebase compiled to both SPIR-V and DXIL, from the same shaders."
-
-[[engine.features]]
-  title = "Oceans, clouds and fog"
-  body = "Tessendorf FFT ocean in compute, Nubis-style volumetric clouds, froxel volumetric fog with temporal reprojection."
 
 [[record]]
   org = "BeamNG"
@@ -75,7 +40,36 @@ title = "Panos Karabelas"
   years = "2016 — 2019"
   note = "Environmental-analysis AI and the debug tooling behind an unreleased PSVR title."
 
-[podcast]
-  title = "Conversations with people worth listening to"
-  lead = "I sit down with the brightest minds I can find across cutting-edge industries and ask the questions I actually want answered. Pilot episodes are live."
+[[scenes]]
+  label = "The forest"
+  image = "/media/engine/world_forest.jpg"
+  alt = "A sunlit forest rendered in Spartan Engine, with the engine editor visible"
+  caption = "Procedural worlds. Volumetric light."
+
+[[scenes]]
+  label = "Sponza"
+  image = "/media/engine/world_sponza.png"
+  alt = "The Sponza atrium rendered in Spartan Engine"
+  caption = "Architecture, light, and the spaces between."
+
+[[scenes]]
+  label = "The showroom"
+  image = "/media/engine/world_showroom_a.png"
+  alt = "A red LaFerrari under colored lights in Spartan Engine"
+  caption = "Materials that respond to the world."
+
+[[titles]]
+  name = "Returnal"
+  video = "ov4fJmGCsZM"
+  role = "Developer technology / AMD"
+
+[[titles]]
+  name = "DiRT 5"
+  video = "D81Fs9c6ssY"
+  role = "Senior graphics programmer / Codemasters"
+
+[[titles]]
+  name = "The Callisto Protocol"
+  video = "U9rSAmdywD4"
+  role = "Developer technology / AMD"
 +++

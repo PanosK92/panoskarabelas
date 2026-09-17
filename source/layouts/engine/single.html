@@ -7,6 +7,7 @@
 
 <section class="engine-hero">
     <div class="container engine-hero__inner">
+        <div>
         <p class="mono section-head__eyebrow">{{ $p.hero.eyebrow }}</p>
         <h1 class="engine-hero__title">{{ .Title }}</h1>
         <p class="engine-hero__lead">{{ $p.hero.lead }}</p>
@@ -21,6 +22,11 @@
                 {{ partial "icon.html" "star" }} Sponsor
             </a>
         </div>
+        </div>
+        <a class="engine-hero__visual" href="#engine-trailer" aria-label="Watch the Spartan Engine trailer">
+            {{ partial "image.html" (dict "src" "/media/engine/world_showroom_a.png" "alt" "Path-traced lighting on a LaFerrari in Spartan Engine" "sizes" "(max-width: 800px) 100vw, 50vw" "widths" (slice 640 1280) "eager" true) }}
+            <span class="mono">Spartan Engine / In motion <span aria-hidden="true">↗</span></span>
+        </a>
     </div>
 </section>
 
@@ -29,7 +35,7 @@
     <div class="stats reveal">
         {{- range . }}
         <div class="stat">
-            <span class="stat__value">{{ if eq .value "live-stars" }}<em>{{ $starsPretty }}</em>{{ else }}{{ .value }}{{ end }}</span>
+            <span class="stat__value">{{ if eq .value "live-stars" }}<em>{{ $starsPretty }}</em>{{ else }}{{ .value }}{{- end }}</span>
             <span class="stat__label">{{ .label }}</span>
         </div>
         {{- end }}
@@ -37,7 +43,7 @@
 </div>
 {{- end }}
 
-<section class="section" style="border-top:1px solid var(--c-line)">
+<section class="section" id="engine-trailer" style="border-top:1px solid var(--c-line)">
     <div class="container">
         <div class="section-head">
             <div>
@@ -99,12 +105,15 @@
         <div class="engine-gallery reveal">
             {{- range . }}
             <figure class="frame frame--caption">
+                {{- $full := (resources.Get (strings.TrimPrefix "/" .src)).Resize "2400x webp q88" }}
+                <a class="gallery-zoom" href="{{ $full.RelPermalink }}" data-gallery-image data-caption="{{ .caption }}" aria-label="Enlarge: {{ .alt }}">
                 {{ partial "image.html" (dict
                     "src" .src
                     "alt" .alt
                     "sizes" "(max-width: 760px) 100vw, 540px"
                     "widths" (slice 640 1080)) }}
-                {{- with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a>
+                {{- with .caption }}<figcaption>{{ . }}</figcaption>{{- end }}
             </figure>
             {{- end }}
         </div>
@@ -173,4 +182,8 @@
         </div>
     </div>
 </section>
-{{ end }}
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+    <div class="image-dialog__bar"><h2 id="image-dialog-title" class="mono">Spartan Engine / Render gallery</h2><button class="image-dialog__close" type="button" aria-label="Close image viewer">Close <span aria-hidden="true">×</span></button></div>
+    <img class="image-dialog__image" alt="">
+    <div class="image-dialog__footer"><p class="image-dialog__caption"></p><div class="image-dialog__controls"><button type="button" data-gallery-prev aria-label="Previous image">←</button><span class="mono" data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Next image">→</button></div></div>
+</dialog>{{- end }}

@@ -1,282 +1,4 @@
-/* page specific composition */
-
-/* ==========================================================================
-   home: hero
-   ========================================================================== */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3.5rem, 8vw, 6rem);
-}
-
-/* faint instrument grid, faded out towards the edges */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(to right, rgba(255, 255, 255, .05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, .05) 1px, transparent 1px);
-    background-size: 72px 72px;
-    -webkit-mask-image: radial-gradient(70% 60% at 30% 40%, #000 0%, transparent 100%);
-    mask-image: radial-gradient(70% 60% at 30% 40%, #000 0%, transparent 100%);
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: 45%;
-    width: 70vw;
-    height: 70vw;
-    max-width: 900px;
-    max-height: 900px;
-    background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 62%);
-    opacity: .55;
-    pointer-events: none;
-}
-
-.hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-    align-items: center;
-    gap: clamp(2rem, 5vw, 4.5rem);
-}
-
-/* live status pill */
-.status {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--s-2);
-    padding: .3rem .75rem .3rem .55rem;
-    font-family: var(--f-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: .02em;
-    color: var(--c-text-dim);
-    background: var(--c-bg-elev);
-    border: 1px solid var(--c-line-strong);
-    border-radius: var(--r-pill);
-}
-
-.status__dot {
-    position: relative;
-    width: 7px;
-    height: 7px;
-    background: var(--c-accent);
-    border-radius: 50%;
-}
-
-.status__dot::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--c-accent);
-    border-radius: 50%;
-    animation: ping 2.4s var(--e-out) infinite;
-}
-
-@keyframes ping {
-    0% {
-        opacity: .7;
-        transform: scale(1);
-    }
-    70%,
-    100% {
-        opacity: 0;
-        transform: scale(3.2);
-    }
-}
-
-.hero__name {
-    margin-top: var(--s-5);
-    font-size: var(--fs-display);
-    font-weight: 700;
-    letter-spacing: -.042em;
-    line-height: .96;
-}
-
-.hero__tagline {
-    margin-top: var(--s-4);
-    font-size: clamp(1.25rem, calc(1.05rem + 1vw), 1.875rem);
-    font-weight: 550;
-    line-height: 1.25;
-    letter-spacing: -.024em;
-    color: var(--c-text);
-    text-wrap: balance;
-}
-
-.hero__lead {
-    max-width: 48ch;
-    margin-top: var(--s-4);
-    color: var(--c-text-mute);
-}
-
-.hero__actions {
-    margin-top: var(--s-6);
-}
-
-/* framed screenshot with a floating badge */
-.hero__media {
-    position: relative;
-}
-
-.hero__frame {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--c-line-strong);
-    border-radius: var(--r-lg);
-    box-shadow:
-        0 40px 80px -30px rgba(0, 0, 0, .9),
-        0 0 0 1px rgba(255, 255, 255, .03) inset;
-}
-
-.hero__frame img {
-    display: block;
-    width: 100%;
-}
-
-/* window chrome bar so the screenshot reads as software, not wallpaper */
-.hero__chrome {
-    display: flex;
-    align-items: center;
-    gap: var(--s-2);
-    padding: var(--s-3) var(--s-4);
-    background: var(--c-bg-elev-2);
-    border-bottom: 1px solid var(--c-line);
-}
-
-.hero__chrome span {
-    width: 9px;
-    height: 9px;
-    background: #3a404f;
-    border-radius: 50%;
-}
-
-.hero__chrome span:first-child {
-    background: var(--c-accent);
-}
-
-.hero__chrome p {
-    margin-left: var(--s-3);
-    font-family: var(--f-mono);
-    font-size: var(--fs-2xs);
-    letter-spacing: .04em;
-    color: var(--c-text-mute);
-}
-
-.hero__badge {
-    position: absolute;
-    right: calc(var(--s-5) * -1);
-    bottom: calc(var(--s-5) * -1);
-    padding: var(--s-4);
-    text-align: center;
-    background: rgba(18, 20, 26, .94);
-    border: 1px solid var(--c-accent-line);
-    border-radius: var(--r-md);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, .9);
-}
-
-.hero__badge b {
-    display: block;
-    font-family: var(--f-mono);
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -.03em;
-    color: var(--c-accent);
-}
-
-.hero__badge span {
-    display: block;
-    margin-top: 2px;
-    font-size: var(--fs-2xs);
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: var(--c-text-mute);
-}
-
-@media (max-width: 940px) {
-    .hero__inner {
-        grid-template-columns: 1fr;
-    }
-
-    /* screenshot leads on narrow screens, badge needs room to hang below it */
-    .hero__media {
-        order: -1;
-        margin-bottom: var(--s-6);
-    }
-
-    .hero__badge {
-        right: var(--s-4);
-        bottom: calc(var(--s-4) * -1);
-        padding: var(--s-3);
-    }
-
-    .hero__badge b {
-        font-size: 1.25rem;
-    }
-}
-
-/* ==========================================================================
-   home: engine feature block
-   ========================================================================== */
-
-.engine-quote {
-    max-width: 40ch;
-    font-size: clamp(1.125rem, calc(1rem + .6vw), 1.375rem);
-    line-height: 1.45;
-    letter-spacing: -.02em;
-    color: var(--c-text);
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: var(--s-4);
-    margin-top: var(--s-6);
-    list-style: none;
-}
-
-.feature {
-    padding: var(--s-5);
-    background: var(--c-bg-elev);
-    border: 1px solid var(--c-line);
-    border-radius: var(--r-md);
-    transition: border-color var(--t-base) var(--e-out);
-}
-
-.feature:hover {
-    border-color: var(--c-accent-line);
-}
-
-.feature h3 {
-    display: flex;
-    align-items: center;
-    gap: var(--s-3);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.feature h3::before {
-    content: "";
-    flex-shrink: 0;
-    width: 6px;
-    height: 6px;
-    background: var(--c-accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--c-accent-glow);
-}
-
-.feature p {
-    margin-top: var(--s-2);
-    font-size: var(--fs-sm);
-    line-height: 1.6;
-    color: var(--c-text-mute);
-}
+/* Page specific composition. Homepage styles live in _portfolio.scss. */
 
 /* ==========================================================================
    track record cards
@@ -284,7 +6,7 @@
 
 .record {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(280px, 100%), 1fr));
     gap: var(--s-4);
 }
 
@@ -734,7 +456,7 @@
 
 .archive {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(Min(250px, 100%), 1fr));
     gap: var(--s-4);
     list-style: none;
 }
@@ -898,7 +620,7 @@
 /* curated taste lists */
 .taste {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(270px, 100%), 1fr));
     gap: var(--s-4);
 }
 
@@ -964,7 +686,7 @@
 /* plain columns for the long unranked lists behind the disclosure */
 .long-lists {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(220px, 100%), 1fr));
     gap: var(--s-6);
     padding-bottom: var(--s-6);
 }
@@ -1036,7 +758,7 @@
 
 .engine-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(300px, 100%), 1fr));
     gap: var(--s-4);
 }
 
@@ -1061,7 +783,7 @@
 /* grouped capability lists */
 .spec-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(340px, 100%), 1fr));
     gap: var(--s-6) var(--s-7);
 }
 
@@ -1133,7 +855,7 @@
 
 .post-nav {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(240px, 100%), 1fr));
     gap: var(--s-4);
     margin-top: var(--s-8);
     padding-top: var(--s-6);
@@ -1185,7 +907,7 @@
 
 .podcast__players {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(Min(320px, 100%), 1fr));
     gap: var(--s-5);
     align-items: start;
 }

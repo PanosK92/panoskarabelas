@@ -10,7 +10,7 @@
         <nav class="nav" aria-label="Main">
             <ul class="nav__list">
                 {{- range .Site.Menus.main }}
-                {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
+                {{- $active := or (eq $page.RelPermalink (.URL | relURL)) (hasPrefix $page.RelPermalink (.URL | relURL)) }}
                 <li>
                     <a class="nav__link{{ if hasPrefix .URL "http" }} nav__link--external{{ end }}"
                        href="{{ .URL }}"
@@ -38,7 +38,7 @@
     <ul class="nav-drawer__list">
         {{- range .Site.Menus.main }}
         <li>
-            <a href="{{ .URL }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>
+            <a href="{{ .URL }}"{{ if hasPrefix $page.RelPermalink (.URL | relURL) }} aria-current="page"{{ end }}{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>
                 {{ .Name }}
                 {{ if hasPrefix .URL "http" }}<span aria-hidden="true">&#8599;</span>{{ end }}
             </a>

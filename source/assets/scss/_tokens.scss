@@ -2,24 +2,24 @@
 
 :root {
     /* surfaces */
-    --c-bg: #0a0b0f;
-    --c-bg-elev: #12141a;
-    --c-bg-elev-2: #171a21;
+    --c-bg: #10110f;
+    --c-bg-elev: #171815;
+    --c-bg-elev-2: #1e201b;
     --c-line: rgba(255, 255, 255, .07);
     --c-line-strong: rgba(255, 255, 255, .16);
 
     /* text */
-    /* all three clear AA against --c-bg: 15.1:1, 8.2:1 and 5.2:1 */
-    --c-text: #e8e8f0;
-    --c-text-dim: #a2a7ba;
-    --c-text-mute: #7d8296;
+    /* Warm neutrals for comfortable reading on dark surfaces. */
+    --c-text: #f0eee6;
+    --c-text-dim: #a9ada1;
+    --c-text-mute: #92978a;
 
-    /* accent, carried over from the cv so both artefacts match */
-    --c-accent: #8fbcff;
-    --c-accent-hi: #bcd8ff;
-    --c-accent-dim: rgba(143, 188, 255, .13);
-    --c-accent-line: rgba(143, 188, 255, .32);
-    --c-accent-glow: rgba(143, 188, 255, .22);
+    /* Ice blue for actions and technical annotations. */
+    --c-accent: #8fceff;
+    --c-accent-hi: #c3e5ff;
+    --c-accent-dim: rgba(143, 206, 255, .13);
+    --c-accent-line: rgba(143, 206, 255, .32);
+    --c-accent-glow: rgba(143, 206, 255, .22);
 
     /* type families */
     --f-sans: "Inter var", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -48,10 +48,10 @@
     --s-10: 8rem;
 
     /* layout */
-    --w-page: 1120px;
+    --w-page: 1440px;
     --w-prose: 46rem;
-    --w-gutter: clamp(1.25rem, 4vw, 2.5rem);
-    --h-header: 60px;
+    --w-gutter: clamp(1.25rem, 5vw, 4rem);
+    --h-header: 76px;
 
     /* radii */
     --r-sm: 4px;

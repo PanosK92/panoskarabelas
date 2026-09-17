@@ -92,6 +92,7 @@
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
+                    entry.target.classList.remove("is-pending");
                     entry.target.classList.add("is-visible");
                     observer.unobserve(entry.target);
                 }
@@ -99,6 +100,7 @@
         }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
 
         items.forEach(function (item) {
+            item.classList.add("is-pending");
             observer.observe(item);
         });
     }
@@ -238,6 +240,42 @@
         });
     }
 
+    /* Native dialog keeps focus inside the gallery and restores it on close. */
+    function initGallery() {
+        var links = Array.from(document.querySelectorAll("[data-gallery-image]"));
+        var dialog = document.querySelector(".image-dialog");
+        if (!links.length || !dialog || typeof dialog.showModal !== "function") return;
+        var current = 0;
+        var image = dialog.querySelector(".image-dialog__image");
+        var caption = dialog.querySelector(".image-dialog__caption");
+        var counter = dialog.querySelector("[data-gallery-count]");
+        function show(index) {
+            current = (index + links.length) % links.length;
+            image.src = links[current].href;
+            image.alt = links[current].querySelector("img").alt;
+            caption.textContent = links[current].getAttribute("data-caption");
+            counter.textContent = (current + 1) + " / " + links.length;
+        }
+        links.forEach(function (link, index) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                show(index);
+                dialog.showModal();
+                document.documentElement.classList.add("has-lightbox");
+            });
+        });
+        dialog.querySelector(".image-dialog__close").addEventListener("click", function () { dialog.close(); });
+        dialog.querySelector("[data-gallery-prev]").addEventListener("click", function () { show(current - 1); });
+        dialog.querySelector("[data-gallery-next]").addEventListener("click", function () { show(current + 1); });
+        dialog.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                event.preventDefault();
+                show(current + (event.key === "ArrowLeft" ? -1 : 1));
+            }
+        });
+        dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
+        dialog.addEventListener("close", function () { document.documentElement.classList.remove("has-lightbox"); });
+    }
     /* ---------- boot ---------- */
 
     function init() {
@@ -247,6 +285,18 @@
         initVideos();
         initCompare();
         initCodeCopy();
+        initGallery();
+        document.querySelectorAll("[data-scene-viewer]").forEach(function (viewer) {
+            viewer.querySelectorAll("[data-scene]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    viewer.querySelectorAll("[data-scene]").forEach(function (item) {
+                        var selected = item === button;
+                        item.setAttribute("aria-pressed", String(selected));
+                        document.getElementById(item.getAttribute("aria-controls")).hidden = !selected;
+                    });
+                });
+            });
+        });
     }
 
     if (document.readyState === "loading") {

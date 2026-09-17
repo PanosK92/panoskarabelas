@@ -187,13 +187,18 @@ samp {
     color: var(--c-bg);
 }
 
-/* scroll reveal, opt out entirely when the user asked for less motion */
+/* Content stays visible without JavaScript; motion is a progressive enhancement. */
 .reveal {
-    opacity: 0;
-    transform: translateY(18px);
+    opacity: 1;
+    transform: none;
     transition:
         opacity var(--t-slow) var(--e-out),
         transform var(--t-slow) var(--e-out);
+}
+
+.reveal.is-pending {
+    opacity: 0;
+    transform: translateY(18px);
 }
 
 .reveal.is-visible {

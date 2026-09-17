@@ -15,7 +15,7 @@
 
     {{ partial "footer.html" . }}
 
-    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})">
         {{ partial "icon.html" "arrow-up" }}
     </button>
 

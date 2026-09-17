@@ -4,7 +4,7 @@
 <div class="container">
     <header class="page-head">
         <p class="mono section-head__eyebrow">Experience</p>
-        <h1 class="page-head__title">{{ .Title }}</h1>
+        <h1 class="page-head__title">{{ .Title }}<span class="accent">.</span></h1>
         {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
     </header>
 </div>
@@ -15,7 +15,7 @@
         <ol class="career">
             {{- range . }}
             {{- $e := . }}
-            <li class="career__item{{ if $e.current }} career__item--current{{ end }}">
+            <li id="{{ $e.org | anchorize }}" class="career__item{{ if $e.current }} career__item--current{{ end }}">
                 <div class="career__rail">
                     <p class="career__years">{{ $e.years }}</p>
                 </div>

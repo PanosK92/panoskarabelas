@@ -54,7 +54,7 @@ float3 linear_to_hdr10(float3 color, float white_point)
 - **Rec.709 vs. Rec.2020:** Rec.709 defines the standard color space for HD, Rec.2020 broadens this palette for UHD content.
 - **ST.2084 (PQ Curve):** The PQ curve, central to the HDR10 standard, maps brightness levels to align with human visual perception, capable of displaying up to 10,000 nits.
 
-# Step 3 - Materials
+## Step 3 - Materials
 Your material textures are usually in the sRGB color space. 
 For HDR, ensuring precise linearisation of these textures is important. 
 Typically you would sample your textures with a simple power function approach, like so:
@@ -95,7 +95,7 @@ The improvements are best seen on modern HDR monitor, the screenshots can only c
 
 Note: You could also use sRGB texture formats to bypass manual linearisation.
 
-# Conclusion
+## Conclusion
 There you have it. Enjoy the enhanced visual fidelity!
 
 ![image](/media/post_sdr_hdr.png)

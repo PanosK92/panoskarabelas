@@ -2,202 +2,90 @@
 {{- $p := .Params -}}
 {{- $stars := partial "gh-stars.html" (dict "repo" "PanosK92/SpartanEngine" "fallback" 3100) -}}
 {{- $starsPretty := cond (ge $stars 1000) (printf "%.1fk" (div (float $stars) 1000.0)) (printf "%d" $stars) -}}
-{{- $repo := .Site.Params.engineRepo -}}
-{{- $discord := .Site.Params.engineDiscord -}}
-
-<section class="hero">
-    <div class="container hero__inner">
-        <div class="hero__copy">
-            {{- with .Site.Params.currentOrg }}
-            <p class="status">
-                <span class="status__dot" aria-hidden="true"></span>
-                Currently: {{ $.Site.Params.currentRole }} at {{ . }}
-            </p>
-            {{- end }}
-
-            <h1 class="hero__name">{{ .Site.Title }}</h1>
-            <p class="hero__tagline">{{ $p.hero.tagline }}</p>
-            <p class="hero__lead">{{ $p.hero.lead }}</p>
-
-            <div class="hero__actions btn-row">
-                <a class="btn btn--primary" href="{{ "/engine/" | relURL }}">
-                    {{ partial "icon.html" "cpu" }} Explore Spartan Engine
-                </a>
-                <a class="btn btn--ghost" href="{{ .Site.Params.cvURL | relURL }}" target="_blank" rel="noopener">
-                    {{ partial "icon.html" "file-text" }} Read the CV
-                </a>
-            </div>
-        </div>
-
-        <div class="hero__media">
-            <div class="hero__frame">
-                <div class="hero__chrome" aria-hidden="true">
-                    <span></span><span></span><span></span>
-                    <p>spartan engine — showroom</p>
-                </div>
-                {{ partial "image.html" (dict
-                    "src" "/media/engine/world_showroom_a.png"
-                    "alt" $p.hero.imageAlt
-                    "sizes" "(max-width: 940px) 100vw, 560px"
-                    "widths" (slice 640 1024 1440)
-                    "eager" true) }}
-            </div>
-            <div class="hero__badge">
-                <b>{{ $starsPretty }}</b>
-                <span>GitHub stars</span>
-            </div>
+<section class="identity container" aria-labelledby="identity-title">
+    <div class="identity__eyebrow mono"><span>Rendering &amp; engine programmer</span><span>Manchester, UK <span class="accent">↗</span></span></div>
+    <div class="identity__grid">
+        <h1 id="identity-title">Panos<br>Karabelas<span class="accent">.</span></h1>
+        <div class="identity__intro">
+            <p class="identity__statement">I build the engines.<br>And the worlds within.</p>
+            <p>{{ $p.hero.lead }}</p>
+            <a class="text-action" href="#selected-work">Explore the work <span aria-hidden="true">↓</span></a>
         </div>
     </div>
+    <div class="identity__baseline mono"><span><i class="live-dot" aria-hidden="true"></i> {{ .Site.Params.currentOrg }} / {{ .Site.Params.currentRole }}</span><span>Independent by instinct. Engineer by trade.</span></div>
 </section>
-
-{{- with $p.stats }}
-<section class="section" style="padding-block:clamp(2rem,4vw,3rem)">
+<section class="showcase container" aria-label="Spartan Engine showcase">
+    <a class="showcase__scene" href="{{ "/engine/" | relURL }}">
+        {{ partial "image.html" (dict "src" "/media/engine/world_showroom_a.png" "alt" "A red LaFerrari in a neon-lit showroom, rendered in Spartan Engine with path-traced lighting" "sizes" "100vw" "widths" (slice 800 1440 2400) "eager" true) }}
+        <div class="showcase__top mono"><span><i class="live-dot" aria-hidden="true"></i> Rendered in Spartan Engine</span><span>Real-time. Built from scratch.</span></div>
+        <div class="showcase__bottom"><div><span class="mono">The signature project / 2014 — ongoing</span><h2>Spartan Engine</h2></div><span class="round-arrow" aria-hidden="true">↗</span></div>
+    </a>
+    <div class="showcase__caption mono"><span>C++ / Vulkan / DirectX 12</span><span>One engineer. Twelve years. Open source.</span></div>
+</section>
+<div class="credentials container" aria-label="Career highlights">
+    <p class="mono">A career inside<br>the frame.</p>
+    <span>BeamNG<span class="credentials__now">Now</span></span><span class="credentials__amd">AMD ↗</span><span>codemasters<span class="credentials__ea"> / EA</span></span><span class="credentials__sony">SONY</span>
+</div>
+<section class="section flagship" id="selected-work">
     <div class="container">
-        <div class="stats reveal">
-            {{- range . }}
-            <div class="stat">
-                <span class="stat__value">{{ if eq .value "live-stars" }}<em>{{ $starsPretty }}</em>{{ else }}{{ .value }}{{ end }}</span>
-                <span class="stat__label">{{ .label }}</span>
+        <div class="section-kicker mono"><span>01 / The engine</span><span>Built in public</span></div>
+        <div class="editorial-head"><h2>Twelve years.<br>One uncompromising vision.</h2><div><p>A complete engine, built from the ground up. Rendering, physics, audio, an editor. Every system is a chance to go deeper.</p><a class="text-action" href="{{ "/engine/" | relURL }}">Inside Spartan <span aria-hidden="true">↗</span></a></div></div>
+        <div class="engine-viewer" data-scene-viewer>
+            <div class="scene-panels">
+                {{- range $i, $scene := $p.scenes }}
+                <figure class="scene-panel" id="scene-{{ $i }}"{{ if ne $i 0 }} hidden{{- end }}>
+                    {{ partial "image.html" (dict "src" $scene.image "alt" $scene.alt "sizes" "(max-width: 1400px) 100vw, 1320px" "widths" (slice 800 1440 1920)) }}
+                    <figcaption><span class="mono">{{ $scene.label }}</span><span>{{ $scene.caption }}</span></figcaption>
+                </figure>
+                {{- end }}
             </div>
-            {{- end }}
+            <div class="scene-controls" aria-label="Choose an engine scene">
+                {{- range $i, $scene := $p.scenes }}<button type="button" data-scene="{{ $i }}" aria-controls="scene-{{ $i }}" aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{- end }}"><span class="mono">0{{ add $i 1 }}</span> {{ $scene.label }}</button>{{- end }}
+                <span class="scene-controls__note mono">Actual engine captures</span>
+            </div>
         </div>
+        <ul class="capabilities">{{- range first 3 $p.engine.features }}<li><span class="capabilities__mark" aria-hidden="true">+</span><h3>{{ .title }}</h3><p>{{ .body }}</p></li>{{- end }}</ul>
+        <div class="proof-strip"><div><strong>{{ $starsPretty }}</strong><span>GitHub stars</span></div><div><strong>12 years</strong><span>One engine. Near-daily.</span></div><div><strong>600+</strong><span>Engineers on Discord</span></div><a href="{{ .Site.Params.engineRepo }}" target="_blank" rel="noopener">The source is the proof. <span aria-hidden="true">↗</span></a></div>
     </div>
 </section>
-{{- end }}
-
-{{- with $p.engine }}
-<section class="section">
+<section class="section track-record">
     <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">{{ .eyebrow }}</p>
-                <h2 class="section-head__title" style="max-width:26ch">{{ .title }}</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/engine/" | relURL }}">
-                The full breakdown {{ partial "icon.html" "arrow-right" }}
-            </a>
-        </div>
-
-        <div class="frame reveal">
-            {{ partial "image.html" (dict
-                "src" "/media/engine/world_forest.jpg"
-                "alt" "The Spartan Engine editor rendering a procedural forest at sunset, with the scene hierarchy, inspector and profiler visible"
-                "sizes" "(max-width: 1200px) 100vw, 1120px"
-                "widths" (slice 800 1280 1920)) }}
-        </div>
-
-        <p class="engine-quote reveal" style="max-width:60ch;margin-top:var(--s-6)">{{ .lead }}</p>
-
-        <ul class="feature-grid reveal">
-            {{- range .features }}
-            <li class="feature">
-                <h3>{{ .title }}</h3>
-                <p>{{ .body }}</p>
-            </li>
-            {{- end }}
-        </ul>
-
-        <div class="btn-row reveal" style="margin-top:var(--s-6)">
-            <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
-                {{ partial "icon.html" "github" }} Source on GitHub
-            </a>
-            <a class="btn btn--ghost" href="{{ $discord }}" target="_blank" rel="noopener">
-                {{ partial "icon.html" "discord" }} Join 600+ engineers
-            </a>
-        </div>
-    </div>
-</section>
-{{- end }}
-
-{{- with $p.record }}
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">Track record</p>
-                <h2 class="section-head__title">Where the work has shipped</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/projects/" | relURL }}">
-                Full history {{ partial "icon.html" "arrow-right" }}
-            </a>
-        </div>
-
-        <div class="record reveal">
-            {{- range . }}
-            <article class="record__item{{ if .current }} record__item--current{{ end }}">
-                <div class="record__top">
-                    <h3 class="record__org">{{ .org }}</h3>
-                    <span class="record__years">{{ .years }}</span>
-                </div>
-                <p class="record__role">{{ .role }}</p>
-                {{- with .note }}<p class="record__note">{{ . }}</p>{{ end }}
+        <div class="section-kicker mono"><span>02 / Selected experience</span><a href="{{ .Site.Params.cvURL | relURL }}" target="_blank" rel="noopener">Read the CV ↗</a></div>
+        <div class="editorial-head"><h2>Built for the real world.<br>Shipped to the screen.</h2><p>From GPU architecture to the final frame. A career working where hardware, engines, and ambitious games meet.</p></div>
+        <div class="shipped-grid">
+            {{- range $p.titles }}
+            <article class="shipped-title">
+                {{ partial "video.html" (dict "id" .video "title" .name) }}
+                <p class="mono">{{ .role }}</p>
             </article>
             {{- end }}
         </div>
-    </div>
-</section>
-{{- end }}
-
-{{- $posts := where .Site.RegularPages "Section" "blog" -}}
-{{- with $posts }}
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">Writing</p>
-                <h2 class="section-head__title">Notes from the renderer</h2>
-            </div>
-            <a class="link-arrow" href="{{ "/blog/" | relURL }}">
-                All posts {{ partial "icon.html" "arrow-right" }}
+        <div class="experience-list">
+            {{- range $i, $job := $p.record }}
+            <a class="experience" href="{{ "/projects/" | relURL }}#{{ $job.org | anchorize }}">
+                <span class="experience__index mono">0{{ add $i 1 }}</span><div class="experience__main"><h3>{{ $job.org }}{{ if $job.current }}<span class="current-label mono">Current</span>{{- end }}</h3><p>{{ $job.role }}</p></div><div class="experience__detail"><span class="mono">{{ $job.years }}</span>{{ with $job.note }}<p>{{ . }}</p>{{- end }}</div><span class="experience__arrow" aria-hidden="true">↗</span>
             </a>
-        </div>
-
-        <ul class="entries reveal">
-            {{- range first 4 (sort . "Date" "desc") }}
-            <li>
-                <a class="entry" href="{{ .RelPermalink }}">
-                    <span class="entry__date">{{ .Date.Format "Jan 2006" }}</span>
-                    <div class="entry__body">
-                        <h3 class="entry__title">{{ .Title }}</h3>
-                        <span class="entry__meta">{{ .ReadingTime }} min read</span>
-                    </div>
-                    <span class="entry__arrow" aria-hidden="true">{{ partial "icon.html" "arrow-right" }}</span>
-                </a>
-            </li>
             {{- end }}
-        </ul>
+        </div>
+        <div class="recognition"><span class="mono">Beyond the day job</span><p>Rendering code used in <strong>Godot Engine</strong> and <strong>S.T.A.L.K.E.R. Anomaly.</strong></p><p>Microsoft Imagine Cup<br><strong>World finalist, 2014.</strong></p></div>
     </div>
 </section>
-{{- end }}
-
-{{- with $p.podcast }}
-<section class="section">
+<section class="section journal">
     <div class="container">
-        <div class="promo reveal">
-            <div class="promo__grid">
-                <div>
-                    <p class="mono section-head__eyebrow">The podcast</p>
-                    <h2>{{ .title }}</h2>
-                    <p>{{ .lead }}</p>
-                    <div class="promo__actions btn-row">
-                        <a class="btn btn--primary" href="{{ $.Site.Params.podcastSpotify }}" target="_blank" rel="noopener">
-                            {{ partial "icon.html" "spotify" }} Listen on Spotify
-                        </a>
-                        <a class="btn btn--ghost" href="{{ "/podcast/" | relURL }}">
-                            {{ partial "icon.html" "mic" }} Episodes
-                        </a>
-                    </div>
-                </div>
-                <div class="frame">
-                    {{ partial "image.html" (dict
-                        "src" "/media/panos_working.jpg"
-                        "alt" "Panos Karabelas at a desk surrounded by monitors and hand-drawn GPU diagrams"
-                        "sizes" "(max-width: 860px) 100vw, 420px"
-                        "widths" (slice 480 840)) }}
-                </div>
-            </div>
+        <div class="section-kicker mono"><span>03 / Field notes</span><a href="{{ "/blog/" | relURL }}">All writing ↗</a></div>
+        <div class="editorial-head"><h2>Thoughts behind<br>the pixels.</h2><p>Rendering, first principles, and the occasional detour into what any of this means.</p></div>
+        <div class="journal-grid">
+            {{- range first 3 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+            <a class="journal-card" href="{{ .RelPermalink }}"><div class="journal-card__image">{{ partial "image.html" (dict "src" .Params.image "alt" "" "sizes" "(max-width: 700px) 100vw, 33vw" "widths" (slice 480 960)) }}<span aria-hidden="true">↗</span></div><div class="journal-card__meta mono"><span>{{ .Date.Format "Jan 2006" }}</span><span>{{ .ReadingTime }} min read</span></div><h3>{{ .Title }}</h3></a>
+            {{- end }}
         </div>
     </div>
 </section>
+<section class="section personal">
+    <div class="container personal__grid">
+        <div class="personal__image">{{ partial "image.html" (dict "src" "/media/panos_working.jpg" "alt" "Panos at his desk, surrounded by monitors and handwritten graphics diagrams" "sizes" "(max-width: 700px) 100vw, 45vw" "widths" (slice 640 1024)) }}<span class="mono">Always a work in progress.</span></div>
+        <div class="personal__copy"><p class="mono section-kicker">04 / The person behind the pixels</p><h2>Relentlessly<br>curious.</h2><p>Greece to Manchester. Doom 3 to a game engine of my own. What started as a question about how games work became a life spent building the answer.</p><a class="text-action" href="{{ "/about/" | relURL }}">The longer story <span aria-hidden="true">↗</span></a><div class="podcast-note"><span class="mono">Off the clock / On the record</span><h3>The Panos Karabelas Podcast</h3><p>Conversations with people pushing their own fields forward.</p><a class="text-action" href="{{ "/podcast/" | relURL }}">Listen to the conversations <span aria-hidden="true">↗</span></a></div></div>
+    </div>
+</section>
+<section class="community container"><div><span class="mono">The work gets better when it’s shared.</span><h2>Come build with us.</h2><p>600+ engineers. Rendering deep dives, work in progress, and a shared obsession with how things work.</p></div><a class="btn btn--primary" href="{{ .Site.Params.engineDiscord }}" target="_blank" rel="noopener">{{ partial "icon.html" "discord" }} Join the Discord {{ partial "icon.html" "arrow-right" }}</a></section>
 {{- end }}
-{{ end }}

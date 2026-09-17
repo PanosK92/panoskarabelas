@@ -4,7 +4,7 @@
 <div class="container">
     <header class="page-head">
         <p class="mono section-head__eyebrow">Podcast</p>
-        <h1 class="page-head__title">{{ .Title }}</h1>
+        <h1 class="page-head__title">{{ .Title }}<span class="accent">.</span></h1>
         {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
         <div class="btn-row" style="margin-top:var(--s-5)">
             <a class="btn btn--primary" href="{{ .Site.Params.podcastSpotify }}" target="_blank" rel="noopener">

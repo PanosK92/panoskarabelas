@@ -2,7 +2,7 @@
 title = "Spartan Engine"
 type = "engine"
 description = "Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years."
-image = "/media/engine/world_showroom_a.png"
+image = "/media/engine/showcase_ferrari.jpg"
 
 [hero]
   eyebrow = "One engineer. Twelve years."
@@ -94,19 +94,29 @@ image = "/media/engine/world_showroom_a.png"
   url = "https://en.wikipedia.org/wiki/University_of_Thessaly"
 
 [[gallery]]
-  src = "/media/engine/world_showroom_a.png"
+  src = "/media/engine/showcase_ferrari.jpg"
   alt = "A LaFerrari on a lit turntable, rendered with path-traced global illumination and ray-traced reflections"
   caption = "ferrari_showcase — a turntable lit entirely by emissive light bars"
 
 [[gallery]]
-  src = "/media/engine/world_liminal_a.png"
-  alt = "A dim liminal corridor with a single ceiling light, rendered with real-time global illumination"
-  caption = "liminal_space — one light source, everything else is bounce"
+  src = "/media/engine/showcase_island_town.jpg"
+  alt = "Sunset over Zakynthos Town, forests and a shallow turquoise bay"
+  caption = "zakynthos — an open island some 30 km across, with towns, an airport and hundreds of roads"
 
 [[gallery]]
-  src = "/media/engine/world_sponza.png"
-  alt = "The Sponza atrium with curtains and ivy, open in the Spartan Engine editor"
-  caption = "sponza — the classic atrium, with curtains and ivy"
+  src = "/media/engine/showcase_ferrari_close.jpg"
+  alt = "Close-up of the LaFerrari's flank, clearcoat reflecting the showroom lights"
+  caption = "car paint — layered clearcoat with ray-traced reflections"
+
+[[gallery]]
+  src = "/media/engine/showcase_liminal.jpg"
+  alt = "Yellow-papered liminal office rooms under a fluorescent ceiling panel"
+  caption = "liminal_space — procedural rooms, path-traced bounce light"
+
+[[gallery]]
+  src = "/media/engine/showcase_sponza.jpg"
+  alt = "The Sponza atrium with curtains and ivy, lit by path-traced global illumination"
+  caption = "sponza — the classic atrium, no probes and no bake"
 
 [[gallery]]
   src = "/media/engine/world_selection_4.png"

@@ -41,20 +41,20 @@ title = "Panos Karabelas"
   note = "Environmental-analysis AI and the debug tooling behind an unreleased PSVR title."
 
 [[scenes]]
-  label = "The forest"
-  image = "/media/engine/world_forest.jpg"
-  alt = "A sunlit forest rendered in Spartan Engine, with the engine editor visible"
-  caption = "Procedural worlds. Volumetric light."
+  label = "The island"
+  image = "/media/engine/showcase_island_town.jpg"
+  alt = "Sunset over a town, forests and a turquoise bay on the Zakynthos island world in Spartan Engine"
+  caption = "An island to drive. A sun that moves."
 
 [[scenes]]
   label = "Sponza"
-  image = "/media/engine/world_sponza.png"
-  alt = "The Sponza atrium rendered in Spartan Engine"
+  image = "/media/engine/showcase_sponza.jpg"
+  alt = "The Sponza atrium lit by path-traced global illumination in Spartan Engine"
   caption = "Architecture, light, and the spaces between."
 
 [[scenes]]
   label = "The showroom"
-  image = "/media/engine/world_showroom_a.png"
+  image = "/media/engine/showcase_ferrari.jpg"
   alt = "A red LaFerrari under colored lights in Spartan Engine"
   caption = "Materials that respond to the world."
 

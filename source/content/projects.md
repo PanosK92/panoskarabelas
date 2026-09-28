@@ -2,7 +2,7 @@
 title = "Work"
 type = "work"
 description = "Fifteen years of shipped work: BeamNG, AMD, Codemasters and Sony, plus the solo engine that made all of it possible."
-image = "/media/engine/world_showroom_a.png"
+image = "/media/engine/showcase_ferrari.jpg"
 
 lead = "Fifteen years, four countries' worth of studios, and one codebase I never put down."
 

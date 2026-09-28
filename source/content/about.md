@@ -2,7 +2,7 @@
 title = "About"
 type = "about"
 description = "Panos Karabelas: rendering and engine programmer, creator of Spartan Engine, podcast host. Based in Manchester, originally from Greece."
-image = "/media/engine/world_showroom_a.png"
+image = "/media/engine/showcase_ferrari.jpg"
 
 lead = "Creator of Spartan Engine. A rendering programmer drawn to hard problems, ambitious worlds, and the systems that make them possible."
 

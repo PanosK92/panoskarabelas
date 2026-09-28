@@ -2,7 +2,7 @@
 title = "Podcast"
 type = "podcast"
 description = "Exploring the tech world and beyond. Panos Karabelas sits down with the brightest minds across cutting-edge industries."
-image = "/media/engine/world_showroom_a.png"
+image = "/media/engine/showcase_ferrari.jpg"
 
 lead = "Exploring the tech world and beyond. I sit down with the brightest minds I can find across cutting-edge industries, and ask the questions I actually want answered rather than the ones that make for a tidy episode."
 

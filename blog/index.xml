@@ -10,7 +10,6 @@
 		<lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://panoskarabelas.com/blog/index.xml" rel="self" type="application/rss+xml" />
 		
-		
 		<item>
 			<title>Spacetime is the headset. Consciousness is what&#39;s there when you take it off.</title>
 			<link>https://panoskarabelas.com/blog/posts/consciousness/</link>
@@ -193,7 +192,6 @@
     ></figure>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
 			<link>https://panoskarabelas.com/blog/posts/kiss/</link>
@@ -400,7 +398,6 @@
 <p><strong><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine on GitHub</a></strong></p>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>HDR in under 10 minutes</title>
 			<link>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</link>
@@ -565,7 +562,6 @@ The improvements are best seen on modern HDR monitor, the screenshots can only c
 </aside>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>Screen space shadows</title>
 			<link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
@@ -821,6 +817,5 @@ It&rsquo;s even better and you have to do little work to get it into your engine
 </aside>
 ]]></content>
 		</item>
-		
 	</channel>
 </rss>

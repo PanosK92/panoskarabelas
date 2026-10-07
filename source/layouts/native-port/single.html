@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{ $p := .Params }}
+{{ $compare_number := "" }}{{ range $p.features }}{{ if and .comparisons (not $compare_number) }}{{ $compare_number = .number }}{{ end }}{{ end }}
+<article class="port-page port-page--{{ $p.identity }}">
+    <section class="port-hero" aria-labelledby="port-title">
+        <div class="port-hero__image">{{ partial "image.html" (dict "src" $p.hero "alt" $p.heroAlt "widths" (slice 960 1600 2560) "sizes" "100vw" "eager" true) }}</div>
+        <div class="container port-hero__content">
+            <a class="port-back mono" href="{{ "/ports/" | relURL }}">← Native ports</a>
+            <p class="port-eyebrow mono">An independent native PC port <span>{{ $p.origin }} → Windows</span></p>
+            <h1 id="port-title">{{ range $i, $line := $p.heroLines }}<span>{{ $line }}{{ if eq $i (sub (len $p.heroLines) 1) }}<span class="port-period">.</span>{{ end }}</span>{{ end }}</h1>
+            <p class="port-hero__lead">{{ $p.lead }}</p>
+            <p class="port-hero__summary">{{ $p.summary }}</p>
+            <div class="btn-row port-hero__actions"><a class="btn btn--primary" href="#release">{{ if $p.release.url }}Download the build{{ else }}Release information{{ end }} <span aria-hidden="true">↗</span></a><a class="port-inline" href="#improvements">Explore the improvements <span aria-hidden="true">↓</span></a></div>
+            <div class="port-hero__baseline mono"><span><i class="live-dot" aria-hidden="true"></i> {{ $p.status }}</span><span>{{ $p.rendererLabel }}</span><span>By Panos Karabelas</span></div>
+        </div>
+    </section>
+    <div class="container port-highlights">{{ range $p.highlights }}<div><strong>{{ .value }}</strong><span class="mono">{{ .label }}</span></div>{{ end }}</div>
+    <nav class="container port-nav mono" aria-label="On this page"><a href="#improvements">The improvements</a>{{ with $compare_number }}<a href="#comparison-{{ . }}">{{ $p.comparisonNav | default "Comparison" }}</a>{{ end }}<a href="#input">Input & controls</a><a href="#gallery">In-game captures</a><a href="#release">Download & setup</a><a href="#notes">Development notes</a><a href="#faq">Questions</a><a href="#report-bug">Report a bug</a></nav>
+    <section class="container port-intro" id="improvements">
+        <p class="port-eyebrow mono">Recovered. Rebuilt. Refined.</p>
+        <div class="port-editorial"><h2>{{ $p.intro.title }}</h2><div>{{ range $p.intro.paragraphs }}<p>{{ . }}</p>{{ end }}</div></div>
+    </section>
+    <section class="container port-features" aria-label="Improvements in detail">
+        {{ range $p.features }}
+        <article class="port-feature"{{ with .anchor }} id="{{ . }}"{{ end }}>
+            <div class="port-feature__rail mono"><span>{{ .number }}</span><span>{{ .label }}</span></div>
+            <div class="port-feature__body"><h2>{{ .title }}</h2><p class="port-feature__lead">{{ .body }}</p>
+                {{ $feature := . }}{{ with .image }}{{ $img := resources.Get (strings.TrimPrefix "/" .) }}<a class="port-feature__image gallery-zoom" href="{{ $img.RelPermalink }}" data-gallery-image data-caption="{{ $feature.label }} / {{ $feature.title }}" aria-label="Enlarge screenshot">{{ partial "image.html" (dict "src" . "alt" $feature.alt "widths" (slice 640 1280 1920) "sizes" "(max-width: 760px) 100vw, 960px") }}<span class="gallery-zoom__icon" aria-hidden="true">↗</span></a>{{ end }}
+                <ul class="port-feature__points">{{ range .points }}<li>{{ . }}</li>{{ end }}</ul>
+                {{ with .note }}<p class="port-note">{{ . }}</p>{{ end }}
+                {{ with .comparisons }}
+                <section class="port-comparisons" id="comparison-{{ $feature.number }}" aria-labelledby="comparison-title-{{ $feature.number }}">
+                    <p class="port-eyebrow mono">{{ $feature.comparisonEyebrow }}</p><h3 id="comparison-title-{{ $feature.number }}">{{ $feature.comparisonTitle }}</h3>
+                    <p>{{ $feature.comparisonIntro }}</p>
+                    {{ range . }}{{ partial "native-port-compare.html" . }}{{ end }}
+                    {{ with $feature.comparisonNote }}<p class="port-note">{{ . }}</p>{{ end }}
+                </section>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </section>
+    <section class="port-gallery-section" id="gallery"><div class="container">
+        <div class="section-kicker mono"><span>From the current build</span><span>Actual game captures</span></div>
+        <div class="port-editorial"><h2>See it on the screen.</h2><p>Captured directly from the native build. These are development screenshots; the build continues to evolve.</p></div>
+        <div class="port-gallery">{{ range $p.gallery }}{{ $img := resources.Get (strings.TrimPrefix "/" .src) }}<figure><a class="gallery-zoom" href="{{ $img.RelPermalink }}" data-gallery-image data-caption="{{ .caption }}" aria-label="Enlarge: {{ .alt }}">{{ partial "image.html" (dict "src" .src "alt" .alt "widths" (slice 640 1280) "sizes" "(max-width: 760px) 100vw, 640px") }}<span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption class="mono">{{ .caption }}</figcaption></figure>{{ end }}</div>
+    </div></section>
+    <section class="container port-release" id="release">
+        <div class="port-release__head"><p class="port-eyebrow mono">{{ $p.releaseEyebrow }}</p><h2>{{ if $p.release.url }}{{ $p.readyTitle }}{{ else }}A home for the first release.{{ end }}</h2><p>{{ $p.release.note }}</p>
+            {{ if $p.release.url }}<a class="btn btn--primary" href="{{ $p.release.url }}">Download for Windows ↗</a>{{ else }}<p class="port-release__status mono"><i class="live-dot" aria-hidden="true"></i> {{ $p.release.label }}</p>{{ end }}
+            {{ with $p.release.version }}<p class="mono">Version {{ . }}{{ with $p.release.size }} / {{ . }}{{ end }}</p>{{ end }}
+            {{ with $p.release.sha256 }}<details class="port-checksum"><summary>Verify the download / SHA-256</summary><code>{{ . }}</code></details>{{ end }}
+            <p class="port-release__requirement">{{ $p.requirements }}</p>
+        </div>
+        <div class="port-setup"><h3>When the build lands</h3><ol>{{ range $i, $step := $p.setup }}<li><span class="mono">{{ printf "%02d" (add $i 1) }}</span><div><h4>{{ $step.title }}</h4><p>{{ $step.body }}</p></div></li>{{ end }}</ol></div>
+    </section>
+    <section class="container port-development" id="notes"><div class="port-editorial"><div><p class="port-eyebrow mono">Development snapshot / {{ $p.updated }}</p><h2>{{ $p.development.title }}</h2></div><div>{{ range $p.development.paragraphs }}<p>{{ . }}</p>{{ end }}</div></div>
+        <div class="port-changelog"><h3>Recent work</h3><ul>{{ range $p.changes }}<li><time datetime="{{ .date }}" class="mono">{{ .label }}</time><div><h4>{{ .title }}</h4><p>{{ .body }}</p></div></li>{{ end }}</ul></div>
+    </section>
+    <section class="container port-faq" id="faq"><div><p class="port-eyebrow mono">{{ $p.faqEyebrow }}</p><h2>A few useful answers.</h2></div><div>{{ range $p.faq }}<details><summary>{{ .question }}<span aria-hidden="true">+</span></summary><p>{{ .answer }}</p></details>{{ end }}</div></section>
+    <section class="container port-report" id="report-bug" aria-labelledby="report-title">
+        <div><p class="port-eyebrow mono">Help improve the port</p><h2 id="report-title">Found a bug?</h2><p>Tell me what happened in {{ .Title }}, what you expected, and how to reproduce it.</p><p class="port-report__privacy">Your email is optional and lets me reply.</p></div>
+        <form class="port-report__form" action="https://formsubmit.co/panosconroe@hotmail.com" method="POST" data-bug-report data-endpoint="https://formsubmit.co/ajax/panosconroe@hotmail.com">
+            <input type="hidden" name="_subject" value="{{ .Title }} — Bug report">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="game" value="{{ .Title }}">
+            <input type="hidden" name="page" value="{{ .Permalink }}">
+            <div class="port-report__trap" aria-hidden="true"><label for="report-website">Leave this field empty</label><input id="report-website" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="port-report__field"><label for="report-summary">Issue summary</label><input id="report-summary" name="summary" type="text" required minlength="5" maxlength="150" placeholder="A short title for the problem"></div>
+            <div class="port-report__pair"><div class="port-report__field"><label for="report-build">Build version <span>(optional)</span></label><input id="report-build" name="build" type="text" maxlength="80" placeholder="Version or build date"></div><div class="port-report__field"><label for="report-email">Your email <span>(optional)</span></label><input id="report-email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="For a reply"></div></div>
+            <div class="port-report__field"><label for="report-hardware">Hardware &amp; settings <span>(optional)</span></label><input id="report-hardware" name="hardware" type="text" maxlength="250" placeholder="Windows version, GPU, controller or wheel, relevant settings"></div>
+            <div class="port-report__field"><label for="report-details">What happened?</label><textarea id="report-details" name="message" rows="7" required minlength="20" maxlength="6000" placeholder="Steps to reproduce&#10;Expected result&#10;What happened instead"></textarea></div>
+            <div class="port-report__actions"><button class="btn btn--primary" type="submit">Send bug report <span aria-hidden="true">↗</span></button><p class="port-report__status" role="status" aria-live="polite" aria-atomic="true" data-report-status></p></div>
+            <noscript><p class="port-note">Submitting will open FormSubmit's confirmation page. Enable JavaScript to send without leaving this page.</p></noscript>
+        </form>
+    </section>
+    <div class="container port-bottom mono"><a href="{{ "/ports/" | relURL }}">← All native ports</a><span>Unofficial project / Original game by {{ $p.originalPublisher }}</span></div>
+</article>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title"><div class="image-dialog__bar"><h2 id="image-dialog-title" class="mono">{{ .Title }} / In-game captures</h2><button class="image-dialog__close" type="button" aria-label="Close image viewer">Close <span aria-hidden="true">×</span></button></div><img class="image-dialog__image" alt=""><div class="image-dialog__footer"><p class="image-dialog__caption"></p><div class="image-dialog__controls"><button type="button" data-gallery-prev aria-label="Previous image">←</button><span class="mono" data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Next image">→</button></div></div></dialog>
+{{ end }}

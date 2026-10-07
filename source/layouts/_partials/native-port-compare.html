@@ -1,0 +1,12 @@
+{{- $before := .beforeLabel | default "Upgrades off" -}}
+{{- $after := .afterLabel | default "Upgrades on" -}}
+<figure class="port-comparison">
+    <h4>{{ .title }}</h4>
+    <div class="compare" tabindex="0" role="slider" aria-label="{{ .title }}: compare {{ lower $before }} and {{ lower $after }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% {{ lower $before }}, 50% {{ lower $after }}" data-before-label="{{ lower $before }}" data-after-label="{{ lower $after }}">
+        {{ partial "image.html" (dict "src" .before "alt" (printf "%s, %s" .title (lower $before)) "widths" (slice 640) "quality" 95 "sizes" "(max-width: 760px) 100vw, 760px") }}
+        <div class="compare__after">{{ partial "image.html" (dict "src" .after "alt" (printf "%s, %s" .title (lower $after)) "widths" (slice 640) "quality" 95 "sizes" "(max-width: 760px) 100vw, 760px") }}</div>
+        <div class="compare__handle" aria-hidden="true"><span class="compare__grip">{{ partial "icon.html" "compare" }}</span></div>
+        <span class="compare__tag compare__tag--before">{{ $before }}</span><span class="compare__tag compare__tag--after">{{ $after }}</span>
+    </div>
+    <figcaption>{{ .caption }}</figcaption>
+</figure>

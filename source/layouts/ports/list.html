@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-head">
+        <p class="mono section-head__eyebrow">Independent work</p>
+        <h1 class="page-head__title">{{ .Title }}<span class="accent">.</span></h1>
+        {{- with .Params.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+</div>
+{{ partial "native-ports.html" . }}
+<section class="section">
+    <div class="container ports-method">
+        <div><p class="mono section-head__eyebrow">How they are made</p><h2>Read the original. Rebuild it natively.</h2></div>
+        <ul>
+            <li><span class="mono">01</span><div><h3>Reverse engineered</h3><p>Each behaviour starts from the original game's code, read in Ghidra, so the port computes the same results rather than an approximation tuned by eye.</p></div></li>
+            <li><span class="mono">02</span><div><h3>Native and readable</h3><p>No emulator. The recovered systems are rewritten as clean native code that runs on modern Windows, with keyboard, gamepad and display support.</p></div></li>
+            <li><span class="mono">03</span><div><h3>Upgrades are a choice</h3><p>Visual improvements sit behind their own settings and a master switch, so the original look is always one toggle away.</p></div></li>
+            <li><span class="mono">04</span><div><h3>Your own copy</h3><p>The ports read the game data from your own disc image. No original game files are distributed.</p></div></li>
+        </ul>
+    </div>
+</section>
+{{ end }}

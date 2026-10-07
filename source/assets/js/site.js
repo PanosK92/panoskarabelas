@@ -148,16 +148,24 @@
         sliders.forEach(function (slider) {
             var dragging = false;
 
-            function setFromEvent(e) {
-                var rect = slider.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            function setPosition(pct) {
+                pct = Math.max(0, Math.min(100, pct));
                 slider.style.setProperty("--pos", pct + "%");
                 slider.setAttribute("aria-valuenow", Math.round(pct));
+                if (slider.dataset.beforeLabel) {
+                    slider.setAttribute("aria-valuetext", Math.round(pct) + "% " + slider.dataset.beforeLabel + ", " + Math.round(100 - pct) + "% " + slider.dataset.afterLabel);
+                }
+            }
+
+            function setFromEvent(e) {
+                var rect = slider.getBoundingClientRect();
+                if (rect.width) setPosition((e.clientX - rect.left) / rect.width * 100);
             }
 
             slider.addEventListener("pointerdown", function (e) {
+                if (e.button !== 0) return;
                 dragging = true;
+                slider.focus();
                 slider.setPointerCapture(e.pointerId);
                 setFromEvent(e);
             });
@@ -183,13 +191,15 @@
                     current -= step;
                 } else if (e.key === "ArrowRight") {
                     current += step;
+                } else if (e.key === "Home") {
+                    current = 0;
+                } else if (e.key === "End") {
+                    current = 100;
                 } else {
                     return;
                 }
                 e.preventDefault();
-                current = Math.max(0, Math.min(100, current));
-                slider.style.setProperty("--pos", current + "%");
-                slider.setAttribute("aria-valuenow", Math.round(current));
+                setPosition(current);
             });
         });
     }
@@ -276,6 +286,58 @@
         dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
         dialog.addEventListener("close", function () { document.documentElement.classList.remove("has-lightbox"); });
     }
+    /* Background bug reports: keep the draft until the relay accepts it. */
+    function initBugReports() {
+        document.querySelectorAll("[data-bug-report]").forEach(function (form) {
+            var button = form.querySelector("button[type=submit]");
+            var status = form.querySelector("[data-report-status]");
+            var sending = false;
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+                if (sending || !form.reportValidity()) return;
+                var fields = new FormData(form);
+                if (fields.get("_honey")) return;
+                var payload = {};
+                fields.forEach(function (value, key) { payload[key] = value; });
+                sending = true;
+                button.disabled = true;
+                form.setAttribute("aria-busy", "true");
+                status.textContent = "Sending your report…";
+                status.removeAttribute("data-state");
+                var controller = new AbortController();
+                var timer = window.setTimeout(function () { controller.abort(); }, 20000);
+                try {
+                    var response = await fetch(form.getAttribute("data-endpoint"), {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                        body: JSON.stringify(payload),
+                        signal: controller.signal
+                    });
+                    var result = await response.json();
+                    if (!response.ok || !(result.success === true || result.success === "true")) {
+                        if (/activat|confirm.*email|check.*email/i.test(String(result.message || ""))) {
+                            status.textContent = "Bug reporting is awaiting inbox activation. Your report is still here; you can also email Panos directly.";
+                            status.setAttribute("data-state", "error");
+                            return;
+                        }
+                        throw new Error("Relay did not accept the report");
+                    }
+                    form.reset();
+                    status.textContent = "Report submitted. Thank you for helping improve the port.";
+                    status.setAttribute("data-state", "success");
+                } catch (error) {
+                    status.textContent = "Could not confirm delivery. Your report is still here. Try again, or email Panos directly.";
+                    status.setAttribute("data-state", "error");
+                } finally {
+                    window.clearTimeout(timer);
+                    sending = false;
+                    button.disabled = false;
+                    form.removeAttribute("aria-busy");
+                }
+            });
+        });
+    }
+
     /* ---------- boot ---------- */
 
     function init() {
@@ -286,6 +348,7 @@
         initCompare();
         initCodeCopy();
         initGallery();
+        initBugReports();
         document.querySelectorAll("[data-scene-viewer]").forEach(function (viewer) {
             viewer.querySelectorAll("[data-scene]").forEach(function (button) {
                 button.addEventListener("click", function () {

@@ -7,10 +7,23 @@
 		<generator>Hugo -- 0.164.0</generator>
 		<language>en</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 04 Oct 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://panoskarabelas.com/index.xml" rel="self" type="application/rss+xml" />
 		
-		
+		<item>
+			<title>Sega GT Online</title>
+			<link>https://panoskarabelas.com/ports/sega-gt-online/</link>
+			<pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/ports/sega-gt-online/</guid>
+			<description><![CDATA[Sega GT Online rebuilt for Windows: a native PC port with modern lighting, HDR, widescreen presentation and restored career features.]]></description><content type="text/html" mode="escaped"><![CDATA[<p>Sega GT Online is being rebuilt as a native Windows port, with modern lighting, widescreen presentation and restored offline features. <a href="/ports/sega-gt-online/">Explore the improvements and release information</a>.</p>
+]]></content>
+		</item>
+		<item>
+			<title>Dino Crisis 2</title>
+			<link>https://panoskarabelas.com/ports/dino-crisis-2/</link>
+			<pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/ports/dino-crisis-2/</guid>
+			<description><![CDATA[Dino Crisis 2 rebuilt for Windows: native gameplay, optional 4× artwork, improved character models and modern controls. An independent project in development.]]></description><content type="text/html" mode="escaped"><![CDATA[<p>Dino Crisis 2 is being recreated for Windows, with optional visual upgrades and restored opening gameplay. <a href="/ports/dino-crisis-2/">Explore the project and release information</a>.</p>
+]]></content>
+		</item>
 		<item>
 			<title>Spacetime is the headset. Consciousness is what&#39;s there when you take it off.</title>
 			<link>https://panoskarabelas.com/blog/posts/consciousness/</link>
@@ -193,7 +206,6 @@
     ></figure>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>What building a game engine for a decade and the SR-71 Blackbird have in common</title>
 			<link>https://panoskarabelas.com/blog/posts/kiss/</link>
@@ -400,7 +412,6 @@
 <p><strong><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine on GitHub</a></strong></p>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>HDR in under 10 minutes</title>
 			<link>https://panoskarabelas.com/blog/posts/hdr_in_under_10_minutes/</link>
@@ -565,7 +576,6 @@ The improvements are best seen on modern HDR monitor, the screenshots can only c
 </aside>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>Screen space shadows</title>
 			<link>https://panoskarabelas.com/blog/posts/screen_space_shadows/</link>
@@ -821,7 +831,6 @@ It&rsquo;s even better and you have to do little work to get it into your engine
 </aside>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>About</title>
 			<link>https://panoskarabelas.com/about/</link>
@@ -843,7 +852,6 @@ would rather build the right thing slowly than the acceptable thing on time. And
 over skills, because skills can be taught and character cannot.</p>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>Podcast</title>
 			<link>https://panoskarabelas.com/podcast/</link>
@@ -854,7 +862,6 @@ if it is worth twenty it gets twenty.</p>
 <p>If there is someone you think I should be talking to, tell me.</p>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>Spartan Engine</title>
 			<link>https://panoskarabelas.com/engine/</link>
@@ -874,13 +881,11 @@ compromises on the vision. There is a destination that gives all of this a purpo
 the repository if you are curious.</p>
 ]]></content>
 		</item>
-		
 		<item>
 			<title>Work</title>
 			<link>https://panoskarabelas.com/projects/</link>
 			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/projects/</guid>
 			<description><![CDATA[Fifteen years of shipped work: BeamNG, AMD, Codemasters and Sony, plus the solo engine that made all of it possible.]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
 		</item>
-		
 	</channel>
 </rss>

@@ -1,0 +1,7 @@
+{{- $section := site.GetPage "/ports" -}}
+<section class="section native-ports" id="native-ports"><div class="container">
+    <div class="section-kicker mono"><span>Independent work / Native ports</span>{{ if eq .RelPermalink $section.RelPermalink }}<span>{{ len $section.Pages }} games in development</span>{{ else }}<a href="{{ $section.RelPermalink }}">All native ports <span aria-hidden="true">↗</span></a>{{ end }}</div>
+    <div class="port-index">{{ range $section.Pages.ByWeight }}
+    <a class="port-callout" href="{{ .RelPermalink }}"><div class="port-callout__image">{{ partial "image.html" (dict "src" .Params.hero "alt" .Params.heroAlt "widths" (slice 640 1280) "sizes" "(max-width: 760px) 100vw, 720px") }}</div><div class="port-callout__body"><span class="mono port-eyebrow">{{ .Params.origin }} → Windows / {{ .Params.status }}</span><h2>{{ .Title }}<span class="accent">.</span></h2><p>{{ .Params.summary }}</p><ul class="chips">{{ range .Params.cardTags }}<li class="chip">{{ . }}</li>{{ end }}</ul><span class="text-action">Explore the port <span aria-hidden="true">↗</span></span></div></a>
+    {{- end }}</div>
+</div></section>

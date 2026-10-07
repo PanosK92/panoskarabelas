@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sega GT Online · Panos Karabelas</title>
+<meta name="description" content="Sega GT Online rebuilt for Windows: a native PC port with modern lighting, HDR, widescreen presentation and restored career features.">
+<meta name="author" content="Panos Karabelas">
+<meta name="theme-color" content="#10110f">
+<link rel="canonical" href="https://panoskarabelas.com/ports/sega-gt-online/">
+
+<meta property="og:site_name" content="Panos Karabelas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sega GT Online · Panos Karabelas">
+<meta property="og:description" content="Sega GT Online rebuilt for Windows: a native PC port with modern lighting, HDR, widescreen presentation and restored career features.">
+<meta property="og:url" content="https://panoskarabelas.com/ports/sega-gt-online/">
+<meta property="og:image" content="https://panoskarabelas.com/media/ports/sega-gt-online/race_hu_84d9dc040d382f83.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630"><meta property="article:published_time" content="2026-10-04T00:00:00Z">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sega GT Online · Panos Karabelas">
+<meta name="twitter:description" content="Sega GT Online rebuilt for Windows: a native PC port with modern lighting, HDR, widescreen presentation and restored career features.">
+<meta name="twitter:creator" content="@panoskarabelas">
+<meta name="twitter:image" content="https://panoskarabelas.com/media/ports/sega-gt-online/race_hu_84d9dc040d382f83.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8fceff">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/main.11845357eab2be6db103cc58cb9df2e64840b7fe6acf8d7a514e310b024f8d7b.css" integrity="sha256-EYRTV&#43;qyvm2xA8xYy53y5khAt/5qz416UU4xCwJPjXs=">
+
+    
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header">
+    <div class="container header__inner">
+        <a class="brand" href="/">
+            <span class="brand__mark" aria-hidden="true">PK</span>
+            <span class="brand__name">Panos Karabelas</span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <ul class="nav__list">
+                <li>
+                    <a class="nav__link"
+                       href="/engine/"
+                       
+                       >Engine</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/projects/"
+                       
+                       >Work</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/ports/"
+                       
+                       aria-current="page">Ports</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/blog/"
+                       
+                       >Writing</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/podcast/"
+                       
+                       >Podcast</a>
+                </li>
+                <li>
+                    <a class="nav__link"
+                       href="/about/"
+                       
+                       >About</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__actions">
+            <div class="social">
+    <a href="https://github.com/PanosK92" title="GitHub" target="_blank" rel="me noopener">
+        <span class="visually-hidden">GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://x.com/panoskarabelas" title="X" target="_blank" rel="me noopener">
+        <span class="visually-hidden">X</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@panos_karabelas" title="YouTube" target="_blank" rel="me noopener">
+        <span class="visually-hidden">YouTube</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://discord.gg/TG5r2BS" title="Discord" target="_blank" rel="me noopener">
+        <span class="visually-hidden">Discord</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    </a>
+    <a href="mailto:panosconroe@hotmail.com" title="Email">
+        <span class="visually-hidden">Email</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    </a>
+</div>
+            <a class="btn btn--ghost btn--sm" href="/media/cv.html" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg> CV
+            </a>
+        </div>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+        </button>
+    </div>
+</header>
+
+<div class="nav-drawer" id="nav-drawer">
+    <ul class="nav-drawer__list">
+        <li>
+            <a href="/engine/">
+                Engine
+                
+            </a>
+        </li>
+        <li>
+            <a href="/projects/">
+                Work
+                
+            </a>
+        </li>
+        <li>
+            <a href="/ports/" aria-current="page">
+                Ports
+                
+            </a>
+        </li>
+        <li>
+            <a href="/blog/">
+                Writing
+                
+            </a>
+        </li>
+        <li>
+            <a href="/podcast/">
+                Podcast
+                
+            </a>
+        </li>
+        <li>
+            <a href="/about/">
+                About
+                
+            </a>
+        </li>
+        <li>
+            <a href="/media/cv.html" target="_blank" rel="noopener">CV <span aria-hidden="true">&#8599;</span></a>
+        </li>
+    </ul>
+    <div class="social">
+    <a href="https://github.com/PanosK92" title="GitHub" target="_blank" rel="me noopener">
+        <span class="visually-hidden">GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="https://x.com/panoskarabelas" title="X" target="_blank" rel="me noopener">
+        <span class="visually-hidden">X</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@panos_karabelas" title="YouTube" target="_blank" rel="me noopener">
+        <span class="visually-hidden">YouTube</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://discord.gg/TG5r2BS" title="Discord" target="_blank" rel="me noopener">
+        <span class="visually-hidden">Discord</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    </a>
+    <a href="mailto:panosconroe@hotmail.com" title="Email">
+        <span class="visually-hidden">Email</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    </a>
+</div>
+</div>
+
+
+    <main id="main">
+        
+
+
+<article class="port-page port-page--sega-gt">
+    <section class="port-hero" aria-labelledby="port-title">
+        <div class="port-hero__image"><img
+    src="/media/ports/sega-gt-online/race_hu_f4700a000e89b724.webp"
+    srcset="/media/ports/sega-gt-online/race_hu_f4700a000e89b724.webp 640w"
+    sizes="100vw"
+    width="640"
+    height="360"
+    alt="A Toyota Levin on the Speed Ring starting grid in the native PC build of Sega GT Online"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    ></div>
+        <div class="container port-hero__content">
+            <a class="port-back mono" href="/ports/">← Native ports</a>
+            <p class="port-eyebrow mono">An independent native PC port <span>Xbox → Windows</span></p>
+            <h1 id="port-title"><span>SEGA GT</span><span>ONLINE<span class="port-period">.</span></span></h1>
+            <p class="port-hero__lead">An Xbox favourite. A new life on PC.</p>
+            <p class="port-hero__summary">A native Windows port, recovered from the original Xbox game and powered by a custom GPU renderer by Panos Karabelas.</p>
+            <div class="btn-row port-hero__actions"><a class="btn btn--primary" href="#release">Release information <span aria-hidden="true">↗</span></a><a class="port-inline" href="#improvements">Explore the improvements <span aria-hidden="true">↓</span></a></div>
+            <div class="port-hero__baseline mono"><span><i class="live-dot" aria-hidden="true"></i> In development</span><span>Direct3D 12 / Vulkan</span><span>By Panos Karabelas</span></div>
+        </div>
+    </section>
+    <div class="container port-highlights"><div><strong>Native</strong><span class="mono">Windows executable</span></div><div><strong>16:9</strong><span class="mono">Aspect-aware presentation</span></div><div><strong>HDR</strong><span class="mono">Linear lighting &amp; output</span></div><div><strong>Your choice</strong><span class="mono">Original or enhanced visuals</span></div></div>
+    <nav class="container port-nav mono" aria-label="On this page"><a href="#improvements">The improvements</a><a href="#comparison-01">Graphics comparison</a><a href="#input">Input & controls</a><a href="#gallery">In-game captures</a><a href="#release">Download & setup</a><a href="#notes">Development notes</a><a href="#faq">Questions</a><a href="#report-bug">Report a bug</a></nav>
+    <section class="container port-intro" id="improvements">
+        <p class="port-eyebrow mono">Recovered. Rebuilt. Refined.</p>
+        <div class="port-editorial"><h2>The game you remember. A PC version to make it last.</h2><div><p>Built by reverse engineering the European Xbox release. Original models, courses, audio and game data meet a native Windows platform and a configurable modern renderer.</p><p>The aim is faithful behaviour with room to improve the experience. Every new feature is a choice.</p></div></div>
+    </section>
+    <section class="container port-features" aria-label="Improvements in detail">
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>01</span><span>Rendering</span></div>
+            <div class="port-feature__body"><h2>Old roads. New light.</h2><p class="port-feature__lead">A custom renderer by Panos Karabelas brings the original cars and courses into Direct3D 12 and Vulkan. Lighting, reflections, shadows and post-processing run in GPU graphics and compute shaders, with original scene geometry and textures resident in GPU memory. From clear-coated paint to sunlight through the air, this is a complete native rendering pipeline.</p>
+                
+                <ul class="port-feature__points"><li>Physically based materials: GGX shading, layered clear-coated car paint, Fresnel reflections and multiple-scattering energy preservation. PBR adds procedural normal/roughness detail, specular antialiasing and baked-shading reduction; Inferred PBR Materials adds reviewed surface assignments.</li><li>Environment lighting and dynamic reflections: captured diffuse irradiance, filtered specular cubemaps, parallax-corrected indoor reflections and staggered capture/filtering with smooth updates. AMD FidelityFX screen-space reflections add reflected detail from visible geometry.</li><li>Soft, dynamic shadows: cascaded sun shadows with PCSS filtering, GPU screen-space contact shadows and a dedicated 4096×4096 player-car shadow map fitted to the body and wheels.</li><li>Recovered course lighting and projected headlights: original course light banks, beam texture, per-car projector placement and camera offsets, with headlight caster shadows for up to six cars.</li><li>Ground-truth ambient occlusion (GTAO): depth-aware crevice shading, bent normals and temporal reprojection with depth/normal history rejection.</li><li>Screen-space global illumination (SSGI): diffuse light bounce, temporal accumulation and depth/normal reconstruction for light spilling between visible surfaces.</li><li>Volumetric lighting: filtered, shadowed sun shafts during races, including occlusion from the dedicated player-car shadow map.</li><li>Motion blur: depth-aware scene blur, with menus and race readouts drawn afterwards to stay sharp.</li><li>HDR and exposure: linear floating-point scene lighting, HDR display output and automatic percentile-histogram exposure metering with camera-cut resets. Bloom adds soft highlight glow; the optional Gran Turismo 7 tone-mapping curve shapes scene highlights.</li><li>Your settings, your look: every graphics upgrade has an option, with a master Graphics Upgrades switch and a live Ctrl&#43;G comparison that preserves individual choices and display size.</li></ul>
+                <p class="port-note">Material-specific surface assignments are reviewed estimates. Screen-space effects use visible scene information. Original artwork is retained; full rendering parity remains in progress.</p>
+                
+                <section class="port-comparisons" id="comparison-01" aria-labelledby="comparison-title-01">
+                    <p class="port-eyebrow mono">Same scene. One switch.</p><h3 id="comparison-title-01">See what the renderer changes.</h3>
+                    <p>Drag the divider, or focus it and use the arrow keys, to compare Graphics Upgrades off and on.</p>
+                    <figure class="port-comparison">
+    <h4>In the showroom</h4>
+    <div class="compare" tabindex="0" role="slider" aria-label="In the showroom: compare upgrades off and upgrades on" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% upgrades off, 50% upgrades on" data-before-label="upgrades off" data-after-label="upgrades on">
+        <img
+    src="/media/ports/sega-gt-online/compare-showroom-off_hu_3b9cf9a017899784.webp"
+    srcset="/media/ports/sega-gt-online/compare-showroom-off_hu_3b9cf9a017899784.webp 640w"
+    sizes="(max-width: 760px) 100vw, 760px"
+    width="640"
+    height="360"
+    alt="In the showroom, upgrades off"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    >
+        <div class="compare__after"><img
+    src="/media/ports/sega-gt-online/compare-showroom-on_hu_94d9c39be1790e37.webp"
+    srcset="/media/ports/sega-gt-online/compare-showroom-on_hu_94d9c39be1790e37.webp 640w"
+    sizes="(max-width: 760px) 100vw, 760px"
+    width="640"
+    height="360"
+    alt="In the showroom, upgrades on"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ></div>
+        <div class="compare__handle" aria-hidden="true"><span class="compare__grip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/></svg></span></div>
+        <span class="compare__tag compare__tag--before">Upgrades off</span><span class="compare__tag compare__tag--after">Upgrades on</span>
+    </div>
+    <figcaption>Same Acura NSX, paint and showroom camera. Compare the paint response, reflections and shading.</figcaption>
+</figure>
+<figure class="port-comparison">
+    <h4>On the starting grid</h4>
+    <div class="compare" tabindex="0" role="slider" aria-label="On the starting grid: compare upgrades off and upgrades on" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% upgrades off, 50% upgrades on" data-before-label="upgrades off" data-after-label="upgrades on">
+        <img
+    src="/media/ports/sega-gt-online/compare-race-off_hu_2f3bcca29e4021d2.webp"
+    srcset="/media/ports/sega-gt-online/compare-race-off_hu_2f3bcca29e4021d2.webp 640w"
+    sizes="(max-width: 760px) 100vw, 760px"
+    width="640"
+    height="360"
+    alt="On the starting grid, upgrades off"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    >
+        <div class="compare__after"><img
+    src="/media/ports/sega-gt-online/compare-race-on_hu_f8fd5f19d1c37653.webp"
+    srcset="/media/ports/sega-gt-online/compare-race-on_hu_f8fd5f19d1c37653.webp 640w"
+    sizes="(max-width: 760px) 100vw, 760px"
+    width="640"
+    height="360"
+    alt="On the starting grid, upgrades on"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ></div>
+        <div class="compare__handle" aria-hidden="true"><span class="compare__grip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/></svg></span></div>
+        <span class="compare__tag compare__tag--before">Upgrades off</span><span class="compare__tag compare__tag--after">Upgrades on</span>
+    </div>
+    <figcaption>Same six-car grid and course camera. Compare lighting, surface detail and dynamic shadows.</figcaption>
+</figure>
+
+                    <p class="port-note">Actual native-renderer captures from hidden-window developer mode. Each pair uses the same camera, geometry, paint and frame sequence; only the Graphics Upgrades master switch changes, matching Ctrl&#43;G. Captured in SDR at 640×360 after a 3× scene render, with temporal upscaling disabled in both. Still images cannot demonstrate motion blur or HDR display output.</p>
+                </section>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>02</span><span>Image quality</span></div>
+            <div class="port-feature__body"><h2>Built for the screen in front of you.</h2><p class="port-feature__lead">Scale the output resolution, choose widescreen presentation and tailor image quality to your hardware. Menus and race readouts are drawn after scene reconstruction.</p>
+                
+                <ul class="port-feature__points"><li>16:9 presentation with aspect-aware cameras and UI placement; 4:3 remains available.</li><li>NVIDIA DLSS / DLAA, AMD FSR (the supported 4.x path on compatible hardware, otherwise 3.1) and Intel XeSS, with quality, balanced, performance and native AA modes.</li><li>16× anisotropic texture filtering, FXAA and AMD FidelityFX CAS sharpening.</li><li>Scene motion vectors, depth and reactive masks support temporal reconstruction, with history resets at camera cuts.</li></ul>
+                <p class="port-note">Temporal upscalers currently require Direct3D 12. DLSS requires an NVIDIA RTX GPU; HDR requires Windows HDR and a compatible display.</p>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>03</span><span>Presentation</span></div>
+            <div class="port-feature__body"><h2>A cleaner way to find the next race.</h2><p class="port-feature__lead">Minimal UI recreates text and interface panels with native Unicode typography, restrained highlights and layouts that respect the screen&#39;s aspect ratio. Switch back to the original interface whenever you prefer.</p>
+                <a class="port-feature__image gallery-zoom" href="/media/ports/sega-gt-online/event-menu.jpg" data-gallery-image data-caption="Presentation / A cleaner way to find the next race." aria-label="Enlarge screenshot"><img
+    src="/media/ports/sega-gt-online/event-menu_hu_fe15e203435f01da.webp"
+    srcset="/media/ports/sega-gt-online/event-menu_hu_fe15e203435f01da.webp 640w"
+    sizes="(max-width: 760px) 100vw, 960px"
+    width="640"
+    height="360"
+    alt="The rebuilt Event Race menu with native text, course information and a horizontal event selector"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><span class="gallery-zoom__icon" aria-hidden="true">↗</span></a>
+                <ul class="port-feature__points"><li>Rebuilt Event Race navigation with course details, entry restrictions, prizes and transmission selection.</li><li>Readable dialogs, aligned settings columns and a coherent Save/Load card layout.</li><li>Live race timing, position and vehicle readouts; original logos, photographs and emblems remain intact.</li><li>Menu layout checks cover both UI styles at 16:9 and 4:3.</li></ul>
+                <p class="port-note">Minimal UI is an optional native interface. It does not upscale UI textures with an AI model.</p>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>04</span><span>The game</span></div>
+            <div class="port-feature__body"><h2>Back in the garage. Back on the grid.</h2><p class="port-feature__lead">The career&#39;s connected again: buy a car, build a garage, enter events, earn rewards and save your progress. Recovered game logic and original assets form the foundation.</p>
+                
+                <ul class="port-feature__points"><li>All 19 regular and 19 champion Official Events are connected, along with five progression-unlocking license trials.</li><li>All 29 manufacturers and the original 148-entry shop catalog, with paint selection and purchases.</li><li>Car Parts, Used Parts, installation, tuning, overhaul services, NOS and garage goods.</li><li>Offline Quick Battle, Chronicle, Time Attack and Gathering controllers, plus replay, photo album and GT Garage services.</li><li>Car-specific engine recordings and RPM curves for the player and opponents, alongside road, wind and tire audio.</li><li>Prize scenes with trophies, awards, animated backgrounds, counters and original music.</li></ul>
+                <p class="port-note">This is a work in progress. Full race, physics and presentation parity are unfinished. Online multiplayer has not been restored.</p>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>05</span><span>Driving simulation</span></div>
+            <div class="port-feature__body"><h2>A different kind of challenge.</h2><p class="port-feature__lead">Keep the recovered driving model, or enable an optional, more demanding simulation for the player and AI. Adjust the opponents&#39; difficulty from easy to hard, or retain the event&#39;s original progression.</p>
+                
+                <ul class="port-feature__points"><li>Per-wheel Pacejka tire simulation, combined grip, load and surface sensitivity, suspension weight transfer, drivetrain, ABS and traction control.</li><li>Wheel inertia, clutch engagement, gear ratios and axle torque split, with automatic shifts based on road speed.</li><li>Five adjustable AI difficulty levels, plus Auto; predictive corner-speed planning and braking in the optional physics mode.</li><li>An optional chassis-mounted hood camera and right-stick camera orbit.</li></ul>
+                <p class="port-note">The optional physics mode uses calibrated generic tire coefficients, rather than measured per-car tire datasets. It is disabled by default.</p>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature" id="input">
+            <div class="port-feature__rail mono"><span>06</span><span>Input &amp; wheel simulation</span></div>
+            <div class="port-feature__body"><h2>Your wheel. Your pedals. Your way to drive.</h2><p class="port-feature__lead">A dedicated input system for steering wheels and sim-racing controls, alongside keyboard and gamepads. Mix devices, calibrate their travel and navigate the game from your rig.</p>
+                
+                <ul class="port-feature__points"><li>Steering wheels, separate USB pedals, clutch, analog handbrakes, paddles and H-pattern shifters. Each control can come from a different device.</li><li>In-game calibration records full-left/full-right steering and released/pressed pedal travel, including inverted axes and combined pedal axes.</li><li>Wheel-specific deadzone and steering response, with adjustable feedback strength.</li><li>H-pattern direct gear selection in both physics modes, neutral, accelerator-driven reverse and progressive clutch disengagement; paddles use manual transmission.</li><li>Speed-dependent centering, grip-loss and impact feedback through supported SDL haptic wheels. Effects stop on pause, focus loss or disconnect.</li><li>Bind confirm, back, pause and all four menu directions for wheel-only navigation after setup. Device bindings persist, with hot-plugging and keyboard/gamepad fallback.</li><li>DualSense adaptive throttle/brake resistance, grip-loss trigger pulses and engine, shift and impact vibration, plus optional PlayStation prompts.</li><li>Keyboard and gamepad controls remain available alongside the wheel. Open Options / Controls / Wheel, pedals and shifter setup to configure your rig.</li></ul>
+                <p class="port-note">Wheel feedback is a basic centering and impact model, not a reconstructed steering rack. Availability and direction depend on the device&#39;s SDL driver. Physical wheel and DualSense feel still require hardware testing; DualSense uses SDL rumble and adaptive triggers.</p>
+                
+            </div>
+        </article>
+        
+        <article class="port-feature">
+            <div class="port-feature__rail mono"><span>07</span><span>Quality of life</span></div>
+            <div class="port-feature__body"><h2>Less friction between you and a drive.</h2><p class="port-feature__lead">Small conveniences add up. Inspect a car, remember where you left off and keep earlier saves within reach. Each addition has its own setting.</p>
+                
+                <ul class="port-feature__points"><li>Garage sorting, favourites and recent-car order; remembered brand, car, paint and garage selections.</li><li>Stock-car comparisons and an optional brand X containing 11 unused cars.</li><li>Showroom rotation, zoom, pause and hide-UI controls; an optional turntable camera.</li><li>Quick race retry, rotating goods previews and automatic UI hiding in car scenes.</li><li>Three previous valid saves per slot, with backup loading from the Save/Load menu.</li><li>A master Graphics Upgrades switch, plus individual effect settings. Ctrl&#43;G temporarily toggles the visual upgrades.</li></ul>
+                
+                
+            </div>
+        </article>
+        
+    </section>
+    <section class="port-gallery-section" id="gallery"><div class="container">
+        <div class="section-kicker mono"><span>From the current build</span><span>Actual game captures</span></div>
+        <div class="port-editorial"><h2>See it on the screen.</h2><p>Captured directly from the native build. These are development screenshots; the build continues to evolve.</p></div>
+        <div class="port-gallery"><figure><a class="gallery-zoom" href="/media/ports/sega-gt-online/race.jpg" data-gallery-image data-caption="Speed Ring / Native race HUD" aria-label="Enlarge: The starting grid at Speed Ring with the native race HUD"><img
+    src="/media/ports/sega-gt-online/race_hu_f4700a000e89b724.webp"
+    srcset="/media/ports/sega-gt-online/race_hu_f4700a000e89b724.webp 640w"
+    sizes="(max-width: 760px) 100vw, 640px"
+    width="640"
+    height="360"
+    alt="The starting grid at Speed Ring with the native race HUD"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption class="mono">Speed Ring / Native race HUD</figcaption></figure><figure><a class="gallery-zoom" href="/media/ports/sega-gt-online/showroom.jpg" data-gallery-image data-caption="Car Shop / Original cars and showroom" aria-label="Enlarge: An Opel Astra in the original car showroom"><img
+    src="/media/ports/sega-gt-online/showroom_hu_c4f4203a925b6ea5.webp"
+    srcset="/media/ports/sega-gt-online/showroom_hu_c4f4203a925b6ea5.webp 640w"
+    sizes="(max-width: 760px) 100vw, 640px"
+    width="640"
+    height="360"
+    alt="An Opel Astra in the original car showroom"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption class="mono">Car Shop / Original cars and showroom</figcaption></figure><figure><a class="gallery-zoom" href="/media/ports/sega-gt-online/event-menu.jpg" data-gallery-image data-caption="Event Race / Minimal UI" aria-label="Enlarge: The Minimal UI Event Race selector"><img
+    src="/media/ports/sega-gt-online/event-menu_hu_fe15e203435f01da.webp"
+    srcset="/media/ports/sega-gt-online/event-menu_hu_fe15e203435f01da.webp 640w"
+    sizes="(max-width: 760px) 100vw, 640px"
+    width="640"
+    height="360"
+    alt="The Minimal UI Event Race selector"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption class="mono">Event Race / Minimal UI</figcaption></figure><figure><a class="gallery-zoom" href="/media/ports/sega-gt-online/hood.jpg" data-gallery-image data-caption="On track / Optional hood camera" aria-label="Enlarge: A view of the Speed Ring circuit from the new hood camera"><img
+    src="/media/ports/sega-gt-online/hood_hu_8ed1590c57667cde.webp"
+    srcset="/media/ports/sega-gt-online/hood_hu_8ed1590c57667cde.webp 640w"
+    sizes="(max-width: 760px) 100vw, 640px"
+    width="640"
+    height="360"
+    alt="A view of the Speed Ring circuit from the new hood camera"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption class="mono">On track / Optional hood camera</figcaption></figure></div>
+    </div></section>
+    <section class="container port-release" id="release">
+        <div class="port-release__head"><p class="port-eyebrow mono">The next lap</p><h2>A home for the first release.</h2><p>The port is still in development. A downloadable build will appear here when it is ready.</p>
+            <p class="port-release__status mono"><i class="live-dot" aria-hidden="true"></i> Public release coming soon</p>
+            
+            
+            <p class="port-release__requirement">Windows PC · Your own European Xbox disc image required</p>
+        </div>
+        <div class="port-setup"><h3>When the build lands</h3><ol><li><span class="mono">01</span><div><h4>Extract the release</h4><p>Keep the executable and SDL3.dll together in a writable folder.</p></div></li><li><span class="mono">02</span><div><h4>Select your disc image</h4><p>Launch the game and choose your European Sega GT Online ISO. Asset preparation runs automatically on first launch.</p></div></li><li><span class="mono">03</span><div><h4>Set it up your way</h4><p>Choose your graphics and controls. For a wheel, open Options / Controls / Wheel, pedals and shifter setup. Remember to save your career from the game&#39;s Save menu.</p></div></li></ol></div>
+    </section>
+    <section class="container port-development" id="notes"><div class="port-editorial"><div><p class="port-eyebrow mono">Development snapshot / 5 October 2026</p><h2>Preservation is a process.</h2></div><div><p>Career menus, car purchases, manual saves and connected Official Events work. Recovery continues across full race behaviour, physics, collisions and presentation.</p><p>The enhanced renderer has GPU checks across Direct3D 12 and Vulkan, including SDR/HDR paths. Menus have been reviewed in both interface styles at 4:3 and 16:9. Wheel checks cover virtual devices, calibration, reconnects and both physics modes; physical hardware feel still needs testing.</p></div></div>
+        <div class="port-changelog"><h3>Recent work</h3><ul><li><time datetime="2026-10-04" class="mono">04 OCT 2026</time><div><h4>Wheel simulation and complete input setup</h4><p>Mixed-device steering, pedals, clutch, analog handbrake, paddles and H-pattern shifting; calibrated axes, configurable feedback, wheel menu bindings and reconnect handling.</p></div></li><li><time datetime="2026-10-04" class="mono">04 OCT 2026</time><div><h4>Menus, materials and a clearer interface</h4><p>Event Race reconstruction, Minimal UI, menu alignment fixes, reviewed PBR surfaces and individually configurable graphics effects.</p></div></li><li><time datetime="2026-10-03" class="mono">03 OCT 2026</time><div><h4>A broader modern lighting pipeline</h4><p>Recovered course light banks, original headlight projection, filtered dynamic reflections, exposure improvements and detailed player-car shadows.</p></div></li></ul></div>
+    </section>
+    <section class="container port-faq" id="faq"><div><p class="port-eyebrow mono">Before you drive</p><h2>A few useful answers.</h2></div><div><details><summary>What do I need to play?<span aria-hidden="true">+</span></summary><p>A Windows PC, a compatible Direct3D 12 or Vulkan graphics device, and your own European Sega GT Online Xbox disc image (ISO). Performance requirements and supported Windows versions will be documented with the first public build.</p></details><details><summary>Are the original game files included?<span aria-hidden="true">+</span></summary><p>The build uses your own European disc image. On first launch, select it in the file picker; the port validates it, copies it beside the executable and prepares the assets automatically. Your source image is left unchanged.</p></details><details><summary>Do I need Python, FFmpeg or an emulator?<span aria-hidden="true">+</span></summary><p>No. The native executable bundles its asset-preparation tools and restores the runtime files locally. Players do not need developer tools or an emulator. The release package includes the executable and SDL3.dll.</p></details><details><summary>Can I keep the original look?<span aria-hidden="true">+</span></summary><p>Yes. Minimal UI, widescreen and the rendering upgrades are configurable. The Graphics Upgrades master switch bypasses the enhanced lighting pipeline while keeping your individual choices. Some display settings require a restart.</p></details><details><summary>How do saves work?<span aria-hidden="true">+</span></summary><p>Career progress uses manual saves in a versioned PC format, stored locally under userdata. There is no autosave. Signed Sega GT Online Xbox saves are not compatible; the separate Sega GT 2002 import feature authenticates an old-title save using your own signing keys.</p></details><details><summary>Does Online mean online multiplayer works?<span aria-hidden="true">+</span></summary><p>Sega GT Online is the original game&#39;s title. Restored online multiplayer is not currently available. This page describes the native renderer and the connected offline game features.</p></details><details><summary>Is this an official release?<span aria-hidden="true">+</span></summary><p>This is an independent, unofficial native port by Panos Karabelas. Sega GT Online and its original artwork belong to their respective owners. The project is not affiliated with or endorsed by SEGA.</p></details></div></section>
+    <section class="container port-report" id="report-bug" aria-labelledby="report-title">
+        <div><p class="port-eyebrow mono">Help improve the port</p><h2 id="report-title">Found a bug?</h2><p>Tell me what happened in Sega GT Online, what you expected, and how to reproduce it.</p><p class="port-report__privacy">Your email is optional and lets me reply.</p></div>
+        <form class="port-report__form" action="https://formsubmit.co/panosconroe@hotmail.com" method="POST" data-bug-report data-endpoint="https://formsubmit.co/ajax/panosconroe@hotmail.com">
+            <input type="hidden" name="_subject" value="Sega GT Online — Bug report">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="game" value="Sega GT Online">
+            <input type="hidden" name="page" value="https://panoskarabelas.com/ports/sega-gt-online/">
+            <div class="port-report__trap" aria-hidden="true"><label for="report-website">Leave this field empty</label><input id="report-website" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="port-report__field"><label for="report-summary">Issue summary</label><input id="report-summary" name="summary" type="text" required minlength="5" maxlength="150" placeholder="A short title for the problem"></div>
+            <div class="port-report__pair"><div class="port-report__field"><label for="report-build">Build version <span>(optional)</span></label><input id="report-build" name="build" type="text" maxlength="80" placeholder="Version or build date"></div><div class="port-report__field"><label for="report-email">Your email <span>(optional)</span></label><input id="report-email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="For a reply"></div></div>
+            <div class="port-report__field"><label for="report-hardware">Hardware &amp; settings <span>(optional)</span></label><input id="report-hardware" name="hardware" type="text" maxlength="250" placeholder="Windows version, GPU, controller or wheel, relevant settings"></div>
+            <div class="port-report__field"><label for="report-details">What happened?</label><textarea id="report-details" name="message" rows="7" required minlength="20" maxlength="6000" placeholder="Steps to reproduce&#10;Expected result&#10;What happened instead"></textarea></div>
+            <div class="port-report__actions"><button class="btn btn--primary" type="submit">Send bug report <span aria-hidden="true">↗</span></button><p class="port-report__status" role="status" aria-live="polite" aria-atomic="true" data-report-status></p></div>
+            <noscript><p class="port-note">Submitting will open FormSubmit's confirmation page. Enable JavaScript to send without leaving this page.</p></noscript>
+        </form>
+    </section>
+    <div class="container port-bottom mono"><a href="/ports/">← All native ports</a><span>Unofficial project / Original game by SEGA</span></div>
+</article>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title"><div class="image-dialog__bar"><h2 id="image-dialog-title" class="mono">Sega GT Online / In-game captures</h2><button class="image-dialog__close" type="button" aria-label="Close image viewer">Close <span aria-hidden="true">×</span></button></div><img class="image-dialog__image" alt=""><div class="image-dialog__footer"><p class="image-dialog__caption"></p><div class="image-dialog__controls"><button type="button" data-gallery-prev aria-label="Previous image">←</button><span class="mono" data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Next image">→</button></div></div></dialog>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer__invitation"><div><p class="mono">Good work starts with a conversation.</p><a href="mailto:panosconroe@hotmail.com">Let's talk.</a></div><span aria-hidden="true">↗</span></div><div class="footer__grid">
+            <div class="footer__col footer__col--brand">
+                <a class="brand" href="/">
+                    <span class="brand__mark" aria-hidden="true">PK</span>
+                    <span class="brand__name">Panos Karabelas</span>
+                </a>
+                <p class="footer__tagline">Renderers, engines, and the odd conversation with people worth listening to.</p>
+                <div class="footer__cta">
+                    <a class="btn btn--primary btn--sm" href="mailto:panosconroe@hotmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> Get in touch
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h2>Site</h2>
+                <ul>
+                    <li><a href="/engine/">Engine</a></li>
+                    <li><a href="/projects/">Work</a></li>
+                    <li><a href="/ports/">Ports</a></li>
+                    <li><a href="/blog/">Writing</a></li>
+                    <li><a href="/podcast/">Podcast</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/media/cv.html" target="_blank" rel="noopener">CV</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/PanosK92" target="_blank" rel="me noopener">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/panoskarabelas" target="_blank" rel="me noopener">X</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@panos_karabelas" target="_blank" rel="me noopener">YouTube</a>
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/TG5r2BS" target="_blank" rel="me noopener">Discord</a>
+                    </li>
+                    <li>
+                        <a href="mailto:panosconroe@hotmail.com">Email</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bar">
+            <p>&copy; 2026 Panos Karabelas</p>
+            <p>Hand built. No trackers.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <button class="to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+    </button>
+
+    
+    <script defer src="/js/site.1dd3c6bb068a4d1d45f9eb0fe4d9395fca333d1e473b0f27c2e8d37586df4b2e.js" integrity="sha256-HdPGuwaKTR1F&#43;esP5Nk5X8ozPR5HOw8nwujTdYbfSy4="></script>
+    
+</body>
+</html>

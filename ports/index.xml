@@ -10,19 +10,5 @@
 		<lastBuildDate>Sun, 04 Oct 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://panoskarabelas.com/ports/index.xml" rel="self" type="application/rss+xml" />
 		
-		<item>
-			<title>Sega GT Online</title>
-			<link>https://panoskarabelas.com/ports/sega-gt-online/</link>
-			<pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/ports/sega-gt-online/</guid>
-			<description><![CDATA[Sega GT Online rebuilt for Windows: a native PC port with modern lighting, HDR, widescreen presentation and restored career features.]]></description><content type="text/html" mode="escaped"><![CDATA[<p>Sega GT Online is being rebuilt as a native Windows port, with modern lighting, widescreen presentation and restored offline features. <a href="/ports/sega-gt-online/">Explore the improvements and release information</a>.</p>
-]]></content>
-		</item>
-		<item>
-			<title>Dino Crisis 2</title>
-			<link>https://panoskarabelas.com/ports/dino-crisis-2/</link>
-			<pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/ports/dino-crisis-2/</guid>
-			<description><![CDATA[Dino Crisis 2 rebuilt for Windows: native gameplay, optional 4× artwork, improved character models and modern controls. An independent project in development.]]></description><content type="text/html" mode="escaped"><![CDATA[<p>Dino Crisis 2 is being recreated for Windows, with optional visual upgrades and restored opening gameplay. <a href="/ports/dino-crisis-2/">Explore the project and release information</a>.</p>
-]]></content>
-		</item>
 	</channel>
 </rss>

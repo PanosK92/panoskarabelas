@@ -29,6 +29,9 @@
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ $site.Params.author.name | default $site.Title }}">
 <meta name="theme-color" content="#10110f">
+{{- if .Params.unlisted }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 
 <meta property="og:site_name" content="{{ $site.Title }}">

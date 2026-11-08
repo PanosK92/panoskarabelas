@@ -7,9 +7,278 @@
 		<generator>Hugo -- 0.164.0</generator>
 		<language>en</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 04 Oct 2026 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 08 Nov 2026 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://panoskarabelas.com/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Twelve years of building a game engine, and what it means to finish one</title>
+			<link>https://panoskarabelas.com/blog/posts/finishing_a_game_engine/</link>
+			<pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/blog/posts/finishing_a_game_engine/</guid>
+			<description><![CDATA[From a yellow triangle to an island you can drive across. On finishing Spartan, why it was my rocket, and why it won&#39;t be yours.]]></description><content type="text/html" mode="escaped"><![CDATA[<figure>
+    <img
+    src="/media/engine/showcase_ferrari_hu_aabab4e510bcd92c.webp"
+    srcset="/media/engine/showcase_ferrari_hu_bd09418babbbdfef.webp 640w, /media/engine/showcase_ferrari_hu_341f1e85c2687e8a.webp 1024w, /media/engine/showcase_ferrari_hu_aabab4e510bcd92c.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="808"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ></figure>
+<p>Around 2014, I opened a window and drew a yellow triangle on a blue background. Twelve years and more than 8,000 commits later, that same codebase renders an island some 30 kilometres across, with towns, an airport, more than 200 roads, forests, an FFT ocean and cars simulated at 200 Hz. Path traced. Every frame.</p>
+<p>Drag the handle. That&rsquo;s the whole story in one picture.</p>
+<figure>
+    <div class="compare" tabindex="0" role="slider"
+         aria-label="Compare 2014 with 2026"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <img
+    src="/media/post_finished_2014_triangle_wide_hu_37ee3ceeb87e6e2.webp"
+    srcset="/media/post_finished_2014_triangle_wide_hu_6d649277719a53c6.webp 640w, /media/post_finished_2014_triangle_wide_hu_1dbd120e321cd2fb.webp 1024w, /media/post_finished_2014_triangle_wide_hu_37ee3ceeb87e6e2.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="808"
+    alt="2014"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    >
+        <div class="compare__after">
+            <img
+    src="/media/engine/showcase_island_town_hu_d0dad355e0a11fca.webp"
+    srcset="/media/engine/showcase_island_town_hu_2ed9bd77f269574a.webp 640w, /media/engine/showcase_island_town_hu_5b2ad51833d2fe4f.webp 1024w, /media/engine/showcase_island_town_hu_d0dad355e0a11fca.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="808"
+    alt="2026"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    >
+        </div>
+        <div class="compare__handle" aria-hidden="true">
+            <span class="compare__grip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/></svg></span>
+        </div>
+        <span class="compare__tag compare__tag--before">2014</span>
+        <span class="compare__tag compare__tag--after">2026</span>
+    </div><figcaption>The first frame Spartan ever rendered, and Zakynthos today. Same codebase, same engineer.</figcaption>
+</figure>
+<p>I&rsquo;ve written about the engine before, about <a href="/blog/posts/kiss/">what twelve years of rewrites taught me about simplicity</a>. This post is different. This time I want to say a word that almost nobody who builds an engine ever gets to say.</p>
+<p>Finished.</p>
+<p>I don&rsquo;t know of many people who have kept one engine alive in public for twelve years, worked on it nonstop, actually brought it to the point where you can ship with it, and then sat down to write about what that was like. So here it is.</p>
+<h2 id="what-finished-means">What finished means<a class="anchor" href="#what-finished-means" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>Let me get the obvious part out of the way: an engine is never finished. There is always a faster path, a better shadow, a new GPU feature, a bug hiding in a system you haven&rsquo;t touched in three years. Anyone who tells you their engine is done is either lying or has stopped working on it.</p>
+<p>So when I say finished, I mean something specific. I mean that Spartan now has enough features to make most games. Not tech demos. Games. It has the editor, Lua scripting, a standalone runtime, a game builder that packages a world into something you can ship, Steam integration, full documentation. And as of this month, visual scripting. You can build an entire game without writing a single line of Lua or C++, if that&rsquo;s what you prefer.</p>
+<p>That last piece is the one that made me draw the line. I&rsquo;ll explain why. But first, how a triangle turned into this.</p>
+<h2 id="why-an-engine">Why an engine<a class="anchor" href="#why-an-engine" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>I was more than halfway through university when it hit me. I had to do something with my life, and the degree was not going to cut it.</p>
+<p>I&rsquo;ve never been a believer in degrees. To me, the piece of paper means nothing. It says you sat in rooms for a number of years. It doesn&rsquo;t say you can build anything. And I wanted to break into the game industry, an industry that, as far as I could tell, cared a lot more about what you could build than about what you had studied.</p>
+<p>So the question became: what do I build?</p>
+<p>The obvious answer was a game. But think about what making a game meant back then. You needed a programmer, a designer, an artist, someone for sound, someone for animation. You needed a team. Shipping a game on your own was brutally difficult, and shipping something good on your own was close to impossible. It&rsquo;s a multidisciplinary problem, and I was one person.</p>
+<p>So I didn&rsquo;t start from the goal. I started from the constraints, and reasoned my way up from first principles.</p>
+<p>I was one person. I could program, and I could keep going for a very long time. A game needed too many disciplines for one person to finish. So the question became: <em>what can I build, alone, that has real value to somebody else? Something people would pay for, and something that never has to be finished, it just keeps growing?</em></p>
+<p>The answer was a game engine. I didn&rsquo;t choose it because it was cool, or because someone told me to. My circumstances, reasoned through from first principles, defined the goal.</p>
+<figure>
+    <img
+    src="/media/post_finished_2014_crate_hu_99a4bbd38816ed6d.webp"
+    srcset="/media/post_finished_2014_crate_hu_235b43de7b9896b3.webp 640w, /media/post_finished_2014_crate_hu_aff3e202b05a24d4.webp 1024w, /media/post_finished_2014_crate_hu_99a4bbd38816ed6d.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="864"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Physics comes online. A textured crate, Bullet physics, and Visual Studio wrapped around everything.</figcaption></figure>
+<p>It started small, like everything does. A triangle. Then a textured crate with physics. Then a Jeep in a world with houses, a frame counter in the corner, and the whole solution explorer visible in the screenshot because at the time, the code <em>was</em> the product.</p>
+<figure>
+    <img
+    src="/media/post_finished_2015_jeep_hu_57a0a9951c8bb7b7.webp"
+    srcset="/media/post_finished_2015_jeep_hu_fb2694af7446012a.webp 640w, /media/post_finished_2015_jeep_hu_84af84f5c1c2786b.webp 1024w, /media/post_finished_2015_jeep_hu_57a0a9951c8bb7b7.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="900"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>February 2015. “Directus Engine”, 62 FPS, and a solution explorer that still fits on one screen.</figcaption></figure>
+<p>Back then it wasn&rsquo;t called Spartan. It was called Directus3D, a codename that stuck around for years. By August 2015 it had a skysphere, a G-buffer and a console that proudly announced every shader it compiled.</p>
+<figure>
+    <img
+    src="/media/post_finished_2015_hermes_hu_dbec7ca797356af0.webp"
+    srcset="/media/post_finished_2015_hermes_hu_ae7b828e8a33c419.webp 640w, /media/post_finished_2015_hermes_hu_a8e28b049dee7312.webp 1024w, /media/post_finished_2015_hermes_hu_dbec7ca797356af0.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="900"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>August 2015. A Hermes bust under a skysphere, on a GTX 660 Ti.</figcaption></figure>
+<p>Then came an editor. A hierarchy, an inspector, a project browser. It looked like what I thought an engine was supposed to look like, because I was learning by building, and building by imitating what I admired.</p>
+<figure>
+    <img
+    src="/media/post_finished_editor_first_hu_41b9bca1c9a180b8.webp"
+    srcset="/media/post_finished_editor_first_hu_2592017c1ba989a6.webp 640w, /media/post_finished_editor_first_hu_d01c0c0e883587bb.webp 1024w, /media/post_finished_editor_first_hu_41b9bca1c9a180b8.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="849"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>The first editor. Wheatley from Portal 2, a chrome material test and a lot of empty grey panels.</figcaption></figure>
+<figure>
+    <img
+    src="/media/post_finished_directus3d_hu_d9c5fc6ce396bfa1.webp"
+    srcset="/media/post_finished_directus3d_hu_dcd983beedb71f6.webp 640w, /media/post_finished_directus3d_hu_a81f30d03b35d037.webp 1024w, /media/post_finished_directus3d_hu_d9c5fc6ce396bfa1.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="862"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Directus3D grows up: physically based materials, rigid bodies, colliders and a night scene.</figcaption></figure>
+<p>In 2019, I renamed it. Directus3D had always been a codename, and by then I knew what the engine actually was, and what it was becoming. Stripped down. Nothing unnecessary. Built to endure. Spartan.</p>
+<figure>
+    <img
+    src="/media/post_finished_spartan_sponza_hu_46a58181b33a0c43.webp"
+    srcset="/media/post_finished_spartan_sponza_hu_dc0bddc8209514b2.webp 640w, /media/post_finished_spartan_sponza_hu_be6f48c581ce95f3.webp 1024w, /media/post_finished_spartan_sponza_hu_46a58181b33a0c43.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="870"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Spartan on Vulkan. Sponza, a real profiler, renderer options and a GPU that would have been science fiction in 2014.</figcaption></figure>
+<figure>
+    <img
+    src="/media/post_finished_audi_hu_a24e4b65687309b4.webp"
+    srcset="/media/post_finished_audi_hu_a802bc2fe60cbf69.webp 640w, /media/post_finished_audi_hu_4fe1f59a4e32726e.webp 1024w, /media/post_finished_audi_hu_a24e4b65687309b4.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="785"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Layered car paint and reflections. By now, the screenshots were doing the talking.</figcaption></figure>
+<h2 id="raised-spartan">Raised Spartan<a class="anchor" href="#raised-spartan" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>People sometimes ask me how I kept going for twelve years. They expect a story about motivation, or discipline, or some trick for staying productive. The honest answer is less glamorous.</p>
+<p>I never had to find the strength. It was already there, because of where I came from.</p>
+<p>I&rsquo;ve been through difficult phases in my life, from poverty to whatever you can imagine. Nothing was given to me. I had to take everything. And when that&rsquo;s your starting point, something strange happens to the idea of a low point. They exist, of course. I had them. But they didn&rsquo;t register the way people expect them to. Hard was the baseline. Hard was normal.</p>
+<figure>
+    <img
+    src="/media/post_finished_corinthian_helmet_hu_4ef8cee0dd6adea8.webp"
+    srcset="/media/post_finished_corinthian_helmet_hu_509969f76fe5fa0a.webp 640w, /media/post_finished_corinthian_helmet_hu_176e72ad49136f37.webp 1024w, /media/post_finished_corinthian_helmet_hu_4ef8cee0dd6adea8.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="1550"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>A bronze helmet of Corinthian type, the kind Greek hoplites wore into battle. The Metropolitan Museum of Art, public domain.</figcaption></figure>
+<p>The ancient Spartans understood this better than anyone. According to Plutarch, Spartan boys were taken into the <em>agoge</em> at the age of seven. Communal training, little food, no shoes, and from the age of twelve, a single cloak for the whole year. The point was that a man raised in hardship doesn&rsquo;t experience hardship as an obstacle. He experiences it as the weather.</p>
+<p>That one idea, that hardship can become your baseline rather than your enemy, is exactly what I lived. The Spartans even gave us a word for my favourite way to write code. They came from Laconia, and they were famous for saying as much as possible with as little as possible. <em>Laconic.</em></p>
+<p>As long as I had the basics taken care of, I could write code like a machine. Every day. For as long as it took. I knew that about myself from the very beginning, which is why I was never afraid of a project with no end date.</p>
+<p>So I worked like a soldier.</p>
+<h2 id="the-engine-opens-doors">The engine opens doors<a class="anchor" href="#the-engine-opens-doors" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>Here&rsquo;s something most people get wrong about opportunity. They think it comes from degrees. From certifications. From climbing to a slightly better job, and then a slightly better one after that.</p>
+<p>In my experience, it doesn&rsquo;t. Opportunity comes from people. People who walk in because you did something great.</p>
+<p>The engine did that for me, over and over again, in ways I could never have predicted. It took my life from the routine, from just living and working and repeating, to a completely different level. And the strangest part is how it happened.</p>
+<p>I stopped hunting for jobs. The jobs started coming to me.</p>
+<p>People from high up in companies would reach out directly. Not recruiters, not HR. The people who actually make decisions. They&rsquo;d ask for help, and they&rsquo;d give me the freedom to choose the money and the terms I wanted. And when I wanted something myself, the door was already open. I could get an interview with whoever I wanted, from Naughty Dog to Remedy. The engine didn&rsquo;t just open doors. It brought people to mine.</p>
+<p>It didn&rsquo;t stop at jobs, either. Spartan&rsquo;s TAA ended up in <a href="https://github.com/godotengine/godot/blob/37d51d2cb7f6e47bef8329887e9e1740a914dc4e/servers/rendering/renderer_rd/shaders/effects/taa_resolve.glsl#L2">Godot</a>. Its rendering code ships in a <a href="https://www.moddb.com/mods/stalker-anomaly/addons/screen-space-shaders">S.T.A.L.K.E.R. Anomaly addon</a>. It&rsquo;s in a <a href="https://www.amazon.com/dp/B0CXG1CMNK">published programming book</a>. More than 600 engineers follow its development on Discord. I didn&rsquo;t plan any of it. It just happened, because the work was there for people to find.</p>
+<figure>
+    <img
+    src="/media/post_finished_livestream_hu_20500eb652989294.webp"
+    srcset="/media/post_finished_livestream_hu_bd4c4a0a82284b2f.webp 640w, /media/post_finished_livestream_hu_1935ac0b2034c1f9.webp 1024w, /media/post_finished_livestream_hu_20500eb652989294.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="900"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Building in public. When the work is visible, people find it.</figcaption></figure>
+<p>And once that starts, your job becomes very simple. You don&rsquo;t have to worry about job hunting anymore. You don&rsquo;t have to network, or polish a CV, or play a game you don&rsquo;t believe in. You just have to be really good at what you do.</p>
+<p>That&rsquo;s it. Be really good at what you do. The rest manifests.</p>
+<h2 id="why-visual-scripting-is-the-line">Why visual scripting is the line<a class="anchor" href="#why-visual-scripting-is-the-line" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>Visual scripting is nothing special as a feature. Every major engine has it. I&rsquo;m not going to pretend I invented node graphs.</p>
+<p>For me, it&rsquo;s a statement.</p>
+<p>For years, I made Spartan difficult to use. On purpose. There was no scripting, not visual, not even Lua. Just C++. People would ask for it, and I&rsquo;d say no. Not because I didn&rsquo;t want people using the engine, but because I knew something they didn&rsquo;t: the scope was massive, and parts of it were incomplete. I have a very high bar, and the engine wasn&rsquo;t clearing it yet.</p>
+<p>Exposing an engine of that scope, while parts of it were still unfinished, would have been pointless. You don&rsquo;t hand someone the keys to a house that doesn&rsquo;t have floors yet. They&rsquo;ll fall through, they&rsquo;ll blame the house, and they&rsquo;ll be right.</p>
+<p>Now the floors are there. The internals are robust enough that I&rsquo;m confident in them, and that confidence is what changed. So I opened the doors, and I did it with the most accessible way in there is: drag a node, connect a wire, press play.</p>
+<figure>
+    <img
+    src="/media/post_finished_visual_scripting_hu_e881aeaacf2883be.webp"
+    srcset="/media/post_finished_visual_scripting_hu_4626405aaa4f916d.webp 640w, /media/post_finished_visual_scripting_hu_e881aeaacf2883be.webp 1024w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1024"
+    height="520"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Lesson four from the tutorial world: a light that blinks, built from twelve nodes and zero lines of code.</figcaption></figure>
+<p>Every engine API function is available as a node. The graph compiles to Lua, so nothing is hidden, and it runs exactly like Lua written by hand. There&rsquo;s a tutorial world with four small lessons that take you from your first tick event to branching logic.</p>
+<p>In <a href="/blog/posts/kiss/">my SR-71 post</a>, I wrote about how Kelly Johnson designed the SR-71 so that an average mechanic with a handful of standard tools could service it. Visual scripting is my version of that. But notice the order. Johnson didn&rsquo;t build for the field mechanic first and the edge of space second. He built an aircraft that could survive Mach 3.2, and <em>then</em> made sure anyone could maintain it.</p>
+<p>That&rsquo;s where I draw the line. Not because of the feature itself. Because of what it means: the airframe is solid, so now I can hand out the wrenches.</p>
+<h2 id="the-soldier-becomes-a-general">The soldier becomes a general<a class="anchor" href="#the-soldier-becomes-a-general" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>Let me be clear about where I stand on AI, because it&rsquo;s a big part of this story.</p>
+<p>I love AI. I think it&rsquo;s the future, and anyone who doesn&rsquo;t see that is going to become history. And I mean that literally, not as a slogan.</p>
+<p>AI won&rsquo;t replace you. The developer who uses AI will. It multiplies your output by ten. It writes better code than most humans, and it makes far fewer mistakes. People love to call AI code slop. Have you seen what humans write? We&rsquo;ve been shipping slop for decades. We were just slower at it.</p>
+<p>Now, I&rsquo;m aware that this is where a lot of people stop nodding. And I want to be fair: AI is a tool, and a tool amplifies whoever is holding it. Point it at a problem without understanding the problem, and it will amplify your confusion at ten times the speed. Taste, judgement and direction still have to come from somewhere. That part hasn&rsquo;t changed. What changed is everything else.</p>
+<p>Here&rsquo;s what AI didn&rsquo;t do. It didn&rsquo;t build Spartan. The skeleton and the philosophy were already there, twelve years of them, written by hand, rewritten by hand, burned down and rebuilt by hand.</p>
+<p>Here&rsquo;s what it did do. It gave me back time. Without it, getting the engine to where it is today would have taken me at least another three or four years. Fifteen years, maybe more. Instead it&rsquo;s twelve, and nothing was skipped to get there.</p>
+<p>It&rsquo;s like having an employee. I literally pay for him. I dictate, and he writes the routine code, the boilerplate, the scripts, the glue. I act as the technical director. I look at the engine from above, and I worry about the things that actually matter.</p>
+<p>That&rsquo;s the real gain. Not the code it writes. The work it takes off my plate. My grey matter isn&rsquo;t wasted on a Python script anymore. It goes where it should go, like optimising the renderer. And from up there, with the routine out of the way, I design better.</p>
+<p>For most of these twelve years, I was the soldier. Alone, in the trenches, doing everything by hand. Now I&rsquo;m the general. Same person. Different job.</p>
+<h2 id="the-rocket-wont-fly-twice">The rocket won&rsquo;t fly twice<a class="anchor" href="#the-rocket-wont-fly-twice" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>People love to say <em>&ldquo;don&rsquo;t build an engine, build a game.&rdquo;</em> I always found that advice foolish.</p>
+<p>Build an engine. Build whatever the hell you want. Especially back then, before AI, building an engine was one of the best things a young programmer could possibly do. You learn everything. Math, hardware, architecture, performance, tooling, the works. Nothing teaches you like a problem that has no bottom.</p>
+<p>For me, it was more than education. It was a rocket. I was strapped to it, and it took me places. People, opportunities, doors I didn&rsquo;t know existed.</p>
+<p>But I want to be honest with anyone starting out today: <strong>it won&rsquo;t be that rocket for you.</strong></p>
+<p>Not because engines stopped mattering. Because the novelty is gone. Value comes from scarcity, and the scarcity is gone. If someone can sit in their office and manifest an engine, or a renderer, or whatever system they need, by talking to an LLM for an afternoon, then the fact that you built one by hand doesn&rsquo;t impress them the way it impressed people a decade ago. There&rsquo;s no value in offering people something they can already have.</p>
+<p>So if you love it, build one. If you want to learn, build one. You&rsquo;ll come out the other side a better engineer, I promise you that.</p>
+<p>But there&rsquo;s a mistake I see all the time. People meet me, hear the story, and go off to build an engine. I&rsquo;m happy they do. But I can usually tell they didn&rsquo;t reason their way there. They copied my <em>conclusion</em>, not my <em>reasoning</em>.</p>
+<p>That matters, because the conclusion was never the point. It was the output of a set of constraints that existed twelve, fourteen years ago. One person, too many disciplines, no AI, and a world where an engine built by hand was rare enough to open doors. Change the constraints and the answer changes with them. You can&rsquo;t take a decision someone made fourteen years ago and run it today. It might work. It might not. Either way, you&rsquo;re not thinking. You&rsquo;re imitating.</p>
+<p>If you reason from first principles, you don&rsquo;t need anyone&rsquo;s old answer. You can derive the next one yourself, and you&rsquo;ll see the goal moving before everyone else does. That&rsquo;s how I knew an engine was the right move then, and it&rsquo;s how I know it isn&rsquo;t the same move now.</p>
+<p>So if there&rsquo;s one thing from this post I&rsquo;d want you to keep, it&rsquo;s this. <strong>When a decision is going to cost you years of your life and a lot of money, reason from first principles.</strong> Every single time. It&rsquo;s worth it.</p>
+<p>And if you&rsquo;re looking for a rocket today, reason it through and you&rsquo;ll land where I did. Look one level up. The game has gone meta. The question is no longer <em>&ldquo;can I build an engine?&rdquo;</em> The question is <em>&ldquo;what can I build with an engine and AI that nobody could build before?&rdquo;</em></p>
+<h2 id="a-studio-of-one">A studio of one<a class="anchor" href="#a-studio-of-one" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>Here&rsquo;s my prediction. We&rsquo;re going to see the first AAA and AA studios run by single-digit headcounts.</p>
+<p>I know how that sounds. Look at the industry right now, though. Studios are overloaded. The budgets, the headcount, the years it takes to ship anything, the internal politics. Games that take seven years and hundreds of people, and then underperform because the world moved on while they were in production. It isn&rsquo;t sustainable, and you can see it isn&rsquo;t. Studios closing. Waves of layoffs, one after another. It all keeps going in the same direction.</p>
+<p>What replaces it is a sustainable model. Fewer people, far more skilled. People with a vision and a creative direction, who can wield the engine, the AI and the art at the same time. A handful of high-agency individuals with the output of a hundred.</p>
+<p>Am I sure about the timing? No. Predictions like this are always early before they&rsquo;re right. There will be studios that try this and fail, and people will point at them and say it doesn&rsquo;t work. But the direction is set. The output multiplier is real. I feel it every single day. And a multiplier like that doesn&rsquo;t get un-invented.</p>
+<h2 id="just-getting-started">Just getting started<a class="anchor" href="#just-getting-started" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
+<p>So, is Spartan finished? Yes.</p>
+<p>And I&rsquo;m just getting started. I&rsquo;m smiling as I write this.</p>
+<p>For as long as I can remember, I&rsquo;ve carried a game in my head. It&rsquo;s inspired by Gran Turismo 4 and Test Drive Unlimited, and it&rsquo;s detailed down to the last corner. For most of my life, it was the kind of game you&rsquo;d need a studio and millions of dollars to make. Millions. A team, a building, a publisher, years.</p>
+<p>Now I have my engine. And I have AI. Suddenly, the thing that needed a studio is within reach of one person.</p>
+<figure>
+    <img
+    src="/media/engine/showcase_ferrari_close_hu_dd85a6bcb2fef55c.webp"
+    srcset="/media/engine/showcase_ferrari_close_hu_e243c54e86abce30.webp 640w, /media/engine/showcase_ferrari_close_hu_696a55c678576792.webp 1024w, /media/engine/showcase_ferrari_close_hu_dd85a6bcb2fef55c.webp 1600w"
+    sizes="(max-width: 860px) 100vw, 760px"
+    width="1600"
+    height="808"
+    alt=""
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    ><figcaption>Where it&#39;s heading. Layered clearcoat paint and ray-traced reflections, all in real time.</figcaption></figure>
+<p>It already has an island to live on. The Zakynthos you saw at the top of this post, some 30 kilometres across, with racing-grade physics running underneath. That&rsquo;s not a tech demo waiting for a purpose. That&rsquo;s the beginning of the game.</p>
+<p>So I&rsquo;m seizing it. I&rsquo;m not predicting single-digit AAA studios from the sidelines. I&rsquo;m going to be one. I say what I believe, and then I go and do it.</p>
+<p>The triangle took twelve years to become an island. Let&rsquo;s see what the next few years do with an engine and AI.</p>
+<p>If any of this resonated with you, come take a look. It&rsquo;s on GitHub, it&rsquo;s documented, and for the first time in twelve years, it&rsquo;s ready for you.</p>
+<p><strong><a href="https://github.com/PanosK92/SpartanEngine">Spartan Engine on GitHub</a></strong></p>
+]]></content>
+		</item>
 		<item>
 			<title>Spacetime is the headset. Consciousness is what&#39;s there when you take it off.</title>
 			<link>https://panoskarabelas.com/blog/posts/consciousness/</link>

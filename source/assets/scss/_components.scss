@@ -484,6 +484,8 @@ a.card:hover,
 .compare img {
     display: block;
     width: 100%;
+    pointer-events: none;
+    -webkit-user-drag: none;
 }
 
 .compare__after {

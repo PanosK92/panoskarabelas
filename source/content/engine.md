@@ -21,8 +21,8 @@ image = "/media/engine/showcase_ferrari.jpg"
   label = "Forks"
 
 [[stats]]
-  value = "MIT"
-  label = "Licence, free with attribution"
+  value = "Free"
+  label = "Until your game earns $1M"
 
 [principle]
   title = "The GPU owns the data"

@@ -54,8 +54,8 @@
     if (!host)
         return;
 
-    // the engine needs webgpu and wasm stack switching (jspi), without them the poster stays
-    var supported = !!navigator.gpu && typeof WebAssembly === "object" && typeof WebAssembly.Suspending === "function";
+    // the engine needs webgpu, without it the poster stays
+    var supported = !!navigator.gpu;
     if (!supported)
     {
         host.querySelector("[data-engine-live-note]").hidden = false;
@@ -123,8 +123,8 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <h2 class="section-head__title">Over twenty worlds ship with the engine</h2>
-                <p class="section-head__lead">Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
+                <h2 class="section-head__title">A wide range of worlds ships with the engine</h2>
+                <p class="section-head__lead">From a 30 km island, Sponza and a car showroom to procedural liminal rooms, dreamcore spaces, road networks, weather and GPU particles — all physics-enabled and ready to explore.</p>
             </div>
         </div>
         <div class="engine-gallery reveal">

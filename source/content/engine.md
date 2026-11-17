@@ -14,7 +14,7 @@ image = "/media/engine/showcase_ferrari.jpg"
   poster = "/media/engine/showcase_human_close.jpg"
   alt = "Close-up of a photoscanned head rendered in Spartan Engine"
   caption = "About 60 MB on first load"
-  fallback = "Your browser doesn't expose WebGPU with JSPI, so this is a screenshot. Open the page in a recent Chrome or Edge on desktop to see it live."
+  fallback = "Your browser doesn't expose WebGPU yet, so this is a screenshot. Open the page in a recent Chrome, Edge or Safari to see it live."
 
 [[stats]]
   value = "live-stars"
@@ -110,9 +110,19 @@ image = "/media/engine/showcase_ferrari.jpg"
   caption = "sponza — the classic atrium, no probes and no bake"
 
 [[gallery]]
-  src = "/media/engine/world_selection_4.png"
-  alt = "The Spartan Engine world launcher showing its selectable worlds"
-  caption = "the world launcher"
+  src = "/media/engine/world_dreamcore.jpg"
+  alt = "Surreal red-tiled arches, floating planets and glowing portals over a reflective floor at dusk"
+  caption = "dreamcore — surreal arches, glowing portals and reflections"
+
+[[gallery]]
+  src = "/media/engine/world_roads.jpg"
+  alt = "Spline-authored asphalt roads curving across grassy terrain with vehicles under a cloudy sky"
+  caption = "roads — procedural spline road networks and traffic"
+
+[[gallery]]
+  src = "/media/engine/world_particles.jpg"
+  alt = "GPU particle systems showing fire, smoke, steam, sparks, embers, magic, snow and a waterfall at dusk"
+  caption = "particles — fire, smoke, sparks, snow and fluid splashes on the GPU"
 +++
 
 ## Why it exists

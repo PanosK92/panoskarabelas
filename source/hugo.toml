@@ -38,12 +38,7 @@ disableKinds = ["taxonomy", "term"]
   ogImage = "/media/engine/world_showroom_a.png"
   cvURL = "/media/cv.html"
   twitterHandle = "@panoskarabelas"
-  footerTagline = "Renderers, engines, and the odd conversation with people worth listening to."
   footerNote = "Hand built. No trackers."
-
-  # current position, shown in the hero status pill and the work timeline
-  currentRole = "Graphics / Engine Programmer"
-  currentOrg = "BeamNG"
 
   # canonical external destinations
   engineRepo = "https://github.com/PanosK92/SpartanEngine"

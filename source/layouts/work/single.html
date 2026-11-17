@@ -3,7 +3,6 @@
 
 <div class="container">
     <header class="page-head">
-        <p class="mono section-head__eyebrow">Experience</p>
         <h1 class="page-head__title">{{ .Title }}<span class="accent">.</span></h1>
         {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
     </header>
@@ -17,13 +16,10 @@
             {{- $e := . }}
             <li id="{{ $e.org | anchorize }}" class="career__item{{ if $e.current }} career__item--current{{ end }}">
                 <div class="career__rail">
-                    <p class="career__years">{{ $e.years }}</p>
+                    <p class="career__years">{{ $e.years }}{{ with $e.location }}<span class="career__location">{{ . }}</span>{{ end }}</p>
                 </div>
                 <div class="career__content reveal">
-                    <h2 class="career__org">
-                        {{ $e.org }}
-                        {{- if $e.current }}<span class="chip chip--accent">Current</span>{{ end }}
-                    </h2>
+                    <h2 class="career__org">{{ $e.org }}</h2>
                     <p class="career__role">{{ $e.role }}</p>
 
                     {{- if or $e.body $e.points }}
@@ -55,7 +51,6 @@
 
                     {{- with $e.videos }}
                     <div class="career__media career__media--wide">
-                        {{- with $e.videoNote }}<p class="mono career__video-note">{{ . }}</p>{{ end }}
                         <div class="video-grid">
                             {{- range . }}
                             {{ partial "video.html" (dict "id" .id "title" .title) }}
@@ -69,10 +64,6 @@
                         {{- range . }}<li class="chip">{{ . }}</li>{{ end }}
                     </ul>
                     {{- end }}
-
-                    {{- with $e.location }}
-                    <p class="career__location mono">{{ . }}</p>
-                    {{- end }}
                 </div>
             </li>
             {{- end }}
@@ -85,9 +76,8 @@
     <div class="container">
         <a class="engine-callout reveal" href="{{ "/engine/" | relURL }}">
             <div class="engine-callout__body">
-                <p class="mono section-head__eyebrow">Running through all of it</p>
                 <h2>Spartan Engine</h2>
-                <p>Twelve years, one codebase, one engineer. A bindless GPU-driven renderer with real-time path-traced global illumination. It is the reason AMD hired me, and the reason their clients trusted me once I was there.</p>
+                <p>Twelve years, one codebase, one engineer. It is the reason AMD hired me, and the reason their clients trusted me once I was there.</p>
                 <span class="link-arrow">The full breakdown {{ partial "icon.html" "arrow-right" }}</span>
             </div>
             <div class="engine-callout__media">
@@ -105,12 +95,9 @@
 <section class="section">
     <div class="container">
         <div class="section-head">
-            <div>
-                <p class="mono section-head__eyebrow">Education and distinctions</p>
-                <h2 class="section-head__title">Where it started</h2>
-            </div>
+            <h2 class="section-head__title">Education and distinctions</h2>
         </div>
-        <ul class="archive reveal">
+        <ul class="archive archive--fit reveal">
             {{- range . }}
             <li class="archive__item">
                 <span class="archive__year">{{ .years }}</span>
@@ -129,9 +116,8 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Earlier work</p>
                 <h2 class="section-head__title">2011 to 2016, in Greece</h2>
-                <p class="section-head__lead">Student projects, hackathon builds and Windows Store experiments. Small, scrappy, and the reason the rest of this page exists.</p>
+                <p class="section-head__lead">Student projects, hackathon builds and Windows Store experiments.</p>
             </div>
         </div>
         <ul class="archive reveal">
@@ -161,7 +147,6 @@
         <div class="promo reveal">
             <div class="promo__grid">
                 <div>
-                    <p class="mono section-head__eyebrow">Going low</p>
                     <h2>{{ .title }}</h2>
                     <p>{{ .body }}</p>
                 </div>

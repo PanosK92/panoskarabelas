@@ -4,8 +4,6 @@ type = "about"
 description = "Panos Karabelas: rendering and engine programmer, creator of Spartan Engine, podcast host. Based in Manchester, originally from Greece."
 image = "/media/engine/showcase_ferrari.jpg"
 
-lead = "Creator of Spartan Engine. A rendering programmer drawn to hard problems, ambitious worlds, and the systems that make them possible."
-
 portrait = "/media/panos_working.jpg"
 portraitAlt = "Panos Karabelas working at a desk surrounded by monitors and hand-drawn GPU diagrams"
 
@@ -84,9 +82,6 @@ hobbies = ["Friday beers", "Running", "Investing", "Guitar", "Food"]
   [[taste.picks]]
     pick = "Elon Musk — Ashlee Vance"
     why = "On what first-principles thinking looks like when it is applied without a safety net."
-
-[longLists]
-  note = "The unabridged versions, for completeness."
 
 [[longLists.columns]]
   heading = "Games"

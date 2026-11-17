@@ -48,7 +48,7 @@
 }
 
 .section-head__lead {
-    max-width: 52ch;
+    max-width: 68ch;
     margin-top: var(--s-3);
     color: var(--c-text-mute);
 }
@@ -303,17 +303,6 @@
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr;
     gap: var(--s-7);
-}
-
-.footer__tagline {
-    max-width: 34ch;
-    margin-top: var(--s-4);
-    font-size: var(--fs-sm);
-    color: var(--c-text-mute);
-}
-
-.footer__cta {
-    margin-top: var(--s-5);
 }
 
 .footer__col h2 {

@@ -10,7 +10,7 @@
         <div>
         <h1 class="engine-hero__title">{{ .Title }}</h1>
         <p class="engine-hero__lead">{{ $p.hero.lead }}</p>
-        <div class="btn-row" style="margin-top:var(--s-6)">
+        <div class="btn-row engine-hero__actions">
             <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
                 {{ partial "icon.html" "github" }} Source on GitHub
             </a>
@@ -22,7 +22,7 @@
             </a>
         </div>
         </div>
-        <a class="engine-hero__visual" href="#engine-trailer" aria-label="Watch the Spartan Engine trailer">
+        <a class="engine-hero__visual" href="#engine-live" aria-label="Try Spartan Engine live in the browser">
             {{ partial "image.html" (dict "src" "/media/engine/showcase_ferrari.jpg" "alt" "Path-traced lighting on a LaFerrari in Spartan Engine" "sizes" "(max-width: 800px) 100vw, 50vw" "widths" (slice 640 1280) "eager" true) }}
         </a>
     </div>
@@ -37,13 +37,13 @@
                 <p class="section-head__lead">{{ .lead }}</p>
             </div>
         </div>
-        <div class="engine-live" data-engine-live="{{ .src }}">
+        <div class="engine-live" data-engine-live="{{ .src }}?v={{ now.Unix }}">
             {{ partial "image.html" (dict "src" .poster "alt" .alt "sizes" "(max-width: 1200px) 100vw, 1200px" "widths" (slice 640 1280 1920) "eager" true) }}
             <p class="engine-live__note mono" data-engine-live-note hidden>{{ .fallback }}</p>
         </div>
         <p class="engine-live__caption mono">
             <span>{{ .caption }}</span>
-            <a href="{{ .src }}" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
+            <a href="{{ .src }}?v={{ now.Unix }}" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
         </p>
     </div>
 </section>
@@ -75,7 +75,7 @@
 {{- end }}
 
 {{- with $p.stats }}
-<div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
+<div class="container engine-stats">
     <div class="stats reveal">
         {{- range . }}
         <div class="stat">
@@ -86,19 +86,6 @@
     </div>
 </div>
 {{- end }}
-
-<section class="section" id="engine-trailer" style="border-top:1px solid var(--c-line)">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <h2 class="section-head__title">Trailer</h2>
-            </div>
-        </div>
-        {{ partial "video.html" (dict
-            "id" .Site.Params.engineTrailer
-            "title" "Spartan Engine — 10 year anniversary") }}
-    </div>
-</section>
 
 {{- with $p.principle }}
 <section class="section">
@@ -113,9 +100,7 @@
 <section class="section">
     <div class="container">
         <div class="section-head">
-            <div>
-                <h2 class="section-head__title">What is actually in there</h2>
-            </div>
+            <h2 class="section-head__title">Inside</h2>
         </div>
         <div class="spec-grid">
             {{- range . }}
@@ -138,8 +123,8 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <h2 class="section-head__title">Nine of them ship with the engine</h2>
-                <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
+                <h2 class="section-head__title">Nine worlds ship with the engine</h2>
+                <p class="section-head__lead">Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
             </div>
         </div>
         <div class="engine-gallery reveal">
@@ -175,7 +160,7 @@
         <div class="section-head">
             <div>
                 <h2 class="section-head__title">Where this code ended up</h2>
-                <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
+                <p class="section-head__lead">I did not plan any of these.</p>
             </div>
         </div>
         <div class="record reveal">
@@ -199,7 +184,7 @@
             <div class="promo__grid">
                 <div>
                     <h2>Build it, break it, or just come and argue about it</h2>
-                    <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
+                    <p>One-click project generation, a wiki that covers the build and the Lua API, and engineers on Discord who will happily tell you what you got wrong.</p>
                     <div class="promo__actions btn-row">
                         <a class="btn btn--primary" href="{{ $repo }}" target="_blank" rel="noopener">
                             {{ partial "icon.html" "github" }} Clone the repo

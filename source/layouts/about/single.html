@@ -3,7 +3,6 @@
 
 <div class="container">
     <header class="page-head">
-        <p class="mono section-head__eyebrow">About</p>
         <h1 class="page-head__title">{{ .Title }}<span class="accent">.</span></h1>
         {{- with $p.lead }}<p class="page-head__lead">{{ . }}</p>{{ end }}
     </header>
@@ -53,9 +52,8 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Taste</p>
                 <h2 class="section-head__title">Five each, and why</h2>
-                <p class="section-head__lead">Five ranked beats thirty unranked. If you want the unabridged lists, they are at the bottom.</p>
+                <p class="section-head__lead">Five ranked beats thirty unranked.</p>
             </div>
         </div>
 
@@ -77,7 +75,7 @@
 
         {{- with $p.longLists }}
         <details class="disclose">
-            <summary>The long version{{ with .note }} — {{ . }}{{ end }}</summary>
+            <summary>The long version</summary>
             <div class="long-lists">
                 {{- range .columns }}
                 <div>
@@ -99,7 +97,6 @@
         <div class="promo reveal">
             <div class="promo__grid">
                 <div>
-                    <p class="mono section-head__eyebrow">Say hello</p>
                     <h2>I read everything that is not a recruiter template</h2>
                     <p>Questions about the engine, rendering, or the podcast are always welcome. So is telling me I got something wrong.</p>
                     <div class="promo__actions btn-row">

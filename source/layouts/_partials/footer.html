@@ -5,20 +5,15 @@
 {{- end -}}
 <footer class="footer">
     <div class="container">
-        <div class="footer__invitation"><div><p class="mono">Good work starts with a conversation.</p><a href="{{ $email }}">Let's talk.</a></div><span aria-hidden="true">↗</span></div><div class="footer__grid">
+        {{- with $email }}
+        <div class="footer__invitation"><a href="{{ . }}">Let's talk.</a><span aria-hidden="true">↗</span></div>
+        {{- end }}
+        <div class="footer__grid">
             <div class="footer__col footer__col--brand">
                 <a class="brand" href="{{ "" | relURL }}">
                     <span class="brand__mark" aria-hidden="true">PK</span>
                     <span class="brand__name">{{ .Site.Title }}</span>
                 </a>
-                <p class="footer__tagline">{{ .Site.Params.footerTagline | default .Site.Params.tagline }}</p>
-                <div class="footer__cta">
-                    {{- with $email }}
-                    <a class="btn btn--primary btn--sm" href="{{ . }}">
-                        {{ partial "icon.html" "email" }} Get in touch
-                    </a>
-                    {{- end }}
-                </div>
             </div>
 
             <div class="footer__col">

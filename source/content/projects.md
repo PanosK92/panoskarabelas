@@ -25,7 +25,6 @@ lead = "Fifteen years, four countries' worth of studios, and one codebase I neve
     "Took the same material on stage, delivering technical talks across the UK and Europe.",
     "Worked across a number of shipped titles, several of which I still cannot name.",
   ]
-  videoNote = "Some of the titles I worked on during those two years."
   tags = ["GPU profiling", "Radeon GPU Profiler", "Vulkan", "DirectX 12", "HLSL"]
 
   [[career.videos]]
@@ -107,7 +106,7 @@ lead = "Fifteen years, four countries' worth of studios, and one codebase I neve
 [[archive]]
   year = "2014"
   title = "Dementia"
-  note = "A turn-based table game with RPG elements, and our Imagine Cup entry. I did the UI, the AI, the pathfinding and most of the gameplay. A never-ending crunch that ended with us wandering around Microsoft HQ as world finalists."
+  note = "A turn-based table game with RPG elements, and our Imagine Cup entry. I did the UI, the AI, the pathfinding and most of the gameplay."
   tag = "C#, Unity"
 
 [[archive]]
@@ -150,7 +149,7 @@ lead = "Fifteen years, four countries' worth of studios, and one codebase I neve
 [[archive]]
   year = "2011"
   title = "AV8"
-  note = "Controlling a PC with a Kinect, built on the beta SDK with two fellow students and Professor Omiros Iatrellis. One of the first advanced Kinect applications anywhere, and it got the attention of the local academic community and press."
+  note = "Controlling a PC with a Kinect, built on the beta SDK with two fellow students and Professor Omiros Iatrellis. It got the attention of the local academic community and press."
   tag = "C#, Kinect SDK"
 
 [[archive]]

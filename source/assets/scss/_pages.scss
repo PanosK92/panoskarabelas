@@ -6,8 +6,20 @@
 
 .record {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(Min(280px, 100%), 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--s-4);
+}
+
+@media (max-width: 1100px) {
+    .record {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .record {
+        grid-template-columns: 1fr;
+    }
 }
 
 .record__item {
@@ -231,13 +243,14 @@
     position: relative;
 }
 
+/* kept small enough that "2025 — Present" clears the timeline dot */
 .career__years {
     position: sticky;
     top: calc(var(--h-header) + var(--s-5));
     font-family: var(--f-mono);
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xs);
     font-weight: 500;
-    color: var(--c-text-mute);
+    color: var(--c-text-dim);
 }
 
 /* vertical connector between entries */
@@ -338,15 +351,14 @@
 }
 
 .career__location {
-    margin-top: var(--s-3);
+    display: block;
+    margin-top: var(--s-1);
+    font-weight: 400;
+    color: var(--c-text-mute);
 }
 
 .career__media--wide {
     max-width: 820px;
-}
-
-.career__video-note {
-    margin-bottom: var(--s-3);
 }
 
 /* compact grid of video facades, used for shipped-title reels */
@@ -459,6 +471,11 @@
     grid-template-columns: repeat(auto-fill, minmax(Min(250px, 100%), 1fr));
     gap: var(--s-4);
     list-style: none;
+}
+
+/* short lists stretch to fill the row instead of leaving an empty track */
+.archive--fit {
+    grid-template-columns: repeat(auto-fit, minmax(Min(250px, 100%), 1fr));
 }
 
 .archive__item {
@@ -742,7 +759,6 @@
 }
 
 .engine-hero__title {
-    margin-top: var(--s-4);
     font-size: clamp(2.5rem, calc(1.6rem + 4vw), 4.25rem);
     font-weight: 700;
     letter-spacing: -.04em;
@@ -756,9 +772,14 @@
     color: var(--c-text-dim);
 }
 
+.engine-hero__actions {
+    margin-top: var(--s-6);
+}
+
 /* the engine itself, running in an iframe over its own poster */
 .engine-live-section {
     padding-top: 0;
+    padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
 .engine-live {
@@ -820,6 +841,19 @@
     color: inherit;
 }
 
+.engine-stats {
+    padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* the stats strip sits between two sections, so the rule is drawn here */
+.engine-trailer {
+    border-top: 1px solid var(--c-line);
+}
+
+.engine-trailer .video {
+    margin: 0;
+}
+
 .engine-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(Min(300px, 100%), 1fr));
@@ -829,7 +863,6 @@
 /* a single oversized statement, the thesis of the whole project */
 .engine-principle {
     max-width: 22ch;
-    margin-top: var(--s-4);
     font-size: clamp(2rem, calc(1.3rem + 3vw), 3.5rem);
     font-weight: 700;
     letter-spacing: -.04em;
@@ -844,11 +877,18 @@
     color: var(--c-text-mute);
 }
 
-/* grouped capability lists */
+/* grouped capability lists, two by two so every bullet stays on a line or two */
 .spec-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(Min(340px, 100%), 1fr));
-    gap: var(--s-6) var(--s-7);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-7) var(--s-8);
+}
+
+@media (max-width: 760px) {
+    .spec-grid {
+        grid-template-columns: 1fr;
+        gap: var(--s-6);
+    }
 }
 
 .spec > h3 {

@@ -4,10 +4,12 @@
     the poster frame is fetched at build time and re-encoded locally, so the page
     makes no third party request until the visitor actually presses play
 
-    params: id (required), title, caption, start
+    params: id (required), title, label, caption, start
+    title is shown under the frame, label only names the player for assistive tech
 */ -}}
 {{- $id := .id -}}
-{{- $label := .title | default "" -}}
+{{- $title := .title | default "" -}}
+{{- $label := .label | default $title -}}
 {{- $caption := .caption | default "" -}}
 {{- $start := .start | default "" -}}
 
@@ -44,7 +46,7 @@
         </button>
     </div>
     {{- /* the title sits below the frame, thumbnails often have baked-in text */ -}}
-    {{- with $label }}<figcaption class="video__title">{{ . }}</figcaption>{{ end }}
+    {{- with $title }}<figcaption class="video__title">{{ . }}</figcaption>{{ end }}
     {{- with $caption }}<figcaption class="video__caption">{{ . }}</figcaption>{{ end }}
 </figure>
 {{- end -}}

@@ -1123,17 +1123,12 @@ if it is worth twenty it gets twenty.</p>
 			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Panos Karabelas</author><guid>https://panoskarabelas.com/engine/</guid>
 			<description><![CDATA[Spartan Engine: a bindless, GPU-driven game engine with real-time path-traced global illumination, hardware ray tracing and 200 Hz vehicle dynamics, built solo over twelve years.]]></description><content type="text/html" mode="escaped"><![CDATA[<h2 id="why-it-exists">Why it exists<a class="anchor" href="#why-it-exists" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
 <p>I had to &ldquo;finish&rdquo; this project inside a year so I could use it as a ticket out of Greece and into a
-studio that would have me. To get there I worked 100-hour weeks, roughly fourteen hours a day, every
-day. It worked. It also never stopped.</p>
+studio that would have me. To get there I worked 100-hour weeks. It worked. It also never stopped.</p>
 <p>Twelve years later it is still the same codebase, and I have rewritten almost every system in it
-multiple times. Every single rewrite came out <strong>simpler</strong> than what it replaced. That is not what
-people expect to hear about a maturing system, and it is the most useful thing I have learned from
-building this.</p>
-<p>This is what a codebase looks like when one person owns every line for a decade. No legacy
-committees. No half-migrated architectures. No &ldquo;we&rsquo;ll fix it in the next version.&rdquo;</p>
-<p>It is a personal R&amp;D engine, not a commercial product. No roadmap promises, no support queue, no
-compromises on the vision. There is a destination that gives all of this a purpose — the plan is in
-the repository if you are curious.</p>
+multiple times. Every single rewrite came out <strong>simpler</strong> than what it replaced. It is the most
+useful thing I have learned from building this.</p>
+<p>It is a personal R&amp;D engine, not a commercial product. No roadmap promises, no support queue. There
+is a destination that gives all of this a purpose — the plan is in the repository if you are curious.</p>
 ]]></content>
 		</item>
 		<item>

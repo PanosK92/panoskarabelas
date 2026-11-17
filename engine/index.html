@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8fceff">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/main.3342336f00550cf30ca639c5bd9a57c0fe16132850f0eead285218cfbcc194ff.css" integrity="sha256-M0IzbwBVDPMMpjnFvZpXwP4WEyhQ8O6tKFIYz7zBlP8=">
+<link rel="stylesheet" href="/css/main.2979a09b810a4235de29a451bd01430410212cb0c4cb3fc03c040af65bc27345.css" integrity="sha256-KXmgm4EKQjXeKaRRvQFDBBAhLLDEyz/APAQK9lvCc0U=">
 
     
 </head>
@@ -180,8 +180,8 @@
     <div class="container engine-hero__inner">
         <div>
         <h1 class="engine-hero__title">Spartan Engine</h1>
-        <p class="engine-hero__lead">A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for.</p>
-        <div class="btn-row" style="margin-top:var(--s-6)">
+        <p class="engine-hero__lead">A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz.</p>
+        <div class="btn-row engine-hero__actions">
             <a class="btn btn--primary" href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> Source on GitHub
             </a>
@@ -193,7 +193,7 @@
             </a>
         </div>
         </div>
-        <a class="engine-hero__visual" href="#engine-trailer" aria-label="Watch the Spartan Engine trailer">
+        <a class="engine-hero__visual" href="#engine-live" aria-label="Try Spartan Engine live in the browser">
             <img
     src="/media/engine/showcase_ferrari_hu_5922e80da9a77d0b.webp"
     srcset="/media/engine/showcase_ferrari_hu_bd09418babbbdfef.webp 640w, /media/engine/showcase_ferrari_hu_5922e80da9a77d0b.webp 1280w"
@@ -213,17 +213,17 @@
         <div class="section-head">
             <div>
                 <h2 class="section-head__title">Live in your browser</h2>
-                <p class="section-head__lead">The engine, compiled to WebAssembly and rendering on your GPU through WebGPU. A photoscanned head with subsurface scattering, ambient occlusion and TAAU, turning slowly under a fixed light.</p>
+                <p class="section-head__lead">The engine, compiled to WebAssembly and rendering a photoscanned head on your GPU through WebGPU.</p>
             </div>
         </div>
-        <div class="engine-live" data-engine-live="/engine/live/">
+        <div class="engine-live" data-engine-live="/engine/live/?v=1794933830">
             <img
     src="/media/engine/showcase_human_close_hu_916a493a93f068bd.webp"
     srcset="/media/engine/showcase_human_close_hu_9a766f8ff5f47a99.webp 640w, /media/engine/showcase_human_close_hu_c822401a3d3e6ab8.webp 1280w, /media/engine/showcase_human_close_hu_916a493a93f068bd.webp 1920w"
     sizes="(max-width: 1200px) 100vw, 1200px"
     width="1920"
     height="966"
-    alt="Close-up of a photoscanned head rendered in Spartan Engine, with subsurface scattering in the skin and ear"
+    alt="Close-up of a photoscanned head rendered in Spartan Engine"
     loading="eager"
     decoding="async"
     fetchpriority="high"
@@ -231,8 +231,8 @@
             <p class="engine-live__note mono" data-engine-live-note hidden>Your browser doesn&#39;t expose WebGPU with JSPI, so this is a screenshot. Open the page in a recent Chrome or Edge on desktop to see it live.</p>
         </div>
         <p class="engine-live__caption mono">
-            <span>human_example — WebGPU, about 60 MB on first load</span>
-            <a href="/engine/live/" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
+            <span>About 60 MB on first load</span>
+            <a href="/engine/live/?v=1794933830" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
         </p>
     </div>
 </section>
@@ -261,7 +261,7 @@
     host.appendChild(frame);
 })();
 </script>
-<div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
+<div class="container engine-stats">
     <div class="stats reveal">
         <div class="stat">
             <span class="stat__value"><em>3.1k</em></span>
@@ -281,82 +281,44 @@
         </div>
     </div>
 </div>
-
-<section class="section" id="engine-trailer" style="border-top:1px solid var(--c-line)">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <h2 class="section-head__title">Trailer</h2>
-            </div>
-        </div>
-        <figure class="video">
-    <div class="video__shell" data-video="TMZ0epSVwCk">
-        <img src="/media/video/TMZ0epSVwCk.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
-        <button class="video__btn" type="button" data-title="Spartan Engine — 10 year anniversary">
-            <span class="video__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor" stroke="none"/></svg></span>
-            <span class="visually-hidden">Play video: Spartan Engine — 10 year anniversary</span>
-        </button>
-    </div><figcaption class="video__title">Spartan Engine — 10 year anniversary</figcaption>
-</figure>
-    </div>
-</section>
 <section class="section">
     <div class="container">
         <h2 class="engine-principle reveal">The GPU owns the data</h2>
-        <p class="engine-principle__body reveal">Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. No per-draw descriptor updates. No per-draw resource binding. No CPU-side draw loops. One philosophy applied without compromise: favour real-time over baked, dynamic over static, modern over safe.</p>
+        <p class="engine-principle__body reveal">Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. Real-time over baked, dynamic over static, modern over safe.</p>
     </div>
 </section>
 <section class="section">
     <div class="container">
         <div class="section-head">
-            <div>
-                <h2 class="section-head__title">What is actually in there</h2>
-            </div>
+            <h2 class="section-head__title">Inside</h2>
         </div>
         <div class="spec-grid">
             <section class="spec reveal">
                 <h3>Architecture</h3>
                 <ul class="career__points">
-                    <li>Zero-binding draw path, all per-draw data in a single bindless storage buffer with push constants carrying only an index</li>
-                    <li>One global vertex and index buffer for all geometry, with vertex pulling that bypasses the input assembler and is shared by rasterisation and ray tracing</li>
-                    <li>GPU-driven indirect rendering with per-meshlet frustum, Hi-Z occlusion and backface cone culling, one DrawIndexedIndirectCount per pass</li>
-                    <li>Meshlet clustering via meshoptimizer, with no mesh shader dependency</li>
-                    <li>Universal HLSL compiled for both Vulkan (SPIR-V) and DirectX 12</li>
-                    <li>GPU-side asset processing: mip generation and texture compression at load time, not baked offline</li>
+                    <li>Bindless, zero-binding draw path</li>
+                    <li>GPU meshlet culling, one indirect draw per pass</li>
                 </ul>
             </section>
             <section class="spec reveal">
-                <h3>Lighting and global illumination</h3>
+                <h3>Lighting</h3>
                 <ul class="career__points">
-                    <li>ReSTIR path tracing with spatiotemporal reservoir resampling for real-time multi-bounce global illumination</li>
-                    <li>Clustered deferred shading on a GPU-built logarithmic-Z grid, scaling to many local lights at near-constant per-pixel cost</li>
-                    <li>Hardware ray-traced reflections and shadows via ray queries</li>
-                    <li>Volumetric clouds baked into the sky panorama, with multi-scatter lighting and aerial perspective</li>
-                    <li>Froxel volumetric fog with temporal reprojection, sun shafts and underwater caustics</li>
-                    <li>Tessendorf FFT ocean with multi-cascade IFFT in compute, driving a camera-following clipmap</li>
-                    <li>Screen-space shadows and XeGTAO ambient occlusion</li>
+                    <li>ReSTIR path-traced global illumination</li>
+                    <li>Ray-traced reflections and shadows</li>
                 </ul>
             </section>
             <section class="spec reveal">
-                <h3>Performance and image quality</h3>
+                <h3>Image</h3>
                 <ul class="career__points">
-                    <li>Variable rate shading and dynamic resolution scaling</li>
-                    <li>TAAU, Halton-jittered with variance-clip history reprojection</li>
-                    <li>Intel XeSS 3 upscaling</li>
-                    <li>Physically based camera with auto-exposure and physical light units in lumens and kelvin</li>
-                    <li>ACES, AgX and Gran Turismo 7 tonemappers, with HDR10 output</li>
-                    <li>Custom GPU breadcrumbs for crash tracing and post-mortem debugging</li>
+                    <li>TAAU, XeSS 3 and dynamic resolution</li>
+                    <li>Physical camera, lumens and kelvin</li>
                 </ul>
             </section>
             <section class="spec reveal">
                 <h3>Beyond rendering</h3>
                 <ul class="career__points">
-                    <li>Vehicle dynamics at 200 Hz: Pacejka MF 5.2 tyres with thermal, pressure and wear models, LSD differentials, thermal brake fade and ABS</li>
-                    <li>PhysX rigid bodies, character kinematics and vehicle physics</li>
-                    <li>Full skeletal animation with crossfade blending and two-bone IK with ground-aware foot planting</li>
-                    <li>Lua 5.4 scripting through Sol2, with the full engine API and lifecycle callbacks</li>
-                    <li>Nsight-style profiler with separate graphics and async compute lanes, plus a memory fragmentation viewer</li>
-                    <li>OpenXR VR with multiview single-pass stereo, work in progress</li>
+                    <li>Pacejka tyre model, PhysX physics</li>
+                    <li>Lua 5.4 scripting, built-in profiler</li>
                 </ul>
             </section>
         </div>
@@ -366,8 +328,8 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <h2 class="section-head__title">Nine of them ship with the engine</h2>
-                <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
+                <h2 class="section-head__title">Nine worlds ship with the engine</h2>
+                <p class="section-head__lead">Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
             </div>
         </div>
         <div class="engine-gallery reveal">
@@ -387,7 +349,7 @@
                 <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>ferrari_showcase — a turntable lit entirely by emissive light bars</figcaption>
             </figure>
             <figure class="frame frame--caption">
-                <a class="gallery-zoom" href="/media/engine/showcase_island_town_hu_4cd8ff1a3656399d.webp" data-gallery-image data-caption="zakynthos — an open island some 30 km across, with towns, an airport and hundreds of roads" aria-label="Enlarge: Sunset over Zakynthos Town, forests and a shallow turquoise bay">
+                <a class="gallery-zoom" href="/media/engine/showcase_island_town_hu_4cd8ff1a3656399d.webp" data-gallery-image data-caption="zakynthos — an open island some 30 km across" aria-label="Enlarge: Sunset over Zakynthos Town, forests and a shallow turquoise bay">
                 <img
     src="/media/engine/showcase_island_town_hu_cc196c0f373920ea.webp"
     srcset="/media/engine/showcase_island_town_hu_2ed9bd77f269574a.webp 640w, /media/engine/showcase_island_town_hu_cc196c0f373920ea.webp 1080w"
@@ -399,7 +361,7 @@
     decoding="async"
     fetchpriority="auto"
     >
-                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>zakynthos — an open island some 30 km across, with towns, an airport and hundreds of roads</figcaption>
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>zakynthos — an open island some 30 km across</figcaption>
             </figure>
             <figure class="frame frame--caption">
                 <a class="gallery-zoom" href="/media/engine/showcase_ferrari_close_hu_d6fc09246d045a9b.webp" data-gallery-image data-caption="car paint — layered clearcoat with ray-traced reflections" aria-label="Enlarge: Close-up of the LaFerrari&#39;s flank, clearcoat reflecting the showroom lights">
@@ -447,7 +409,7 @@
                 <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>sponza — the classic atrium, no probes and no bake</figcaption>
             </figure>
             <figure class="frame frame--caption">
-                <a class="gallery-zoom" href="/media/engine/world_selection_4_hu_40415129d319ebd7.webp" data-gallery-image data-caption="Nine worlds ship with the engine. None of them are canned demos." aria-label="Enlarge: The Spartan Engine world launcher showing nine selectable worlds">
+                <a class="gallery-zoom" href="/media/engine/world_selection_4_hu_40415129d319ebd7.webp" data-gallery-image data-caption="the world launcher" aria-label="Enlarge: The Spartan Engine world launcher showing nine selectable worlds">
                 <img
     src="/media/engine/world_selection_4_hu_ca275f98a3623fde.webp"
     srcset="/media/engine/world_selection_4_hu_6854798f349f2a75.webp 640w, /media/engine/world_selection_4_hu_ca275f98a3623fde.webp 1080w"
@@ -459,7 +421,7 @@
     decoding="async"
     fetchpriority="auto"
     >
-                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>Nine worlds ship with the engine. None of them are canned demos.</figcaption>
+                <span class="gallery-zoom__icon" aria-hidden="true">↗</span></a><figcaption>the world launcher</figcaption>
             </figure>
         </div>
     </div>
@@ -468,17 +430,12 @@
     <div class="container container--prose">
         <div class="prose"><h2 id="why-it-exists">Why it exists<a class="anchor" href="#why-it-exists" aria-label="Link to this section"><span aria-hidden="true">#</span></a></h2>
 <p>I had to &ldquo;finish&rdquo; this project inside a year so I could use it as a ticket out of Greece and into a
-studio that would have me. To get there I worked 100-hour weeks, roughly fourteen hours a day, every
-day. It worked. It also never stopped.</p>
+studio that would have me. To get there I worked 100-hour weeks. It worked. It also never stopped.</p>
 <p>Twelve years later it is still the same codebase, and I have rewritten almost every system in it
-multiple times. Every single rewrite came out <strong>simpler</strong> than what it replaced. That is not what
-people expect to hear about a maturing system, and it is the most useful thing I have learned from
-building this.</p>
-<p>This is what a codebase looks like when one person owns every line for a decade. No legacy
-committees. No half-migrated architectures. No &ldquo;we&rsquo;ll fix it in the next version.&rdquo;</p>
-<p>It is a personal R&amp;D engine, not a commercial product. No roadmap promises, no support queue, no
-compromises on the vision. There is a destination that gives all of this a purpose — the plan is in
-the repository if you are curious.</p>
+multiple times. Every single rewrite came out <strong>simpler</strong> than what it replaced. It is the most
+useful thing I have learned from building this.</p>
+<p>It is a personal R&amp;D engine, not a commercial product. No roadmap promises, no support queue. There
+is a destination that gives all of this a purpose — the plan is in the repository if you are curious.</p>
 </div>
     </div>
 </section>
@@ -487,7 +444,7 @@ the repository if you are curious.</p>
         <div class="section-head">
             <div>
                 <h2 class="section-head__title">Where this code ended up</h2>
-                <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
+                <p class="section-head__lead">I did not plan any of these.</p>
             </div>
         </div>
         <div class="record reveal">
@@ -510,7 +467,7 @@ the repository if you are curious.</p>
                     <h3 class="record__org">A published programming book</h3>
                     <span class="record__years" aria-hidden="true">&#8599;</span>
                 </div>
-                <p class="record__note">Jesse Guerrero&#39;s beginner programming book features Spartan&#39;s code and community.</p>
+                <p class="record__note">Jesse Guerrero&#39;s beginner book features Spartan&#39;s code and community.</p>
             </a>
             <a class="record__item" href="https://en.wikipedia.org/wiki/University_of_Thessaly" target="_blank" rel="noopener">
                 <div class="record__top">
@@ -529,7 +486,7 @@ the repository if you are curious.</p>
             <div class="promo__grid">
                 <div>
                     <h2>Build it, break it, or just come and argue about it</h2>
-                    <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
+                    <p>One-click project generation, a wiki that covers the build and the Lua API, and engineers on Discord who will happily tell you what you got wrong.</p>
                     <div class="promo__actions btn-row">
                         <a class="btn btn--primary" href="https://github.com/PanosK92/SpartanEngine" target="_blank" rel="noopener">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> Clone the repo
@@ -565,18 +522,13 @@ the repository if you are curious.</p>
 
     <footer class="footer">
     <div class="container">
-        <div class="footer__invitation"><div><p class="mono">Good work starts with a conversation.</p><a href="mailto:panosconroe@hotmail.com">Let's talk.</a></div><span aria-hidden="true">↗</span></div><div class="footer__grid">
+        <div class="footer__invitation"><a href="mailto:panosconroe@hotmail.com">Let's talk.</a><span aria-hidden="true">↗</span></div>
+        <div class="footer__grid">
             <div class="footer__col footer__col--brand">
                 <a class="brand" href="/">
                     <span class="brand__mark" aria-hidden="true">PK</span>
                     <span class="brand__name">Panos Karabelas</span>
                 </a>
-                <p class="footer__tagline">Renderers, engines, and the odd conversation with people worth listening to.</p>
-                <div class="footer__cta">
-                    <a class="btn btn--primary btn--sm" href="mailto:panosconroe@hotmail.com">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> Get in touch
-                    </a>
-                </div>
             </div>
 
             <div class="footer__col">

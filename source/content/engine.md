@@ -5,15 +5,15 @@ description = "Spartan Engine: a bindless, GPU-driven game engine with real-time
 image = "/media/engine/showcase_ferrari.jpg"
 
 [hero]
-  lead = "A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for."
+  lead = "A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz."
 
 [live]
   title = "Live in your browser"
-  lead = "The engine, compiled to WebAssembly and rendering on your GPU through WebGPU. A photoscanned head with subsurface scattering, ambient occlusion and TAAU, turning slowly under a fixed light."
+  lead = "The engine, compiled to WebAssembly and rendering a photoscanned head on your GPU through WebGPU."
   src = "/engine/live/"
   poster = "/media/engine/showcase_human_close.jpg"
-  alt = "Close-up of a photoscanned head rendered in Spartan Engine, with subsurface scattering in the skin and ear"
-  caption = "human_example — WebGPU, about 60 MB on first load"
+  alt = "Close-up of a photoscanned head rendered in Spartan Engine"
+  caption = "About 60 MB on first load"
   fallback = "Your browser doesn't expose WebGPU with JSPI, so this is a screenshot. Open the page in a recent Chrome or Edge on desktop to see it live."
 
 [[stats]]
@@ -34,51 +34,34 @@ image = "/media/engine/showcase_ferrari.jpg"
 
 [principle]
   title = "The GPU owns the data"
-  body = "Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. No per-draw descriptor updates. No per-draw resource binding. No CPU-side draw loops. One philosophy applied without compromise: favour real-time over baked, dynamic over static, modern over safe."
+  body = "Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. Real-time over baked, dynamic over static, modern over safe."
 
 [[groups]]
   name = "Architecture"
   items = [
-    "Zero-binding draw path, all per-draw data in a single bindless storage buffer with push constants carrying only an index",
-    "One global vertex and index buffer for all geometry, with vertex pulling that bypasses the input assembler and is shared by rasterisation and ray tracing",
-    "GPU-driven indirect rendering with per-meshlet frustum, Hi-Z occlusion and backface cone culling, one DrawIndexedIndirectCount per pass",
-    "Meshlet clustering via meshoptimizer, with no mesh shader dependency",
-    "Universal HLSL compiled for both Vulkan (SPIR-V) and DirectX 12",
-    "GPU-side asset processing: mip generation and texture compression at load time, not baked offline",
+    "Bindless, zero-binding draw path",
+    "GPU meshlet culling, one indirect draw per pass",
   ]
 
 [[groups]]
-  name = "Lighting and global illumination"
+  name = "Lighting"
   items = [
-    "ReSTIR path tracing with spatiotemporal reservoir resampling for real-time multi-bounce global illumination",
-    "Clustered deferred shading on a GPU-built logarithmic-Z grid, scaling to many local lights at near-constant per-pixel cost",
-    "Hardware ray-traced reflections and shadows via ray queries",
-    "Volumetric clouds baked into the sky panorama, with multi-scatter lighting and aerial perspective",
-    "Froxel volumetric fog with temporal reprojection, sun shafts and underwater caustics",
-    "Tessendorf FFT ocean with multi-cascade IFFT in compute, driving a camera-following clipmap",
-    "Screen-space shadows and XeGTAO ambient occlusion",
+    "ReSTIR path-traced global illumination",
+    "Ray-traced reflections and shadows",
   ]
 
 [[groups]]
-  name = "Performance and image quality"
+  name = "Image"
   items = [
-    "Variable rate shading and dynamic resolution scaling",
-    "TAAU, Halton-jittered with variance-clip history reprojection",
-    "Intel XeSS 3 upscaling",
-    "Physically based camera with auto-exposure and physical light units in lumens and kelvin",
-    "ACES, AgX and Gran Turismo 7 tonemappers, with HDR10 output",
-    "Custom GPU breadcrumbs for crash tracing and post-mortem debugging",
+    "TAAU, XeSS 3 and dynamic resolution",
+    "Physical camera, lumens and kelvin",
   ]
 
 [[groups]]
   name = "Beyond rendering"
   items = [
-    "Vehicle dynamics at 200 Hz: Pacejka MF 5.2 tyres with thermal, pressure and wear models, LSD differentials, thermal brake fade and ABS",
-    "PhysX rigid bodies, character kinematics and vehicle physics",
-    "Full skeletal animation with crossfade blending and two-bone IK with ground-aware foot planting",
-    "Lua 5.4 scripting through Sol2, with the full engine API and lifecycle callbacks",
-    "Nsight-style profiler with separate graphics and async compute lanes, plus a memory fragmentation viewer",
-    "OpenXR VR with multiview single-pass stereo, work in progress",
+    "Pacejka tyre model, PhysX physics",
+    "Lua 5.4 scripting, built-in profiler",
   ]
 
 [[usedby]]
@@ -93,7 +76,7 @@ image = "/media/engine/showcase_ferrari.jpg"
 
 [[usedby]]
   name = "A published programming book"
-  note = "Jesse Guerrero's beginner programming book features Spartan's code and community."
+  note = "Jesse Guerrero's beginner book features Spartan's code and community."
   url = "https://www.amazon.com/dp/B0CXG1CMNK"
 
 [[usedby]]
@@ -109,7 +92,7 @@ image = "/media/engine/showcase_ferrari.jpg"
 [[gallery]]
   src = "/media/engine/showcase_island_town.jpg"
   alt = "Sunset over Zakynthos Town, forests and a shallow turquoise bay"
-  caption = "zakynthos — an open island some 30 km across, with towns, an airport and hundreds of roads"
+  caption = "zakynthos — an open island some 30 km across"
 
 [[gallery]]
   src = "/media/engine/showcase_ferrari_close.jpg"
@@ -129,23 +112,17 @@ image = "/media/engine/showcase_ferrari.jpg"
 [[gallery]]
   src = "/media/engine/world_selection_4.png"
   alt = "The Spartan Engine world launcher showing nine selectable worlds"
-  caption = "Nine worlds ship with the engine. None of them are canned demos."
+  caption = "the world launcher"
 +++
 
 ## Why it exists
 
 I had to "finish" this project inside a year so I could use it as a ticket out of Greece and into a
-studio that would have me. To get there I worked 100-hour weeks, roughly fourteen hours a day, every
-day. It worked. It also never stopped.
+studio that would have me. To get there I worked 100-hour weeks. It worked. It also never stopped.
 
 Twelve years later it is still the same codebase, and I have rewritten almost every system in it
-multiple times. Every single rewrite came out **simpler** than what it replaced. That is not what
-people expect to hear about a maturing system, and it is the most useful thing I have learned from
-building this.
+multiple times. Every single rewrite came out **simpler** than what it replaced. It is the most
+useful thing I have learned from building this.
 
-This is what a codebase looks like when one person owns every line for a decade. No legacy
-committees. No half-migrated architectures. No "we'll fix it in the next version."
-
-It is a personal R&D engine, not a commercial product. No roadmap promises, no support queue, no
-compromises on the vision. There is a destination that gives all of this a purpose — the plan is in
-the repository if you are curious.
+It is a personal R&D engine, not a commercial product. No roadmap promises, no support queue. There
+is a destination that gives all of this a purpose — the plan is in the repository if you are curious.

@@ -28,6 +28,12 @@ The homepage content, featured scenes, and shipped titles are in `content/_index
 
 The Hugo executable is included as `hugo_extended_0.164.0.exe`.
 
+## Live engine demo
+
+The engine page embeds Spartan running in the browser (WebGPU, WebAssembly). The files live in `static/engine/live/` and are served at `/engine/live/`. The section text and poster come from `[live]` in `content/engine.md`. Without WebGPU and JSPI the poster stays with a short note; the iframe ignores the mouse, and the demo draws its own loading bar.
+
+To update it, build the package in the SpartanEngine repository with `python tools/web_build.py engine --world human_example.world --game`, then copy `binaries/web/spartan.js`, `spartan.wasm` and `spartan.data` into `static/engine/live/`, and `spartan.html` as `index.html`.
+
 ## Native port pages
 
 The ports are a section of their own: `/ports/` (`content/ports/_index.md`, `layouts/ports/list.html`) lists every port and is the link the native launchers open. The main menu has a Ports entry, and the homepage shows the same cards through `layouts/_partials/native-ports.html`, which ranges over the section's pages by `weight`. The old `/projects/sega-gt-online/` and `/projects/dino-crisis-2/` addresses are kept as aliases.

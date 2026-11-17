@@ -5,8 +5,16 @@ description = "Spartan Engine: a bindless, GPU-driven game engine with real-time
 image = "/media/engine/showcase_ferrari.jpg"
 
 [hero]
-  eyebrow = "One engineer. Twelve years."
   lead = "A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for."
+
+[live]
+  title = "Live in your browser"
+  lead = "The engine, compiled to WebAssembly and rendering on your GPU through WebGPU. A photoscanned head with subsurface scattering, ambient occlusion and TAAU, turning slowly under a fixed light."
+  src = "/engine/live/"
+  poster = "/media/engine/showcase_human_close.jpg"
+  alt = "Close-up of a photoscanned head rendered in Spartan Engine, with subsurface scattering in the skin and ear"
+  caption = "human_example — WebGPU, about 60 MB on first load"
+  fallback = "Your browser doesn't expose WebGPU with JSPI, so this is a screenshot. Open the page in a recent Chrome or Edge on desktop to see it live."
 
 [[stats]]
   value = "live-stars"

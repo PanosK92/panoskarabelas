@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8fceff">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/main.b3584f2d1177ba4f14a1317ae900ad730ba041d22ed21388818f1b65e4a3d9eb.css" integrity="sha256-s1hPLRF3uk8UoTF66QCtcwugQdIu0hOIgY8bZeSj2es=">
+<link rel="stylesheet" href="/css/main.3342336f00550cf30ca639c5bd9a57c0fe16132850f0eead285218cfbcc194ff.css" integrity="sha256-M0IzbwBVDPMMpjnFvZpXwP4WEyhQ8O6tKFIYz7zBlP8=">
 
     
 </head>
@@ -179,7 +179,6 @@
         <section class="engine-hero">
     <div class="container engine-hero__inner">
         <div>
-        <p class="mono section-head__eyebrow">One engineer. Twelve years.</p>
         <h1 class="engine-hero__title">Spartan Engine</h1>
         <p class="engine-hero__lead">A bindless, GPU-driven renderer with real-time path-traced global illumination, hardware ray tracing, and a vehicle simulation running at 200 Hz. It started as a university project. It is now the thing I am known for.</p>
         <div class="btn-row" style="margin-top:var(--s-6)">
@@ -206,10 +205,62 @@
     decoding="async"
     fetchpriority="high"
     >
-            <span class="mono">Spartan Engine / In motion <span aria-hidden="true">↗</span></span>
         </a>
     </div>
 </section>
+<section class="section engine-live-section" id="engine-live">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2 class="section-head__title">Live in your browser</h2>
+                <p class="section-head__lead">The engine, compiled to WebAssembly and rendering on your GPU through WebGPU. A photoscanned head with subsurface scattering, ambient occlusion and TAAU, turning slowly under a fixed light.</p>
+            </div>
+        </div>
+        <div class="engine-live" data-engine-live="/engine/live/">
+            <img
+    src="/media/engine/showcase_human_close_hu_916a493a93f068bd.webp"
+    srcset="/media/engine/showcase_human_close_hu_9a766f8ff5f47a99.webp 640w, /media/engine/showcase_human_close_hu_c822401a3d3e6ab8.webp 1280w, /media/engine/showcase_human_close_hu_916a493a93f068bd.webp 1920w"
+    sizes="(max-width: 1200px) 100vw, 1200px"
+    width="1920"
+    height="966"
+    alt="Close-up of a photoscanned head rendered in Spartan Engine, with subsurface scattering in the skin and ear"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    >
+            <p class="engine-live__note mono" data-engine-live-note hidden>Your browser doesn&#39;t expose WebGPU with JSPI, so this is a screenshot. Open the page in a recent Chrome or Edge on desktop to see it live.</p>
+        </div>
+        <p class="engine-live__caption mono">
+            <span>human_example — WebGPU, about 60 MB on first load</span>
+            <a href="/engine/live/" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
+        </p>
+    </div>
+</section>
+<script>
+(function ()
+{
+    var host = document.querySelector("[data-engine-live]");
+    if (!host)
+        return;
+
+    
+    var supported = !!navigator.gpu && typeof WebAssembly === "object" && typeof WebAssembly.Suspending === "function";
+    if (!supported)
+    {
+        host.querySelector("[data-engine-live-note]").hidden = false;
+        return;
+    }
+
+    var frame = document.createElement("iframe");
+    frame.src = host.getAttribute("data-engine-live");
+    frame.title = "Spartan Engine running live in the browser";
+    frame.tabIndex = -1;
+    frame.setAttribute("allow", "fullscreen; autoplay");
+    
+    frame.addEventListener("load", function () { host.classList.add("is-live"); });
+    host.appendChild(frame);
+})();
+</script>
 <div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
     <div class="stats reveal">
         <div class="stat">
@@ -235,8 +286,7 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">The trailer</p>
-                <h2 class="section-head__title">See it move</h2>
+                <h2 class="section-head__title">Trailer</h2>
             </div>
         </div>
         <figure class="video">
@@ -252,7 +302,6 @@
 </section>
 <section class="section">
     <div class="container">
-        <p class="mono section-head__eyebrow">The principle</p>
         <h2 class="engine-principle reveal">The GPU owns the data</h2>
         <p class="engine-principle__body reveal">Every resource — geometry, materials, textures, lights, transforms, bounding volumes — lives in persistent, globally accessible buffers. No per-draw descriptor updates. No per-draw resource binding. No CPU-side draw loops. One philosophy applied without compromise: favour real-time over baked, dynamic over static, modern over safe.</p>
     </div>
@@ -261,7 +310,6 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Under the hood</p>
                 <h2 class="section-head__title">What is actually in there</h2>
             </div>
         </div>
@@ -318,7 +366,6 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Worlds</p>
                 <h2 class="section-head__title">Nine of them ship with the engine</h2>
                 <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
             </div>
@@ -439,7 +486,6 @@ the repository if you are curious.</p>
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Out in the wild</p>
                 <h2 class="section-head__title">Where this code ended up</h2>
                 <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
             </div>
@@ -482,7 +528,6 @@ the repository if you are curious.</p>
         <div class="promo reveal">
             <div class="promo__grid">
                 <div>
-                    <p class="mono section-head__eyebrow">Get involved</p>
                     <h2>Build it, break it, or just come and argue about it</h2>
                     <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
                     <div class="promo__actions btn-row">

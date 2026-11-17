@@ -756,6 +756,70 @@
     color: var(--c-text-dim);
 }
 
+/* the engine itself, running in an iframe over its own poster */
+.engine-live-section {
+    padding-top: 0;
+}
+
+.engine-live {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius, 12px);
+    background: #101014;
+}
+
+.engine-live img,
+.engine-live iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.engine-live img {
+    object-fit: cover;
+    transition: opacity .6s ease;
+}
+
+/* a showcase, not a game: the visitor watches, the page keeps scrolling */
+.engine-live iframe {
+    pointer-events: none;
+}
+
+.engine-live.is-live img {
+    opacity: 0;
+}
+
+.engine-live__note {
+    position: absolute;
+    left: var(--s-4);
+    right: var(--s-4);
+    bottom: var(--s-4);
+    margin: 0;
+    padding: var(--s-3) var(--s-4);
+    font-size: .8125rem;
+    color: #ddd;
+    background: rgba(16, 16, 20, .78);
+    border-radius: 8px;
+}
+
+.engine-live__caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--s-3);
+    margin-top: var(--s-3);
+    font-size: .8125rem;
+    color: var(--c-text-mute);
+}
+
+.engine-live__caption a {
+    color: inherit;
+}
+
 .engine-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(Min(300px, 100%), 1fr));

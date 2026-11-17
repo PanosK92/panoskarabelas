@@ -44,20 +44,14 @@ title = "Panos Karabelas"
   label = "The island"
   image = "/media/engine/showcase_island_town.jpg"
   alt = "Sunset over a town, forests and a turquoise bay on the Zakynthos island world in Spartan Engine"
-  caption = "An island to drive. A sun that moves."
-
 [[scenes]]
   label = "Sponza"
   image = "/media/engine/showcase_sponza.jpg"
   alt = "The Sponza atrium lit by path-traced global illumination in Spartan Engine"
-  caption = "Architecture, light, and the spaces between."
-
 [[scenes]]
   label = "The showroom"
   image = "/media/engine/showcase_ferrari.jpg"
   alt = "A red LaFerrari under colored lights in Spartan Engine"
-  caption = "Materials that respond to the world."
-
 [[titles]]
   name = "Returnal"
   video = "ov4fJmGCsZM"

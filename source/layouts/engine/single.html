@@ -8,7 +8,6 @@
 <section class="engine-hero">
     <div class="container engine-hero__inner">
         <div>
-        <p class="mono section-head__eyebrow">{{ $p.hero.eyebrow }}</p>
         <h1 class="engine-hero__title">{{ .Title }}</h1>
         <p class="engine-hero__lead">{{ $p.hero.lead }}</p>
         <div class="btn-row" style="margin-top:var(--s-6)">
@@ -25,10 +24,55 @@
         </div>
         <a class="engine-hero__visual" href="#engine-trailer" aria-label="Watch the Spartan Engine trailer">
             {{ partial "image.html" (dict "src" "/media/engine/showcase_ferrari.jpg" "alt" "Path-traced lighting on a LaFerrari in Spartan Engine" "sizes" "(max-width: 800px) 100vw, 50vw" "widths" (slice 640 1280) "eager" true) }}
-            <span class="mono">Spartan Engine / In motion <span aria-hidden="true">↗</span></span>
         </a>
     </div>
 </section>
+
+{{- with $p.live }}
+<section class="section engine-live-section" id="engine-live">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2 class="section-head__title">{{ .title }}</h2>
+                <p class="section-head__lead">{{ .lead }}</p>
+            </div>
+        </div>
+        <div class="engine-live" data-engine-live="{{ .src }}">
+            {{ partial "image.html" (dict "src" .poster "alt" .alt "sizes" "(max-width: 1200px) 100vw, 1200px" "widths" (slice 640 1280 1920) "eager" true) }}
+            <p class="engine-live__note mono" data-engine-live-note hidden>{{ .fallback }}</p>
+        </div>
+        <p class="engine-live__caption mono">
+            <span>{{ .caption }}</span>
+            <a href="{{ .src }}" target="_blank" rel="noopener">Open full window <span aria-hidden="true">↗</span></a>
+        </p>
+    </div>
+</section>
+<script>
+(function ()
+{
+    var host = document.querySelector("[data-engine-live]");
+    if (!host)
+        return;
+
+    // the engine needs webgpu and wasm stack switching (jspi), without them the poster stays
+    var supported = !!navigator.gpu && typeof WebAssembly === "object" && typeof WebAssembly.Suspending === "function";
+    if (!supported)
+    {
+        host.querySelector("[data-engine-live-note]").hidden = false;
+        return;
+    }
+
+    var frame = document.createElement("iframe");
+    frame.src = host.getAttribute("data-engine-live");
+    frame.title = "Spartan Engine running live in the browser";
+    frame.tabIndex = -1;
+    frame.setAttribute("allow", "fullscreen; autoplay");
+    // the engine page draws its own loading bar, the poster only covers the moment before it appears
+    frame.addEventListener("load", function () { host.classList.add("is-live"); });
+    host.appendChild(frame);
+})();
+</script>
+{{- end }}
 
 {{- with $p.stats }}
 <div class="container" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
@@ -47,8 +91,7 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">The trailer</p>
-                <h2 class="section-head__title">See it move</h2>
+                <h2 class="section-head__title">Trailer</h2>
             </div>
         </div>
         {{ partial "video.html" (dict
@@ -60,7 +103,6 @@
 {{- with $p.principle }}
 <section class="section">
     <div class="container">
-        <p class="mono section-head__eyebrow">The principle</p>
         <h2 class="engine-principle reveal">{{ .title }}</h2>
         <p class="engine-principle__body reveal">{{ .body }}</p>
     </div>
@@ -72,7 +114,6 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Under the hood</p>
                 <h2 class="section-head__title">What is actually in there</h2>
             </div>
         </div>
@@ -97,7 +138,6 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Worlds</p>
                 <h2 class="section-head__title">Nine of them ship with the engine</h2>
                 <p class="section-head__lead">Nothing here is a canned demo. Every world is physics-enabled — walk around, pick objects up with the mouse, or take a car for a spin.</p>
             </div>
@@ -134,7 +174,6 @@
     <div class="container">
         <div class="section-head">
             <div>
-                <p class="mono section-head__eyebrow">Out in the wild</p>
                 <h2 class="section-head__title">Where this code ended up</h2>
                 <p class="section-head__lead">I did not plan any of these. People found the source and used it.</p>
             </div>
@@ -159,7 +198,6 @@
         <div class="promo reveal">
             <div class="promo__grid">
                 <div>
-                    <p class="mono section-head__eyebrow">Get involved</p>
                     <h2>Build it, break it, or just come and argue about it</h2>
                     <p>One-click project generation, a wiki that covers the build and the Lua API, and 600+ engineers on Discord who will happily tell you what you got wrong. Contributors get access to perks designed to accelerate learning.</p>
                     <div class="promo__actions btn-row">

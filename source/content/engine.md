@@ -111,7 +111,7 @@ image = "/media/engine/showcase_ferrari.jpg"
 
 [[gallery]]
   src = "/media/engine/world_selection_4.png"
-  alt = "The Spartan Engine world launcher showing nine selectable worlds"
+  alt = "The Spartan Engine world launcher showing its selectable worlds"
   caption = "the world launcher"
 +++
 
